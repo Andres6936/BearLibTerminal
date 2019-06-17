@@ -42,8 +42,8 @@ void TestExtendedBasics()
 		for (int i=0; i<n_symbols; i++)
 		{
 			float angle_delta = 2.0f*g_pi/n_symbols;
-			float dx = std::cos(angle+i*angle_delta)*radius*terminal_state(TK_CELL_WIDTH);
-			float dy = std::sin(angle+i*angle_delta)*radius*terminal_state(TK_CELL_WIDTH)-4;
+			float dx = std::cos(angle+i*angle_delta)*radius* TerminalState( TK_CELL_WIDTH );
+			float dy = std::sin(angle+i*angle_delta)*radius* TerminalState( TK_CELL_WIDTH )-4;
 			terminal_color(i? "white": "orange");
             TerminalPutExt( cx, cy, dx, dy, 'a' + i, nullptr );
 		}

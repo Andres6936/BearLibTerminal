@@ -47,32 +47,32 @@ void TestManualCellsize()
 		{
 			break;
 		}
-		else if (key == TK_LEFT && !terminal_state(TK_SHIFT) && cell_width > 4)
+		else if (key == TK_LEFT && !TerminalState( TK_SHIFT ) && cell_width > 4)
 		{
 			cell_width -= 1;
 			setup_cellsize();
 		}
-		else if (key == TK_RIGHT && !terminal_state(TK_SHIFT) && cell_width < 24)
+		else if (key == TK_RIGHT && !TerminalState( TK_SHIFT ) && cell_width < 24)
 		{
 			cell_width += 1;
 			setup_cellsize();
 		}
-		else if (key == TK_DOWN && !terminal_state(TK_SHIFT) && cell_height < 24)
+		else if (key == TK_DOWN && !TerminalState( TK_SHIFT ) && cell_height < 24)
 		{
 			cell_height += 1;
 			setup_cellsize();
 		}
-		else if (key == TK_UP && !terminal_state(TK_SHIFT) && cell_height > 4)
+		else if (key == TK_UP && !TerminalState( TK_SHIFT ) && cell_height > 4)
 		{
 			cell_height -= 1;
 			setup_cellsize();
 		}
-		else if (key == TK_UP && terminal_state(TK_SHIFT) && font_size < 64)
+		else if (key == TK_UP && TerminalState( TK_SHIFT ) && font_size < 64)
 		{
 			font_size += 1;
 			setup_font();
 		}
-		else if (key == TK_DOWN && terminal_state(TK_SHIFT) && font_size > 4)
+		else if (key == TK_DOWN && TerminalState( TK_SHIFT ) && font_size > 4)
 		{
 			font_size -= 1;
 			setup_font();

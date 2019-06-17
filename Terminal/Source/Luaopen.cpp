@@ -557,13 +557,13 @@ int luaterminal_has_input(lua_State* L)
 
 int luaterminal_state(lua_State* L)
 {
-	lua_pushnumber(L, terminal_state(lua_tonumber(L, 1)));
+	lua_pushnumber(L, TerminalState( lua_tonumber( L, 1 )));
 	return 1;
 }
 
 int luaterminal_check(lua_State* L)
 {
-	lua_pushboolean(L, terminal_state(lua_tonumber(L, 1)) > 0);
+	lua_pushboolean(L, TerminalState( lua_tonumber( L, 1 )) > 0);
 	return 1;
 }
 
@@ -583,7 +583,7 @@ int luaterminal_read_str(lua_State* L)
 	int x = lua_tointeger(L, 1);
 	int y = lua_tointeger(L, 2);
 	std::string s = lua_tostring(L, 3);
-	int max = nargs > 3? lua_tointeger(L, 4): terminal_state(TK_WIDTH)-x;
+	int max = nargs > 3? lua_tointeger(L, 4): TerminalState( TK_WIDTH )-x;
 	std::vector<char> buffer(max*3+1, 0);
 	memcpy(buffer.data(), s.data(), std::min(buffer.size()-1, s.size()));
 

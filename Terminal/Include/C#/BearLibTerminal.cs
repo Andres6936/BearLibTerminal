@@ -487,7 +487,7 @@ namespace BearLib
         [DllImport("BearLibTerminal.dll", EntryPoint = "TerminalHasInput", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool HasInput();
 
-        [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_state", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", EntryPoint = "TerminalState", CallingConvention = CallingConvention.Cdecl)]
         public static extern int State(int code);
 
         public static bool Check(int code)

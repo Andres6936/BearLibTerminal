@@ -279,7 +279,7 @@ module Terminal
         TK_KEY_RELEASED     = 0x100
 
         # Virtual key-codes for internal terminal states/variables.
-        # These can be accessed via terminal_state function.
+        # These can be accessed via TerminalState function.
         TK_WIDTH            = 0xC0 # Terminal width in cells
         TK_HEIGHT           = 0xC1 # Terminal height in cells
         TK_CELL_WIDTH       = 0xC2 # Cell width in pixels

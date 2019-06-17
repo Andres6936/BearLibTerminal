@@ -32,8 +32,8 @@ void TestExtendedSmoothScroll()
 	// Load resources
 	terminal_set("U+E000: ../Media/Tiles.png, size=32x32, alignment=top-left");
 
-	int screen_width = terminal_state(TK_WIDTH)*terminal_state(TK_CELL_WIDTH);
-	int screen_height = terminal_state(TK_HEIGHT)*terminal_state(TK_CELL_HEIGHT);
+	int screen_width = TerminalState( TK_WIDTH )* TerminalState( TK_CELL_WIDTH );
+	int screen_height = TerminalState( TK_HEIGHT )* TerminalState( TK_CELL_HEIGHT );
 	int hspeed = 0, vspeed = 0;
 	int hoffset = 0, voffset = 0;
 
@@ -84,11 +84,11 @@ void TestExtendedSmoothScroll()
 			}
 		}
 
-		if (terminal_state(TK_LEFT))
+		if ( TerminalState( TK_LEFT ))
 		{
 			if (hspeed > -speed_cap) hspeed -= 1;
 		}
-		else if (terminal_state(TK_RIGHT))
+		else if ( TerminalState( TK_RIGHT ))
 		{
 			if (hspeed < speed_cap) hspeed += 1;
 		}
@@ -97,11 +97,11 @@ void TestExtendedSmoothScroll()
 			hspeed -= sgn(hspeed);
 		}
 
-		if (terminal_state(TK_UP))
+		if ( TerminalState( TK_UP ))
 		{
 			if (vspeed > -speed_cap) vspeed -= 1;
 		}
-		else if (terminal_state(TK_DOWN))
+		else if ( TerminalState( TK_DOWN ))
 		{
 			if (vspeed < speed_cap) vspeed += 1;
 		}

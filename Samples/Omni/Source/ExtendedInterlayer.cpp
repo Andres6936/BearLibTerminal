@@ -41,9 +41,9 @@ void AnimateDamage(int x, int y, int damage)
 	for (int i=0; i<n_steps; i++)
 	{
 		if ( TerminalHasInput( )) break;
-        TerminalClearArea( 0, 0, terminal_state( TK_WIDTH ), terminal_state( TK_HEIGHT ));
-		float dx = std::sin(i*angle_delta) * radius * terminal_state(TK_CELL_WIDTH) + i*2;
-		float dy = -2.0f * radius * terminal_state(TK_CELL_WIDTH) / n_steps * i - terminal_state(TK_CELL_HEIGHT)/2;
+        TerminalClearArea( 0, 0, TerminalState( TK_WIDTH ), TerminalState( TK_HEIGHT ));
+		float dx = std::sin(i*angle_delta) * radius * TerminalState( TK_CELL_WIDTH ) + i*2;
+		float dy = -2.0f * radius * TerminalState( TK_CELL_WIDTH ) / n_steps * i - TerminalState( TK_CELL_HEIGHT )/2;
         TerminalColor( color_from_argb( 255 / n_steps * ( n_steps - i ), 255, 64, 0 ));
 		terminal_printf(x, y, "[offset=%dx%d]%s", (int)dx, (int)dy, s.c_str());
         TerminalRefresh( );
@@ -122,8 +122,8 @@ void TestExtendedInterlayer()
 	terminal_set("window.title='Omni: extended output / interlayer animation'");
     TerminalComposition( TK_ON );
 
-	int map_left = terminal_state(TK_WIDTH)/2 - map_width/2;
-	int map_top = terminal_state(TK_HEIGHT)/2 - map_height/2;
+	int map_left = TerminalState( TK_WIDTH )/2 - map_width/2;
+	int map_top = TerminalState( TK_HEIGHT )/2 - map_height/2;
 
 	std::srand(std::time(nullptr));
 	auto map = PrepareMap();

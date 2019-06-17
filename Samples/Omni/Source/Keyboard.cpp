@@ -224,7 +224,7 @@ void TestKeyboard()
 
 		for (size_t i = 0; i < N_keys; i++)
 		{
-			if (terminal_state(keys[i].vk))
+			if ( TerminalState( keys[ i ].vk ))
 			{
 				FillRectangle(6+keys[i].x, 1+keys[i].y, keys[i].w, keys[i].h, pressed_key);
                 TerminalColor( pressed_key_text );
@@ -238,7 +238,7 @@ void TestKeyboard()
 		}
 
 		// Special case: Enter keys
-		if (terminal_state(TK_RETURN))
+		if ( TerminalState( TK_RETURN ))
 		{
 			// Main keyboard
 			const wchar_t* region =
@@ -257,13 +257,13 @@ void TestKeyboard()
 		}
 
 		// Main keyboard
-        TerminalColor( terminal_state( TK_RETURN ) ? pressed_key_text : available_key_text );
+        TerminalColor( TerminalState( TK_RETURN ) ? pressed_key_text : available_key_text );
         TerminalPut( 6 + 32, 1 + 6 + 0, 'E' );
         TerminalPut( 6 + 32, 1 + 6 + 1, 'N' );
         TerminalPut( 6 + 32, 1 + 6 + 2, 'T' );
 
 		// Numpad
-        TerminalColor( terminal_state( TK_KP_ENTER ) ? pressed_key_text : available_key_text );
+        TerminalColor( TerminalState( TK_KP_ENTER ) ? pressed_key_text : available_key_text );
         TerminalPut( 6 + 65, 1 + 10 + 0, 'E' );
         TerminalPut( 6 + 65, 1 + 10 + 1, 'N' );
         TerminalPut( 6 + 65, 1 + 10 + 2, 'T' );
@@ -290,7 +290,7 @@ void TestKeyboard()
 
 		int key = terminal_read();
 
-		if (key == TK_CLOSE || (key == TK_ESCAPE && terminal_state(TK_SHIFT)))
+		if (key == TK_CLOSE || (key == TK_ESCAPE && TerminalState( TK_SHIFT )))
 		{
 			break;
 		}

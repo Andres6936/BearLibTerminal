@@ -42,8 +42,8 @@ void UpdateGeometry()
 {
 	frame_left = padding_h;
 	frame_top = padding_v * 2 + 2;
-	frame_width = terminal_state(TK_WIDTH) - frame_left - padding_h;
-	frame_height = terminal_state(TK_HEIGHT) - frame_top - padding_v;
+	frame_width = TerminalState( TK_WIDTH ) - frame_left - padding_h;
+	frame_height = TerminalState( TK_HEIGHT ) - frame_top - padding_v;
 }
 
 } // namespace anonymous

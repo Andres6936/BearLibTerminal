@@ -279,7 +279,7 @@ int TerminalHasInput()
 	return g_instance->HasInput();
 }
 
-int terminal_state(int code)
+int TerminalState( int code)
 {
 	if (!g_instance) return 0;
 	return g_instance->GetState(code);

@@ -66,7 +66,7 @@ void TestDynamicSprites()
 	int view_height = 10;
 	int view_width = 14;
 	int minimap_scale = 4;
-	int panel_width = (terminal_state(TK_WIDTH) - view_width*4 - 1)*terminal_state(TK_CELL_WIDTH);
+	int panel_width = ( TerminalState( TK_WIDTH ) - view_width*4 - 1)* TerminalState( TK_CELL_WIDTH );
 	int margin = (panel_width - map_width*minimap_scale)/2;
 
 	auto DrawMap = [&]

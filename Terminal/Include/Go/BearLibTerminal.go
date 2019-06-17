@@ -330,7 +330,7 @@ func Measure(s string) (width, height int) {
 //
 
 func State(code int) int {
-	return int(C.terminal_state(C.int(code)))
+	return int(C.TerminalState(C.int(code)))
 }
 
 func Check(code int) int {

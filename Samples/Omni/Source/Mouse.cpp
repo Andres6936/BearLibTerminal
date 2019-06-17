@@ -52,11 +52,11 @@ void TestMouse()
 			"[color=%s]right "
 			"[color=%s]x1 "
 			"[color=%s]x2 ",
-			terminal_state(TK_MOUSE_LEFT)? "orange": "dark gray",
-			terminal_state(TK_MOUSE_MIDDLE)? "orange": "dark gray",
-			terminal_state(TK_MOUSE_RIGHT)? "orange": "dark gray",
-			terminal_state(TK_MOUSE_X1)? "orange": "dark gray",
-			terminal_state(TK_MOUSE_X2)? "orange": "dark gray"
+            TerminalState( TK_MOUSE_LEFT )? "orange": "dark gray",
+            TerminalState( TK_MOUSE_MIDDLE )? "orange": "dark gray",
+            TerminalState( TK_MOUSE_RIGHT )? "orange": "dark gray",
+            TerminalState( TK_MOUSE_X1 )? "orange": "dark gray",
+            TerminalState( TK_MOUSE_X2 )? "orange": "dark gray"
 		);
 
 		terminal_printf
@@ -64,10 +64,10 @@ void TestMouse()
 			1, 4,
 			"Cursor: [color=orange]%d:%d[/color] [color=dark gray]cells[/color]"
 			", [color=orange]%d:%d[/color] [color=dark gray]pixels[/color]",
-			terminal_state(TK_MOUSE_X),
-			terminal_state(TK_MOUSE_Y),
-			terminal_state(TK_MOUSE_PIXEL_X),
-			terminal_state(TK_MOUSE_PIXEL_Y)
+            TerminalState( TK_MOUSE_X ),
+            TerminalState( TK_MOUSE_Y ),
+            TerminalState( TK_MOUSE_PIXEL_X ),
+            TerminalState( TK_MOUSE_PIXEL_Y )
 		);
 
 		terminal_printf
@@ -75,7 +75,7 @@ void TestMouse()
 			1, 5,
 			"Wheel: [color=orange]%d[/color] [color=dark gray]delta[/color]"
 			", [color=orange]%d[/color] [color=dark gray]cumulative",
-			terminal_state(TK_MOUSE_WHEEL), scroll
+            TerminalState( TK_MOUSE_WHEEL ), scroll
 		);
 
 		terminal_printf
@@ -102,8 +102,8 @@ void TestMouse()
 			}
 		}
 
-		int mx = terminal_state(TK_MOUSE_X);
-		int my = terminal_state(TK_MOUSE_Y);
+		int mx = TerminalState( TK_MOUSE_X );
+		int my = TerminalState( TK_MOUSE_Y );
         TerminalColor( 0x60FFFFFF );
 		for (int x = 0; x < 80; x++) TerminalPut( x, my, 0x2588 );
 		for (int y = 0; y < 25; y++) if (y != my) TerminalPut( mx, y, 0x2588 );
@@ -127,8 +127,8 @@ void TestMouse()
 			}
 			else if (code == TK_MOUSE_LEFT)
 			{
-				int x = terminal_state(TK_MOUSE_X);
-				int y = terminal_state(TK_MOUSE_Y);
+				int x = TerminalState( TK_MOUSE_X );
+				int y = TerminalState( TK_MOUSE_Y );
 
 				if (x == 1 && (y == 7 || y == 8))
 				{
@@ -146,7 +146,7 @@ void TestMouse()
 				else if (x >= double_click_area.x && x <= (double_click_area.x+double_click_area.width) &&
 						 y >= double_click_area.y && y <= (double_click_area.y+double_click_area.height))
 				{
-					int clicks = terminal_state(TK_MOUSE_CLICKS);
+					int clicks = TerminalState( TK_MOUSE_CLICKS );
 					if (clicks > 0 && clicks%2 == 0)
 					{
 						plate = !plate;
@@ -160,12 +160,12 @@ void TestMouse()
 			}
 			else if (code == TK_MOUSE_RIGHT)
 			{
-				mrx = terminal_state(TK_MOUSE_X);
-				mry = terminal_state(TK_MOUSE_Y);
+				mrx = TerminalState( TK_MOUSE_X );
+				mry = TerminalState( TK_MOUSE_Y );
 			}
 			else if (code == TK_MOUSE_SCROLL)
 			{
-				scroll += terminal_state(TK_MOUSE_WHEEL);
+				scroll += TerminalState( TK_MOUSE_WHEEL );
 			}
 			else if (code == TK_SPACE)
 			{

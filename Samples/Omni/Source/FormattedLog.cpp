@@ -140,8 +140,8 @@ void UpdateGeometry()
 	float current_offset_percentage = frame_offset / (float)total_messages_height;
 
 	// Update frame dimensions
-	frame_width = terminal_state(TK_WIDTH) - (padding_left + padding_right + 1);
-	frame_height = terminal_state(TK_HEIGHT) - (padding_top + padding_bottom);
+	frame_width = TerminalState( TK_WIDTH ) - (padding_left + padding_right + 1);
+	frame_height = TerminalState( TK_HEIGHT ) - (padding_top + padding_bottom);
 
 	// Calculate new message list height
 	total_messages_height = UpdateHeights();
@@ -157,8 +157,8 @@ void UpdateGeometry()
 
 void ScrollToPixel(int py)
 {
-	py -= padding_top * terminal_state(TK_CELL_HEIGHT);
-	float factor = py / ((float)frame_height * terminal_state(TK_CELL_HEIGHT));
+	py -= padding_top * TerminalState( TK_CELL_HEIGHT );
+	float factor = py / ((float)frame_height * TerminalState( TK_CELL_HEIGHT ));
 	frame_offset = total_messages_height * factor;
 	frame_offset = std::max(0, std::min(total_messages_height-frame_height, frame_offset));
 }
@@ -237,7 +237,7 @@ void TestFormattedLog()
 		int scrollbar_column = padding_left+frame_width;
 		int scrollbar_offset =
 			(padding_top + (frame_height-scrollbar_height) * (frame_offset / (float)(total_messages_height - frame_height))) *
-			terminal_state(TK_CELL_HEIGHT);
+                    TerminalState( TK_CELL_HEIGHT );
 		for (int i = 0; i < scrollbar_height; i++)
 		{
             TerminalPutExt( scrollbar_column, i, 0, scrollbar_offset, 0x2588, 0 );
@@ -263,13 +263,13 @@ void TestFormattedLog()
 		else if (key == TK_MOUSE_SCROLL)
 		{
 			// Mouse wheel scroll
-			frame_offset += mouse_scroll_step * terminal_state(TK_MOUSE_WHEEL);
+			frame_offset += mouse_scroll_step * TerminalState( TK_MOUSE_WHEEL );
 			frame_offset = std::max(0, std::min(total_messages_height-frame_height, frame_offset));
 		}
-		else if (key == TK_MOUSE_LEFT && terminal_state(TK_MOUSE_X) == scrollbar_column)
+		else if (key == TK_MOUSE_LEFT && TerminalState( TK_MOUSE_X ) == scrollbar_column)
 		{
-			int py = terminal_state(TK_MOUSE_PIXEL_Y);
-			if (py >= scrollbar_offset && py <= scrollbar_offset + (scrollbar_height * terminal_state(TK_CELL_HEIGHT)))
+			int py = TerminalState( TK_MOUSE_PIXEL_Y );
+			if (py >= scrollbar_offset && py <= scrollbar_offset + (scrollbar_height * TerminalState( TK_CELL_HEIGHT )))
 			{
 				// Clicked on the scrollbar handle: start dragging
 				dragging_scrollbar = true;
@@ -278,7 +278,8 @@ void TestFormattedLog()
 			else
 			{
 				// Clicked outside of the handle: jump to position
-				ScrollToPixel(terminal_state(TK_MOUSE_PIXEL_Y) - scrollbar_height * terminal_state(TK_CELL_HEIGHT) / 2);
+				ScrollToPixel(
+                        TerminalState( TK_MOUSE_PIXEL_Y ) - scrollbar_height * TerminalState( TK_CELL_HEIGHT ) / 2);
 			}
 		}
 		else if (key == (TK_MOUSE_LEFT|TK_KEY_RELEASED))
@@ -288,7 +289,7 @@ void TestFormattedLog()
 		else if (key == TK_MOUSE_MOVE)
 		{
 			if (dragging_scrollbar)
-				ScrollToPixel(terminal_state(TK_MOUSE_PIXEL_Y) - dragging_scrollbar_offset);
+				ScrollToPixel( TerminalState( TK_MOUSE_PIXEL_Y ) - dragging_scrollbar_offset);
 
 			while (terminal_peek() == TK_MOUSE_MOVE)
 				terminal_read();

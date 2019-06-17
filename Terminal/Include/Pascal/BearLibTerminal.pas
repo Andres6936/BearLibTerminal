@@ -536,7 +536,7 @@ end;
 
 function terminal_check(Code: Int32): Boolean;
 begin
-    terminal_check := terminal_state(Code) > 0;
+    terminal_check := TerminalState(Code) > 0;
 end;
 
 function terminal_read_str_ansi(X, Y: Int32; S: PAnsiChar; MaxLength: Int32): Int32;

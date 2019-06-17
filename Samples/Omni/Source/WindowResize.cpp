@@ -16,8 +16,8 @@ void TestWindowResize()
 	while (true)
 	{
         TerminalClear( );
-		int w = terminal_state(TK_WIDTH);
-		int h = terminal_state(TK_HEIGHT);
+		int w = TerminalState( TK_WIDTH );
+		int h = TerminalState( TK_HEIGHT );
 		for (int x=0; x<w; x++)
 		{
             TerminalPut( x, 0, x % 2 ? symbol : ( int ) '#' );

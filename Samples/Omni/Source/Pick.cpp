@@ -42,8 +42,8 @@ void TestPick()
 
 	while (true)
 	{
-		int x = terminal_state(TK_MOUSE_X);
-		int y = terminal_state(TK_MOUSE_Y);
+		int x = TerminalState( TK_MOUSE_X );
+		int y = TerminalState( TK_MOUSE_Y );
 
         TerminalClearArea( 2, 23, 76, 1 );
 		if (x >= 2 && x < 78 && y >= 3 && y < 22)
