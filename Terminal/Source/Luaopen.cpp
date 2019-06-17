@@ -348,7 +348,7 @@ int luaterminal_bkcolor(lua_State* L)
 
 int luaterminal_composition(lua_State* L)
 {
-	terminal_composition(lua_tointeger(L, 1));
+    TerminalComposition( lua_tointeger( L, 1 ));
 	return 0;
 }
 

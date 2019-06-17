@@ -18,7 +18,7 @@ void TestMouse()
 {
 	terminal_set("window.title='Omni: mouse input'");
 	terminal_set("input.filter={keyboard, mouse+}");
-	terminal_composition(TK_ON);
+    TerminalComposition( TK_ON );
 
 	bool precise_mouse = false;
 	bool cursor_visible = true;
@@ -177,6 +177,6 @@ void TestMouse()
 	}
 
 	terminal_color("white");
-	terminal_composition(TK_OFF);
+    TerminalComposition( TK_OFF );
 	terminal_set("input: precise-mouse=false, mouse-cursor=true, filter={keyboard}");
 }

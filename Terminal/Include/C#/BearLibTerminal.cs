@@ -299,7 +299,7 @@ namespace BearLib
         	BkColorImpl(ColorFromNameImpl(name));
         }
 
-        [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_composition", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", EntryPoint = "TerminalComposition", CallingConvention = CallingConvention.Cdecl)]
         private static extern void CompositionImpl(int mode);
 
         public static void Composition(bool enabled)

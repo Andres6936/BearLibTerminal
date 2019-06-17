@@ -243,7 +243,7 @@ func BkColor(color uint32) {
 }
 
 func Composition(mode int) {
-	C.terminal_composition(C.int(mode))
+	C.TerminalComposition(C.int(mode))
 }
 
 func Layer(index int) {

@@ -51,7 +51,7 @@ void UpdateGeometry()
 void TestTextAlignment()
 {
 	terminal_set("window.title='Omni: text alignment', resizeable=true, minimum-size=44x12");
-	terminal_composition(TK_ON);
+    TerminalComposition( TK_ON );
 
 	std::map<int, std::string> names =
 	{
@@ -126,6 +126,6 @@ void TestTextAlignment()
 		}
 	}
 
-	terminal_composition(TK_OFF);
+    TerminalComposition( TK_OFF );
 	terminal_set("window.resizeable=false");
 }

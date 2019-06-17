@@ -48,7 +48,7 @@ void TestKeyboard()
 {
 	terminal_set("window.title='Omni: basic keyboard input'");
 	terminal_set("input.filter={keyboard+}");
-	terminal_composition(TK_ON);
+    TerminalComposition( TK_ON );
 
 	//
 	//	"┌───┐┌──┬──┬──┬──┐┌──┬──┬──┬──┐┌──┬───┬───┬───┐┌─────┬─────┬───────┐",
@@ -296,6 +296,6 @@ void TestKeyboard()
 		}
 	}
 
-	terminal_composition(TK_OFF);
+    TerminalComposition( TK_OFF );
 	terminal_setf("input.filter={keyboard}");
 }

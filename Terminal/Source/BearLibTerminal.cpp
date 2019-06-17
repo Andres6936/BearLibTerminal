@@ -179,7 +179,7 @@ void TerminalBackColor( color_t color)
 	g_instance->SetBackColor(BearLibTerminal::Color(color));
 }
 
-void terminal_composition(int mode)
+void TerminalComposition( int mode)
 {
 	if (!g_instance) return;
 	g_instance->SetComposition(mode);

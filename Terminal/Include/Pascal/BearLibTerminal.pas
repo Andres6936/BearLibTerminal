@@ -244,7 +244,7 @@ procedure terminal_bkcolor(Color: WideString); overload;
 
 // Composition
 procedure terminal_composition(Mode: Int32);
-  cdecl; external 'BearLibTerminal' name 'terminal_composition';
+  cdecl; external 'BearLibTerminal' name 'TerminalComposition';
 
 // Layer
 procedure terminal_layer(Mode: Int32);

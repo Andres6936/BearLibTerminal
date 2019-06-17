@@ -259,7 +259,7 @@ TERMINAL_API void TerminalCrop( int x, int y, int w, int h);
 TERMINAL_API void TerminalLayer( int index);
 TERMINAL_API void TerminalColor( color_t color);
 TERMINAL_API void TerminalBackColor( color_t color);
-TERMINAL_API void terminal_composition(int mode);
+TERMINAL_API void TerminalComposition( int mode);
 TERMINAL_API void terminal_font8(const int8_t* name);
 TERMINAL_API void terminal_font16(const int16_t* name);
 TERMINAL_API void terminal_font32(const int32_t* name);

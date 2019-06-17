@@ -27,7 +27,7 @@ void TestExtendedSmoothScroll()
 
 	terminal_set("window.title='Omni: extended output / smooth scroll'");
 	terminal_set("input.filter={keyboard+}"); // Enable key-release events.
-	terminal_composition(TK_ON);
+    TerminalComposition( TK_ON );
 
 	// Load resources
 	terminal_set("U+E000: ../Media/Tiles.png, size=32x32, alignment=top-left");
@@ -114,5 +114,5 @@ void TestExtendedSmoothScroll()
 	}
 
 	terminal_set("U+E000: none");
-	terminal_composition(TK_OFF);
+    TerminalComposition( TK_OFF );
 }

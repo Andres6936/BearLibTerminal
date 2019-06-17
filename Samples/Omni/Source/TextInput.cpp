@@ -88,7 +88,7 @@ void DrawFrame(int x, int y, int w, int h)
 void TestTextInput()
 {
 	terminal_set("window.title='Omni: text input'");
-	terminal_composition(TK_OFF);
+    TerminalComposition( TK_OFF );
 
 	const int max_chars = 32;
 	wchar_t buffer[max_chars+1] = {0};
