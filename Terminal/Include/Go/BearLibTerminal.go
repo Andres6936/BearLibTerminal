@@ -247,7 +247,7 @@ func Composition(mode int) {
 }
 
 func Layer(index int) {
-	C.terminal_layer(C.int(index))
+	C.TerminalLayer(C.int(index))
 }
 
 func Font(name string) {

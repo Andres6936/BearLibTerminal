@@ -307,7 +307,7 @@ namespace BearLib
         	CompositionImpl(enabled? 1: 0);
         }
 
-        [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_layer", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", EntryPoint = "TerminalLayer", CallingConvention = CallingConvention.Cdecl)]
         public static extern void Layer(int index);
 
         [DllImport("BearLibTerminal.dll", CharSet = CharSet.Unicode, EntryPoint = "terminal_font16", CallingConvention = CallingConvention.Cdecl)]

@@ -37,7 +37,7 @@ void AnimateDamage(int x, int y, int damage)
 	int n_steps = duration * fps;
 	float angle_delta = 2.0f * pi / n_steps;
 
-	terminal_layer(animation_layer);
+    TerminalLayer( animation_layer );
 	for (int i=0; i<n_steps; i++)
 	{
 		if (terminal_has_input()) break;
@@ -86,7 +86,7 @@ void PlaceFoe()
 
 void DrawMap(int x, int y, std::vector<int>& map)
 {
-	terminal_layer(base_layer);
+    TerminalLayer( base_layer );
 	for (int j=0; j<map_height; j++)
 	{
 		for (int i=0; i<map_width; i++)
@@ -193,5 +193,5 @@ void TestExtendedInterlayer()
 	// Clean up
 	terminal_composition(TK_OFF);
     TerminalClear( );
-	terminal_layer(0);
+    TerminalLayer( 0 );
 }

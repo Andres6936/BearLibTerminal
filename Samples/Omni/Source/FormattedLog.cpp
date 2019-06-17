@@ -198,7 +198,7 @@ void TestFormattedLog()
 		terminal_color("white");
 
 		// Frame background
-		terminal_layer(0);
+        TerminalLayer( 0 );
 		terminal_bkcolor("darkest gray");
         TerminalClearArea( padding_left, padding_top, frame_width, frame_height );
 		terminal_bkcolor("none");
@@ -219,7 +219,7 @@ void TestFormattedLog()
 		int delta = first_line - frame_offset;
 
 		// Drawing messages (+crop)
-		terminal_layer(1);
+        TerminalLayer( 1 );
 		for (; index < messages.size() && delta <= frame_height; index++)
 		{
 			auto& message = messages[index];
@@ -229,7 +229,7 @@ void TestFormattedLog()
         TerminalCrop( padding_left, padding_top, frame_width, frame_height );
 
 		// Scroll bar
-		terminal_layer(0);
+        TerminalLayer( 0 );
 		terminal_bkcolor("darker gray");
         TerminalClearArea( padding_left + frame_width, padding_top, 1, frame_height );
 		terminal_bkcolor("none");

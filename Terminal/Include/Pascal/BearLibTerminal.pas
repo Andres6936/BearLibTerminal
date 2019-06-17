@@ -248,7 +248,7 @@ procedure terminal_composition(Mode: Int32);
 
 // Layer
 procedure terminal_layer(Mode: Int32);
-  cdecl; external 'BearLibTerminal' name 'terminal_layer';
+  cdecl; external 'BearLibTerminal' name 'TerminalLayer';
 
 // Font
 procedure terminal_font(const Name: AnsiString); overload;

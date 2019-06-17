@@ -256,7 +256,7 @@ TERMINAL_API void TerminalRefresh();
 TERMINAL_API void TerminalClear();
 TERMINAL_API void TerminalClearArea( int x, int y, int w, int h);
 TERMINAL_API void TerminalCrop( int x, int y, int w, int h);
-TERMINAL_API void terminal_layer(int index);
+TERMINAL_API void TerminalLayer( int index);
 TERMINAL_API void terminal_color(color_t color);
 TERMINAL_API void terminal_bkcolor(color_t color);
 TERMINAL_API void terminal_composition(int mode);

@@ -295,7 +295,7 @@ int luaterminal_crop(lua_State* L)
 
 int luaterminal_layer(lua_State* L)
 {
-	terminal_layer(lua_tointeger(L, 1));
+    TerminalLayer( lua_tointeger( L, 1 ));
 	return 0;
 }
 

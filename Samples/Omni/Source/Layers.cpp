@@ -24,9 +24,9 @@ void TestLayers()
 		terminal_print(5, 4, "[color=dark green]abcdefghij");
 
 		terminal_print(2, 8, "[color=orange]2.[/color] With layers:");
-		terminal_layer(1);
+        TerminalLayer( 1 );
 		terminal_put(7, 10, 0xE000);
-		terminal_layer(0);
+        TerminalLayer( 0 );
 		terminal_print(5, 11, "[color=dark green]abcdefghij");
 
         TerminalRefresh( );

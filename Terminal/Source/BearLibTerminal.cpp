@@ -161,7 +161,7 @@ void TerminalCrop( int x, int y, int w, int h)
 	g_instance->SetCrop(x, y, w, h);
 }
 
-void terminal_layer(int index)
+void TerminalLayer( int index)
 {
 	if (!g_instance) return;
 	g_instance->SetLayer(index);
