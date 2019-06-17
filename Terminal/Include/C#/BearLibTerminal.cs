@@ -469,7 +469,7 @@ namespace BearLib
         	return new Size(width, height);
         }  
 
-        [DllImport("BearLibTerminal.dll", CharSet = CharSet.Unicode, EntryPoint = "terminal_measure_ext16", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", CharSet = CharSet.Unicode, EntryPoint = "TerminalMeasureExt16", CallingConvention = CallingConvention.Cdecl)]
         private static extern void MeasureImpl(int width, int height, string text, out int out_w, out int out_h);
         
         public static Size Measure(Size bbox, string text, params object[] args)

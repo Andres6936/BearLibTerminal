@@ -501,10 +501,10 @@ begin
 end;
 
 procedure terminal_measure_ansi(W, H: Int32; const S: PAnsiChar; OutW, OutH: PInt32);
-  cdecl; external 'BearLibTerminal' name 'terminal_measure_ext8';
+  cdecl; external 'BearLibTerminal' name 'TerminalMeasureExt8';
 
 procedure terminal_measure_unicode(W, H: Int32; const S: PWideChar; OutW, OutH: PInt32);
-  cdecl; external 'BearLibTerminal' name 'terminal_measure_ext16';
+  cdecl; external 'BearLibTerminal' name 'TerminalMeasureExt16';
 
 function terminal_measure(const S: AnsiString): TSize;
 begin

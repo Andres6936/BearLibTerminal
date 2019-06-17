@@ -271,9 +271,9 @@ TERMINAL_API color_t TerminalPickBackColor( int x, int y);
 TERMINAL_API void TerminalPrintExt8( int x, int y, int w, int h, int align, const int8_t *s, int *out_w, int *out_h);
 TERMINAL_API void TerminalPrintExt16( int x, int y, int w, int h, int align, const int16_t *s, int *out_w, int *out_h);
 TERMINAL_API void TerminalPrintExt32( int x, int y, int w, int h, int align, const int32_t *s, int *out_w, int *out_h);
-TERMINAL_API void terminal_measure_ext8(int w, int h, const int8_t* s, int* out_w, int* out_h);
-TERMINAL_API void terminal_measure_ext16(int w, int h, const int16_t* s, int* out_w, int* out_h);
-TERMINAL_API void terminal_measure_ext32(int w, int h, const int32_t* s, int* out_w, int* out_h);
+TERMINAL_API void TerminalMeasureExt8( int w, int h, const int8_t *s, int *out_w, int *out_h);
+TERMINAL_API void TerminalMeasureExt16( int w, int h, const int16_t *s, int *out_w, int *out_h);
+TERMINAL_API void TerminalMeasureExt32( int w, int h, const int32_t *s, int *out_w, int *out_h);
 TERMINAL_API int terminal_has_input();
 TERMINAL_API int terminal_state(int code);
 TERMINAL_API int terminal_read();
@@ -505,7 +505,7 @@ TERMINAL_INLINE dimensions_t terminal_wprintf_ext(int x, int y, int w, int h, in
 TERMINAL_INLINE dimensions_t terminal_measure(const char* s)
 {
 	dimensions_t ret;
-	terminal_measure_ext8(0, 0, (const int8_t*)s, &ret.width, &ret.height);
+    TerminalMeasureExt8( 0, 0, ( const int8_t * ) s, &ret.width, &ret.height );
 	return ret;
 }
 
@@ -529,7 +529,7 @@ TERMINAL_INLINE dimensions_t terminal_wmeasuref(const wchar_t* s, ...)
 TERMINAL_INLINE dimensions_t terminal_measure_ext(int w, int h, const char* s)
 {
 	dimensions_t ret;
-	terminal_measure_ext8(w, h, (const int8_t*)s, &ret.width, &ret.height);
+    TerminalMeasureExt8( w, h, ( const int8_t * ) s, &ret.width, &ret.height );
 	return ret;
 }
 

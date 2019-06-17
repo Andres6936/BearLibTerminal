@@ -258,17 +258,17 @@ void TerminalPrintExt32( int x, int y, int w, int h, int align, const int32_t *s
 	TERMINAL_PRINT_OR_MEASURE(x, y, align, BearLibTerminal::UCS4Encoding().Convert((const char32_t*)s), false)
 }
 
-void terminal_measure_ext8(int w, int h, const int8_t* s, int* out_w, int* out_h)
+void TerminalMeasureExt8( int w, int h, const int8_t *s, int *out_w, int *out_h)
 {
 	TERMINAL_PRINT_OR_MEASURE(0, 0, TK_ALIGN_DEFAULT, g_instance->GetEncoding().Convert((const char*)s), true)
 }
 
-void terminal_measure_ext16(int w, int h, const int16_t* s, int* out_w, int* out_h)
+void TerminalMeasureExt16( int w, int h, const int16_t *s, int *out_w, int *out_h)
 {
 	TERMINAL_PRINT_OR_MEASURE(0, 0, TK_ALIGN_DEFAULT, BearLibTerminal::UCS2Encoding().Convert((const char16_t*)s), true)
 }
 
-void terminal_measure_ext32(int w, int h, const int32_t* s, int* out_w, int* out_h)
+void TerminalMeasureExt32( int w, int h, const int32_t *s, int *out_w, int *out_h)
 {
 	TERMINAL_PRINT_OR_MEASURE(0, 0, TK_ALIGN_DEFAULT, BearLibTerminal::UCS4Encoding().Convert((const char32_t*)s), true)
 }
