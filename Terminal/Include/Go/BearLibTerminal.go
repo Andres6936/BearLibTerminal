@@ -265,7 +265,7 @@ func Clear() {
 }
 
 func ClearArea(x, y, w, h int) {
-	C.terminal_clear_area(C.int(x), C.int(y), C.int(w), C.int(h))
+	C.TerminalClearArea(C.int(x), C.int(y), C.int(w), C.int(h))
 }
 
 func Crop(x, y, w, h int) {

@@ -73,7 +73,7 @@ void TestTextAlignment()
 
 		// Background square
 		terminal_bkcolor("darkest gray");
-		terminal_clear_area(frame_left, frame_top, frame_width, frame_height);
+        TerminalClearArea( frame_left, frame_top, frame_width, frame_height );
 		terminal_bkcolor("none");
 
 		// Comment

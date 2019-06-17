@@ -200,7 +200,7 @@ void TestFormattedLog()
 		// Frame background
 		terminal_layer(0);
 		terminal_bkcolor("darkest gray");
-		terminal_clear_area(padding_left, padding_top, frame_width, frame_height);
+        TerminalClearArea( padding_left, padding_top, frame_width, frame_height );
 		terminal_bkcolor("none");
 
 		// Find topmost visible message
@@ -231,7 +231,7 @@ void TestFormattedLog()
 		// Scroll bar
 		terminal_layer(0);
 		terminal_bkcolor("darker gray");
-		terminal_clear_area(padding_left+frame_width, padding_top, 1, frame_height);
+        TerminalClearArea( padding_left + frame_width, padding_top, 1, frame_height );
 		terminal_bkcolor("none");
 		terminal_color("dark orange");
 		int scrollbar_column = padding_left+frame_width;

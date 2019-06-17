@@ -279,7 +279,7 @@ int luaterminal_clear_area(lua_State* L)
 	int y = lua_tointeger(L, 2);
 	int w = lua_tointeger(L, 3);
 	int h = lua_tointeger(L, 4);
-	terminal_clear_area(x, y, w, h);
+    TerminalClearArea( x, y, w, h );
 	return 0;
 }
 

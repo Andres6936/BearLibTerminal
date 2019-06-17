@@ -220,7 +220,7 @@ procedure terminal_clear();
 
 // ClearArea
 procedure terminal_clear_area(Left, Top, Width, Height: Int32);
-  cdecl; external 'BearLibTerminal' name 'terminal_clear_area';
+  cdecl; external 'BearLibTerminal' name 'TerminalClearArea';
 
 // Crop
 procedure terminal_crop(Left, Top, Width, Height: Int32);

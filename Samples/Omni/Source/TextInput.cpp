@@ -65,7 +65,7 @@ std::map<int, std::string> key_names =
 
 void DrawFrame(int x, int y, int w, int h)
 {
-	terminal_clear_area(x, y, w, h);
+    TerminalClearArea( x, y, w, h );
 
 	for (int i=x; i<x+w; i++)
 	{
@@ -135,7 +135,7 @@ void TestTextInput()
 			do
 			{
 				terminal_put(7, 10, character);
-				terminal_clear_area(5+3+2+1, 10, 16, 1);
+                TerminalClearArea( 5 + 3 + 2 + 1, 10, 16, 1 );
 				terminal_printf(5+3+2+1, 10, "[color=gray]%s", (key_names.count(char_result)? key_names[char_result]: to_string(char_result)).c_str());
                 TerminalRefresh( );
 

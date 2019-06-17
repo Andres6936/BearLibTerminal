@@ -254,7 +254,7 @@ TERMINAL_API int TerminalSet16( const int16_t *value);
 TERMINAL_API int TerminalSet32( const int32_t *value);
 TERMINAL_API void TerminalRefresh();
 TERMINAL_API void TerminalClear();
-TERMINAL_API void terminal_clear_area(int x, int y, int w, int h);
+TERMINAL_API void TerminalClearArea( int x, int y, int w, int h);
 TERMINAL_API void terminal_crop(int x, int y, int w, int h);
 TERMINAL_API void terminal_layer(int index);
 TERMINAL_API void terminal_color(color_t color);

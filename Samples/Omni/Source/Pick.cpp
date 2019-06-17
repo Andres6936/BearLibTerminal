@@ -12,7 +12,7 @@ void TestPick()
 	terminal_printf(2, 1, "Move mouse over characters:");
 
 	terminal_bkcolor("darkest gray");
-	terminal_clear_area(2, 3, 76, 19);
+    TerminalClearArea( 2, 3, 76, 19 );
 	terminal_bkcolor("none");
 
 	const char* colors[] = {"red", "orange", "yellow", "green", "cyan", "light blue", "violet"};
@@ -45,7 +45,7 @@ void TestPick()
 		int x = terminal_state(TK_MOUSE_X);
 		int y = terminal_state(TK_MOUSE_Y);
 
-		terminal_clear_area(2, 23, 76, 1);
+        TerminalClearArea( 2, 23, 76, 1 );
 		if (x >= 2 && x < 78 && y >= 3 && y < 22)
 		{
 			int n = 0;

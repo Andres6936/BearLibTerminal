@@ -149,7 +149,7 @@ void TerminalClear()
 	g_instance->Clear();
 }
 
-void terminal_clear_area(int x, int y, int w, int h)
+void TerminalClearArea( int x, int y, int w, int h)
 {
 	if (!g_instance) return;
 	g_instance->Clear(x, y, w, h);
