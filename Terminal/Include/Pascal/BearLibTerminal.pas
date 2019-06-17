@@ -212,7 +212,7 @@ function terminal_set(const Options: WideString): LongBool; overload;
 
 // Refresh
 procedure terminal_refresh();
-  cdecl; external 'BearLibTerminal' name 'terminal_refresh';
+  cdecl; external 'BearLibTerminal' name 'TerminalRefresh';
 
 // Clear
 procedure terminal_clear();

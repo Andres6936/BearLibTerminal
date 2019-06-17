@@ -244,7 +244,7 @@ void TestFormattedLog()
 		}
 
 		// Render
-		terminal_refresh();
+        TerminalRefresh( );
 
 		int key = terminal_read();
 

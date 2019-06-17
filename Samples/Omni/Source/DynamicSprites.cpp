@@ -138,7 +138,7 @@ void TestDynamicSprites()
 
 		terminal_print(1, view_height*2+1, "[color=orange]Tip:[/color] use arrow keys to move viewport over the map");
 
-		terminal_refresh();
+        TerminalRefresh( );
 
 		int key = terminal_read();
 

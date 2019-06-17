@@ -286,7 +286,7 @@ void TestKeyboard()
 		terminal_printf(6, 1+17, "[color=orange]NOTE:[/color] for demonstration purposes Escape will not close this demo;");
 		terminal_printf(6, 1+18, "use Shift+Escape combination to exit.");
 
-		terminal_refresh();
+        TerminalRefresh( );
 
 		int key = terminal_read();
 

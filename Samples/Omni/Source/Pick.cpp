@@ -68,7 +68,7 @@ void TestPick()
 			}
 		}
 
-		terminal_refresh();
+        TerminalRefresh( );
 
 		int key = terminal_read();
 

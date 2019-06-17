@@ -212,7 +212,7 @@ namespace BearLib
         [DllImport("BearLibTerminal.dll", EntryPoint = "TerminalClose", CallingConvention = CallingConvention.Cdecl)]
         public static extern void Close();
 
-        [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_refresh", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", EntryPoint = "TerminalRefresh", CallingConvention = CallingConvention.Cdecl)]
         public static extern void Refresh();
 
         [DllImport("BearLibTerminal.dll", CharSet = CharSet.Unicode, EntryPoint = "TerminalSet16", CallingConvention = CallingConvention.Cdecl)]

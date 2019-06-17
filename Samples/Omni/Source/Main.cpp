@@ -92,7 +92,7 @@ int main()
 		terminal_printf(2, 23, "[color=orange]ESC.[/color] Exit");
 		terminal_printf_ext(77, 22, 0, 0, TK_ALIGN_RIGHT, "library version %s", terminal_get("version"));
 		terminal_printf_ext(77, 23, 0, 0, TK_ALIGN_RIGHT, "http://wyrd.name/en:bearlibterminal");
-		terminal_refresh();
+        TerminalRefresh( );
 
 		int key = terminal_read();
 

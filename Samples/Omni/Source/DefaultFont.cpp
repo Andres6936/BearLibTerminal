@@ -47,7 +47,7 @@ void TestDefaultFont()
 		terminal_print(hoffset, 20, L"[color=orange]TIP:[/color] Use ↑/↓ keys to select range");
 		terminal_print(hoffset, 22, L"[color=orange]NOTE:[/color] Character code points printed in\ngray are not included in the WGL4 set.");
 
-		terminal_refresh();
+        TerminalRefresh( );
 
 		int key = terminal_read();
 

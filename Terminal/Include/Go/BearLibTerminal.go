@@ -273,7 +273,7 @@ func Crop(x, y, w, h int) {
 }
 
 func Refresh() {
-	C.terminal_refresh()
+	C.TerminalRefresh()
 }
 
 func Put(x, y, code int) {

@@ -137,7 +137,7 @@ int TerminalSet32( const int32_t *value)
 	return g_instance->SetOptions(BearLibTerminal::UCS4Encoding().Convert((const char32_t*)value));
 }
 
-void terminal_refresh()
+void TerminalRefresh()
 {
 	if (!g_instance) return;
 	g_instance->Refresh();

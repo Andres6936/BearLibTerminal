@@ -73,7 +73,7 @@ void TestExtendedSmoothScroll()
 			}
 		}
 
-		terminal_refresh();
+        TerminalRefresh( );
 
 		while (proceed && terminal_has_input())
 		{

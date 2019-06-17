@@ -29,7 +29,7 @@ void TestLayers()
 		terminal_layer(0);
 		terminal_print(5, 11, "[color=dark green]abcdefghij");
 
-		terminal_refresh();
+        TerminalRefresh( );
 
 		int key = terminal_read();
 

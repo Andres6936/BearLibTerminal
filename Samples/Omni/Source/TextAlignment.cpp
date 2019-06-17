@@ -96,7 +96,7 @@ void TestTextAlignment()
 		terminal_print(80-14, 3, "[c=orange][U+2588]");
 		terminal_print_ext(80-14, 3, 0, 0, vertical_align | horisontal_align, "12345\nabc\n-=#=-");
 
-		terminal_refresh();
+        TerminalRefresh( );
 
 		int key = terminal_read();
 

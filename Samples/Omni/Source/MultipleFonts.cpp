@@ -33,7 +33,7 @@ void TestMultipleFonts()
 		2, 1+h+1, 60, 0, TK_ALIGN_DEFAULT,
 		"[font=huge]It's pretty easy to print in bigger fonts as well."
 	);
-	terminal_refresh();
+    TerminalRefresh( );
 
 	for (int key=0; key!=TK_CLOSE && key!=TK_ESCAPE; key=terminal_read());
 

@@ -263,7 +263,7 @@ int luaterminal_setf(lua_State* L)
 
 int luaterminal_refresh(lua_State* L)
 {
-	terminal_refresh();
+    TerminalRefresh( );
 	return 0;
 }
 

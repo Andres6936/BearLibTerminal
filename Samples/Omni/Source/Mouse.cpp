@@ -114,7 +114,7 @@ void TestMouse()
 		terminal_color(0x80FF00FF);
 		terminal_put(mrx, mry, 0x2588);
 
-		terminal_refresh();
+        TerminalRefresh( );
 
 		do
 		{

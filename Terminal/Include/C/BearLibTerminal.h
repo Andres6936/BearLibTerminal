@@ -252,7 +252,7 @@ TERMINAL_API void TerminalClose();
 TERMINAL_API int TerminalSet8( const int8_t *value);
 TERMINAL_API int TerminalSet16( const int16_t *value);
 TERMINAL_API int TerminalSet32( const int32_t *value);
-TERMINAL_API void terminal_refresh();
+TERMINAL_API void TerminalRefresh();
 TERMINAL_API void terminal_clear();
 TERMINAL_API void terminal_clear_area(int x, int y, int w, int h);
 TERMINAL_API void terminal_crop(int x, int y, int w, int h);

@@ -46,7 +46,7 @@ void AnimateDamage(int x, int y, int damage)
 		float dy = -2.0f * radius * terminal_state(TK_CELL_WIDTH) / n_steps * i - terminal_state(TK_CELL_HEIGHT)/2;
 		terminal_color(color_from_argb(255/n_steps*(n_steps-i), 255, 64, 0));
 		terminal_printf(x, y, "[offset=%dx%d]%s", (int)dx, (int)dy, s.c_str());
-		terminal_refresh();
+        TerminalRefresh( );
 		terminal_delay(1000/fps);
 	}
 	terminal_color("white");
@@ -161,7 +161,7 @@ void TestExtendedInterlayer()
 	{
 		terminal_clear();
 		DrawMap(map_left, map_top, map);
-		terminal_refresh();
+        TerminalRefresh( );
 
 		do
 		{

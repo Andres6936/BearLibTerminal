@@ -71,7 +71,7 @@ void TestInputFiltering()
 			event_counter
 		);
 
-		terminal_refresh();
+        TerminalRefresh( );
 
 		do
 		{

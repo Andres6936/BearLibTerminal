@@ -39,7 +39,7 @@ void TestSprites()
 	terminal_put(5+18*1, 14, 0xE002); // FiveElements
 	terminal_put(5+18*2, 14, 0xE003); // Gradient
 
-	terminal_refresh();
+    TerminalRefresh( );
 
 	while (true)
 	{

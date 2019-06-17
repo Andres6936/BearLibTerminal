@@ -39,7 +39,7 @@ void TestManualCellsize()
 		terminal_printf(2, 8, "[color=orange]TIP:[/color] Use Shift+Up/Down arrow keys to change font size");
 		terminal_printf(2, 9, "[color=orange]TIP:[/color] Use TAB to switch font hinting mode");
 
-		terminal_refresh();
+        TerminalRefresh( );
 
 		int key = terminal_read();
 

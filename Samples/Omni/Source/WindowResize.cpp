@@ -29,7 +29,7 @@ void TestWindowResize()
 			terminal_put(w-1, y, y%2? symbol: (int)'#');
 		}
 		terminal_printf(3, 2, "Terminal size is %dx%d", w, h);
-		terminal_refresh();
+        TerminalRefresh( );
 
 		int key = terminal_read();
 

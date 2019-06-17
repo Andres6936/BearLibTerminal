@@ -64,7 +64,7 @@ void TestTilesets()
 
 	terminal_print(2+3, 18, "...or like this:\n[font=zodiac]D F G S C");
 
-	terminal_refresh();
+    TerminalRefresh( );
 
 	for (int key=0; key!=TK_CLOSE && key!=TK_ESCAPE; key=terminal_read());
 

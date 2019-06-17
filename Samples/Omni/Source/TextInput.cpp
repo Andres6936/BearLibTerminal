@@ -113,7 +113,7 @@ void TestTextInput()
 		terminal_put(7, 10, character);
 		terminal_printf(5+3+2+1, 10, "[color=gray]%s", (key_names.count(char_result)? key_names[char_result]: to_string(char_result)).c_str());
 
-		terminal_refresh();
+        TerminalRefresh( );
 
 		int key = terminal_read();
 
@@ -137,7 +137,7 @@ void TestTextInput()
 				terminal_put(7, 10, character);
 				terminal_clear_area(5+3+2+1, 10, 16, 1);
 				terminal_printf(5+3+2+1, 10, "[color=gray]%s", (key_names.count(char_result)? key_names[char_result]: to_string(char_result)).c_str());
-				terminal_refresh();
+                TerminalRefresh( );
 
 				character = L' ';
 				int key = terminal_read();

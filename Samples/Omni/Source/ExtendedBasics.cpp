@@ -67,7 +67,7 @@ void TestExtendedBasics()
 		terminal_put_ext(x1+5, y1+2, 0, 0, 0xE000+8, m21);
 		terminal_put_ext(x1+9, y1+2, 0, 0, 0xE000+8, m22);
 
-		terminal_refresh();
+        TerminalRefresh( );
 
 		while (terminal_has_input())
 		{

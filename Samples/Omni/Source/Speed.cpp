@@ -115,7 +115,7 @@ void TestSpeed()
 		}
 		terminal_printf(2, 1, "[color=black]vsync: %s\nFPS: %d", vsync? "yes": "no", fps_value);
 		terminal_printf(2, 4, "[color=black]Press TAB to switch vsync on an off");
-		terminal_refresh();
+        TerminalRefresh( );
 
 
 		fps_counter += 1;
