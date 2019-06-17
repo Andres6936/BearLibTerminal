@@ -226,7 +226,7 @@ void TestFormattedLog()
 			terminal_print_ext(padding_left, padding_top+delta, frame_width, 0, TK_ALIGN_DEFAULT, message.text.c_str());
 			delta += message.height + 1;
 		}
-		terminal_crop(padding_left, padding_top, frame_width, frame_height);
+        TerminalCrop( padding_left, padding_top, frame_width, frame_height );
 
 		// Scroll bar
 		terminal_layer(0);

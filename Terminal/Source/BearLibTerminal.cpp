@@ -155,7 +155,7 @@ void TerminalClearArea( int x, int y, int w, int h)
 	g_instance->Clear(x, y, w, h);
 }
 
-void terminal_crop(int x, int y, int w, int h)
+void TerminalCrop( int x, int y, int w, int h)
 {
 	if (!g_instance) return;
 	g_instance->SetCrop(x, y, w, h);

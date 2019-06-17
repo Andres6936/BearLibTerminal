@@ -265,7 +265,7 @@ namespace BearLib
             ClearArea(area.X, area.Y, area.Width, area.Height);
         }
 
-        [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_crop", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", EntryPoint = "TerminalCrop", CallingConvention = CallingConvention.Cdecl)]
         public static extern void Crop(int x, int y, int w, int h);
 
         public static void Crop(Rectangle area)

@@ -67,7 +67,7 @@ module Terminal
 	Refresh = Fiddle::Function.new(Lib['TerminalRefresh'], [], Fiddle::TYPE_VOID)
 	Clear = Fiddle::Function.new(Lib['TerminalClear'], [], Fiddle::TYPE_VOID)
 	ClearArea = Fiddle::Function.new(Lib['TerminalClearArea'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT], Fiddle::TYPE_VOID)
-	Crop = Fiddle::Function.new(Lib['terminal_crop'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT], Fiddle::TYPE_VOID)
+	Crop = Fiddle::Function.new(Lib['TerminalCrop'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT], Fiddle::TYPE_VOID)
 	Layer = Fiddle::Function.new(Lib['terminal_layer'], [Fiddle::TYPE_INT], Fiddle::TYPE_VOID)
 	Color = Fiddle::Function.new(Lib['terminal_color'], [-Fiddle::TYPE_INT], Fiddle::TYPE_VOID)
 	BkColor = Fiddle::Function.new(Lib['terminal_bkcolor'], [-Fiddle::TYPE_INT], Fiddle::TYPE_VOID)

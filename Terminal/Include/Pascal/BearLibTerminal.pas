@@ -224,7 +224,7 @@ procedure terminal_clear_area(Left, Top, Width, Height: Int32);
 
 // Crop
 procedure terminal_crop(Left, Top, Width, Height: Int32);
-  cdecl; external 'BearLibTerminal' name 'terminal_crop';
+  cdecl; external 'BearLibTerminal' name 'TerminalCrop';
 
 // Color
 procedure terminal_color(Color: UInt32); overload;

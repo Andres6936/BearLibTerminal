@@ -289,7 +289,7 @@ int luaterminal_crop(lua_State* L)
 	int y = lua_tointeger(L, 2);
 	int w = lua_tointeger(L, 3);
 	int h = lua_tointeger(L, 4);
-	terminal_crop(x, y, w, h);
+    TerminalCrop( x, y, w, h );
 	return 0;
 }
 
