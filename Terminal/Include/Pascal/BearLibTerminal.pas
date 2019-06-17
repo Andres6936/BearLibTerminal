@@ -457,10 +457,10 @@ begin;
 end;
 
 procedure terminal_print_ansi(X, Y, W, H, Alignment: Int32; const S: PAnsiChar; OutW, OutH: PInt32);
-  cdecl; external 'BearLibTerminal' name 'terminal_print_ext8';
+  cdecl; external 'BearLibTerminal' name 'TerminalPrintExt8';
   
 procedure terminal_print_unicode(X, Y, W, H, Alignment: Int32; const S: PWideChar; OutW, OutH: PInt32);
-  cdecl; external 'BearLibTerminal' name 'terminal_print_ext16';
+  cdecl; external 'BearLibTerminal' name 'TerminalPrintExt16';
 
 function terminal_print(X, Y: Int32; const S: AnsiString): TSize;
 begin

@@ -430,7 +430,7 @@ namespace BearLib
             return PickBkColor(location.X, location.Y);
         }
 
-        [DllImport("BearLibTerminal.dll", CharSet = CharSet.Unicode, EntryPoint = "terminal_print_ext16", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", CharSet = CharSet.Unicode, EntryPoint = "TerminalPrintExt16", CallingConvention = CallingConvention.Cdecl)]
         private static extern void PrintImpl(int x, int y, int w, int h, int align, string text, out int out_w, out int out_h);
         
         public static Size Print(Rectangle layout, ContentAlignment alignment, string text, params object[] args)

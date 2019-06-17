@@ -268,9 +268,9 @@ TERMINAL_API void TerminalPutExt( int x, int y, int dx, int dy, int code, color_
 TERMINAL_API int TerminalPick( int x, int y, int index);
 TERMINAL_API color_t TerminalPickColor( int x, int y, int index);
 TERMINAL_API color_t TerminalPickBackColor( int x, int y);
-TERMINAL_API void terminal_print_ext8(int x, int y, int w, int h, int align, const int8_t* s, int* out_w, int* out_h);
-TERMINAL_API void terminal_print_ext16(int x, int y, int w, int h, int align, const int16_t* s, int* out_w, int* out_h);
-TERMINAL_API void terminal_print_ext32(int x, int y, int w, int h, int align, const int32_t* s, int* out_w, int* out_h);
+TERMINAL_API void TerminalPrintExt8( int x, int y, int w, int h, int align, const int8_t *s, int *out_w, int *out_h);
+TERMINAL_API void TerminalPrintExt16( int x, int y, int w, int h, int align, const int16_t *s, int *out_w, int *out_h);
+TERMINAL_API void TerminalPrintExt32( int x, int y, int w, int h, int align, const int32_t *s, int *out_w, int *out_h);
 TERMINAL_API void terminal_measure_ext8(int w, int h, const int8_t* s, int* out_w, int* out_h);
 TERMINAL_API void terminal_measure_ext16(int w, int h, const int16_t* s, int* out_w, int* out_h);
 TERMINAL_API void terminal_measure_ext32(int w, int h, const int32_t* s, int* out_w, int* out_h);
@@ -457,7 +457,7 @@ TERMINAL_INLINE void terminal_wfont(const wchar_t* name)
 TERMINAL_INLINE dimensions_t terminal_print(int x, int y, const char* s)
 {
 	dimensions_t ret;
-	terminal_print_ext8(x, y, 0, 0, TK_ALIGN_DEFAULT, (const int8_t*)s, &ret.width, &ret.height);
+    TerminalPrintExt8( x, y, 0, 0, TK_ALIGN_DEFAULT, ( const int8_t * ) s, &ret.width, &ret.height );
 	return ret;
 }
 
@@ -481,7 +481,7 @@ TERMINAL_INLINE dimensions_t terminal_wprintf(int x, int y, const wchar_t* s, ..
 TERMINAL_INLINE dimensions_t terminal_print_ext(int x, int y, int w, int h, int align, const char* s)
 {
 	dimensions_t ret;
-	terminal_print_ext8(x, y, w, h, align, (const int8_t*)s, &ret.width, &ret.height);
+    TerminalPrintExt8( x, y, w, h, align, ( const int8_t * ) s, &ret.width, &ret.height );
 	return ret;
 }
 

@@ -243,17 +243,17 @@ color_t TerminalPickBackColor( int x, int y)
 	if (out_w) *out_w = size.width; \
 	if (out_h) *out_h = size.height;
 
-void terminal_print_ext8(int x, int y, int w, int h, int align, const int8_t* s, int* out_w, int* out_h)
+void TerminalPrintExt8( int x, int y, int w, int h, int align, const int8_t *s, int *out_w, int *out_h)
 {
 	TERMINAL_PRINT_OR_MEASURE(x, y, align, g_instance->GetEncoding().Convert((const char*)s), false)
 }
 
-void terminal_print_ext16(int x, int y, int w, int h, int align, const int16_t* s, int* out_w, int* out_h)
+void TerminalPrintExt16( int x, int y, int w, int h, int align, const int16_t *s, int *out_w, int *out_h)
 {
 	TERMINAL_PRINT_OR_MEASURE(x, y, align, BearLibTerminal::UCS2Encoding().Convert((const char16_t*)s), false)
 }
 
-void terminal_print_ext32(int x, int y, int w, int h, int align, const int32_t* s, int* out_w, int* out_h)
+void TerminalPrintExt32( int x, int y, int w, int h, int align, const int32_t *s, int *out_w, int *out_h)
 {
 	TERMINAL_PRINT_OR_MEASURE(x, y, align, BearLibTerminal::UCS4Encoding().Convert((const char32_t*)s), false)
 }

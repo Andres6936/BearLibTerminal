@@ -78,7 +78,7 @@ module Terminal
 	Pick = Fiddle::Function.new(Lib['TerminalPick'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT], Fiddle::TYPE_INT)
 	PickColor = Fiddle::Function.new(Lib['TerminalPickColor'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT], -Fiddle::TYPE_INT)
 	PickBkColor = Fiddle::Function.new(Lib['TerminalPickBackColor'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT], -Fiddle::TYPE_INT)
-	PrintExt = Fiddle::Function.new(Lib['terminal_print_ext8'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP], Fiddle::TYPE_VOID)
+	PrintExt = Fiddle::Function.new(Lib['TerminalPrintExt8'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP], Fiddle::TYPE_VOID)
 	MeasureExt = Fiddle::Function.new(Lib['terminal_measure_ext8'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP], Fiddle::TYPE_VOID)
 	HasInput = Fiddle::Function.new(Lib['terminal_has_input'], [], Fiddle::TYPE_INT)
 	State = Fiddle::Function.new(Lib['terminal_state'], [Fiddle::TYPE_INT], Fiddle::TYPE_INT)
