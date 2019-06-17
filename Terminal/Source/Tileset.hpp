@@ -30,46 +30,53 @@
 
 namespace BearLibTerminal
 {
-	class Tileset
-	{
-	public:
-		Tileset(char32_t offset);
-		virtual ~Tileset();
-		char32_t GetOffset() const;
-		virtual bool Provides(char32_t code);
-		virtual std::shared_ptr<TileInfo> Get(char32_t code);
-		virtual Size GetBoundingBoxSize() = 0; // FIXME: refactor to tile property
-		virtual Size GetSpacing() const;
+    class Tileset
+    {
+    public:
+        Tileset( char32_t offset );
 
-		static const char32_t kFontOffsetMultiplier = 0x01000000;
-		static const char32_t kFontOffsetMask = 0xFF000000;
-		static const char32_t kCharOffsetMask = 0x00FFFFFF;
-		static std::shared_ptr<Tileset> Create(OptionGroup& options, char32_t offset);
-		static bool IsFontOffset(char32_t offset);
+        virtual ~Tileset( );
 
-	protected:
-		char32_t m_offset;
-		std::unordered_map<char32_t, std::shared_ptr<TileInfo>> m_cache;
-		Size m_spacing;
-	};
+        char32_t GetOffset( ) const;
 
-	extern std::unordered_map<char32_t, std::shared_ptr<TileInfo>> g_codespace;
+        virtual bool Provides( char32_t code );
 
-	extern std::map<char32_t, std::shared_ptr<Tileset>> g_tilesets;
+        virtual std::shared_ptr <TileInfo> Get( char32_t code );
 
-	extern std::shared_ptr<Tileset> g_dynamic_tileset;
+        virtual Size GetBoundingBoxSize( ) = 0; // FIXME: refactor to tile property
+        virtual Size GetSpacing( ) const;
 
-	void AddTileset(std::shared_ptr<Tileset> tileset);
+        static const char32_t kFontOffsetMultiplier = 0x01000000;
+        static const char32_t kFontOffsetMask = 0xFF000000;
+        static const char32_t kCharOffsetMask = 0x00FFFFFF;
 
-	void RemoveTileset(std::shared_ptr<Tileset> tileset);
+        static std::shared_ptr <Tileset> Create( OptionGroup &options, char32_t offset );
 
-	void RemoveTileset(char32_t offset);
+        static bool IsFontOffset( char32_t offset );
 
-	bool IsDynamicTile(char32_t code);
+    protected:
+        char32_t m_offset;
+        std::unordered_map <char32_t, std::shared_ptr <TileInfo>> m_cache;
+        Size m_spacing;
+    };
 
-	Bitmap GenerateDynamicTile(char32_t code, Size size);
+    extern std::unordered_map <char32_t, std::shared_ptr <TileInfo>> g_codespace;
 
-	void UpdateDynamicTileset(Size cell_size);
+    extern std::map <char32_t, std::shared_ptr <Tileset>> g_tilesets;
+
+    extern std::shared_ptr <Tileset> g_dynamic_tileset;
+
+    void AddTileset( std::shared_ptr <Tileset> tileset );
+
+    void RemoveTileset( std::shared_ptr <Tileset> tileset );
+
+    void RemoveTileset( char32_t offset );
+
+    bool IsDynamicTile( char32_t code );
+
+    Bitmap GenerateDynamicTile( char32_t code, Size size );
+
+    void UpdateDynamicTileset( Size cell_size );
 }
 
 #endif // BEARLIBTERMINAL_TILESET_HPP

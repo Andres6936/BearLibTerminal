@@ -32,60 +32,64 @@
 
 namespace BearLibTerminal
 {
-	struct Leaf
-	{
-		Leaf();
-		Color color[4];
-		int16_t dx, dy;
-		char32_t code;
-		uint8_t flags;
-		uint8_t reserved;
-		static const uint8_t CornerColored = 0x01;
-	};
+    struct Leaf
+    {
+        Leaf( );
 
-	struct Cell
-	{
-		std::vector<Leaf> leafs;
-	};
+        Color color[4];
+        int16_t dx, dy;
+        char32_t code;
+        uint8_t flags;
+        uint8_t reserved;
+        static const uint8_t CornerColored = 0x01;
+    };
 
-	struct Layer
-	{
-		Layer(Size size);
-		std::vector<Cell> cells;
-		Rectangle crop;
-	};
+    struct Cell
+    {
+        std::vector <Leaf> leafs;
+    };
 
-	struct Scene
-	{
-		std::vector<Layer> layers;
-		std::vector<Color> background;
-	};
+    struct Layer
+    {
+        Layer( Size size );
 
-	struct Stage
-	{
-		Size size;
-		Scene frontbuffer;
-		Scene backbuffer;
-		void Resize(Size size);
-	};
+        std::vector <Cell> cells;
+        Rectangle crop;
+    };
 
-	struct State
-	{
-		Size cellsize;      // Current cellsize; different from Options.window_cellsize in that this one is always properly set.
-		Size half_cellsize; // Cached value used in leaf drawing.
-		Color color;
-		Color bkcolor;
-		int composition;
-		int layer;
-		char32_t font_offset;
-		State();
-	};
+    struct Scene
+    {
+        std::vector <Layer> layers;
+        std::vector <Color> background;
+    };
 
-	struct World
-	{
-		Stage stage;
-		State state;
-	};
+    struct Stage
+    {
+        Size size;
+        Scene frontbuffer;
+        Scene backbuffer;
+
+        void Resize( Size size );
+    };
+
+    struct State
+    {
+        Size cellsize;      // Current cellsize; different from Options.window_cellsize in that this one is always properly set.
+        Size half_cellsize; // Cached value used in leaf drawing.
+        Color color;
+        Color bkcolor;
+        int composition;
+        int layer;
+        char32_t font_offset;
+
+        State( );
+    };
+
+    struct World
+    {
+        Stage stage;
+        State state;
+    };
 }
 
 #endif // BEARLIBTERMINAL_STAGE_HPP

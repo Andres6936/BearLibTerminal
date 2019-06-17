@@ -29,15 +29,16 @@
 
 namespace BearLibTerminal
 {
-	class BitmapTileset: public Tileset
-	{
-	public:
-		BitmapTileset(char32_t offset, std::vector<uint8_t> data, OptionGroup& options);
-		Size GetBoundingBoxSize();
+    class BitmapTileset : public Tileset
+    {
+    public:
+        BitmapTileset( char32_t offset, std::vector <uint8_t> data, OptionGroup &options );
 
-	private:
-		Size m_bounding_box_size;
-	};
+        Size GetBoundingBoxSize( );
+
+    private:
+        Size m_bounding_box_size;
+    };
 }
 
 #endif /* BITMAPTILESET_HPP_ */

@@ -33,20 +33,24 @@
 // OpenGL 1.2+
 #define GL_BGRA 0x80E1
 #elif defined(__linux)
+
 #include <GL/gl.h>
+
 #elif defined(__APPLE__)
 #include <OpenGL/gl.h>
 #endif
 
 namespace BearLibTerminal
 {
-	// OpenGL states/caps
-	// This breaks strict opengl context ownership
-	extern int g_max_texture_size;
-	extern bool g_has_texture_npot;
-	extern int g_texture_filter;
+    // OpenGL states/caps
+    // This breaks strict opengl context ownership
+    extern int g_max_texture_size;
 
-	void ProbeOpenGL();
+    extern bool g_has_texture_npot;
+
+    extern int g_texture_filter;
+
+    void ProbeOpenGL( );
 }
 
 #endif // BEARLIBTERMINAL_OPENGL_HPP

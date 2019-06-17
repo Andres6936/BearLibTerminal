@@ -33,97 +33,104 @@
 
 namespace BearLibTerminal
 {
-	#include "Builtin.Codepages.hpp"
+
+#include "Builtin.Codepages.hpp"
 	#include "Builtin.DefaultFont.hpp"
 
-	struct BuiltinResource
-	{
-		BuiltinResource(const std::string& data, bool base64encoded):
-			data(data),
-			base64encoded(base64encoded)
-		{ }
+    struct BuiltinResource
+    {
+        BuiltinResource( const std::string &data, bool base64encoded ) :
+                data( data ),
+                base64encoded( base64encoded )
+        { }
 
-		const std::string& data;
-		bool base64encoded;
-	};
+        const std::string &data;
+        bool base64encoded;
+    };
 
-	static std::map<std::wstring, BuiltinResource> kBuiltinResources =
-	{
-		{L"codepage-ascii", BuiltinResource(kCodepageASCII, false)},
-		{L"codepage-437", BuiltinResource(kCodepage437, false)},
-		{L"codepage-866", BuiltinResource(kCodepage866, false)},
-		{L"codepage-1250", BuiltinResource(kCodepage1250, false)},
-		{L"codepage-1251", BuiltinResource(kCodepage1251, false)},
-		{L"tileset-default", BuiltinResource(kDefaultFont, true)},
-		{L"codepage-tileset-default", BuiltinResource(kDefaultFontCodepage, false)},
-		{L"codepage-tcod", BuiltinResource(kCodepageTCOD, false)}
-	};
+    static std::map <std::wstring, BuiltinResource> kBuiltinResources =
+            {
+                    { L"codepage-ascii",           BuiltinResource( kCodepageASCII, false ) },
+                    { L"codepage-437",             BuiltinResource( kCodepage437, false ) },
+                    { L"codepage-866",             BuiltinResource( kCodepage866, false ) },
+                    { L"codepage-1250",            BuiltinResource( kCodepage1250, false ) },
+                    { L"codepage-1251",            BuiltinResource( kCodepage1251, false ) },
+                    { L"tileset-default",          BuiltinResource( kDefaultFont, true ) },
+                    { L"codepage-tileset-default", BuiltinResource( kDefaultFontCodepage, false ) },
+                    { L"codepage-tcod",            BuiltinResource( kCodepageTCOD, false ) }
+            };
 
-	struct MemoryResource
-	{
-		MemoryResource():
-			address(0),
-			size(0)
-		{ }
-	
-		uint64_t address;
-		size_t size;
-	};
+    struct MemoryResource
+    {
+        MemoryResource( ) :
+                address( 0 ),
+                size( 0 )
+        { }
 
-	bool try_parse(const std::wstring& s, MemoryResource& out)
-	{
-		size_t colon_pos = s.find(L":");
-		if (colon_pos == std::wstring::npos)
-			return false;
+        uint64_t address;
+        size_t size;
+    };
 
-		if (!try_parse(s.substr(0, colon_pos), out.address))
-			return false;
+    bool try_parse( const std::wstring &s, MemoryResource &out )
+    {
+        size_t colon_pos = s.find( L":" );
+        if ( colon_pos == std::wstring::npos )
+        {
+            return false;
+        }
 
-		if (!try_parse(s.substr(colon_pos+1), out.size))
-			return false;
+        if ( !try_parse( s.substr( 0, colon_pos ), out.address ))
+        {
+            return false;
+        }
 
-		return true;
-	}
+        if ( !try_parse( s.substr( colon_pos + 1 ), out.size ))
+        {
+            return false;
+        }
 
-	std::vector<uint8_t> Resource::Open(std::wstring name, std::wstring prefix)
-	{
-		LOG(Debug, "Requested resource \"" << name << "\" with possible prefix \"" << prefix << "\"");
+        return true;
+    }
 
-		auto i = kBuiltinResources.find(prefix + name);
-		MemoryResource mem;
+    std::vector <uint8_t> Resource::Open( std::wstring name, std::wstring prefix )
+    {
+        LOG( Debug, "Requested resource \"" << name << "\" with possible prefix \"" << prefix << "\"" );
 
-		if (i != kBuiltinResources.end())
-		{
-			LOG(Debug, "Resource \"" << prefix << name << "\" is built-in");
+        auto i = kBuiltinResources.find( prefix + name );
+        MemoryResource mem;
 
-			if (i->second.base64encoded)
-			{
-				return Base64::Decode(i->second.data);
-			}
-			else
-			{
-				auto data = (const uint8_t*)i->second.data.data();
-				return std::vector<uint8_t>(data, data + i->second.data.length());
-			}
-		}
-		else if (name.find(L"text:") == 0)
-		{
-			std::string text = UTF8Encoding().Convert(name.substr(5));
-			std::vector<uint8_t> result(text.length());
-			memcpy(&result[0], (uint8_t*)text.data(), text.length());
-			return result;
-		}
-		else if (try_parse(name, mem))
-		{
-			// Memory source.
-			LOG(Debug, "Loading resource from memory '" << name << "'");
-			std::vector<uint8_t> result(mem.size);
-			memcpy(&result[0], (uint8_t*)mem.address, mem.size);
-			return std::move(result);
-		}
-		else
-		{
-			return ReadFile(name);
-		}
-	}
+        if ( i != kBuiltinResources.end( ))
+        {
+            LOG( Debug, "Resource \"" << prefix << name << "\" is built-in" );
+
+            if ( i->second.base64encoded )
+            {
+                return Base64::Decode( i->second.data );
+            }
+            else
+            {
+                auto data = ( const uint8_t * ) i->second.data.data( );
+                return std::vector <uint8_t>( data, data + i->second.data.length( ));
+            }
+        }
+        else if ( name.find( L"text:" ) == 0 )
+        {
+            std::string text = UTF8Encoding( ).Convert( name.substr( 5 ));
+            std::vector <uint8_t> result( text.length( ));
+            memcpy( &result[ 0 ], ( uint8_t * ) text.data( ), text.length( ));
+            return result;
+        }
+        else if ( try_parse( name, mem ))
+        {
+            // Memory source.
+            LOG( Debug, "Loading resource from memory '" << name << "'" );
+            std::vector <uint8_t> result( mem.size );
+            memcpy( &result[ 0 ], ( uint8_t * ) mem.address, mem.size );
+            return std::move( result );
+        }
+        else
+        {
+            return ReadFile( name );
+        }
+    }
 }

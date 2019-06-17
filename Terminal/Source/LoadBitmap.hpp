@@ -30,7 +30,7 @@
 
 namespace BearLibTerminal
 {
-	Bitmap LoadBitmap(const std::vector<uint8_t>& data);
+    Bitmap LoadBitmap( const std::vector <uint8_t> &data );
 }
 
 #endif // BEARLIBTERMINAL_LOADBITMAP_HPP

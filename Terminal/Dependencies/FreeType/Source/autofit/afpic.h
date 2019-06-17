@@ -33,8 +33,8 @@ FT_BEGIN_HEADER
 
 #include "aftypes.h"
 
-  /* increase these when you add new scripts, */
-  /* and update autofit_module_class_pic_init */
+/* increase these when you add new scripts, */
+/* and update autofit_module_class_pic_init */
 #ifdef FT_OPTION_AUTOFIT2
 #define AF_SCRIPT_CLASSES_COUNT     6
 #else
@@ -42,13 +42,13 @@ FT_BEGIN_HEADER
 #endif
 #define AF_SCRIPT_CLASSES_REC_COUNT  ( AF_SCRIPT_CLASSES_COUNT - 1 )
 
-  typedef struct AFModulePIC_
-  {
-    AF_ScriptClass            af_script_classes[AF_SCRIPT_CLASSES_COUNT];
-    AF_ScriptClassRec         af_script_classes_rec[AF_SCRIPT_CLASSES_REC_COUNT];
-    FT_AutoHinter_ServiceRec  af_autofitter_service;
+typedef struct AFModulePIC_
+{
+  AF_ScriptClass            af_script_classes[AF_SCRIPT_CLASSES_COUNT];
+  AF_ScriptClassRec         af_script_classes_rec[AF_SCRIPT_CLASSES_REC_COUNT];
+  FT_AutoHinter_ServiceRec  af_autofitter_service;
 
-  } AFModulePIC;
+} AFModulePIC;
 
 #define GET_PIC( lib )                                                     \
           ( (AFModulePIC*)((lib)->pic_container.autofit) )
@@ -57,16 +57,16 @@ FT_BEGIN_HEADER
 #define AF_AF_AUTOFITTER_SERVICE_GET                                       \
           ( GET_PIC( library )->af_autofitter_service )
 
-  /* see afpic.c for the implementation */
-  void
-  autofit_module_class_pic_free( FT_Library  library );
+/* see afpic.c for the implementation */
+void
+autofit_module_class_pic_free( FT_Library  library );
 
-  FT_Error
-  autofit_module_class_pic_init( FT_Library  library );
+FT_Error
+autofit_module_class_pic_init( FT_Library  library );
 
 #endif /* FT_CONFIG_OPTION_PIC */
 
- /* */
+/* */
 
 FT_END_HEADER
 

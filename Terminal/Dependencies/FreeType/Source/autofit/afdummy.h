@@ -25,11 +25,11 @@
 
 FT_BEGIN_HEADER
 
- /*  A dummy script metrics class used when no hinting should
-  *  be performed.  This is the default for non-latin glyphs!
-  */
+/*  A dummy script metrics class used when no hinting should
+ *  be performed.  This is the default for non-latin glyphs!
+ */
 
-  AF_DECLARE_SCRIPT_CLASS( af_dummy_script_class )
+AF_DECLARE_SCRIPT_CLASS( af_dummy_script_class )
 
 /* */
 

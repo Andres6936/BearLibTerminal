@@ -28,42 +28,54 @@
 
 namespace BearLibTerminal
 {
-	class Log
-	{
-	public:
-		enum class Level {Fatal, Error, Warning, Info, Debug, Trace};
-		enum class Mode {Truncate, Append};
+    class Log
+    {
+    public:
+        enum class Level
+        {
+            Fatal, Error, Warning, Info, Debug, Trace
+        };
+        enum class Mode
+        {
+            Truncate, Append
+        };
 
-	public:
-		void Write(Level level, const std::wstring& what);
-		void Reset();
-		static Log& Instance();
-		std::wstring filename;
-		Level level;
-		Mode mode;
+    public:
+        void Write( Level level, const std::wstring &what );
 
-	private:
-		Log();
-		bool m_truncated;
-	};
+        void Reset( );
 
-	std::wostream& operator<< (std::wostream& stream, Log::Level value);
-	std::wistream& operator>> (std::wistream& stream, Log::Level& value);
+        static Log &Instance( );
 
-	std::wostream& operator<< (std::wostream& stream, Log::Mode value);
-	std::wistream& operator>> (std::wistream& stream, Log::Mode& mode);
+        std::wstring filename;
+        Level level;
+        Mode mode;
+
+    private:
+        Log( );
+
+        bool m_truncated;
+    };
+
+    std::wostream &operator<<( std::wostream &stream, Log::Level value );
+
+    std::wistream &operator>>( std::wistream &stream, Log::Level &value );
+
+    std::wostream &operator<<( std::wostream &stream, Log::Mode value );
+
+    std::wistream &operator>>( std::wistream &stream, Log::Mode &mode );
 }
 
-#define LOG(level_, what)\
-	do\
-	{\
-		if (BearLibTerminal::Log::Level::level_ <= BearLibTerminal::Log::Instance().level)\
-		{\
-			std::wostringstream wss_;\
-			wss_ << what;\
-			BearLibTerminal::Log::Instance().Write(BearLibTerminal::Log::Level::level_, wss_.str());\
-		}\
-	}\
-	while (0)
+#define LOG( level_, what )\
+    do\
+    {\
+        if (BearLibTerminal::Log::Level::level_ <= BearLibTerminal::Log::Instance().level)\
+        {\
+            std::wostringstream wss_;\
+            wss_ << what;\
+            BearLibTerminal::Log::Instance().Write(BearLibTerminal::Log::Level::level_, wss_.str());\
+        }\
+    }\
+    while (0)
 
 #endif // BEARLIBTERMINAL_LOG_HPP

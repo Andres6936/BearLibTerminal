@@ -33,67 +33,91 @@
 
 namespace BearLibTerminal
 {
-	class X11Window: public Window
-	{
-	public:
-		X11Window(EventHandler handler);
-		~X11Window();
-		void SetTitle(const std::wstring& title);
-		void SetIcon(const std::wstring& filename);
-		void SetClientSize(const Size& size);
-		void Show();
-		void Hide();
-		void AcquireRC();
-		void ReleaseRC();
-		void SwapBuffers();
-		void SetVSync(bool enabled);
-		int PumpEvents();
-		void SetResizeable(bool resizeable);
-		Size GetActualSize();
-		std::wstring GetClipboard();
-		void SetFullscreen(bool fullscreen);
-		void SetCursorVisibility(bool visible);
-	protected:
-		void Create();
-		void Dispose();
-		void UpdateSizeHints(Size size=Size());
-		void Demaximize();
-		void InitKeymaps();
-		int TranslateKeycode(KeyCode kc);
-	protected:
-		uint64_t m_last_mouse_click;
-		int m_consecutive_mouse_clicks;
-		bool m_resizeable;
-		bool m_client_resize;
+    class X11Window : public Window
+    {
+    public:
+        X11Window( EventHandler handler );
 
-	private:
-		typedef void (*PFN_GLXSWAPINTERVALEXT)(Display *dpy, GLXDrawable drawable, int interval);
-		typedef int (*PFN_GLXSWAPINTERVALMESA)(int interval);
+        ~X11Window( );
 
-		Display* m_display;
-		int m_screen;
-		::Window m_window;
-		Colormap m_colormap;
-		XVisualInfo* m_visual;
-		GLXContext m_glx;
-		XIM m_im;
-		XIC m_ic;
-		Atom m_wm_close_message;
-		Atom m_wm_invoke_message;
-		Atom m_wm_state;
-		Atom m_wm_name;
-		Atom m_wm_maximized_horz;
-		Atom m_wm_maximized_vert;
-		Atom m_wm_clipboard;
-		Atom m_wm_selection;
-		Atom m_wm_utf8_string;
-		Atom m_wm_compound_string;
-		XSizeHints* m_size_hints;
-		int m_keymaps[2][256]; // TODO: static
-		PFN_GLXSWAPINTERVALEXT m_glXSwapIntervalEXT;
-		PFN_GLXSWAPINTERVALMESA m_glXSwapIntervalMESA;
-		uint64_t m_expose_timer;
-	};
+        void SetTitle( const std::wstring &title );
+
+        void SetIcon( const std::wstring &filename );
+
+        void SetClientSize( const Size &size );
+
+        void Show( );
+
+        void Hide( );
+
+        void AcquireRC( );
+
+        void ReleaseRC( );
+
+        void SwapBuffers( );
+
+        void SetVSync( bool enabled );
+
+        int PumpEvents( );
+
+        void SetResizeable( bool resizeable );
+
+        Size GetActualSize( );
+
+        std::wstring GetClipboard( );
+
+        void SetFullscreen( bool fullscreen );
+
+        void SetCursorVisibility( bool visible );
+
+    protected:
+        void Create( );
+
+        void Dispose( );
+
+        void UpdateSizeHints( Size size = Size( ));
+
+        void Demaximize( );
+
+        void InitKeymaps( );
+
+        int TranslateKeycode( KeyCode kc );
+
+    protected:
+        uint64_t m_last_mouse_click;
+        int m_consecutive_mouse_clicks;
+        bool m_resizeable;
+        bool m_client_resize;
+
+    private:
+        typedef void (*PFN_GLXSWAPINTERVALEXT)( Display *dpy, GLXDrawable drawable, int interval );
+
+        typedef int (*PFN_GLXSWAPINTERVALMESA)( int interval );
+
+        Display *m_display;
+        int m_screen;
+        ::Window m_window;
+        Colormap m_colormap;
+        XVisualInfo *m_visual;
+        GLXContext m_glx;
+        XIM m_im;
+        XIC m_ic;
+        Atom m_wm_close_message;
+        Atom m_wm_invoke_message;
+        Atom m_wm_state;
+        Atom m_wm_name;
+        Atom m_wm_maximized_horz;
+        Atom m_wm_maximized_vert;
+        Atom m_wm_clipboard;
+        Atom m_wm_selection;
+        Atom m_wm_utf8_string;
+        Atom m_wm_compound_string;
+        XSizeHints *m_size_hints;
+        int m_keymaps[2][256]; // TODO: static
+        PFN_GLXSWAPINTERVALEXT m_glXSwapIntervalEXT;
+        PFN_GLXSWAPINTERVALMESA m_glXSwapIntervalMESA;
+        uint64_t m_expose_timer;
+    };
 }
 
 #endif

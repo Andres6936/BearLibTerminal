@@ -25,9 +25,9 @@
 FT_BEGIN_HEADER
 
 
-  /* the Indic-specific script class */
+/* the Indic-specific script class */
 
-  AF_DECLARE_SCRIPT_CLASS(af_indic_script_class)
+AF_DECLARE_SCRIPT_CLASS( af_indic_script_class )
 
 
 /* */

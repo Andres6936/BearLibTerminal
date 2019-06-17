@@ -362,12 +362,12 @@ namespace BearLibTerminal
             throw;
         }
     }
-	
+
     CocoaWindow::~CocoaWindow()
     {
         Destroy();
     }
-	
+
     void CocoaWindow::Construct()
     {
         if (!NSApp)
@@ -382,7 +382,7 @@ namespace BearLibTerminal
         {
             throw std::runtime_error("Window system has already been initialized! (probably by another library)");
         }
-        
+
         [[NSApp delegate] setImpl:m_impl.get()];
 
         m_impl->m_autorelease_pool = [[NSAutoreleasePool alloc] init];
@@ -395,9 +395,9 @@ namespace BearLibTerminal
         [m_impl->m_window setBackgroundColor:[NSColor blueColor]];
         [m_impl->m_window setAcceptsMouseMovedEvents:YES];
         [m_impl->m_window setDelegate:[[CocoaTerminalWindowDelegate alloc] initWithImpl:m_impl.get()]];
-        
+
         // OpenGL
-        
+
         NSOpenGLPixelFormatAttribute attrs[] =
         {
             NSOpenGLPFADoubleBuffer,
@@ -406,26 +406,26 @@ namespace BearLibTerminal
             NSOpenGLPFADepthSize, 16, // XXX: depth buffer is not necessary
             0
         };
-        
+
         NSOpenGLPixelFormat* pixFmt = [[NSOpenGLPixelFormat alloc] initWithAttributes:attrs];
         if (pixFmt == nil)
             throw std::runtime_error("Failed to find suitable pixel format");
-        
+
         m_impl->m_view = [[NSOpenGLView alloc] initWithFrame:NSZeroRect pixelFormat:pixFmt];
         if (m_impl->m_view == nil)
             throw std::runtime_error("Failed to create OpenGL view");
-        
+
         [m_impl->m_window setContentView:m_impl->m_view];
         [[m_impl->m_view openGLContext] makeCurrentContext];
-        
+
         ProbeOpenGL();
-        
+
         SetVSync(true);
-		
+
         // Zoom and fullscreen buttons: hidden by default.
         [m_impl->m_window standardWindowButton:NSWindowZoomButton].hidden = YES;
         [m_impl->m_window standardWindowButton:NSWindowFullScreenButton].hidden = YES;
-		
+
         // Menu
         NSMenu* bar = [[NSMenu alloc] init];
         [NSApp setMainMenu:bar];
@@ -434,17 +434,17 @@ namespace BearLibTerminal
         [appMenu addItemWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@"q"];
         [appMenuItem setSubmenu:appMenu];
     }
-	
+
     void CocoaWindow::Destroy()
     {
         // NOTE: exit fullscreen here
-		
+
         if (m_impl->m_view != nil)
         {
             [m_impl->m_view release];
              m_impl->m_view = nil;
         }
-		
+
         if (m_impl->m_window != nil)
         {
             [m_impl->m_window orderOut:nil];
@@ -457,7 +457,7 @@ namespace BearLibTerminal
         {
             [m_impl->m_autorelease_pool drain];
         }
-	
+
         if (g_library_owns_nsapp)
         {
             [[NSApp delegate] setImpl:NULL];

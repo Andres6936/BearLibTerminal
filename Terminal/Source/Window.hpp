@@ -39,37 +39,54 @@
 
 namespace BearLibTerminal
 {
-	class Window
-	{
-	public:
-		typedef std::function<int(Event)> EventHandler;
-		virtual ~Window();
-		virtual Size GetActualSize() = 0; // XXX: GetClientSize?
-		virtual std::wstring GetClipboard();
-		virtual void SetTitle(const std::wstring& title) = 0;
-		virtual void SetIcon(const std::wstring& filename) = 0;
-		virtual void SetSizeHints(Size increment, Size minimum_size);
-		virtual void SetClientSize(const Size& size) = 0; // XXX: const& wtf
-		virtual void Show() = 0;
-		virtual void Hide() = 0;
-		virtual void SwapBuffers() = 0;
-		virtual void SetVSync(bool enabled) = 0;
-		virtual void SetResizeable(bool resizeable) = 0;
-		virtual void SetFullscreen(bool fullscreen) = 0;
-		virtual void SetCursorVisibility(bool visible) = 0;
-		bool IsFullscreen() const;
-		virtual int PumpEvents() = 0;
-		static std::unique_ptr<Window> Create(EventHandler handler);
-	protected:
-		Window(EventHandler handler);
-		EventHandler m_event_handler;
-		Size m_cell_size;
-		Size m_minimum_size;
-		Point m_location;
-		Size m_client_size;
-		bool m_fullscreen;
-		bool m_resizeable;
-	};
+    class Window
+    {
+    public:
+        typedef std::function <int( Event )> EventHandler;
+
+        virtual ~Window( );
+
+        virtual Size GetActualSize( ) = 0; // XXX: GetClientSize?
+        virtual std::wstring GetClipboard( );
+
+        virtual void SetTitle( const std::wstring &title ) = 0;
+
+        virtual void SetIcon( const std::wstring &filename ) = 0;
+
+        virtual void SetSizeHints( Size increment, Size minimum_size );
+
+        virtual void SetClientSize( const Size &size ) = 0; // XXX: const& wtf
+        virtual void Show( ) = 0;
+
+        virtual void Hide( ) = 0;
+
+        virtual void SwapBuffers( ) = 0;
+
+        virtual void SetVSync( bool enabled ) = 0;
+
+        virtual void SetResizeable( bool resizeable ) = 0;
+
+        virtual void SetFullscreen( bool fullscreen ) = 0;
+
+        virtual void SetCursorVisibility( bool visible ) = 0;
+
+        bool IsFullscreen( ) const;
+
+        virtual int PumpEvents( ) = 0;
+
+        static std::unique_ptr <Window> Create( EventHandler handler );
+
+    protected:
+        Window( EventHandler handler );
+
+        EventHandler m_event_handler;
+        Size m_cell_size;
+        Size m_minimum_size;
+        Point m_location;
+        Size m_client_size;
+        bool m_fullscreen;
+        bool m_resizeable;
+    };
 }
 
 #endif // BEARLIBTERMINAL_WINDOW_HPP

@@ -1,39 +1,39 @@
 # Install script for directory: /home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG
 
 # Set the install prefix
-if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/usr/local")
-endif()
-string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
+IF (NOT DEFINED CMAKE_INSTALL_PREFIX)
+    SET(CMAKE_INSTALL_PREFIX "/usr/local")
+ENDIF ()
+STRING(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
 # Set the install configuration name.
-if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
-  if(BUILD_TYPE)
-    string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
-           CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
-  else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Release")
-  endif()
-  message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
-endif()
+IF (NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
+    IF (BUILD_TYPE)
+        STRING(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
+                CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
+    ELSE ()
+        SET(CMAKE_INSTALL_CONFIG_NAME "Release")
+    ENDIF ()
+    MESSAGE(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
+ENDIF ()
 
 # Set the component getting installed.
-if(NOT CMAKE_INSTALL_COMPONENT)
-  if(COMPONENT)
-    message(STATUS "Install component: \"${COMPONENT}\"")
-    set(CMAKE_INSTALL_COMPONENT "${COMPONENT}")
-  else()
-    set(CMAKE_INSTALL_COMPONENT)
-  endif()
-endif()
+IF (NOT CMAKE_INSTALL_COMPONENT)
+    IF (COMPONENT)
+        MESSAGE(STATUS "Install component: \"${COMPONENT}\"")
+        SET(CMAKE_INSTALL_COMPONENT "${COMPONENT}")
+    ELSE ()
+        SET(CMAKE_INSTALL_COMPONENT)
+    ENDIF ()
+ENDIF ()
 
 # Install shared libraries without execute permission?
-if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "1")
-endif()
+IF (NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
+    SET(CMAKE_INSTALL_SO_NO_EXE "1")
+ENDIF ()
 
 # Is this installation the result of a crosscompile?
-if(NOT DEFINED CMAKE_CROSSCOMPILING)
-  set(CMAKE_CROSSCOMPILING "FALSE")
-endif()
+IF (NOT DEFINED CMAKE_CROSSCOMPILING)
+    SET(CMAKE_CROSSCOMPILING "FALSE")
+ENDIF ()
 

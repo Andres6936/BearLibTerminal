@@ -21,8 +21,11 @@
 */
 
 #include "Window.hpp"
+
 #if defined(__linux)
+
 #include "X11Window.hpp"
+
 #endif
 #if defined(_WIN32)
 #include "WinApiWindow.hpp"
@@ -30,47 +33,50 @@
 #if defined(__APPLE__)
 #include "CocoaWindow.h"
 #endif
+
 #include "Log.hpp"
 #include "Utility.hpp"
 
 namespace BearLibTerminal
 {
-	Window::Window(EventHandler handler):
-		m_event_handler(handler),
-		m_minimum_size(1, 1),
-		m_fullscreen(false),
-		m_resizeable(false)
-	{ }
+    Window::Window( EventHandler handler ) :
+            m_event_handler( handler ),
+            m_minimum_size( 1, 1 ),
+            m_fullscreen( false ),
+            m_resizeable( false )
+    { }
 
-	Window::~Window()
-	{ }
+    Window::~Window( )
+    { }
 
-	void Window::SetSizeHints(Size increment, Size minimum_size)
-	{
-		m_cell_size = increment;
-		m_minimum_size = minimum_size;
+    void Window::SetSizeHints( Size increment, Size minimum_size )
+    {
+        m_cell_size = increment;
+        m_minimum_size = minimum_size;
 
-		if (m_minimum_size.width < 1) m_minimum_size.width = 1;
-		if (m_minimum_size.height < 1) m_minimum_size.height = 1;
-	}
+        if ( m_minimum_size.width < 1 )
+        { m_minimum_size.width = 1; }
+        if ( m_minimum_size.height < 1 )
+        { m_minimum_size.height = 1; }
+    }
 
-	bool Window::IsFullscreen() const
-	{
-		return m_fullscreen;
-	}
+    bool Window::IsFullscreen( ) const
+    {
+        return m_fullscreen;
+    }
 
-	std::wstring Window::GetClipboard()
-	{
-		return std::wstring{};
-	}
+    std::wstring Window::GetClipboard( )
+    {
+        return std::wstring{ };
+    }
 
-	std::unique_ptr<Window> Window::Create(EventHandler handler)
-	{
+    std::unique_ptr <Window> Window::Create( EventHandler handler )
+    {
 #if defined(__linux)
-		return std::make_unique<X11Window>(handler);
+        return std::make_unique <X11Window>( handler );
 #endif
 #if defined(_WIN32)
-		return std::make_unique<WinApiWindow>(handler);
+        return std::make_unique<WinApiWindow>(handler);
 #endif
 #if defined(__APPLE__)
         return std::make_unique<CocoaWindow>(handler);

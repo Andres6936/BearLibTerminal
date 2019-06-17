@@ -21,23 +21,24 @@
 */
 
 #define BEARLIBTERMINAL_BUILDING_LIBRARY
+
 #include "BearLibTerminal.h"
 #include "Keystroke.hpp"
 #include <stdexcept>
 
 namespace BearLibTerminal
 {
-	Event::Event(int code):
-		code(code)
-	{ }
+    Event::Event( int code ) :
+            code( code )
+    { }
 
-	Event::Event(int code, std::unordered_map<int, int> properties):
-		code(code),
-		properties(std::move(properties))
-	{ }
+    Event::Event( int code, std::unordered_map <int, int> properties ) :
+            code( code ),
+            properties( std::move( properties ))
+    { }
 
-	int& Event::operator[](int index)
-	{
-		return properties[index];
-	}
+    int &Event::operator[]( int index )
+    {
+        return properties[ index ];
+    }
 }

@@ -1,13 +1,13 @@
-cmake_minimum_required(VERSION 2.8)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 
-project(picopng)
+PROJECT(picopng)
 
-set(SOURCES ./Source/PicoPNG.cpp)
+SET(SOURCES ./Source/PicoPNG.cpp)
 
-include_directories(./Include)
+INCLUDE_DIRECTORIES(./Include)
 
-if (UNIX)
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC") 
-endif()
+IF (UNIX)
+    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
+ENDIF ()
 
-add_library(picopng STATIC ${SOURCES})
+ADD_LIBRARY(picopng STATIC ${SOURCES})

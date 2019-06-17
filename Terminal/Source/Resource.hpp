@@ -31,11 +31,11 @@
 
 namespace BearLibTerminal
 {
-	class Resource
-	{
-	public:
-		static std::vector<uint8_t> Open(std::wstring name, std::wstring prefix = L"");
-	};
+    class Resource
+    {
+    public:
+        static std::vector <uint8_t> Open( std::wstring name, std::wstring prefix = L"" );
+    };
 }
 
 #endif /* RESOURCES_HPP_ */

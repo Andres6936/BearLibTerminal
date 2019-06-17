@@ -25,9 +25,9 @@
 FT_BEGIN_HEADER
 
 
-  /* the latin-specific script class */
+/* the latin-specific script class */
 
-  AF_DECLARE_SCRIPT_CLASS(af_latin2_script_class)
+AF_DECLARE_SCRIPT_CLASS( af_latin2_script_class )
 
 /* */
 

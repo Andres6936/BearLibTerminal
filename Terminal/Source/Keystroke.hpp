@@ -29,15 +29,17 @@
 
 namespace BearLibTerminal
 {
-	struct Event
-	{
-		int code;
-		std::unordered_map<int, int> properties; // Slot -> value map
+    struct Event
+    {
+        int code;
+        std::unordered_map <int, int> properties; // Slot -> value map
 
-		Event(int code);
-		Event(int code, std::unordered_map<int, int> properties);
-		int& operator[](int index);
-	};
+        Event( int code );
+
+        Event( int code, std::unordered_map <int, int> properties );
+
+        int &operator[]( int index );
+    };
 }
 
 #endif // BEARLIBTERMINAL_KEYSTROKE_HPP

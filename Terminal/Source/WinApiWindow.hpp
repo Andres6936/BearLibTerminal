@@ -43,59 +43,59 @@
 
 namespace BearLibTerminal
 {
-	// Windows Vista+ functionality, i. e. not available universally and cannot be linked against.
-	const DWORD DWMWA_EXTENDED_FRAME_BOUNDS = 9;
+    // Windows Vista+ functionality, i. e. not available universally and cannot be linked against.
+    const DWORD DWMWA_EXTENDED_FRAME_BOUNDS = 9;
 
-	class WinApiWindow: public Window
-	{
-	public:
-		WinApiWindow(EventHandler handler);
-		~WinApiWindow();
-		bool ValidateIcon(const std::wstring& filename);
-		void SetTitle(const std::wstring& title);
-		void SetIcon(const std::wstring& filename);
-		void SetClientSize(const Size& size);
-		void Show();
-		void Hide();
-		bool AcquireRC();
-		bool ReleaseRC();
-		void SwapBuffers();
-		void SetVSync(bool enabled);
-		void SetResizeable(bool resizeable);
-		void SetFullscreen(bool fullscreen);
-		void SetCursorVisibility(bool visible);
-		Size GetActualSize();
-		int PumpEvents();
-	protected:
-		bool Construct();
-		void Destroy();
-		void DestroyUnlocked();
-		bool CreateWindowObject();
-		bool CreateOpenGLContext();
-		void DestroyWindowObject();
-		void DestroyOpenGLContext();
-		void Redraw();
-		void ClipToScreen(int width, int height, bool center);
-		static LRESULT CALLBACK SharedWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
-		LRESULT WindowProc(UINT uMsg, WPARAM wParam, LPARAM lParam);
-		LRESULT HandleWmPaint(WPARAM wParam, LPARAM lParam);
-	protected:
-		std::wstring m_class_name;
-		HWND m_handle;
-		HDC m_device_context;
-		HGLRC m_rendering_context;
-		bool m_maximized;
-		uint64_t m_last_mouse_click;
-		int m_consecutive_mouse_clicks;
-		bool m_suppress_wm_paint_once;
-		bool m_mouse_cursor_enabled;
-		bool m_mouse_cursor_visible;
-		std::list<Event> m_events;
-		bool m_resizing;
-		bool m_has_been_shown;
-		Module::Function<BOOL, stdcall_t, int> m_wglSwapIntervalEXT;
-		Module::Function<HRESULT, stdcall_t, HWND, DWORD, PVOID, DWORD> m_DwmGetWindowAttribute;
-	};
+    class WinApiWindow: public Window
+    {
+    public:
+        WinApiWindow(EventHandler handler);
+        ~WinApiWindow();
+        bool ValidateIcon(const std::wstring& filename);
+        void SetTitle(const std::wstring& title);
+        void SetIcon(const std::wstring& filename);
+        void SetClientSize(const Size& size);
+        void Show();
+        void Hide();
+        bool AcquireRC();
+        bool ReleaseRC();
+        void SwapBuffers();
+        void SetVSync(bool enabled);
+        void SetResizeable(bool resizeable);
+        void SetFullscreen(bool fullscreen);
+        void SetCursorVisibility(bool visible);
+        Size GetActualSize();
+        int PumpEvents();
+    protected:
+        bool Construct();
+        void Destroy();
+        void DestroyUnlocked();
+        bool CreateWindowObject();
+        bool CreateOpenGLContext();
+        void DestroyWindowObject();
+        void DestroyOpenGLContext();
+        void Redraw();
+        void ClipToScreen(int width, int height, bool center);
+        static LRESULT CALLBACK SharedWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+        LRESULT WindowProc(UINT uMsg, WPARAM wParam, LPARAM lParam);
+        LRESULT HandleWmPaint(WPARAM wParam, LPARAM lParam);
+    protected:
+        std::wstring m_class_name;
+        HWND m_handle;
+        HDC m_device_context;
+        HGLRC m_rendering_context;
+        bool m_maximized;
+        uint64_t m_last_mouse_click;
+        int m_consecutive_mouse_clicks;
+        bool m_suppress_wm_paint_once;
+        bool m_mouse_cursor_enabled;
+        bool m_mouse_cursor_visible;
+        std::list<Event> m_events;
+        bool m_resizing;
+        bool m_has_been_shown;
+        Module::Function<BOOL, stdcall_t, int> m_wglSwapIntervalEXT;
+        Module::Function<HRESULT, stdcall_t, HWND, DWORD, PVOID, DWORD> m_DwmGetWindowAttribute;
+    };
 }
 
 #endif // _WIN32

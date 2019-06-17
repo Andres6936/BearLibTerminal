@@ -24,7 +24,7 @@ FT_BEGIN_HEADER
 
 #include FT_INTERNAL_PIC_H
 
- #ifndef FT_CONFIG_OPTION_PIC
+#ifndef FT_CONFIG_OPTION_PIC
 #define FT_SFNT_SERVICES_GET             sfnt_services
 #define FT_SFNT_SERVICE_GLYPH_DICT_GET   sfnt_service_glyph_dict
 #define FT_SFNT_SERVICE_PS_NAME_GET      sfnt_service_ps_name

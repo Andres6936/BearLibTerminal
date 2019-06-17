@@ -28,7 +28,7 @@
 #endif
 
 #ifdef __GNUC__
-#if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ > 1)
+#if __GNUC__ > 4 || ( __GNUC__ == 4 && __GNUC_MINOR__ > 1 )
 #pragma GCC diagnostic ignored "-Wformat-nonliteral" /* False-positive when wrapping vsnprintf. */
 #endif /* __GNUC__ >= 4.1 */
 #endif
@@ -39,8 +39,11 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <wchar.h>
+
 #if defined(__cplusplus)
+
 #include <sstream>
+
 #endif
 
 /*
@@ -222,10 +225,10 @@ typedef uint32_t color_t;
 
 typedef struct dimensions_t_
 {
-	int width;
-	int height;
+    int width;
+    int height;
 }
-dimensions_t;
+        dimensions_t;
 
 #if defined(BEARLIBTERMINAL_STATIC_BUILD)
 #  define TERMINAL_API
@@ -247,47 +250,47 @@ dimensions_t;
 extern "C" {
 #endif
 
-TERMINAL_API int TerminalOpen();
-TERMINAL_API void TerminalClose();
-TERMINAL_API int TerminalSet8( const int8_t *value);
-TERMINAL_API int TerminalSet16( const int16_t *value);
-TERMINAL_API int TerminalSet32( const int32_t *value);
-TERMINAL_API void TerminalRefresh();
-TERMINAL_API void TerminalClear();
-TERMINAL_API void TerminalClearArea( int x, int y, int w, int h);
-TERMINAL_API void TerminalCrop( int x, int y, int w, int h);
-TERMINAL_API void TerminalLayer( int index);
-TERMINAL_API void TerminalColor( color_t color);
-TERMINAL_API void TerminalBackColor( color_t color);
-TERMINAL_API void TerminalComposition( int mode);
-TERMINAL_API void TerminalFont8( const int8_t *name);
-TERMINAL_API void TerminalFont16( const int16_t *name);
-TERMINAL_API void TerminalFont32( const int32_t *name);
-TERMINAL_API void TerminalPut( int x, int y, int code);
-TERMINAL_API void TerminalPutExt( int x, int y, int dx, int dy, int code, color_t *corners);
-TERMINAL_API int TerminalPick( int x, int y, int index);
-TERMINAL_API color_t TerminalPickColor( int x, int y, int index);
-TERMINAL_API color_t TerminalPickBackColor( int x, int y);
-TERMINAL_API void TerminalPrintExt8( int x, int y, int w, int h, int align, const int8_t *s, int *out_w, int *out_h);
-TERMINAL_API void TerminalPrintExt16( int x, int y, int w, int h, int align, const int16_t *s, int *out_w, int *out_h);
-TERMINAL_API void TerminalPrintExt32( int x, int y, int w, int h, int align, const int32_t *s, int *out_w, int *out_h);
-TERMINAL_API void TerminalMeasureExt8( int w, int h, const int8_t *s, int *out_w, int *out_h);
-TERMINAL_API void TerminalMeasureExt16( int w, int h, const int16_t *s, int *out_w, int *out_h);
-TERMINAL_API void TerminalMeasureExt32( int w, int h, const int32_t *s, int *out_w, int *out_h);
-TERMINAL_API int TerminalHasInput();
-TERMINAL_API int TerminalState( int code);
-TERMINAL_API int TerminalRead();
-TERMINAL_API int TerminalReadStr8( int x, int y, int8_t *buffer, int max);
-TERMINAL_API int TerminalReadStr16( int x, int y, int16_t *buffer, int max);
-TERMINAL_API int TerminalReadStr32( int x, int y, int32_t *buffer, int max);
-TERMINAL_API int TerminalPeek();
-TERMINAL_API void TerminalDelay( int period);
-TERMINAL_API const int8_t* TerminalGet8( const int8_t *key, const int8_t *default_);
-TERMINAL_API const int16_t* TerminalGet16( const int16_t *key, const int16_t *default_);
-TERMINAL_API const int32_t* TerminalGet32( const int32_t *key, const int32_t *default_);
-TERMINAL_API color_t ColorFromName8( const int8_t *name);
-TERMINAL_API color_t ColorFromName16( const int16_t *name);
-TERMINAL_API color_t ColorFromName32( const int32_t *name);
+TERMINAL_API int TerminalOpen( );
+TERMINAL_API void TerminalClose( );
+TERMINAL_API int TerminalSet8( const int8_t *value );
+TERMINAL_API int TerminalSet16( const int16_t *value );
+TERMINAL_API int TerminalSet32( const int32_t *value );
+TERMINAL_API void TerminalRefresh( );
+TERMINAL_API void TerminalClear( );
+TERMINAL_API void TerminalClearArea( int x, int y, int w, int h );
+TERMINAL_API void TerminalCrop( int x, int y, int w, int h );
+TERMINAL_API void TerminalLayer( int index );
+TERMINAL_API void TerminalColor( color_t color );
+TERMINAL_API void TerminalBackColor( color_t color );
+TERMINAL_API void TerminalComposition( int mode );
+TERMINAL_API void TerminalFont8( const int8_t *name );
+TERMINAL_API void TerminalFont16( const int16_t *name );
+TERMINAL_API void TerminalFont32( const int32_t *name );
+TERMINAL_API void TerminalPut( int x, int y, int code );
+TERMINAL_API void TerminalPutExt( int x, int y, int dx, int dy, int code, color_t *corners );
+TERMINAL_API int TerminalPick( int x, int y, int index );
+TERMINAL_API color_t TerminalPickColor( int x, int y, int index );
+TERMINAL_API color_t TerminalPickBackColor( int x, int y );
+TERMINAL_API void TerminalPrintExt8( int x, int y, int w, int h, int align, const int8_t *s, int *out_w, int *out_h );
+TERMINAL_API void TerminalPrintExt16( int x, int y, int w, int h, int align, const int16_t *s, int *out_w, int *out_h );
+TERMINAL_API void TerminalPrintExt32( int x, int y, int w, int h, int align, const int32_t *s, int *out_w, int *out_h );
+TERMINAL_API void TerminalMeasureExt8( int w, int h, const int8_t *s, int *out_w, int *out_h );
+TERMINAL_API void TerminalMeasureExt16( int w, int h, const int16_t *s, int *out_w, int *out_h );
+TERMINAL_API void TerminalMeasureExt32( int w, int h, const int32_t *s, int *out_w, int *out_h );
+TERMINAL_API int TerminalHasInput( );
+TERMINAL_API int TerminalState( int code );
+TERMINAL_API int TerminalRead( );
+TERMINAL_API int TerminalReadStr8( int x, int y, int8_t *buffer, int max );
+TERMINAL_API int TerminalReadStr16( int x, int y, int16_t *buffer, int max );
+TERMINAL_API int TerminalReadStr32( int x, int y, int32_t *buffer, int max );
+TERMINAL_API int TerminalPeek( );
+TERMINAL_API void TerminalDelay( int period );
+TERMINAL_API const int8_t *TerminalGet8( const int8_t *key, const int8_t *default_ );
+TERMINAL_API const int16_t *TerminalGet16( const int16_t *key, const int16_t *default_ );
+TERMINAL_API const int32_t *TerminalGet32( const int32_t *key, const int32_t *default_ );
+TERMINAL_API color_t ColorFromName8( const int8_t *name );
+TERMINAL_API color_t ColorFromName16( const int16_t *name );
+TERMINAL_API color_t ColorFromName32( const int32_t *name );
 
 #ifdef __cplusplus
 } /* End of extern "C" */
@@ -296,8 +299,8 @@ TERMINAL_API color_t ColorFromName32( const int32_t *name);
 /*
  * Utility macro trick which allows macro-in-macro expansion
  */
-#define TERMINAL_CAT(a, b) TERMINAL_PRIMITIVE_CAT(a, b)
-#define TERMINAL_PRIMITIVE_CAT(a, b) a ## b
+#define TERMINAL_CAT( a, b ) TERMINAL_PRIMITIVE_CAT(a, b)
+#define TERMINAL_PRIMITIVE_CAT( a, b ) a ## b
 
 /*
  * wchar_t has different sized depending on platform. Furthermore, it's size
@@ -321,7 +324,7 @@ TERMINAL_API color_t ColorFromName32( const int32_t *name);
 
 #if defined(__cplusplus)
 #define TERMINAL_INLINE inline
-#define TERMINAL_DEFAULT(value) = value
+#define TERMINAL_DEFAULT( value ) = value
 #else
 #define TERMINAL_INLINE static inline
 #define TERMINAL_DEFAULT(value)
@@ -337,248 +340,266 @@ TERMINAL_API color_t ColorFromName32( const int32_t *name);
 
 #define TERMINAL_VSPRINTF_MAXIMUM_BUFFER_SIZE 65536
 
-TERMINAL_INLINE const char* terminal_vsprintf(const char* s, va_list args)
+TERMINAL_INLINE const char *terminal_vsprintf( const char *s, va_list args )
 {
-	static int buffer_size = 512;
-	static char* buffer = NULL;
-	int rc = 0;
+    static int buffer_size = 512;
+    static char *buffer = NULL;
+    int rc = 0;
 
-	if (!s)
-		return NULL;
-	else if (!buffer)
-		buffer = (char*)malloc(buffer_size);
+    if ( !s )
+    {
+        return NULL;
+    }
+    else if ( !buffer )
+    {
+        buffer = ( char * ) malloc( buffer_size );
+    }
 
-	while (1)
-	{
-		buffer[buffer_size-1] = '\0';
-		rc = vsnprintf(buffer, buffer_size, s, args);
-		if (rc >= buffer_size || buffer[buffer_size-1] != '\0')
-		{
-			if (buffer_size >= TERMINAL_VSPRINTF_MAXIMUM_BUFFER_SIZE)
-				return NULL;
+    while ( 1 )
+    {
+        buffer[ buffer_size - 1 ] = '\0';
+        rc = vsnprintf( buffer, buffer_size, s, args );
+        if ( rc >= buffer_size || buffer[ buffer_size - 1 ] != '\0' )
+        {
+            if ( buffer_size >= TERMINAL_VSPRINTF_MAXIMUM_BUFFER_SIZE )
+            {
+                return NULL;
+            }
 
-			buffer_size *= 2;
-			buffer = (char*)realloc(buffer, buffer_size);
-		}
-		else
-		{
-			break;
-		}
-	}
+            buffer_size *= 2;
+            buffer = ( char * ) realloc( buffer, buffer_size );
+        }
+        else
+        {
+            break;
+        }
+    }
 
-	return rc >= 0? buffer: NULL;
+    return rc >= 0 ? buffer : NULL;
 }
 
-TERMINAL_INLINE const wchar_t* terminal_vswprintf(const wchar_t* s, va_list args)
+TERMINAL_INLINE const wchar_t *terminal_vswprintf( const wchar_t *s, va_list args )
 {
-	static int buffer_size = 512;
-	static wchar_t* buffer = NULL;
-	int rc = 0;
+    static int buffer_size = 512;
+    static wchar_t *buffer = NULL;
+    int rc = 0;
 
-	if (!s)
-		return NULL;
-	else if (!buffer)
-		buffer = (wchar_t*)malloc(buffer_size * sizeof(wchar_t));
+    if ( !s )
+    {
+        return NULL;
+    }
+    else if ( !buffer )
+    {
+        buffer = ( wchar_t * ) malloc( buffer_size * sizeof( wchar_t ));
+    }
 
-	while (1)
-	{
-		buffer[buffer_size-1] = L'\0';
+    while ( 1 )
+    {
+        buffer[ buffer_size - 1 ] = L'\0';
 #if defined(_WIN32)
-		rc = _vsnwprintf(buffer, buffer_size, s, args);
+        rc = _vsnwprintf(buffer, buffer_size, s, args);
 #else
-		rc = vswprintf(buffer, buffer_size, s, args);
+        rc = vswprintf( buffer, buffer_size, s, args );
 #endif
-		if (rc >= buffer_size || buffer[buffer_size-1] != L'\0')
-		{
-			if (buffer_size >= TERMINAL_VSPRINTF_MAXIMUM_BUFFER_SIZE)
-				return NULL;
+        if ( rc >= buffer_size || buffer[ buffer_size - 1 ] != L'\0' )
+        {
+            if ( buffer_size >= TERMINAL_VSPRINTF_MAXIMUM_BUFFER_SIZE )
+            {
+                return NULL;
+            }
 
-			buffer_size *= 2;
-			buffer = (wchar_t*)realloc(buffer, buffer_size * sizeof(wchar_t));
-		}
-		else
-		{
-			break;
-		}
-	}
+            buffer_size *= 2;
+            buffer = ( wchar_t * ) realloc( buffer, buffer_size * sizeof( wchar_t ));
+        }
+        else
+        {
+            break;
+        }
+    }
 
-	return rc >= 0? buffer: NULL;
+    return rc >= 0 ? buffer : NULL;
 }
 
-#define TERMINAL_FORMATTED_WRAP(type, call) \
-	type ret; \
-	va_list args; \
-	va_start(args, s); \
-	ret = call; \
-	va_end(args); \
-	return ret;
+#define TERMINAL_FORMATTED_WRAP( type, call ) \
+    type ret; \
+    va_list args; \
+    va_start(args, s); \
+    ret = call; \
+    va_end(args); \
+    return ret;
 
-#define TERMINAL_FORMATTED_WRAP_V(call) \
-	va_list args; \
-	va_start(args, s); \
-	call; \
-	va_end(args);
+#define TERMINAL_FORMATTED_WRAP_V( call ) \
+    va_list args; \
+    va_start(args, s); \
+    call; \
+    va_end(args);
 
 /*
  * This set of inline functions define basic name substitution + type cast:
  * terminal_[w]xxxx -> terminal_xxxx{8|16|32}
  */
 
-TERMINAL_INLINE int TerminalSet( const char *s)
+TERMINAL_INLINE int TerminalSet( const char *s )
 {
-	return TerminalSet8(( const int8_t * ) s );
+    return TerminalSet8(( const int8_t * ) s );
 }
 
-TERMINAL_INLINE int TerminalSetF( const char *s, ...)
+TERMINAL_INLINE int TerminalSetF( const char *s, ... )
 {
-	TERMINAL_FORMATTED_WRAP(int, TerminalSet( terminal_vsprintf( s, args )))
+    TERMINAL_FORMATTED_WRAP( int, TerminalSet( terminal_vsprintf( s, args )))
 }
 
-TERMINAL_INLINE int TerminalWSet( const wchar_t *s)
+TERMINAL_INLINE int TerminalWSet( const wchar_t *s )
 {
-	return TERMINAL_CAT(TerminalSet, TERMINAL_WCHAR_SUFFIX)((const TERMINAL_WCHAR_TYPE*)s);
+    return TERMINAL_CAT( TerminalSet, TERMINAL_WCHAR_SUFFIX )(( const TERMINAL_WCHAR_TYPE * ) s );
 }
 
-TERMINAL_INLINE int TerminalWSetF( const wchar_t *s, ...)
+TERMINAL_INLINE int TerminalWSetF( const wchar_t *s, ... )
 {
-	TERMINAL_FORMATTED_WRAP(int, TerminalWSet( terminal_vswprintf( s, args )))
+    TERMINAL_FORMATTED_WRAP( int, TerminalWSet( terminal_vswprintf( s, args )))
 }
 
-TERMINAL_INLINE void TerminalFont( const char *name)
+TERMINAL_INLINE void TerminalFont( const char *name )
 {
     TerminalFont8(( const int8_t * ) name );
 }
 
-TERMINAL_INLINE void TerminalWFont( const wchar_t *name)
+TERMINAL_INLINE void TerminalWFont( const wchar_t *name )
 {
-	TERMINAL_CAT(TerminalFont, TERMINAL_WCHAR_SUFFIX)((const TERMINAL_WCHAR_TYPE*)name);
+    TERMINAL_CAT( TerminalFont, TERMINAL_WCHAR_SUFFIX )(( const TERMINAL_WCHAR_TYPE * ) name );
 }
 
-TERMINAL_INLINE dimensions_t TerminalPrint( int x, int y, const char *s)
+TERMINAL_INLINE dimensions_t TerminalPrint( int x, int y, const char *s )
 {
-	dimensions_t ret;
+    dimensions_t ret;
     TerminalPrintExt8( x, y, 0, 0, TK_ALIGN_DEFAULT, ( const int8_t * ) s, &ret.width, &ret.height );
-	return ret;
+    return ret;
 }
 
-TERMINAL_INLINE dimensions_t TerminalPrintF( int x, int y, const char *s, ...)
+TERMINAL_INLINE dimensions_t TerminalPrintF( int x, int y, const char *s, ... )
 {
-	TERMINAL_FORMATTED_WRAP(dimensions_t, TerminalPrint( x, y, terminal_vsprintf( s, args )))
+    TERMINAL_FORMATTED_WRAP( dimensions_t, TerminalPrint( x, y, terminal_vsprintf( s, args )))
 }
 
-TERMINAL_INLINE dimensions_t TerminalWPrint( int x, int y, const wchar_t *s)
+TERMINAL_INLINE dimensions_t TerminalWPrint( int x, int y, const wchar_t *s )
 {
-	dimensions_t ret;
-	TERMINAL_CAT(TerminalPrintExt, TERMINAL_WCHAR_SUFFIX)(x, y, 0, 0, TK_ALIGN_DEFAULT, (const TERMINAL_WCHAR_TYPE*)s, &ret.width, &ret.height);
-	return ret;
+    dimensions_t ret;
+    TERMINAL_CAT( TerminalPrintExt, TERMINAL_WCHAR_SUFFIX )( x, y, 0, 0, TK_ALIGN_DEFAULT,
+                                                             ( const TERMINAL_WCHAR_TYPE * ) s, &ret.width,
+                                                             &ret.height );
+    return ret;
 }
 
-TERMINAL_INLINE dimensions_t TerminalWPrintF( int x, int y, const wchar_t *s, ...)
+TERMINAL_INLINE dimensions_t TerminalWPrintF( int x, int y, const wchar_t *s, ... )
 {
-	TERMINAL_FORMATTED_WRAP(dimensions_t, TerminalWPrint( x, y, terminal_vswprintf( s, args )))
+    TERMINAL_FORMATTED_WRAP( dimensions_t, TerminalWPrint( x, y, terminal_vswprintf( s, args )))
 }
 
-TERMINAL_INLINE dimensions_t TerminalPrintExt( int x, int y, int w, int h, int align, const char *s)
+TERMINAL_INLINE dimensions_t TerminalPrintExt( int x, int y, int w, int h, int align, const char *s )
 {
-	dimensions_t ret;
+    dimensions_t ret;
     TerminalPrintExt8( x, y, w, h, align, ( const int8_t * ) s, &ret.width, &ret.height );
-	return ret;
+    return ret;
 }
 
-TERMINAL_INLINE dimensions_t TerminalPrintFExt( int x, int y, int w, int h, int align, const char *s, ...)
+TERMINAL_INLINE dimensions_t TerminalPrintFExt( int x, int y, int w, int h, int align, const char *s, ... )
 {
-	TERMINAL_FORMATTED_WRAP(dimensions_t, TerminalPrintExt( x, y, w, h, align, terminal_vsprintf( s, args )));
+    TERMINAL_FORMATTED_WRAP( dimensions_t, TerminalPrintExt( x, y, w, h, align, terminal_vsprintf( s, args )));
 }
 
-TERMINAL_INLINE dimensions_t TerminalWPrintExt( int x, int y, int w, int h, int align, const wchar_t *s)
+TERMINAL_INLINE dimensions_t TerminalWPrintExt( int x, int y, int w, int h, int align, const wchar_t *s )
 {
-	dimensions_t ret;
-	TERMINAL_CAT(TerminalPrintExt, TERMINAL_WCHAR_SUFFIX)(x, y, w, h, align, (const TERMINAL_WCHAR_TYPE*)s, &ret.width, &ret.height);
-	return ret;
+    dimensions_t ret;
+    TERMINAL_CAT( TerminalPrintExt, TERMINAL_WCHAR_SUFFIX )( x, y, w, h, align, ( const TERMINAL_WCHAR_TYPE * ) s,
+                                                             &ret.width, &ret.height );
+    return ret;
 }
 
-TERMINAL_INLINE dimensions_t TerminalWPrintFExt( int x, int y, int w, int h, int align, const wchar_t *s, ...)
+TERMINAL_INLINE dimensions_t TerminalWPrintFExt( int x, int y, int w, int h, int align, const wchar_t *s, ... )
 {
-	TERMINAL_FORMATTED_WRAP(dimensions_t, TerminalWPrintExt( x, y, w, h, align, terminal_vswprintf( s, args )))
+    TERMINAL_FORMATTED_WRAP( dimensions_t, TerminalWPrintExt( x, y, w, h, align, terminal_vswprintf( s, args )))
 }
 
-TERMINAL_INLINE dimensions_t TerminalMeasure( const char *s)
+TERMINAL_INLINE dimensions_t TerminalMeasure( const char *s )
 {
-	dimensions_t ret;
+    dimensions_t ret;
     TerminalMeasureExt8( 0, 0, ( const int8_t * ) s, &ret.width, &ret.height );
-	return ret;
+    return ret;
 }
 
-TERMINAL_INLINE dimensions_t TerminalMeasureF( const char *s, ...)
+TERMINAL_INLINE dimensions_t TerminalMeasureF( const char *s, ... )
 {
-	TERMINAL_FORMATTED_WRAP(dimensions_t, TerminalMeasure( terminal_vsprintf( s, args )))
+    TERMINAL_FORMATTED_WRAP( dimensions_t, TerminalMeasure( terminal_vsprintf( s, args )))
 }
 
-TERMINAL_INLINE dimensions_t TerminalWMeasure( const wchar_t *s)
+TERMINAL_INLINE dimensions_t TerminalWMeasure( const wchar_t *s )
 {
-	dimensions_t ret;
-	TERMINAL_CAT(TerminalMeasureExt, TERMINAL_WCHAR_SUFFIX)(0, 0, (const TERMINAL_WCHAR_TYPE*)s, &ret.width, &ret.height);
-	return ret;
+    dimensions_t ret;
+    TERMINAL_CAT( TerminalMeasureExt, TERMINAL_WCHAR_SUFFIX )( 0, 0, ( const TERMINAL_WCHAR_TYPE * ) s, &ret.width,
+                                                               &ret.height );
+    return ret;
 }
 
-TERMINAL_INLINE dimensions_t TerminalWMeasureF( const wchar_t *s, ...)
+TERMINAL_INLINE dimensions_t TerminalWMeasureF( const wchar_t *s, ... )
 {
-	TERMINAL_FORMATTED_WRAP(dimensions_t, TerminalWMeasure( terminal_vswprintf( s, args )))
+    TERMINAL_FORMATTED_WRAP( dimensions_t, TerminalWMeasure( terminal_vswprintf( s, args )))
 }
 
-TERMINAL_INLINE dimensions_t TerminalMeasureExt( int w, int h, const char *s)
+TERMINAL_INLINE dimensions_t TerminalMeasureExt( int w, int h, const char *s )
 {
-	dimensions_t ret;
+    dimensions_t ret;
     TerminalMeasureExt8( w, h, ( const int8_t * ) s, &ret.width, &ret.height );
-	return ret;
+    return ret;
 }
 
-TERMINAL_INLINE dimensions_t TerminalMeasureFExt( int w, int h, const char *s, ...)
+TERMINAL_INLINE dimensions_t TerminalMeasureFExt( int w, int h, const char *s, ... )
 {
-	TERMINAL_FORMATTED_WRAP(dimensions_t, TerminalMeasureExt( w, h, terminal_vsprintf( s, args )))
+    TERMINAL_FORMATTED_WRAP( dimensions_t, TerminalMeasureExt( w, h, terminal_vsprintf( s, args )))
 }
 
-TERMINAL_INLINE dimensions_t TerminalWMeasureExt( int w, int h, const wchar_t *s)
+TERMINAL_INLINE dimensions_t TerminalWMeasureExt( int w, int h, const wchar_t *s )
 {
-	dimensions_t ret;
-	TERMINAL_CAT(TerminalMeasureExt, TERMINAL_WCHAR_SUFFIX)(w, h, (const TERMINAL_WCHAR_TYPE*)s, &ret.width, &ret.height);
-	return ret;
+    dimensions_t ret;
+    TERMINAL_CAT( TerminalMeasureExt, TERMINAL_WCHAR_SUFFIX )( w, h, ( const TERMINAL_WCHAR_TYPE * ) s, &ret.width,
+                                                               &ret.height );
+    return ret;
 }
 
-TERMINAL_INLINE dimensions_t TerminalWMeasureFExt( int w, int h, const wchar_t *s, ...)
+TERMINAL_INLINE dimensions_t TerminalWMeasureFExt( int w, int h, const wchar_t *s, ... )
 {
-	TERMINAL_FORMATTED_WRAP(dimensions_t, TerminalWMeasureExt( w, h, terminal_vswprintf( s, args )))
+    TERMINAL_FORMATTED_WRAP( dimensions_t, TerminalWMeasureExt( w, h, terminal_vswprintf( s, args )))
 }
 
-TERMINAL_INLINE int TerminalReadStr( int x, int y, char *buffer, int max)
+TERMINAL_INLINE int TerminalReadStr( int x, int y, char *buffer, int max )
 {
-	return TerminalReadStr8( x, y, ( int8_t * ) buffer, max );
+    return TerminalReadStr8( x, y, ( int8_t * ) buffer, max );
 }
 
-TERMINAL_INLINE int TerminalReadWStr( int x, int y, wchar_t *buffer, int max)
+TERMINAL_INLINE int TerminalReadWStr( int x, int y, wchar_t *buffer, int max )
 {
-	return TERMINAL_CAT(TerminalReadStr, TERMINAL_WCHAR_SUFFIX)(x, y, (TERMINAL_WCHAR_TYPE*)buffer, max);
+    return TERMINAL_CAT( TerminalReadStr, TERMINAL_WCHAR_SUFFIX )( x, y, ( TERMINAL_WCHAR_TYPE * ) buffer, max );
 }
 
-TERMINAL_INLINE const char* TerminalGet( const char *key, const char *default_ TERMINAL_DEFAULT(( const char * ) 0 ))
+TERMINAL_INLINE const char *TerminalGet( const char *key, const char *default_ TERMINAL_DEFAULT(( const char * ) 0 ) )
 {
-	return (const char*) TerminalGet8(( const int8_t * ) key, ( const int8_t * ) default_ );
+    return ( const char * ) TerminalGet8(( const int8_t * ) key, ( const int8_t * ) default_ );
 }
 
-TERMINAL_INLINE const wchar_t* TerminalWGet( const wchar_t *key,
-                                             const wchar_t *default_ TERMINAL_DEFAULT(( const wchar_t * ) 0 ))
+TERMINAL_INLINE const wchar_t *TerminalWGet( const wchar_t *key,
+                                             const wchar_t *default_ TERMINAL_DEFAULT(( const wchar_t * ) 0 ) )
 {
-	return (const wchar_t*)TERMINAL_CAT(TerminalGet, TERMINAL_WCHAR_SUFFIX)((const TERMINAL_WCHAR_TYPE*)key, (const TERMINAL_WCHAR_TYPE*)default_);
+    return ( const wchar_t * ) TERMINAL_CAT( TerminalGet, TERMINAL_WCHAR_SUFFIX )(( const TERMINAL_WCHAR_TYPE * ) key,
+                                                                                  ( const TERMINAL_WCHAR_TYPE * ) default_ );
 }
 
-TERMINAL_INLINE color_t ColorFromName( const char *name)
+TERMINAL_INLINE color_t ColorFromName( const char *name )
 {
-	return ColorFromName8(( const int8_t * ) name );
+    return ColorFromName8(( const int8_t * ) name );
 }
 
-TERMINAL_INLINE color_t ColorFromWName( const wchar_t *name)
+TERMINAL_INLINE color_t ColorFromWName( const wchar_t *name )
 {
-	return TERMINAL_CAT(ColorFromName, TERMINAL_WCHAR_SUFFIX)((const TERMINAL_WCHAR_TYPE*)name);
+    return TERMINAL_CAT( ColorFromName, TERMINAL_WCHAR_SUFFIX )(( const TERMINAL_WCHAR_TYPE * ) name );
 }
 
 #ifdef __cplusplus
@@ -586,118 +607,121 @@ TERMINAL_INLINE color_t ColorFromWName( const wchar_t *name)
  * C++ supports function overloading, should take advantage of it.
  */
 
-TERMINAL_INLINE int TerminalSet( const wchar_t *s)
+TERMINAL_INLINE int TerminalSet( const wchar_t *s )
 {
-	return TerminalWSet( s );
+    return TerminalWSet( s );
 }
 
-TERMINAL_INLINE int TerminalSetF( const wchar_t *s, ...)
+TERMINAL_INLINE int TerminalSetF( const wchar_t *s, ... )
 {
-	TERMINAL_FORMATTED_WRAP(int, TerminalWSet( terminal_vswprintf( s, args )));
+    TERMINAL_FORMATTED_WRAP( int, TerminalWSet( terminal_vswprintf( s, args )));
 }
 
-TERMINAL_INLINE void TerminalColor( const char *name)
+TERMINAL_INLINE void TerminalColor( const char *name )
 {
     TerminalColor( ColorFromName( name ));
 }
 
-TERMINAL_INLINE void TerminalColor( const wchar_t *name)
+TERMINAL_INLINE void TerminalColor( const wchar_t *name )
 {
     TerminalColor( ColorFromWName( name ));
 }
 
-TERMINAL_INLINE void TerminalBackColor( const char *name)
+TERMINAL_INLINE void TerminalBackColor( const char *name )
 {
     TerminalBackColor( ColorFromName( name ));
 }
 
-TERMINAL_INLINE void TerminalBackColor( const wchar_t *name)
+TERMINAL_INLINE void TerminalBackColor( const wchar_t *name )
 {
     TerminalBackColor( ColorFromWName( name ));
 }
 
-TERMINAL_INLINE void TerminalFont( const wchar_t *name)
+TERMINAL_INLINE void TerminalFont( const wchar_t *name )
 {
     TerminalWFont( name );
 }
 
-TERMINAL_INLINE void TerminalPutExt( int x, int y, int dx, int dy, int code)
+TERMINAL_INLINE void TerminalPutExt( int x, int y, int dx, int dy, int code )
 {
     TerminalPutExt( x, y, dx, dy, code, 0 );
 }
 
-TERMINAL_INLINE dimensions_t TerminalPrint( int x, int y, const wchar_t *s)
+TERMINAL_INLINE dimensions_t TerminalPrint( int x, int y, const wchar_t *s )
 {
-	return TerminalWPrint( x, y, s );
+    return TerminalWPrint( x, y, s );
 }
 
-TERMINAL_INLINE dimensions_t TerminalPrintF( int x, int y, const wchar_t *s, ...)
+TERMINAL_INLINE dimensions_t TerminalPrintF( int x, int y, const wchar_t *s, ... )
 {
-	TERMINAL_FORMATTED_WRAP(dimensions_t, TerminalWPrint( x, y, terminal_vswprintf( s, args )))
+    TERMINAL_FORMATTED_WRAP( dimensions_t, TerminalWPrint( x, y, terminal_vswprintf( s, args )))
 }
 
-TERMINAL_INLINE dimensions_t TerminalPrintExt( int x, int y, int w, int h, int align, const wchar_t *s)
+TERMINAL_INLINE dimensions_t TerminalPrintExt( int x, int y, int w, int h, int align, const wchar_t *s )
 {
-	return TerminalWPrintExt( x, y, w, h, align, s );
+    return TerminalWPrintExt( x, y, w, h, align, s );
 }
 
-TERMINAL_INLINE dimensions_t TerminalPrintFExt( int x, int y, int w, int h, int align, const wchar_t *s, ...)
+TERMINAL_INLINE dimensions_t TerminalPrintFExt( int x, int y, int w, int h, int align, const wchar_t *s, ... )
 {
-	TERMINAL_FORMATTED_WRAP(dimensions_t, TerminalWPrintExt( x, y, w, h, align, terminal_vswprintf( s, args )))
+    TERMINAL_FORMATTED_WRAP( dimensions_t, TerminalWPrintExt( x, y, w, h, align, terminal_vswprintf( s, args )))
 }
 
-TERMINAL_INLINE dimensions_t TerminalMeasure( const wchar_t *s)
+TERMINAL_INLINE dimensions_t TerminalMeasure( const wchar_t *s )
 {
-	return TerminalWMeasure( s );
+    return TerminalWMeasure( s );
 }
 
-TERMINAL_INLINE dimensions_t TerminalMeasureF( const wchar_t *s, ...)
+TERMINAL_INLINE dimensions_t TerminalMeasureF( const wchar_t *s, ... )
 {
-	TERMINAL_FORMATTED_WRAP(dimensions_t, TerminalWMeasure( terminal_vswprintf( s, args )))
+    TERMINAL_FORMATTED_WRAP( dimensions_t, TerminalWMeasure( terminal_vswprintf( s, args )))
 }
 
-TERMINAL_INLINE dimensions_t TerminalMeasureExt( int w, int h, const wchar_t *s)
+TERMINAL_INLINE dimensions_t TerminalMeasureExt( int w, int h, const wchar_t *s )
 {
-	return TerminalWMeasureExt( w, h, s );
+    return TerminalWMeasureExt( w, h, s );
 }
 
-TERMINAL_INLINE dimensions_t TerminalMeasureFExt( int w, int h, const wchar_t *s, ...)
+TERMINAL_INLINE dimensions_t TerminalMeasureFExt( int w, int h, const wchar_t *s, ... )
 {
-	TERMINAL_FORMATTED_WRAP(dimensions_t, TerminalWMeasureExt( w, h, terminal_vswprintf( s, args )))
+    TERMINAL_FORMATTED_WRAP( dimensions_t, TerminalWMeasureExt( w, h, terminal_vswprintf( s, args )))
 }
 
-TERMINAL_INLINE int TerminalReadStr( int x, int y, wchar_t *buffer, int max)
+TERMINAL_INLINE int TerminalReadStr( int x, int y, wchar_t *buffer, int max )
 {
-	return TerminalReadWStr( x, y, buffer, max );
+    return TerminalReadWStr( x, y, buffer, max );
 }
 
-TERMINAL_INLINE color_t ColorFromName( const wchar_t *name)
+TERMINAL_INLINE color_t ColorFromName( const wchar_t *name )
 {
-	return ColorFromWName( name );
+    return ColorFromWName( name );
 }
 
-TERMINAL_INLINE int TerminalPick( int x, int y)
+TERMINAL_INLINE int TerminalPick( int x, int y )
 {
-	return TerminalPick( x, y, 0 );
+    return TerminalPick( x, y, 0 );
 }
 
-TERMINAL_INLINE color_t TerminalPickColor( int x, int y)
+TERMINAL_INLINE color_t TerminalPickColor( int x, int y )
 {
-	return TerminalPickColor( x, y, 0 );
+    return TerminalPickColor( x, y, 0 );
 }
 
-TERMINAL_INLINE const wchar_t* TerminalGet( const wchar_t *key, const wchar_t *default_ = ( const wchar_t * ) 0)
+TERMINAL_INLINE const wchar_t *TerminalGet( const wchar_t *key, const wchar_t *default_ = ( const wchar_t * ) 0 )
 {
-	return TerminalWGet( key, default_ );
+    return TerminalWGet( key, default_ );
 }
 
-template<typename T, typename C> T TerminalGet( const C *key, const T &default_ = T( ))
+template <typename T, typename C>
+T TerminalGet( const C *key, const T &default_ = T( ))
 {
-	const C* result_str = TerminalGet( key, ( const C * ) 0 );
-	if (result_str[0] == C(0))
-		return default_;
-	T result;
-	return (bool)(std::basic_istringstream<C>(result_str) >> result)? result: default_;
+    const C *result_str = TerminalGet( key, ( const C * ) 0 );
+    if ( result_str[ 0 ] == C( 0 ))
+    {
+        return default_;
+    }
+    T result;
+    return ( bool ) ( std::basic_istringstream <C>( result_str ) >> result ) ? result : default_;
 }
 
 #endif /* __cplusplus */
@@ -705,17 +729,17 @@ template<typename T, typename C> T TerminalGet( const C *key, const T &default_ 
 /*
  * Color routines
  */
-TERMINAL_INLINE color_t ColorFromARGB( uint8_t a, uint8_t r, uint8_t g, uint8_t b)
+TERMINAL_INLINE color_t ColorFromARGB( uint8_t a, uint8_t r, uint8_t g, uint8_t b )
 {
-	return ((color_t)a << 24) | (r << 16) | (g << 8) | b;
+    return (( color_t ) a << 24 ) | ( r << 16 ) | ( g << 8 ) | b;
 }
 
 /*
  * Other functional sugar
  */
-TERMINAL_INLINE int TerminalCheck( int code)
+TERMINAL_INLINE int TerminalCheck( int code )
 {
-	return TerminalState( code ) > 0;
+    return TerminalState( code ) > 0;
 }
 
 /*
@@ -735,11 +759,11 @@ TERMINAL_INLINE int TerminalCheck( int code)
  * Trivial no-arguments WinMain implementation. It just calls main.
  */
 #define TERMINAL_WINMAIN_IMPL_BASE(INSTANCE_T, STRING_T)\
-	extern "C" int main();\
-	extern "C" int __stdcall WinMain(INSTANCE_T hInstance, INSTANCE_T hPrevInstance, STRING_T lpCmdLine, int nCmdShow)\
-	{\
-		return main();\
-	}
+    extern "C" int main();\
+    extern "C" int __stdcall WinMain(INSTANCE_T hInstance, INSTANCE_T hPrevInstance, STRING_T lpCmdLine, int nCmdShow)\
+    {\
+        return main();\
+    }
 
 /*
  * Macro expands to empty string. Windows.h is included thus code MUST use

@@ -25,51 +25,52 @@
 
 namespace BearLibTerminal
 {
-	template<typename T> struct BasicPoint
-	{
-		typedef T value_type;
+    template <typename T>
+    struct BasicPoint
+    {
+        typedef T value_type;
 
-		T x, y;
+        T x, y;
 
-		BasicPoint():
-			x(0),
-			y(0)
-		{ }
+        BasicPoint( ) :
+                x( 0 ),
+                y( 0 )
+        { }
 
-		BasicPoint(T x, T y):
-			x(x),
-			y(y)
-		{ }
+        BasicPoint( T x, T y ) :
+                x( x ),
+                y( y )
+        { }
 
-		BasicPoint(const BasicPoint<T>& from):
-			x(from.x),
-			y(from.y)
-		{ }
+        BasicPoint( const BasicPoint <T> &from ) :
+                x( from.x ),
+                y( from.y )
+        { }
 
-		inline bool operator==(BasicPoint<T> other) const
-		{
-			return x == other.x && y == other.y;
-		}
+        inline bool operator==( BasicPoint <T> other ) const
+        {
+            return x == other.x && y == other.y;
+        }
 
-		inline bool operator!= (BasicPoint<T> other) const
-		{
-			return x != other.x || y != other.y;
-		}
+        inline bool operator!=( BasicPoint <T> other ) const
+        {
+            return x != other.x || y != other.y;
+        }
 
-		inline BasicPoint<T> operator+(BasicPoint<T> other)
-		{
-			return BasicPoint<T>(x+other.x, y+other.y);
-		}
+        inline BasicPoint <T> operator+( BasicPoint <T> other )
+        {
+            return BasicPoint <T>( x + other.x, y + other.y );
+        }
 
-		inline BasicPoint<T> operator-(BasicPoint<T> other)
-		{
-			return BasicPoint<T>(x-other.x, y-other.y);
-		}
-	};
+        inline BasicPoint <T> operator-( BasicPoint <T> other )
+        {
+            return BasicPoint <T>( x - other.x, y - other.y );
+        }
+    };
 
-	typedef BasicPoint<int> Point;
+    typedef BasicPoint <int> Point;
 
-	typedef BasicPoint<float> PointF;
+    typedef BasicPoint <float> PointF;
 }
 
 #endif // BEARLIBTERMINAL_POINT_HPP
