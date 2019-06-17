@@ -110,6 +110,6 @@ int main()
 			}
 		}
 	}
-	terminal_close();
+    TerminalClose( );
 	return 0;
 }

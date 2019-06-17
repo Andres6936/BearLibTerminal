@@ -197,7 +197,7 @@ int luaterminal_open(lua_State* L)
 
 int luaterminal_close(lua_State* L)
 {
-	terminal_close();
+    TerminalClose( );
 	return 0;
 }
 

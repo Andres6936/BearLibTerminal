@@ -203,7 +203,7 @@ function terminal_open(): LongBool;
 
 // Close
 procedure terminal_close();
-  cdecl; external 'BearLibTerminal' name 'terminal_close';
+  cdecl; external 'BearLibTerminal' name 'TerminalClose';
 
 // Set
 function terminal_set(const Options: AnsiString): LongBool; overload;

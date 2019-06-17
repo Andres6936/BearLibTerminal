@@ -109,7 +109,7 @@ int TerminalOpen()
 	}
 }
 
-void terminal_close()
+void TerminalClose()
 {
 	if (g_instance)
 	{

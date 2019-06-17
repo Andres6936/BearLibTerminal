@@ -221,7 +221,7 @@ func Open() int {
 }
 
 func Close() {
-	C.terminal_close()
+	C.TerminalClose()
 }
 
 func Set(value string) int {
