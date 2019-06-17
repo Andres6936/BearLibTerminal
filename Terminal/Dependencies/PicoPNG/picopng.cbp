@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="picopng"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\Terminal\;CMake Files\Terminal\Dependencies\;CMake Files\Terminal\Dependencies\FreeType\;CMake Files\Terminal\Dependencies\PicoPNG\;CMake Files\Samples\;CMake Files\Samples\Omni\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="picopng">
+				<Option output="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG/libpicopng.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG/./Include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG/Makefile&quot;  VERBOSE=1 picopng"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="picopng/fast">
+				<Option output="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG/libpicopng.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG/./Include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG/Makefile&quot;  VERBOSE=1 picopng/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG/Source/PicoPNG.cpp">
+			<Option target="picopng"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Terminal\"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Terminal\Dependencies\FreeType\"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Terminal\Dependencies\PicoPNG\"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Samples/Omni/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Samples\Omni\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

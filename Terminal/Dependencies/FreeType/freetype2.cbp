@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="freetype2"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\Terminal\;CMake Files\Terminal\Dependencies\;CMake Files\Terminal\Dependencies\FreeType\;CMake Files\Terminal\Dependencies\PicoPNG\;CMake Files\Samples\;CMake Files\Samples\Omni\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="freetype2">
+				<Option output="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/libfreetype2.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/./Include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Makefile&quot;  VERBOSE=1 freetype2"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="freetype2/fast">
+				<Option output="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/libfreetype2.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/./Include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Makefile&quot;  VERBOSE=1 freetype2/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Source/autofit/autofit.c">
+			<Option target="freetype2"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Source/base/ftbase.c">
+			<Option target="freetype2"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Source/base/ftbase.h">
+			<Option target="freetype2"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Source/base/ftbbox.c">
+			<Option target="freetype2"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Source/base/ftdebug.c">
+			<Option target="freetype2"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Source/base/ftfstype.c">
+			<Option target="freetype2"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Source/base/ftgasp.c">
+			<Option target="freetype2"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Source/base/ftglyph.c">
+			<Option target="freetype2"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Source/base/ftinit.c">
+			<Option target="freetype2"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Source/base/ftlcdfil.c">
+			<Option target="freetype2"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Source/base/ftmm.c">
+			<Option target="freetype2"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Source/base/ftsystem.c">
+			<Option target="freetype2"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Source/raster/raster.c">
+			<Option target="freetype2"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Source/sfnt/sfnt.c">
+			<Option target="freetype2"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Source/smooth/smooth.c">
+			<Option target="freetype2"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/Source/truetype/truetype.c">
+			<Option target="freetype2"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Terminal\"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/FreeType/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Terminal\Dependencies\FreeType\"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Terminal/Dependencies/PicoPNG/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Terminal\Dependencies\PicoPNG\"/>
+		</Unit>
+		<Unit filename="/home/andres6936/CLionProjects/BearLibTerminal/Samples/Omni/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Samples\Omni\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
