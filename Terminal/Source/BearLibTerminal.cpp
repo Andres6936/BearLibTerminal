@@ -173,7 +173,7 @@ void TerminalColor( color_t color)
 	g_instance->SetForeColor(BearLibTerminal::Color(color));
 }
 
-void terminal_bkcolor(color_t color)
+void TerminalBackColor( color_t color)
 {
 	if (!g_instance) return;
 	g_instance->SetBackColor(BearLibTerminal::Color(color));

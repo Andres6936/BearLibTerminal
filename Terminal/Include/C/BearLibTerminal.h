@@ -258,7 +258,7 @@ TERMINAL_API void TerminalClearArea( int x, int y, int w, int h);
 TERMINAL_API void TerminalCrop( int x, int y, int w, int h);
 TERMINAL_API void TerminalLayer( int index);
 TERMINAL_API void TerminalColor( color_t color);
-TERMINAL_API void terminal_bkcolor(color_t color);
+TERMINAL_API void TerminalBackColor( color_t color);
 TERMINAL_API void terminal_composition(int mode);
 TERMINAL_API void terminal_font8(const int8_t* name);
 TERMINAL_API void terminal_font16(const int16_t* name);
@@ -607,12 +607,12 @@ TERMINAL_INLINE void terminal_color(const wchar_t* name)
 
 TERMINAL_INLINE void terminal_bkcolor(const char* name)
 {
-	terminal_bkcolor(color_from_name(name));
+    TerminalBackColor( color_from_name( name ));
 }
 
 TERMINAL_INLINE void terminal_bkcolor(const wchar_t* name)
 {
-	terminal_bkcolor(color_from_wname(name));
+    TerminalBackColor( color_from_wname( name ));
 }
 
 TERMINAL_INLINE void terminal_font(const wchar_t* name)

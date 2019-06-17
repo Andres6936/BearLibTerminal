@@ -394,7 +394,7 @@ end;
 
 procedure terminal_bkcolor(Color: WideString); overload;
 begin
-    terminal_bkcolor(color_from_name(Color));
+    TerminalBackColor(color_from_name(Color));
 end;
 
 procedure terminal_font_ansi(const Name: PAnsiChar);

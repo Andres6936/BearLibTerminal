@@ -239,7 +239,7 @@ func Color(color uint32) {
 }
 
 func BkColor(color uint32) {
-	C.terminal_bkcolor(C.color_t(color))
+	C.TerminalBackColor(C.color_t(color))
 }
 
 func Composition(mode int) {

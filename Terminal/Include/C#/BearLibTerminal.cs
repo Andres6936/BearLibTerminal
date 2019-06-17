@@ -286,7 +286,7 @@ namespace BearLib
             ColorImpl(ColorFromNameImpl(name));
         }
 
-        [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_bkcolor", CallingConvention=CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", EntryPoint = "TerminalBackColor", CallingConvention=CallingConvention.Cdecl)]
         private static extern void BkColorImpl(int argb);
 
         public static void BkColor(Color color)

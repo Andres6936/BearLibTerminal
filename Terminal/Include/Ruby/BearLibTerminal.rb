@@ -70,7 +70,7 @@ module Terminal
 	Crop = Fiddle::Function.new(Lib['TerminalCrop'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT], Fiddle::TYPE_VOID)
 	Layer = Fiddle::Function.new(Lib['TerminalLayer'], [Fiddle::TYPE_INT], Fiddle::TYPE_VOID)
 	Color = Fiddle::Function.new(Lib['TerminalColor'], [-Fiddle::TYPE_INT], Fiddle::TYPE_VOID)
-	BkColor = Fiddle::Function.new(Lib['terminal_bkcolor'], [-Fiddle::TYPE_INT], Fiddle::TYPE_VOID)
+	BkColor = Fiddle::Function.new(Lib['TerminalBackColor'], [-Fiddle::TYPE_INT], Fiddle::TYPE_VOID)
 	Composition = Fiddle::Function.new(Lib['terminal_composition'], [Fiddle::TYPE_INT], Fiddle::TYPE_VOID)
 	Font = Fiddle::Function.new(Lib['terminal_font8'], [Fiddle::TYPE_VOIDP], Fiddle::TYPE_VOID)
 	Put = Fiddle::Function.new(Lib['terminal_put'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT], Fiddle::TYPE_VOID)
