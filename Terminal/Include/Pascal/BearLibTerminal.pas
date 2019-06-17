@@ -590,7 +590,7 @@ begin
     terminal_get := terminal_get_unicode(PWideChar(S), nil);
 end;
 
-function terminal_get(const S, Default: WideString): WideString;
+function TerminalGet(const S, Default: WideString): WideString;
 begin
     terminal_get := terminal_get_unicode(PWideChar(S), PWideChar(Default));
 end;

@@ -567,7 +567,7 @@ TERMINAL_INLINE const char* terminal_get(const char* key, const char* default_ T
 
 TERMINAL_INLINE const wchar_t* terminal_wget(const wchar_t* key, const wchar_t* default_ TERMINAL_DEFAULT((const wchar_t*)0))
 {
-	return (const wchar_t*)TERMINAL_CAT(terminal_get, TERMINAL_WCHAR_SUFFIX)((const TERMINAL_WCHAR_TYPE*)key, (const TERMINAL_WCHAR_TYPE*)default_);
+	return (const wchar_t*)TERMINAL_CAT(TerminalGet, TERMINAL_WCHAR_SUFFIX)((const TERMINAL_WCHAR_TYPE*)key, (const TERMINAL_WCHAR_TYPE*)default_);
 }
 
 TERMINAL_INLINE color_t color_from_name(const char* name)

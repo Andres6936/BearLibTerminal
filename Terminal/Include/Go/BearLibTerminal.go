@@ -366,7 +366,7 @@ func Get(key, defaultValue string) string {
 	defer C.free(unsafe.Pointer(cstringKey))
 	cstringDefaultValue := C.CString(defaultValue)
 	defer C.free(unsafe.Pointer(cstringDefaultValue))
-	result := C.terminal_get(cstringKey, cstringDefaultValue)
+	result := C.TerminalGet(cstringKey, cstringDefaultValue)
 	return C.GoString(result)
 }
 

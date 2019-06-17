@@ -337,7 +337,7 @@ void TerminalDelay( int period)
 		std::this_thread::sleep_for(std::chrono::milliseconds{period});
 }
 
-template<typename outer, typename inner> const outer* terminal_get(const outer* key, const outer* default_)
+template<typename outer, typename inner> const outer* TerminalGet( const outer *key, const outer *default_)
 {
 	typename BearLibTerminal::Encodings<inner>::type encoding;
 	std::wstring wkey = encoding.Convert(std::basic_string<inner>((const inner*)key));
@@ -353,17 +353,17 @@ template<typename outer, typename inner> const outer* terminal_get(const outer* 
 
 const int8_t* terminal_get8(const int8_t* key, const int8_t* default_)
 {
-	return terminal_get<int8_t, char>(key, default_);
+	return TerminalGet <int8_t, char>( key, default_ );
 }
 
 const int16_t* terminal_get16(const int16_t* key, const int16_t* default_)
 {
-	return terminal_get<int16_t, char16_t>(key, default_);
+	return TerminalGet <int16_t, char16_t>( key, default_ );
 }
 
 const int32_t* terminal_get32(const int32_t* key, const int32_t* default_)
 {
-	return terminal_get<int32_t, char32_t>(key, default_);
+	return TerminalGet <int32_t, char32_t>( key, default_ );
 }
 
 color_t color_from_name8(const int8_t* name)
