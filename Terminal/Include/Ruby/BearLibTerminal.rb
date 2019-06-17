@@ -87,7 +87,7 @@ module Terminal
 	ReadStr = Fiddle::Function.new(Lib['TerminalReadStr8'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT], Fiddle::TYPE_INT)
 	Delay = Fiddle::Function.new(Lib['TerminalDelay'], [Fiddle::TYPE_INT], Fiddle::TYPE_VOID)
 	Get = Fiddle::Function.new(Lib['TerminalGet8'], [Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP], Fiddle::TYPE_VOIDP)
-	ColorFromName = Fiddle::Function.new(Lib['color_from_name8'], [Fiddle::TYPE_VOIDP], -Fiddle::TYPE_INT)
+	ColorFromName = Fiddle::Function.new(Lib['ColorFromName8'], [Fiddle::TYPE_VOIDP], -Fiddle::TYPE_INT)
 	
 	# Temporary buffer for by-pointer integer arguments.
 	Out = Fiddle::Pointer.malloc(Fiddle::SIZEOF_INT * 2)

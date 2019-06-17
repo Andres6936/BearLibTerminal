@@ -285,9 +285,9 @@ TERMINAL_API void TerminalDelay( int period);
 TERMINAL_API const int8_t* TerminalGet8( const int8_t *key, const int8_t *default_);
 TERMINAL_API const int16_t* TerminalGet16( const int16_t *key, const int16_t *default_);
 TERMINAL_API const int32_t* TerminalGet32( const int32_t *key, const int32_t *default_);
-TERMINAL_API color_t color_from_name8(const int8_t* name);
-TERMINAL_API color_t color_from_name16(const int16_t* name);
-TERMINAL_API color_t color_from_name32(const int32_t* name);
+TERMINAL_API color_t ColorFromName8( const int8_t *name);
+TERMINAL_API color_t ColorFromName16( const int16_t *name);
+TERMINAL_API color_t ColorFromName32( const int32_t *name);
 
 #ifdef __cplusplus
 } /* End of extern "C" */
@@ -572,7 +572,7 @@ TERMINAL_INLINE const wchar_t* terminal_wget(const wchar_t* key, const wchar_t* 
 
 TERMINAL_INLINE color_t color_from_name(const char* name)
 {
-	return color_from_name8((const int8_t*)name);
+	return ColorFromName8(( const int8_t * ) name );
 }
 
 TERMINAL_INLINE color_t color_from_wname(const wchar_t* name)

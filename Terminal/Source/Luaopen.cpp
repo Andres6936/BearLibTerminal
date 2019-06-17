@@ -316,7 +316,7 @@ int luaterminal_color(lua_State* L)
 	}
 	else if (type == LUA_TSTRING)
 	{
-        TerminalColor( color_from_name8(( const int8_t * ) lua_tostring( L, 1 )));
+        TerminalColor( ColorFromName8(( const int8_t * ) lua_tostring( L, 1 )));
 	}
 	else
 	{
@@ -336,7 +336,7 @@ int luaterminal_bkcolor(lua_State* L)
 	}
 	else if (type == LUA_TSTRING)
 	{
-        TerminalBackColor( color_from_name8(( const int8_t * ) lua_tostring( L, 1 )));
+        TerminalBackColor( ColorFromName8(( const int8_t * ) lua_tostring( L, 1 )));
 	}
 	else
 	{
@@ -619,7 +619,7 @@ int luaterminal_get(lua_State* L)
 
 int luaterminal_color_from_name(lua_State* L)
 {
-	lua_pushnumber(L, color_from_name8((const int8_t*)lua_tostring(L, 1)));
+	lua_pushnumber(L, ColorFromName8(( const int8_t * ) lua_tostring( L, 1 )));
 	return 1;
 }
 

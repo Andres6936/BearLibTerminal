@@ -596,7 +596,7 @@ begin
 end;
 
 function color_from_name_ansi(const Name: PAnsiChar): UInt32;
-  cdecl; external 'BearLibTerminal' name 'color_from_name8';
+  cdecl; external 'BearLibTerminal' name 'ColorFromName8';
 
 function color_from_name(const Name: AnsiString): UInt32;
 begin
@@ -604,7 +604,7 @@ begin
 end;
 
 function color_from_name_unicode(const Name: PWideChar): UInt32;
-  cdecl; external 'BearLibTerminal' name 'color_from_name16';
+  cdecl; external 'BearLibTerminal' name 'ColorFromName16';
 
 function color_from_name(const Name: WideString): UInt32;
 begin

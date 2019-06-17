@@ -585,7 +585,7 @@ namespace BearLib
             }
         }
 
-        [DllImport("BearLibTerminal.dll", CharSet = CharSet.Unicode, EntryPoint = "color_from_name16", CallingConvention=CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", CharSet = CharSet.Unicode, EntryPoint = "ColorFromName16", CallingConvention=CallingConvention.Cdecl)]
         private static extern int ColorFromNameImpl(string name);
 
         public static Color ColorFromName(string name)
