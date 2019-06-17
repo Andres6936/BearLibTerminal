@@ -75,7 +75,7 @@ module Terminal
 	Font = Fiddle::Function.new(Lib['TerminalFont8'], [Fiddle::TYPE_VOIDP], Fiddle::TYPE_VOID)
 	Put = Fiddle::Function.new(Lib['TerminalPut'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT], Fiddle::TYPE_VOID)
 	PutExt = Fiddle::Function.new(Lib['TerminalPutExt'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP], Fiddle::TYPE_VOID)
-	Pick = Fiddle::Function.new(Lib['terminal_pick'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT], Fiddle::TYPE_INT)
+	Pick = Fiddle::Function.new(Lib['TerminalPick'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT], Fiddle::TYPE_INT)
 	PickColor = Fiddle::Function.new(Lib['terminal_pick_color'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT], -Fiddle::TYPE_INT)
 	PickBkColor = Fiddle::Function.new(Lib['terminal_pick_bkcolor'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT], -Fiddle::TYPE_INT)
 	PrintExt = Fiddle::Function.new(Lib['terminal_print_ext8'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP], Fiddle::TYPE_VOID)

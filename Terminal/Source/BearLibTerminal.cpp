@@ -215,7 +215,7 @@ void TerminalPutExt( int x, int y, int dx, int dy, int code, color_t *corners)
 	g_instance->PutExtended(x, y, dx, dy, code, (BearLibTerminal::Color*)corners);
 }
 
-int terminal_pick(int x, int y, int index)
+int TerminalPick( int x, int y, int index)
 {
 	if (!g_instance) return 0;
 	return g_instance->Pick(x, y, index);

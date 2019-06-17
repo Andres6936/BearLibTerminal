@@ -386,7 +386,7 @@ namespace BearLib
             return Pick(location.X, location.Y, 0);
         }
 
-        [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_pick", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", EntryPoint = "TerminalPick", CallingConvention = CallingConvention.Cdecl)]
         public static extern int Pick(int x, int y, int index);
 
         public static int Pick(Point location, int index)

@@ -448,7 +448,7 @@ end;
 
 function terminal_pick(X, Y: Int32): Int32; overload;
 begin
-    terminal_pick := terminal_pick(X, Y, 0);
+    terminal_pick := TerminalPick(X, Y, 0);
 end;
 
 function terminal_pick_color(X, Y: Int32): UInt32; overload;

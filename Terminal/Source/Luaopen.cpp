@@ -406,7 +406,7 @@ int luaterminal_pick(lua_State* L)
 	int x = lua_tointeger(L, 1);
 	int y = lua_tointeger(L, 2);
 	int z = nargs > 2? lua_tointeger(L, 3): 0;
-	lua_pushnumber(L, terminal_pick(x, y, z));
+	lua_pushnumber(L, TerminalPick( x, y, z ));
 	return 1;
 }
 

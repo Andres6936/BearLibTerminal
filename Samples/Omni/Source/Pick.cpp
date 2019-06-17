@@ -52,7 +52,7 @@ void TestPick()
 
 			do
 			{
-				int code = terminal_pick(x, y, n);
+				int code = TerminalPick( x, y, n );
 				if (code == 0) break;
 
 				color_t color = terminal_pick_color(x, y, n);

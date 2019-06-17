@@ -281,7 +281,7 @@ func Put(x, y, code int) {
 }
 
 func Pick(x, y, index int) int {
-	return int(C.terminal_pick(C.int(x), C.int(y), C.int(index)))
+	return int(C.TerminalPick(C.int(x), C.int(y), C.int(index)))
 }
 
 func PickColor(x, y, index int) uint32 {
