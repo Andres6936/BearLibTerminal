@@ -215,7 +215,7 @@ namespace BearLib
         [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_refresh", CallingConvention = CallingConvention.Cdecl)]
         public static extern void Refresh();
 
-        [DllImport("BearLibTerminal.dll", CharSet = CharSet.Unicode, EntryPoint = "terminal_set16", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", CharSet = CharSet.Unicode, EntryPoint = "TerminalSet16", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool Set(string options);
 
         public static bool Set(string options, params object[] args)

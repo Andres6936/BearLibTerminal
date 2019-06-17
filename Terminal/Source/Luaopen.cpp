@@ -204,7 +204,7 @@ int luaterminal_close(lua_State* L)
 int luaterminal_set(lua_State* L)
 {
 	const char* s = lua_tostring(L, 1);
-	lua_pushboolean(L, terminal_set8((const int8_t*)s));
+	lua_pushboolean(L, TerminalSet8(( const int8_t * ) s ));
 	return 1;
 }
 
@@ -257,7 +257,7 @@ int luaterminal_setf(lua_State* L)
 	lua_pcall(L, nargs, 1, 0);
 
 	const char* s = lua_tostring(L, 1);
-	lua_pushboolean(L, terminal_set8((const int8_t*)s));
+	lua_pushboolean(L, TerminalSet8(( const int8_t * ) s ));
 	return 1;
 }
 

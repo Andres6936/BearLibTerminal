@@ -63,7 +63,7 @@ module Terminal
 	# Raw API entries
 	Open = Fiddle::Function.new(Lib['TerminalOpen'], [], Fiddle::TYPE_INT)
 	Close = Fiddle::Function.new(Lib['TerminalClose'], [], Fiddle::TYPE_VOID)
-	Set = Fiddle::Function.new(Lib['terminal_set8'], [Fiddle::TYPE_VOIDP], Fiddle::TYPE_INT)
+	Set = Fiddle::Function.new(Lib['TerminalSet8'], [Fiddle::TYPE_VOIDP], Fiddle::TYPE_INT)
 	Refresh = Fiddle::Function.new(Lib['terminal_refresh'], [], Fiddle::TYPE_VOID)
 	Clear = Fiddle::Function.new(Lib['terminal_clear'], [], Fiddle::TYPE_VOID)
 	ClearArea = Fiddle::Function.new(Lib['terminal_clear_area'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT], Fiddle::TYPE_VOID)

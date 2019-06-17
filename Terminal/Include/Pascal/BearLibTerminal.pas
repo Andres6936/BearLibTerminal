@@ -362,7 +362,7 @@ function color_from_argb(a, r, g, b: Int32): UInt32;
 implementation
 
 function terminal_set_ansi(const Options: PAnsiChar): LongBool;
-  cdecl; external 'BearLibTerminal' name 'terminal_set8';
+  cdecl; external 'BearLibTerminal' name 'TerminalSet8';
 
 function terminal_set(const Options: AnsiString): LongBool;
 begin
@@ -370,7 +370,7 @@ begin
 end;
 
 function terminal_set_unicode(const Options: PWideChar): LongBool;
-  cdecl; external 'BearLibTerminal' name 'terminal_set16';
+  cdecl; external 'BearLibTerminal' name 'TerminalSet16';
 
 function terminal_set(const Options: WideString): LongBool;
 begin

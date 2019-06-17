@@ -249,9 +249,9 @@ extern "C" {
 
 TERMINAL_API int TerminalOpen();
 TERMINAL_API void TerminalClose();
-TERMINAL_API int terminal_set8(const int8_t* value);
-TERMINAL_API int terminal_set16(const int16_t* value);
-TERMINAL_API int terminal_set32(const int32_t* value);
+TERMINAL_API int TerminalSet8( const int8_t *value);
+TERMINAL_API int TerminalSet16( const int16_t *value);
+TERMINAL_API int TerminalSet32( const int32_t *value);
 TERMINAL_API void terminal_refresh();
 TERMINAL_API void terminal_clear();
 TERMINAL_API void terminal_clear_area(int x, int y, int w, int h);
@@ -426,7 +426,7 @@ TERMINAL_INLINE const wchar_t* terminal_vswprintf(const wchar_t* s, va_list args
 
 TERMINAL_INLINE int terminal_set(const char* s)
 {
-	return terminal_set8((const int8_t*)s);
+	return TerminalSet8(( const int8_t * ) s );
 }
 
 TERMINAL_INLINE int terminal_setf(const char* s, ...)

@@ -118,20 +118,20 @@ void TerminalClose()
 	}
 }
 
-int terminal_set8(const int8_t* value)
+int TerminalSet8( const int8_t *value)
 {
 	if (!g_instance || !value) return -1;
 	auto& encoding = g_instance->GetEncoding();
 	return g_instance->SetOptions(encoding.Convert((const char*)value));
 }
 
-int terminal_set16(const int16_t* value)
+int TerminalSet16( const int16_t *value)
 {
 	if (!g_instance || !value) return -1;
 	return g_instance->SetOptions(BearLibTerminal::UCS2Encoding().Convert((const char16_t*)value));
 }
 
-int terminal_set32(const int32_t* value)
+int TerminalSet32( const int32_t *value)
 {
 	if (!g_instance || !value) return -1;
 	return g_instance->SetOptions(BearLibTerminal::UCS4Encoding().Convert((const char32_t*)value));
