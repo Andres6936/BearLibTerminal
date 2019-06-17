@@ -570,10 +570,10 @@ begin
 end;
 
 function terminal_get_ansi(const S, Default: PAnsiChar): PAnsiChar;
-  cdecl; external 'BearLibTerminal' name 'terminal_get8';
+  cdecl; external 'BearLibTerminal' name 'TerminalGet8';
 
 function terminal_get_unicode(const S, Default: PWideChar): PWideChar;
-  cdecl; external 'BearLibTerminal' name 'terminal_get16';
+  cdecl; external 'BearLibTerminal' name 'TerminalGet16';
 
 function terminal_get(const S: AnsiString): AnsiString;
 begin

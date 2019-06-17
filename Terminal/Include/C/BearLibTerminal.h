@@ -282,9 +282,9 @@ TERMINAL_API int TerminalReadStr16( int x, int y, int16_t *buffer, int max);
 TERMINAL_API int TerminalReadStr32( int x, int y, int32_t *buffer, int max);
 TERMINAL_API int TerminalPeek();
 TERMINAL_API void TerminalDelay( int period);
-TERMINAL_API const int8_t* terminal_get8(const int8_t* key, const int8_t* default_);
-TERMINAL_API const int16_t* terminal_get16(const int16_t* key, const int16_t* default_);
-TERMINAL_API const int32_t* terminal_get32(const int32_t* key, const int32_t* default_);
+TERMINAL_API const int8_t* TerminalGet8( const int8_t *key, const int8_t *default_);
+TERMINAL_API const int16_t* TerminalGet16( const int16_t *key, const int16_t *default_);
+TERMINAL_API const int32_t* TerminalGet32( const int32_t *key, const int32_t *default_);
 TERMINAL_API color_t color_from_name8(const int8_t* name);
 TERMINAL_API color_t color_from_name16(const int16_t* name);
 TERMINAL_API color_t color_from_name32(const int32_t* name);
@@ -562,7 +562,7 @@ TERMINAL_INLINE int terminal_read_wstr(int x, int y, wchar_t* buffer, int max)
 
 TERMINAL_INLINE const char* terminal_get(const char* key, const char* default_ TERMINAL_DEFAULT((const char*)0))
 {
-	return (const char*)terminal_get8((const int8_t*)key, (const int8_t*)default_);
+	return (const char*) TerminalGet8(( const int8_t * ) key, ( const int8_t * ) default_ );
 }
 
 TERMINAL_INLINE const wchar_t* terminal_wget(const wchar_t* key, const wchar_t* default_ TERMINAL_DEFAULT((const wchar_t*)0))

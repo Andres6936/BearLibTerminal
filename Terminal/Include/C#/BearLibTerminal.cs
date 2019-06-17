@@ -525,7 +525,7 @@ namespace BearLib
         [DllImport("BearLibTerminal.dll", EntryPoint = "TerminalDelay", CallingConvention = CallingConvention.Cdecl)]
         public static extern void Delay(int period);
 
-        [DllImport("BearLibTerminal.dll", CharSet = CharSet.Unicode, EntryPoint = "terminal_get16", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", CharSet = CharSet.Unicode, EntryPoint = "TerminalGet16", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr GetImpl(string key, string default_value);
 
         public static string Get(string name, string default_value = "")

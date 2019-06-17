@@ -612,7 +612,7 @@ int luaterminal_get(lua_State* L)
 	int nargs = lua_gettop(L); // 1 or 2 arguments
 	const char* key = lua_tostring(L, 1);
 	const char* default_ = nargs > 1? lua_tostring(L, 2): nullptr;
-	const char* result = (const char*)terminal_get8((const int8_t*)key, (const int8_t*)default_);
+	const char* result = (const char*) TerminalGet8(( const int8_t * ) key, ( const int8_t * ) default_ );
 	lua_pushstring(L, result);
 	return 1;
 }

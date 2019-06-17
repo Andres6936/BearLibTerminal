@@ -351,17 +351,17 @@ template<typename outer, typename inner> const outer* TerminalGet( const outer *
 	return (const outer*)cached_setting.get<inner>();
 }
 
-const int8_t* terminal_get8(const int8_t* key, const int8_t* default_)
+const int8_t* TerminalGet8( const int8_t *key, const int8_t *default_)
 {
 	return TerminalGet <int8_t, char>( key, default_ );
 }
 
-const int16_t* terminal_get16(const int16_t* key, const int16_t* default_)
+const int16_t* TerminalGet16( const int16_t *key, const int16_t *default_)
 {
 	return TerminalGet <int16_t, char16_t>( key, default_ );
 }
 
-const int32_t* terminal_get32(const int32_t* key, const int32_t* default_)
+const int32_t* TerminalGet32( const int32_t *key, const int32_t *default_)
 {
 	return TerminalGet <int32_t, char32_t>( key, default_ );
 }
