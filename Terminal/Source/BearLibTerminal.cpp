@@ -323,7 +323,7 @@ int TerminalReadStr32( int x, int y, int32_t *buffer, int max)
 	return ReadStr( x, y, ( char32_t * ) buffer, max, BearLibTerminal::UCS4Encoding( ));
 }
 
-int terminal_peek()
+int TerminalPeek()
 {
 	if (!g_instance) return TK_CLOSE;
 	return g_instance->Peek();

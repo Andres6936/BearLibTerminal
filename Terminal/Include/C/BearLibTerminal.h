@@ -280,7 +280,7 @@ TERMINAL_API int TerminalRead();
 TERMINAL_API int TerminalReadStr8( int x, int y, int8_t *buffer, int max);
 TERMINAL_API int TerminalReadStr16( int x, int y, int16_t *buffer, int max);
 TERMINAL_API int TerminalReadStr32( int x, int y, int32_t *buffer, int max);
-TERMINAL_API int terminal_peek();
+TERMINAL_API int TerminalPeek();
 TERMINAL_API void terminal_delay(int period);
 TERMINAL_API const int8_t* terminal_get8(const int8_t* key, const int8_t* default_);
 TERMINAL_API const int16_t* terminal_get16(const int16_t* key, const int16_t* default_);

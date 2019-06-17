@@ -347,7 +347,7 @@ func Read() int {
 }
 
 func Peek() int {
-	return int(C.terminal_peek())
+	return int(C.TerminalPeek())
 }
 
 func ReadStr(x, y int, max int) (int, string) {

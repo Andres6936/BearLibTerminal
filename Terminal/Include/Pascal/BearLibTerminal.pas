@@ -332,7 +332,7 @@ function terminal_read_str(X, Y: Int32; var S: WideString; MaxLength: Int32): In
   
 // Peek
 function terminal_peek(): Int32;
-  cdecl; external 'BearLibTerminal' name 'terminal_peek';
+  cdecl; external 'BearLibTerminal' name 'TerminalPeek';
 
 // Delay
 procedure terminal_delay(Period: Int32);

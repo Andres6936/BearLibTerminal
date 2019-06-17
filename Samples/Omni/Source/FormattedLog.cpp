@@ -291,7 +291,7 @@ void TestFormattedLog()
 			if (dragging_scrollbar)
 				ScrollToPixel( TerminalState( TK_MOUSE_PIXEL_Y ) - dragging_scrollbar_offset);
 
-			while (terminal_peek() == TK_MOUSE_MOVE)
+			while ( TerminalPeek( ) == TK_MOUSE_MOVE)
                 TerminalRead( );
 		}
 		else if (key == TK_RESIZED)

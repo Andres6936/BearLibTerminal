@@ -519,7 +519,7 @@ namespace BearLib
             return ReadStr(location.X, location.Y, ref text, max);
         }
 
-        [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_peek", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", EntryPoint = "TerminalPeek", CallingConvention = CallingConvention.Cdecl)]
         public static extern int Peek();
 
         [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_delay", CallingConvention = CallingConvention.Cdecl)]

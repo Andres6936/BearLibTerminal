@@ -596,7 +596,7 @@ int luaterminal_read_str(lua_State* L)
 
 int luaterminal_peek(lua_State* L)
 {
-	lua_pushnumber(L, terminal_peek());
+	lua_pushnumber(L, TerminalPeek( ));
 	return 1;
 }
 
