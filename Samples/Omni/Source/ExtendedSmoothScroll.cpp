@@ -25,12 +25,12 @@ void TestExtendedSmoothScroll()
 {
 	std::srand(std::time(nullptr));
 
-	terminal_set("window.title='Omni: extended output / smooth scroll'");
-	terminal_set("input.filter={keyboard+}"); // Enable key-release events.
+    TerminalSet( "window.title='Omni: extended output / smooth scroll'" );
+    TerminalSet( "input.filter={keyboard+}" ); // Enable key-release events.
     TerminalComposition( TK_ON );
 
 	// Load resources
-	terminal_set("U+E000: ../Media/Tiles.png, size=32x32, alignment=top-left");
+    TerminalSet( "U+E000: ../Media/Tiles.png, size=32x32, alignment=top-left" );
 
 	int screen_width = TerminalState( TK_WIDTH )* TerminalState( TK_CELL_WIDTH );
 	int screen_height = TerminalState( TK_HEIGHT )* TerminalState( TK_CELL_HEIGHT );
@@ -113,6 +113,6 @@ void TestExtendedSmoothScroll()
         TerminalDelay( 1000 / fps );
 	}
 
-	terminal_set("U+E000: none");
+    TerminalSet( "U+E000: none" );
     TerminalComposition( TK_OFF );
 }

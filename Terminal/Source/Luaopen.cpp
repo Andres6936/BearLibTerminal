@@ -449,7 +449,8 @@ int luaterminal_print(lua_State* L)
 		return 0;
 	}
 
-	dimensions_t size = terminal_print_ext(lua_tonumber(L, 1), lua_tonumber(L, 2), w, h, align, lua_tostring(L, pattern_index));
+	dimensions_t size = TerminalPrintExt( lua_tonumber( L, 1 ), lua_tonumber( L, 2 ), w, h, align,
+                                          lua_tostring( L, pattern_index ));
 	lua_pushnumber(L, size.width);
 	lua_pushnumber(L, size.height);
 	return 1;
@@ -483,7 +484,8 @@ int luaterminal_printf(lua_State* L)
 	lua_insert(L, pattern_index); // Shift retrieved function to the bottom of the stack
 	lua_pcall(L, nargs - (pattern_index-1), 1, 0);
 
-	dimensions_t size = terminal_print_ext(lua_tonumber(L, 1), lua_tonumber(L, 2), w, h, align, lua_tostring(L, pattern_index));
+	dimensions_t size = TerminalPrintExt( lua_tonumber( L, 1 ), lua_tonumber( L, 2 ), w, h, align,
+                                          lua_tostring( L, pattern_index ));
 	lua_pushnumber(L, size.width);
 	lua_pushnumber(L, size.height);
 	return 1;
@@ -510,7 +512,7 @@ int luaterminal_measure(lua_State* L)
 		return 0;
 	}
 
-	dimensions_t size = terminal_measure_ext(w, h, lua_tostring(L, pattern_index));
+	dimensions_t size = TerminalMeasureExt( w, h, lua_tostring( L, pattern_index ));
 	lua_pushnumber(L, size.width);
 	lua_pushnumber(L, size.height);
 	return 2;
@@ -543,7 +545,7 @@ int luaterminal_measuref(lua_State* L)
 	lua_insert(L, pattern_index); // Shift retrieved function to the bottom of the stack
 	lua_pcall(L, nargs - (pattern_index-1), 1, 0);
 
-	dimensions_t size = terminal_measure_ext(w, h, lua_tostring(L, pattern_index));
+	dimensions_t size = TerminalMeasureExt( w, h, lua_tostring( L, pattern_index ));
 	lua_pushnumber(L, size.width);
 	lua_pushnumber(L, size.height);
 	return 2;
@@ -587,7 +589,7 @@ int luaterminal_read_str(lua_State* L)
 	std::vector<char> buffer(max*3+1, 0);
 	memcpy(buffer.data(), s.data(), std::min(buffer.size()-1, s.size()));
 
-	int rc = terminal_read_str(x, y, buffer.data(), max);
+	int rc = TerminalReadStr( x, y, buffer.data( ), max );
 	lua_pushinteger(L, rc);
 	lua_pushstring(L, buffer.data());
 
@@ -665,7 +667,7 @@ static const luaL_Reg luaterminal_lib[] =
 	{"peek", luaterminal_peek},
 	{"delay",  luaterminal_delay},
 	{"get", luaterminal_get},
-	{"color_from_name", luaterminal_color_from_name},
+	{"ColorFromName", luaterminal_color_from_name},
 	{"color_from_argb", luaterminal_color_from_argb},
 	{NULL, NULL}
 };

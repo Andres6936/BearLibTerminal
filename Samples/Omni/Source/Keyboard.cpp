@@ -46,8 +46,8 @@ static void FillRectangle(int x, int y, int w, int h, color_t color)
 
 void TestKeyboard()
 {
-	terminal_set("window.title='Omni: basic keyboard input'");
-	terminal_set("input.filter={keyboard+}");
+    TerminalSet( "window.title='Omni: basic keyboard input'" );
+    TerminalSet( "input.filter={keyboard+}" );
     TerminalComposition( TK_ON );
 
 	//

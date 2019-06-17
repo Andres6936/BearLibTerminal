@@ -157,7 +157,7 @@ module Terminal
 	def self.get s, default_value = ""
 		return (Get.call Ptr[s], Ptr[default_value]).to_s
 	end
-	def self.color_from_name name; return ColorFromName.call Ptr[name]; end
+	def self.ColorFromName name; return ColorFromName.call Ptr[name]; end
 	def self.color_from_argb a, r, g, b
 		return (a << 24) | (r << 16) | (g << 8) | b
 	end
@@ -301,7 +301,7 @@ module Terminal
         TK_OFF              =    0
         TK_ON               =    1
 
-        # Input result codes for terminal_read_str function.
+        # Input result codes for TerminalReadStr function.
         TK_INPUT_NONE       =    0
         TK_INPUT_CANCELLED  =   -1
         

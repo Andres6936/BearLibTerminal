@@ -10,7 +10,7 @@
 
 void TestDefaultFont()
 {
-	terminal_set("window: size=80x25, cellsize=auto, title='Omni: WGL4'; font=default");
+    TerminalSet( "window: size=80x25, cellsize=auto, title='Omni: WGL4'; font=default" );
 
 	const int hoffset = 40;
 	int current_range = 0;
@@ -23,7 +23,7 @@ void TestDefaultFont()
 		for (int i=0; i<g_wgl4_ranges.size(); i++)
 		{
 			bool selected = i == current_range;
-            TerminalColor( selected ? color_from_name( "orange" ) : color_from_name( "light gray" ));
+            TerminalColor( selected ? ColorFromName( "orange" ) : ColorFromName( "light gray" ));
 			terminal_printf(1, 2+i, "%s%s", selected? "[U+203A]": " ", g_wgl4_ranges[i].name.c_str());
 		}
 
@@ -37,7 +37,7 @@ void TestDefaultFont()
 			if (code%16 == 0) terminal_printf(hoffset, 2+y*1, "[color=orange]%04X:", code);
 
 			bool included = range.codes.count(code);
-            TerminalColor( included ? color_from_name( "white" ) : color_from_name( "dark gray" ));
+            TerminalColor( included ? ColorFromName( "white" ) : ColorFromName( "dark gray" ));
             TerminalPut( hoffset + 6 + ( code % 16 ) * 2, 2 + y * 1, code );
 
 			if ((code+1)%16 == 0) y += 1;

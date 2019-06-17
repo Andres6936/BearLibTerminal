@@ -46,11 +46,11 @@ int main()
 
 	auto reset = []()
 	{
-		terminal_set(
-			"window: size=80x25, cellsize=auto, title='Omni: menu';"
-			"font: default;"
-			"input: filter={keyboard}"
-		);
+        TerminalSet(
+                "window: size=80x25, cellsize=auto, title='Omni: menu';"
+                "font: default;"
+                "input: filter={keyboard}"
+        );
 		terminal_color("white");
 	};
 

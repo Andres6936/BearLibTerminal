@@ -50,7 +50,7 @@ void UpdateGeometry()
 
 void TestTextAlignment()
 {
-	terminal_set("window.title='Omni: text alignment', resizeable=true, minimum-size=44x12");
+    TerminalSet( "window.title='Omni: text alignment', resizeable=true, minimum-size=44x12" );
     TerminalComposition( TK_ON );
 
 	std::map<int, std::string> names =
@@ -91,10 +91,10 @@ void TestTextAlignment()
 		int x = frame_left, y = frame_top;
 
 		terminal_color("white");
-		terminal_print_ext(x, y, frame_width, frame_height, vertical_align | horisontal_align, lorem_ipsum);
+        TerminalPrintExt( x, y, frame_width, frame_height, vertical_align | horisontal_align, lorem_ipsum );
 
 		terminal_print(80-14, 3, "[c=orange][U+2588]");
-		terminal_print_ext(80-14, 3, 0, 0, vertical_align | horisontal_align, "12345\nabc\n-=#=-");
+        TerminalPrintExt( 80 - 14, 3, 0, 0, vertical_align | horisontal_align, "12345\nabc\n-=#=-" );
 
         TerminalRefresh( );
 
@@ -127,5 +127,5 @@ void TestTextAlignment()
 	}
 
     TerminalComposition( TK_OFF );
-	terminal_set("window.resizeable=false");
+    TerminalSet( "window.resizeable=false" );
 }

@@ -9,9 +9,9 @@
 
 void TestLayers()
 {
-	terminal_set("window.title='Omni: layers'");
+    TerminalSet( "window.title='Omni: layers'" );
 
-	color_t pixel = color_from_name("dark gray");
+	color_t pixel = ColorFromName( "dark gray" );
 	terminal_setf("U+E000: %#p, raw-size=1x1, resize=48x48, resize-filter=nearest", &pixel);
 
 	while (true)
@@ -39,5 +39,5 @@ void TestLayers()
 		}
 	}
 
-	terminal_set("U+E000: none");
+    TerminalSet( "U+E000: none" );
 }

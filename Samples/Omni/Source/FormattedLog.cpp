@@ -124,7 +124,7 @@ int UpdateHeights()
 	int total_height = 0;
 	for (auto& message: messages)
 	{
-		message.height = terminal_measure_ext(frame_width, 0, message.text.c_str()).height;
+		message.height = TerminalMeasureExt( frame_width, 0, message.text.c_str( )).height;
 		total_height += message.height;
 	}
 
@@ -167,11 +167,14 @@ void ScrollToPixel(int py)
 
 void TestFormattedLog()
 {
-	terminal_set("window: resizeable=true, minimum-size=20x8; font: default");
-	terminal_set("input: filter='keyboard, mouse+', precise-mouse=true");
-	terminal_set("runic font: ../Media/Tigrex3drunes_16x16_437.PNG, size=16x16, codepage=437, spacing=2x1, transparent=auto");
-	terminal_set("stone font: ../Media/Aesomatica_16x16_437.png, size=16x16, codepage=437, spacing=2x1, transparent=#FF00FF");
-	terminal_set("curvy font: ../Media/Cheepicus_16x16_437.png, size=16x16, codepage=437, spacing=2x1, transparent=auto");
+    TerminalSet( "window: resizeable=true, minimum-size=20x8; font: default" );
+    TerminalSet( "input: filter='keyboard, mouse+', precise-mouse=true" );
+    TerminalSet(
+            "runic font: ../Media/Tigrex3drunes_16x16_437.PNG, size=16x16, codepage=437, spacing=2x1, transparent=auto" );
+    TerminalSet(
+            "stone font: ../Media/Aesomatica_16x16_437.png, size=16x16, codepage=437, spacing=2x1, transparent=#FF00FF" );
+    TerminalSet(
+            "curvy font: ../Media/Cheepicus_16x16_437.png, size=16x16, codepage=437, spacing=2x1, transparent=auto" );
 	alternative_fonts.push_back("runic");
 	alternative_fonts.push_back("stone");
 	alternative_fonts.push_back("curvy");
@@ -223,7 +226,8 @@ void TestFormattedLog()
 		for (; index < messages.size() && delta <= frame_height; index++)
 		{
 			auto& message = messages[index];
-			terminal_print_ext(padding_left, padding_top+delta, frame_width, 0, TK_ALIGN_DEFAULT, message.text.c_str());
+            TerminalPrintExt( padding_left, padding_top + delta, frame_width, 0, TK_ALIGN_DEFAULT,
+                              message.text.c_str( ));
 			delta += message.height + 1;
 		}
         TerminalCrop( padding_left, padding_top, frame_width, frame_height );
@@ -300,7 +304,7 @@ void TestFormattedLog()
 		}
 	}
 
-	terminal_set("window: resizeable=false");
-	terminal_set("runic font: none; stone font: none; curvy font: none");
-	terminal_set("input: precise-mouse=false;");
+    TerminalSet( "window: resizeable=false" );
+    TerminalSet( "runic font: none; stone font: none; curvy font: none" );
+    TerminalSet( "input: precise-mouse=false;" );
 }

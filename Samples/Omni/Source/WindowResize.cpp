@@ -9,7 +9,7 @@
 
 void TestWindowResize()
 {
-	terminal_set("window: title='Omni: window resizing', resizeable=true, minimum-size=27x5");
+    TerminalSet( "window: title='Omni: window resizing', resizeable=true, minimum-size=27x5" );
 
 	const int symbol = 0x2588;
 
@@ -39,5 +39,5 @@ void TestWindowResize()
 		}
 	}
 
-	terminal_set("window: resizeable=false");
+    TerminalSet( "window: resizeable=false" );
 }

@@ -87,7 +87,7 @@ void DrawFrame(int x, int y, int w, int h)
 
 void TestTextInput()
 {
-	terminal_set("window.title='Omni: text input'");
+    TerminalSet( "window.title='Omni: text input'" );
     TerminalComposition( TK_OFF );
 
 	const int max_chars = 32;
@@ -103,7 +103,7 @@ void TestTextInput()
 
 		terminal_print(2, 1, "Select different input tests by pressing corresponding number:");
 
-		terminal_print(2, 3, "[color=orange]1.[/color] terminal_read_str");
+		terminal_print(2, 3, "[color=orange]1.[/color] TerminalReadStr");
 		DrawFrame(5, 4, max_chars+2, 3);
 		terminal_printf(6, 5, L"%ls", buffer);
 		terminal_printf(5+max_chars+2+1, 5, "[color=gray] %s", result >=0? "OK": "Cancelled");

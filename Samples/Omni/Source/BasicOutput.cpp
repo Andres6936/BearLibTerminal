@@ -9,7 +9,7 @@
 
 void TestBasicOutput()
 {
-	terminal_set("window.title='Omni: basic output'");
+    TerminalSet( "window.title='Omni: basic output'" );
     TerminalClear( );
 	terminal_color("white");
 

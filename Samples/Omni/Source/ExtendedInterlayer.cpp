@@ -119,7 +119,7 @@ void DrawMap(int x, int y, std::vector<int>& map)
 void TestExtendedInterlayer()
 {
 	// Setup
-	terminal_set("window.title='Omni: extended output / interlayer animation'");
+    TerminalSet( "window.title='Omni: extended output / interlayer animation'" );
     TerminalComposition( TK_ON );
 
 	int map_left = TerminalState( TK_WIDTH )/2 - map_width/2;

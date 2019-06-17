@@ -11,7 +11,7 @@
 
 void TestManualCellsize()
 {
-	terminal_set("window.title='Omni: manual cellsize'");
+    TerminalSet( "window.title='Omni: manual cellsize'" );
 
 	const char* font_name = "../Media/VeraMono.ttf";
 	std::vector<std::string> font_hintings = {"normal", "autohint", "none"};
@@ -84,5 +84,5 @@ void TestManualCellsize()
 		}
 	}
 
-	terminal_set("font: default; window.cellsize=auto");
+    TerminalSet( "font: default; window.cellsize=auto" );
 }

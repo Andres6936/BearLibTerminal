@@ -29,7 +29,7 @@
 
 - Retrieve clipboard contents via `TerminalGet("clipboard")`.
 - Fix bitmap tileset reverse codepage (sparse tileset) handling.
-- `input.cursor-blink-rate=0` disables cursor blinking in `terminal_read_str()`. 
+- `input.cursor-blink-rate=0` disables cursor blinking in `TerminalReadStr()`. 
 - Fix printing tab characters (configured by `output.tab-width` option).
 - Fix app hanging on reopening terminal in macOS (see [issue #23](https://bitbucket.org/cfyzium/bearlibterminal/issues/23/reopening-a-closed-terminal-hangs-forever)).
 
@@ -81,7 +81,7 @@
 
 ### 0.14.8 (2016-09-06)
 
-- Setting custom colors in the palette (available later via `color_from_name()` and the `[color=name]` formatting tag)
+- Setting custom colors in the palette (available later via `ColorFromName()` and the `[color=name]` formatting tag)
 - Specifying custom colors in the 'Palette' section of a configuration file.
 - Fix filtered events ordering (some events could have been lost before).
 - Pascal: Delphi-compatible Pascal wrapper.

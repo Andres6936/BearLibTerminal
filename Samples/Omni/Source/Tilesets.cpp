@@ -10,14 +10,15 @@
 
 void TestTilesets()
 {
-	terminal_set("window.title='Omni: tilesets'");
+    TerminalSet( "window.title='Omni: tilesets'" );
     TerminalComposition( TK_ON );
 
 	// Load tilesets
-	terminal_set("U+E100: ../Media/Runic.png, size=8x16");
-	terminal_set("U+E200: ../Media/Tiles.png, size=32x32, align=top-left");
-	terminal_set("U+E300: ../Media/fontawesome-webfont.ttf, size=24x24, spacing=3x2, codepage=../Media/fontawesome-codepage.txt");
-	terminal_set("zodiac font: ../Media/Zodiac-S.ttf, size=24x36, spacing=3x3, codepage=437");
+    TerminalSet( "U+E100: ../Media/Runic.png, size=8x16" );
+    TerminalSet( "U+E200: ../Media/Tiles.png, size=32x32, align=top-left" );
+    TerminalSet(
+            "U+E300: ../Media/fontawesome-webfont.ttf, size=24x24, spacing=3x2, codepage=../Media/fontawesome-codepage.txt" );
+    TerminalSet( "zodiac font: ../Media/Zodiac-S.ttf, size=24x36, spacing=3x3, codepage=437" );
 
     TerminalClear( );
 	terminal_color("white");
@@ -69,6 +70,6 @@ void TestTilesets()
 	for (int key=0; key!=TK_CLOSE && key!=TK_ESCAPE; key= TerminalRead( ));
 
 	// Clean up
-	terminal_set("U+E100: none; U+E200: none; U+E300: none; zodiac font: none");
+    TerminalSet( "U+E100: none; U+E200: none; U+E300: none; zodiac font: none" );
     TerminalComposition( TK_OFF );
 }

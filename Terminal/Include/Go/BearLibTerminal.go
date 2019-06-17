@@ -227,7 +227,7 @@ func Close() {
 func Set(value string) int {
 	cstring := C.CString(value)
 	defer C.free(unsafe.Pointer(cstring))
-	return int(C.terminal_set(cstring))
+	return int(C.TerminalSet(cstring))
 }
 
 //
@@ -253,7 +253,7 @@ func Layer(index int) {
 func Font(name string) {
 	cstring := C.CString(name)
 	defer C.free(unsafe.Pointer(cstring))
-	C.terminal_font(cstring)
+	C.TerminalFont(cstring)
 }
 
 //
@@ -306,7 +306,7 @@ func PutExt(x, y, dx, dy, code int, corners [4]uint32) {
 func PrintExt(x, y, w, h, alignment int, s string) (width, height int) {
 	cstring := C.CString(s)
 	defer C.free(unsafe.Pointer(cstring))
-	sz := C.terminal_print_ext(C.int(x), C.int(y), C.int(w), C.int(h), C.int(alignment), cstring)
+	sz := C.TerminalPrintExt(C.int(x), C.int(y), C.int(w), C.int(h), C.int(alignment), cstring)
 	return int(sz.width), int(sz.height)
 }
 
@@ -317,7 +317,7 @@ func Print(x, y int, s string) (width, height int) {
 func MeasureExt(w, h int, s string) (width, height int) {
 	cstring := C.CString(s)
 	defer C.free(unsafe.Pointer(cstring))
-	sz := C.terminal_measure_ext(C.int(w), C.int(h), cstring)
+	sz := C.TerminalMeasureExt(C.int(w), C.int(h), cstring)
 	return int(sz.width), int(sz.height)
 }
 
@@ -353,7 +353,7 @@ func Peek() int {
 func ReadStr(x, y int, max int) (int, string) {
 	cstring := C.CString("")
 	defer C.free(unsafe.Pointer(cstring))
-	result := int(C.terminal_read_str(C.int(x), C.int(y), cstring, C.int(max)))
+	result := int(C.TerminalReadStr(C.int(x), C.int(y), cstring, C.int(max)))
 	return result, C.GoString(cstring)
 }
 
@@ -373,7 +373,7 @@ func Get(key, defaultValue string) string {
 func ColorFromName(name string) uint32 {
 	cstring := C.CString(name)
 	defer C.free(unsafe.Pointer(cstring))
-	val := C.color_from_name(cstring)
+	val := C.ColorFromName(cstring)
 	return uint32(val)
 }
 

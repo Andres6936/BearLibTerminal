@@ -14,8 +14,8 @@ const float g_pi = 3.141592654f;
 void TestExtendedBasics()
 {
 	// Setup
-	terminal_set("window.title='Omni: extended output / basics'");
-	terminal_set("0xE000: ../Media/Tiles.png, size=32x32, align=top-left");
+    TerminalSet( "window.title='Omni: extended output / basics'" );
+    TerminalSet( "0xE000: ../Media/Tiles.png, size=32x32, align=top-left" );
     TerminalComposition( TK_ON );
 
 	int cx = 10, cy = 5;
@@ -84,5 +84,5 @@ void TestExtendedBasics()
 
 	// Clean up
     TerminalComposition( TK_OFF );
-	terminal_set("0xE000: none");
+    TerminalSet( "0xE000: none" );
 }

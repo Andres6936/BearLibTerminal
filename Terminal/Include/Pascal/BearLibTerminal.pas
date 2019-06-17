@@ -374,7 +374,7 @@ function terminal_set_unicode(const Options: PWideChar): LongBool;
 
 function terminal_set(const Options: WideString): LongBool;
 begin
-    terminal_set := terminal_set_unicode(PWideChar(Options));
+    TerminalSet := terminal_set_unicode(PWideChar(Options));
 end;
 
 procedure terminal_color(Color: AnsiString); overload;
@@ -408,7 +408,7 @@ begin
 	terminal_font_ansi(PAnsiChar(Name));
 end;
 
-procedure terminal_font(const Name: WideString); overload;
+procedure TerminalFont(const Name: WideString); overload;
 begin
 	terminal_font_unicode(PWideChar(Name));
 end;
@@ -516,7 +516,7 @@ begin
     terminal_measure := terminal_measure(0, 0, S);
 end;
 
-function terminal_measure(W, H: Int32; const S: AnsiString): TSize;
+function TerminalMeasure(W, H: Int32; const S: AnsiString): TSize;
 var
     OutW, OutH: Int32;
 begin
@@ -562,7 +562,7 @@ var
     i: Integer;
 begin
     SetLength(S, MaxLength);
-    terminal_read_str := terminal_read_str_unicode(X, Y, PWideChar(S), MaxLength);
+    TerminalReadStr := terminal_read_str_unicode(X, Y, PWideChar(S), MaxLength);
     for i := 1 to MaxLength do
         if S[i] = WideChar(0) then
             break;
@@ -608,7 +608,7 @@ function color_from_name_unicode(const Name: PWideChar): UInt32;
 
 function color_from_name(const Name: WideString): UInt32;
 begin
-    color_from_name := color_from_name_unicode(PWideChar(Name));
+    ColorFromName := color_from_name_unicode(PWideChar(Name));
 end;
 
 function color_from_argb(a, r, g, b: Int32): UInt32;

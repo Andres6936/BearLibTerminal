@@ -72,7 +72,7 @@ color_t color_from_another(uint8_t alpha, color_t base)
 
 void TestSpeed()
 {
-	terminal_set("window.title='Omni: syncronous rendering'");
+    TerminalSet( "window.title='Omni: syncronous rendering'" );
     TerminalComposition( TK_ON );
 
 	unsigned int shift_f = 0, shift_b = 0, shift_f2 = 0;
@@ -149,6 +149,6 @@ void TestSpeed()
 		shift_f2 = (int)shift_f2f;
 	}
 
-	terminal_set("output.vsync=true");
+    TerminalSet( "output.vsync=true" );
     TerminalComposition( TK_OFF );
 }

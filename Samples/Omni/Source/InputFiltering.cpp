@@ -4,7 +4,7 @@
 
 void TestInputFiltering()
 {
-	terminal_set("window.title='Omni: input filtering'");
+    TerminalSet( "window.title='Omni: input filtering'" );
 
 	std::vector<std::pair<const char*, int>> events =
 	{
@@ -98,5 +98,5 @@ void TestInputFiltering()
 		while (proceed && TerminalHasInput( ));
 	}
 
-	terminal_set("input.filter={keyboard}");
+    TerminalSet( "input.filter={keyboard}" );
 }

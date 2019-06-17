@@ -9,11 +9,11 @@
 
 void TestSprites()
 {
-	terminal_set("window.title='Omni: sprites'");
+    TerminalSet( "window.title='Omni: sprites'" );
 
-	terminal_set("U+E000: ../Media/Background.jpg");
-	terminal_set("U+E001: ../Media/EasternDragon.png, resize=128x128, resize-filter=nearest");
-	terminal_set("U+E002: ../Media/FiveElements.bmp, resize=128x128, resize-filter=bilinear");
+    TerminalSet( "U+E000: ../Media/Background.jpg" );
+    TerminalSet( "U+E001: ../Media/EasternDragon.png, resize=128x128, resize-filter=nearest" );
+    TerminalSet( "U+E002: ../Media/FiveElements.bmp, resize=128x128, resize-filter=bilinear" );
 
 	color_t c[] =
 	{
@@ -51,5 +51,5 @@ void TestSprites()
 		}
 	}
 
-	terminal_set("U+E000: none; U+E001: none; U+E002: none; U+E003: none");
+    TerminalSet( "U+E000: none; U+E001: none; U+E002: none; U+E003: none" );
 }
