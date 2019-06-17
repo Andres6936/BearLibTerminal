@@ -336,7 +336,7 @@ function terminal_peek(): Int32;
 
 // Delay
 procedure terminal_delay(Period: Int32);
-  cdecl; external 'BearLibTerminal' name 'terminal_delay';
+  cdecl; external 'BearLibTerminal' name 'TerminalDelay';
 
 // Get
 function terminal_get(const S: AnsiString): AnsiString; overload;

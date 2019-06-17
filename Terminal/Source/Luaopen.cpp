@@ -602,7 +602,7 @@ int luaterminal_peek(lua_State* L)
 
 int luaterminal_delay(lua_State* L)
 {
-	terminal_delay(lua_tointeger(L, 1));
+    TerminalDelay( lua_tointeger( L, 1 ));
 	return 0;
 }
 

@@ -358,7 +358,7 @@ func ReadStr(x, y int, max int) (int, string) {
 }
 
 func Delay(period int) {
-	C.terminal_delay(C.int(period))
+	C.TerminalDelay(C.int(period))
 }
 
 func Get(key, defaultValue string) string {

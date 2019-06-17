@@ -329,7 +329,7 @@ int TerminalPeek()
 	return g_instance->Peek();
 }
 
-void terminal_delay(int period)
+void TerminalDelay( int period)
 {
 	if (g_instance)
 		g_instance->Delay(period);

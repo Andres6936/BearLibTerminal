@@ -47,7 +47,7 @@ void AnimateDamage(int x, int y, int damage)
         TerminalColor( color_from_argb( 255 / n_steps * ( n_steps - i ), 255, 64, 0 ));
 		terminal_printf(x, y, "[offset=%dx%d]%s", (int)dx, (int)dy, s.c_str());
         TerminalRefresh( );
-		terminal_delay(1000/fps);
+        TerminalDelay( 1000 / fps );
 	}
 	terminal_color("white");
 }
