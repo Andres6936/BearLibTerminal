@@ -305,19 +305,19 @@ template<typename char_t, typename enc_t> int ReadStr( int x, int y, char_t *buf
 	return rc;
 }
 
-int terminal_read_str8(int x, int y, int8_t* buffer, int max)
+int TerminalReadStr8( int x, int y, int8_t *buffer, int max)
 {
 	if (!g_instance) return TK_INPUT_CANCELLED;
 	return ReadStr( x, y, ( char * ) buffer, max, g_instance->GetEncoding( ));
 }
 
-int terminal_read_str16(int x, int y, int16_t* buffer, int max)
+int TerminalReadStr16( int x, int y, int16_t *buffer, int max)
 {
 	if (!g_instance) return TK_INPUT_CANCELLED;
 	return ReadStr( x, y, ( char16_t * ) buffer, max, BearLibTerminal::UCS2Encoding( ));
 }
 
-int terminal_read_str32(int x, int y, int32_t* buffer, int max)
+int TerminalReadStr32( int x, int y, int32_t *buffer, int max)
 {
 	if (!g_instance) return TK_INPUT_CANCELLED;
 	return ReadStr( x, y, ( char32_t * ) buffer, max, BearLibTerminal::UCS4Encoding( ));

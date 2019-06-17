@@ -277,9 +277,9 @@ TERMINAL_API void TerminalMeasureExt32( int w, int h, const int32_t *s, int *out
 TERMINAL_API int TerminalHasInput();
 TERMINAL_API int TerminalState( int code);
 TERMINAL_API int TerminalRead();
-TERMINAL_API int terminal_read_str8(int x, int y, int8_t* buffer, int max);
-TERMINAL_API int terminal_read_str16(int x, int y, int16_t* buffer, int max);
-TERMINAL_API int terminal_read_str32(int x, int y, int32_t* buffer, int max);
+TERMINAL_API int TerminalReadStr8( int x, int y, int8_t *buffer, int max);
+TERMINAL_API int TerminalReadStr16( int x, int y, int16_t *buffer, int max);
+TERMINAL_API int TerminalReadStr32( int x, int y, int32_t *buffer, int max);
 TERMINAL_API int terminal_peek();
 TERMINAL_API void terminal_delay(int period);
 TERMINAL_API const int8_t* terminal_get8(const int8_t* key, const int8_t* default_);
@@ -552,7 +552,7 @@ TERMINAL_INLINE dimensions_t terminal_wmeasuref_ext(int w, int h, const wchar_t*
 
 TERMINAL_INLINE int terminal_read_str(int x, int y, char* buffer, int max)
 {
-	return terminal_read_str8(x, y, (int8_t*)buffer, max);
+	return TerminalReadStr8( x, y, ( int8_t * ) buffer, max );
 }
 
 TERMINAL_INLINE int terminal_read_wstr(int x, int y, wchar_t* buffer, int max)

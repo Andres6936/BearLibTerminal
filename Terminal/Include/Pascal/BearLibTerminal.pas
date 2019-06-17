@@ -540,7 +540,7 @@ begin
 end;
 
 function terminal_read_str_ansi(X, Y: Int32; S: PAnsiChar; MaxLength: Int32): Int32;
-  cdecl; external 'BearLibTerminal' name 'terminal_read_str8';
+  cdecl; external 'BearLibTerminal' name 'TerminalReadStr8';
 
 function terminal_read_str(X, Y: Int32; var S: AnsiString; MaxLength: Int32): Int32;
 var
@@ -555,7 +555,7 @@ begin
 end;
 
 function terminal_read_str_unicode(X, Y: Int32; S: PWideChar; MaxLength: Int32): Int32;
-  cdecl; external 'BearLibTerminal' name 'terminal_read_str16';
+  cdecl; external 'BearLibTerminal' name 'TerminalReadStr16';
 
 function terminal_read_str(X, Y: Int32; var S: WideString; MaxLength: Int32): Int32;
 var

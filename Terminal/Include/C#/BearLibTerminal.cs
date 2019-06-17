@@ -498,7 +498,7 @@ namespace BearLib
         [DllImport("BearLibTerminal.dll", EntryPoint = "TerminalRead", CallingConvention = CallingConvention.Cdecl)]
         public static extern int Read();
 
-        [DllImport("BearLibTerminal.dll", CharSet = CharSet.Unicode, EntryPoint = "terminal_read_str16", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", CharSet = CharSet.Unicode, EntryPoint = "TerminalReadStr16", CallingConvention = CallingConvention.Cdecl)]
         public static extern int ReadStr(int x, int y, StringBuilder text, int max);
 
         public static int ReadStr(Point location, StringBuilder text, int max)

@@ -84,7 +84,7 @@ module Terminal
 	State = Fiddle::Function.new(Lib['terminal_state'], [Fiddle::TYPE_INT], Fiddle::TYPE_INT)
 	Read = Fiddle::Function.new(Lib['TerminalRead'], [], Fiddle::TYPE_INT)
 	Peek = Fiddle::Function.new(Lib['terminal_peek'], [], Fiddle::TYPE_INT)
-	ReadStr = Fiddle::Function.new(Lib['terminal_read_str8'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT], Fiddle::TYPE_INT)
+	ReadStr = Fiddle::Function.new(Lib['TerminalReadStr8'], [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT], Fiddle::TYPE_INT)
 	Delay = Fiddle::Function.new(Lib['terminal_delay'], [Fiddle::TYPE_INT], Fiddle::TYPE_VOID)
 	Get = Fiddle::Function.new(Lib['terminal_get8'], [Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP], Fiddle::TYPE_VOIDP)
 	ColorFromName = Fiddle::Function.new(Lib['color_from_name8'], [Fiddle::TYPE_VOIDP], -Fiddle::TYPE_INT)
