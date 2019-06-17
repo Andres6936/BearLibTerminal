@@ -69,20 +69,20 @@ void DrawFrame(int x, int y, int w, int h)
 
 	for (int i=x; i<x+w; i++)
 	{
-		terminal_put(i, y, L'─');
-		terminal_put(i, y+h-1, L'─');
+        TerminalPut( i, y, L'─' );
+        TerminalPut( i, y + h - 1, L'─' );
 	}
 
 	for (int j=y; j<y+h; j++)
 	{
-		terminal_put(x, j, L'│');
-		terminal_put(x+w-1, j, L'│');
+        TerminalPut( x, j, L'│' );
+        TerminalPut( x + w - 1, j, L'│' );
 	}
 
-	terminal_put(x, y, L'┌');
-	terminal_put(x+w-1, y, L'┐');
-	terminal_put(x, y+h-1, L'└');
-	terminal_put(x+w-1, y+h-1, L'┘');
+    TerminalPut( x, y, L'┌' );
+    TerminalPut( x + w - 1, y, L'┐' );
+    TerminalPut( x, y + h - 1, L'└' );
+    TerminalPut( x + w - 1, y + h - 1, L'┘' );
 }
 
 void TestTextInput()
@@ -110,7 +110,7 @@ void TestTextInput()
 
 		terminal_print(2, 8, "[color=orange]2.[/color] terminal_read_char");
 		DrawFrame(5, 9, 5, 3);
-		terminal_put(7, 10, character);
+        TerminalPut( 7, 10, character );
 		terminal_printf(5+3+2+1, 10, "[color=gray]%s", (key_names.count(char_result)? key_names[char_result]: to_string(char_result)).c_str());
 
         TerminalRefresh( );
@@ -134,7 +134,7 @@ void TestTextInput()
 
 			do
 			{
-				terminal_put(7, 10, character);
+                TerminalPut( 7, 10, character );
                 TerminalClearArea( 5 + 3 + 2 + 1, 10, 16, 1 );
 				terminal_printf(5+3+2+1, 10, "[color=gray]%s", (key_names.count(char_result)? key_names[char_result]: to_string(char_result)).c_str());
                 TerminalRefresh( );

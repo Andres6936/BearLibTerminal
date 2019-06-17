@@ -69,7 +69,7 @@ void TestExtendedSmoothScroll()
 				int mx = (jx+x)%map_size;
 				int my = (jy+y)%map_size;
 				int c = map[my*map_size+mx];
-				terminal_put_ext(0, 0, (x-1)*tile_size+tx, (y-1)*tile_size+ty, 0xE000+c, nullptr);
+                TerminalPutExt( 0, 0, ( x - 1 ) * tile_size + tx, ( y - 1 ) * tile_size + ty, 0xE000 + c, nullptr );
 			}
 		}
 

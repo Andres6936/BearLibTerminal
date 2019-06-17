@@ -203,13 +203,13 @@ void TerminalFont32( const int32_t *name)
 		g_instance->SetFont(UCS4Encoding().Convert((const char32_t*)name));
 }
 
-void terminal_put(int x, int y, int code)
+void TerminalPut( int x, int y, int code)
 {
 	if (!g_instance) return;
 	g_instance->Put(x, y, code);
 }
 
-void terminal_put_ext(int x, int y, int dx, int dy, int code, color_t* corners)
+void TerminalPutExt( int x, int y, int dx, int dy, int code, color_t *corners)
 {
 	if (!g_instance) return;
 	g_instance->PutExtended(x, y, dx, dy, code, (BearLibTerminal::Color*)corners);

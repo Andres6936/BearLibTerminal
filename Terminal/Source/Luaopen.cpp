@@ -354,7 +354,7 @@ int luaterminal_composition(lua_State* L)
 
 int luaterminal_put(lua_State* L)
 {
-	terminal_put(lua_tointeger(L, 1), lua_tointeger(L, 2), lua_tointeger(L, 3));
+    TerminalPut( lua_tointeger( L, 1 ), lua_tointeger( L, 2 ), lua_tointeger( L, 3 ));
 	return 0;
 }
 
@@ -371,7 +371,7 @@ int luaterminal_put_ext(lua_State* L)
 
 	if (nargs == 5)
 	{
-		terminal_put_ext(x, y, dx, dy, code, nullptr);
+        TerminalPutExt( x, y, dx, dy, code, nullptr );
 	}
 	else if (nargs == 6)
 	{
@@ -383,7 +383,7 @@ int luaterminal_put_ext(lua_State* L)
 			corners[i] = lua_tonumber(L, -1);
 			lua_pop(L, 1);
 		}
-		terminal_put_ext(x, y, dx, dy, code, corners);
+        TerminalPutExt( x, y, dx, dy, code, corners );
 	}
 	else if (nargs == 9)
 	{
@@ -394,7 +394,7 @@ int luaterminal_put_ext(lua_State* L)
 			(color_t)lua_tonumber(L, 8),
 			(color_t)lua_tonumber(L, 9)
 		};
-		terminal_put_ext(x, y, dx, dy, code, corners);
+        TerminalPutExt( x, y, dx, dy, code, corners );
 	}
 
 	return 0;

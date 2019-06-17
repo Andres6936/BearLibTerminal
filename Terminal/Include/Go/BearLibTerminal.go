@@ -277,7 +277,7 @@ func Refresh() {
 }
 
 func Put(x, y, code int) {
-	C.terminal_put(C.int(x), C.int(y), C.int(code))
+	C.TerminalPut(C.int(x), C.int(y), C.int(code))
 }
 
 func Pick(x, y, index int) int {
@@ -300,7 +300,7 @@ func PutExt(x, y, dx, dy, code int, corners [4]uint32) {
 		cornerColors[i] = C.color_t(corners[i])
 	}
 
-	C.terminal_put_ext(C.int(x), C.int(y), C.int(dx), C.int(dy), C.int(code), &cornerColors[0])
+	C.TerminalPutExt(C.int(x), C.int(y), C.int(dx), C.int(dy), C.int(code), &cornerColors[0])
 }
 
 func PrintExt(x, y, w, h, alignment int, s string) (width, height int) {

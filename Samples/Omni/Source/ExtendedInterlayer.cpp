@@ -95,22 +95,22 @@ void DrawMap(int x, int y, std::vector<int>& map)
 			if (i == player_x && j == player_y)
 			{
 				terminal_color("orange");
-				terminal_put(x+i, y+j, '@');
+                TerminalPut( x + i, y + j, '@' );
 			}
 			else if (i == foe_x && j == foe_y && foe_hp > 0)
 			{
 				terminal_color("white");
-				terminal_put(x+i, y+j, 'g');
+                TerminalPut( x + i, y + j, 'g' );
 			}
 			else if (v == 0 || v == 1)
 			{
 				terminal_color(v? "red": "gray");
-				terminal_put(x+i, y+j, 0x2219);
+                TerminalPut( x + i, y + j, 0x2219 );
 			}
 			else
 			{
 				terminal_color("white");
-				terminal_put(x+i, y+j, v);
+                TerminalPut( x + i, y + j, v );
 			}
 		}
 	}

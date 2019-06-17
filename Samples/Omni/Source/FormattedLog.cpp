@@ -240,7 +240,7 @@ void TestFormattedLog()
 			terminal_state(TK_CELL_HEIGHT);
 		for (int i = 0; i < scrollbar_height; i++)
 		{
-			terminal_put_ext(scrollbar_column, i, 0, scrollbar_offset, 0x2588, 0);
+            TerminalPutExt( scrollbar_column, i, 0, scrollbar_offset, 0x2588, 0 );
 		}
 
 		// Render

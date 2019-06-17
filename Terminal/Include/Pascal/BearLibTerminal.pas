@@ -426,7 +426,7 @@ begin
     terminal_put_integer(X, Y, ord(Code));
 end;
 
-procedure terminal_put(X, Y: Int32; Code: WideChar);
+procedure TerminalPut(X, Y: Int32; Code: WideChar);
 begin
     terminal_put_integer(X, Y, ord(Code));
 end;
@@ -443,7 +443,7 @@ end;
 
 procedure terminal_put_ext(X, Y, dX, dY: Int32; Code: WideChar); overload;
 begin
-    terminal_put_ext(X, Y, dX, dY, ord(Code), PUInt32(0));
+    TerminalPutExt(X, Y, dX, dY, ord(Code), PUInt32(0));
 end;
 
 function terminal_pick(X, Y: Int32): Int32; overload;

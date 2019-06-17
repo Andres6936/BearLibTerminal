@@ -38,7 +38,7 @@ void TestDefaultFont()
 
 			bool included = range.codes.count(code);
             TerminalColor( included ? color_from_name( "white" ) : color_from_name( "dark gray" ));
-			terminal_put(hoffset+6+(code%16)*2, 2+y*1, code);
+            TerminalPut( hoffset + 6 + ( code % 16 ) * 2, 2 + y * 1, code );
 
 			if ((code+1)%16 == 0) y += 1;
 		}

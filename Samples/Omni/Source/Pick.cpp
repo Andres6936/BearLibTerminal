@@ -27,13 +27,13 @@ void TestPick()
 		int y = 3 + (rand() % 19);
 
 		terminal_color(colors[rand() % 7]);
-		terminal_put(x, y, 'a' + (rand() % 26));
+        TerminalPut( x, y, 'a' + ( rand( ) % 26 ));
 
         TerminalComposition( TK_ON );
 		for (int i = 1; i < n; i++)
 		{
 			terminal_color(colors[rand() % 7]);
-			terminal_put(x, y, combining[rand() % 7]);
+            TerminalPut( x, y, combining[ rand( ) % 7 ] );
 		}
         TerminalComposition( TK_OFF );
 	}

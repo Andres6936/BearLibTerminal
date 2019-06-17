@@ -22,26 +22,26 @@ static void FillRectangle(int x, int y, int w, int h, color_t color)
 	{
 		for ( int j = y; j < y+h; j++ )
 		{
-			terminal_put(i, j, 0x2588);
+            TerminalPut( i, j, 0x2588 );
 		}
 	}
 
 	for ( int i = x; i < x+w; i++ )
 	{
-		terminal_put(i, y-1, 0x2584);
-		terminal_put(i, y+h, 0x2580);
+        TerminalPut( i, y - 1, 0x2584 );
+        TerminalPut( i, y + h, 0x2580 );
 	}
 
 	for ( int j = y; j < y+h; j++ )
 	{
-		terminal_put(x-1, j, 0x2590);
-		terminal_put(x+w, j, 0x258C);
+        TerminalPut( x - 1, j, 0x2590 );
+        TerminalPut( x + w, j, 0x258C );
 	}
 
-	terminal_put(x-1, y-1, 0x2597);
-	terminal_put(x-1, y+h, 0x259D);
-	terminal_put(x+w, y-1, 0x2596);
-	terminal_put(x+w, y+h, 0x2598);
+    TerminalPut( x - 1, y - 1, 0x2597 );
+    TerminalPut( x - 1, y + h, 0x259D );
+    TerminalPut( x + w, y - 1, 0x2596 );
+    TerminalPut( x + w, y + h, 0x2598 );
 };
 
 void TestKeyboard()
@@ -258,15 +258,15 @@ void TestKeyboard()
 
 		// Main keyboard
         TerminalColor( terminal_state( TK_RETURN ) ? pressed_key_text : available_key_text );
-		terminal_put(6+32, 1+6+0, 'E');
-		terminal_put(6+32, 1+6+1, 'N');
-		terminal_put(6+32, 1+6+2, 'T');
+        TerminalPut( 6 + 32, 1 + 6 + 0, 'E' );
+        TerminalPut( 6 + 32, 1 + 6 + 1, 'N' );
+        TerminalPut( 6 + 32, 1 + 6 + 2, 'T' );
 
 		// Numpad
         TerminalColor( terminal_state( TK_KP_ENTER ) ? pressed_key_text : available_key_text );
-		terminal_put(6+65, 1+10+0, 'E');
-		terminal_put(6+65, 1+10+1, 'N');
-		terminal_put(6+65, 1+10+2, 'T');
+        TerminalPut( 6 + 65, 1 + 10 + 0, 'E' );
+        TerminalPut( 6 + 65, 1 + 10 + 1, 'N' );
+        TerminalPut( 6 + 65, 1 + 10 + 2, 'T' );
 
         TerminalColor( grid_color );
 		for ( size_t i=0; i<N_grid_lines; i++ )

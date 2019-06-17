@@ -313,7 +313,7 @@ namespace BearLib
         [DllImport("BearLibTerminal.dll", CharSet = CharSet.Unicode, EntryPoint = "TerminalFont16", CallingConvention = CallingConvention.Cdecl)]
         public static extern void Font(string name);
 
-        [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_put", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", EntryPoint = "TerminalPut", CallingConvention = CallingConvention.Cdecl)]
         public static extern void Put(int x, int y, int code);
 
         public static void Put(Point location, int code)
@@ -331,7 +331,7 @@ namespace BearLib
             Put(location.X, location.Y, (int)code);
         }
 
-        [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_put_ext", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", EntryPoint = "TerminalPutExt", CallingConvention = CallingConvention.Cdecl)]
         private static extern void PutExtImpl(int x, int y, int dx, int dy, int code, [MarshalAs(UnmanagedType.LPArray)]System.Int32[] corners);
 
         public static void PutExt(int x, int y, int dx, int dy, int code)

@@ -79,7 +79,7 @@ void TestDynamicSprites()
 				wchar_t code = map[y][x];
 				if (!palette.count(code)) continue;
 				symbol_t s = palette[code];
-				terminal_put((x-x0)*4, (y-y0)*2, 0xE000+s.tile);
+                TerminalPut(( x - x0 ) * 4, ( y - y0 ) * 2, 0xE000 + s.tile );
 			}
 		}
 	};
@@ -129,12 +129,12 @@ void TestDynamicSprites()
 
 		DrawMap();
 		terminal_color("light gray");
-		for (int x=0; x<80; x++) terminal_put(x, view_height*2, 0x2580);
-		for (int y=0; y<view_height*2; y++) terminal_put(view_width*4, y, 0x2588);
+		for (int x=0; x<80; x++) TerminalPut( x, view_height * 2, 0x2580 );
+		for (int y=0; y<view_height*2; y++) TerminalPut( view_width * 4, y, 0x2588 );
 
 		MakeMinimap();
 		terminal_color("white");
-		terminal_put_ext(view_width*4+1, 0, margin, margin, 0xE100, nullptr);
+        TerminalPutExt( view_width * 4 + 1, 0, margin, margin, 0xE100, nullptr );
 
 		terminal_print(1, view_height*2+1, "[color=orange]Tip:[/color] use arrow keys to move viewport over the map");
 

@@ -83,14 +83,14 @@ void TestMouse()
 			1, 7, "[color=%s][U+25CF][/color] Precise mouse movement",
 			precise_mouse? "orange": "black"
 		);
-		terminal_put(1, 7, 0x25CB);
+        TerminalPut( 1, 7, 0x25CB );
 
 		terminal_printf
 		(
 			1, 8, "[color=%s][U+25CF][/color] Mouse cursor is visible",
 			cursor_visible? "orange": "black"
 		);
-		terminal_put(1, 8, 0x25CB);
+        TerminalPut( 1, 8, 0x25CB );
 
 		terminal_print(double_click_area.x, double_click_area.y-1, "Double-click here:");
 		terminal_color(plate? "darker orange": "darker gray");
@@ -98,21 +98,21 @@ void TestMouse()
 		{
 			for (int y=double_click_area.y; y<=double_click_area.y+double_click_area.height; y++)
 			{
-				terminal_put(x, y, 0x2588); // FIXME: fill_area
+                TerminalPut( x, y, 0x2588 ); // FIXME: fill_area
 			}
 		}
 
 		int mx = terminal_state(TK_MOUSE_X);
 		int my = terminal_state(TK_MOUSE_Y);
         TerminalColor( 0x60FFFFFF );
-		for (int x = 0; x < 80; x++) terminal_put(x, my, 0x2588);
-		for (int y = 0; y < 25; y++) if (y != my) terminal_put(mx, y, 0x2588);
+		for (int x = 0; x < 80; x++) TerminalPut( x, my, 0x2588 );
+		for (int y = 0; y < 25; y++) if (y != my) TerminalPut( mx, y, 0x2588 );
 
         TerminalColor( 0x8000FF00 );
-		terminal_put(mlx, mly, 0x2588);
+        TerminalPut( mlx, mly, 0x2588 );
 
         TerminalColor( 0x80FF00FF );
-		terminal_put(mrx, mry, 0x2588);
+        TerminalPut( mrx, mry, 0x2588 );
 
         TerminalRefresh( );
 

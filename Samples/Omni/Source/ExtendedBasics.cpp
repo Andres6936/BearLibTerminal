@@ -38,34 +38,34 @@ void TestExtendedBasics()
         TerminalClear( );
 		terminal_color("white");
 
-		terminal_print(2, 1, "[color=orange]1.[/color] terminal_put_ext(x, y, [color=orange]dx[/color], [color=orange]dy[/color], code, corners);");
+		terminal_print(2, 1, "[color=orange]1.[/color] TerminalPutExt(x, y, [color=orange]dx[/color], [color=orange]dy[/color], code, corners);");
 		for (int i=0; i<n_symbols; i++)
 		{
 			float angle_delta = 2.0f*g_pi/n_symbols;
 			float dx = std::cos(angle+i*angle_delta)*radius*terminal_state(TK_CELL_WIDTH);
 			float dy = std::sin(angle+i*angle_delta)*radius*terminal_state(TK_CELL_WIDTH)-4;
 			terminal_color(i? "white": "orange");
-			terminal_put_ext(cx, cy, dx, dy, 'a'+i, nullptr);
+            TerminalPutExt( cx, cy, dx, dy, 'a' + i, nullptr );
 		}
 		angle += 2.0f*g_pi / (2*fps);
 
-		terminal_print(2, 9, "[color=orange]2.[/color] terminal_put_ext(x, y, dx, dy, code, [color=orange]corners[/color]);");
-		terminal_put_ext(5, 11, 0, 0, 0xE000+19, m00);
-		terminal_put_ext(10, 11, 0, 0, 0xE000+19, m01);
+		terminal_print(2, 9, "[color=orange]2.[/color] TerminalPutExt(x, y, dx, dy, code, [color=orange]corners[/color]);");
+        TerminalPutExt( 5, 11, 0, 0, 0xE000 + 19, m00 );
+        TerminalPutExt( 10, 11, 0, 0, 0xE000 + 19, m01 );
 
-		terminal_print(2, 14, "[color=orange]3.[/color] terminal_put_ext + composition");
+		terminal_print(2, 14, "[color=orange]3.[/color] TerminalPutExt + composition");
 		int x1 = 5;
 		int y1 = 16;
-		terminal_put(x1+0, y1+0, 0xE000+19);
-		terminal_put(x1+0, y1+2, 0xE000+8);
-		terminal_put(x1+5, y1+0, 0xE000+19);
-		terminal_put(x1+9, y1+0, 0xE000+19);
-		terminal_put(x1+5, y1+2, 0xE000+19);
-		terminal_put(x1+9, y1+2, 0xE000+19);
-		terminal_put_ext(x1+5, y1+0, 0, 0, 0xE000+8, m11);
-		terminal_put_ext(x1+9, y1+0, 0, 0, 0xE000+8, m12);
-		terminal_put_ext(x1+5, y1+2, 0, 0, 0xE000+8, m21);
-		terminal_put_ext(x1+9, y1+2, 0, 0, 0xE000+8, m22);
+        TerminalPut( x1 + 0, y1 + 0, 0xE000 + 19 );
+        TerminalPut( x1 + 0, y1 + 2, 0xE000 + 8 );
+        TerminalPut( x1 + 5, y1 + 0, 0xE000 + 19 );
+        TerminalPut( x1 + 9, y1 + 0, 0xE000 + 19 );
+        TerminalPut( x1 + 5, y1 + 2, 0xE000 + 19 );
+        TerminalPut( x1 + 9, y1 + 2, 0xE000 + 19 );
+        TerminalPutExt( x1 + 5, y1 + 0, 0, 0, 0xE000 + 8, m11 );
+        TerminalPutExt( x1 + 9, y1 + 0, 0, 0, 0xE000 + 8, m12 );
+        TerminalPutExt( x1 + 5, y1 + 2, 0, 0, 0xE000 + 8, m21 );
+        TerminalPutExt( x1 + 9, y1 + 2, 0, 0, 0xE000 + 8, m22 );
 
         TerminalRefresh( );
 

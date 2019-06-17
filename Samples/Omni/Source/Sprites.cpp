@@ -34,10 +34,10 @@ void TestSprites()
 	terminal_print(2, 11, "4. Color gradient is loaded from 2x2 in-memory buffer\n   image is upscaled 64x with bicubic filter");
 
 	terminal_color("white");
-	terminal_put(0, 0, 0xE000); // Background
-	terminal_put(5, 14, 0xE001); // Dragon
-	terminal_put(5+18*1, 14, 0xE002); // FiveElements
-	terminal_put(5+18*2, 14, 0xE003); // Gradient
+    TerminalPut( 0, 0, 0xE000 ); // Background
+    TerminalPut( 5, 14, 0xE001 ); // Dragon
+    TerminalPut( 5 + 18 * 1, 14, 0xE002 ); // FiveElements
+    TerminalPut( 5 + 18 * 2, 14, 0xE003 ); // Gradient
 
     TerminalRefresh( );
 
