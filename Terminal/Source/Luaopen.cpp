@@ -576,7 +576,7 @@ int luaterminal_read(lua_State* L)
 
 int luaterminal_read_str(lua_State* L)
 {
-	// rc, str = terminal.read_str(x, y, str[, max])
+	// rc, str = terminal.ReadStr(x, y, str[, max])
 
 	int nargs = lua_gettop(L); // 3 or 4 arguments
 
@@ -661,7 +661,7 @@ static const luaL_Reg luaterminal_lib[] =
 	{"state", luaterminal_state},
 	{"check", luaterminal_check},
 	{"read", luaterminal_read},
-	{"read_str", luaterminal_read_str},
+	{"ReadStr", luaterminal_read_str},
 	{"peek", luaterminal_peek},
 	{"delay",  luaterminal_delay},
 	{"get", luaterminal_get},

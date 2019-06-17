@@ -254,7 +254,7 @@ namespace BearLibTerminal
 	}
 
 	// NOTE: not every API function checks this, only functions dealing with configuration,
-	// input and rendering: set, refresh, has_input, read, read_str, peek and delay.
+	// input and rendering: set, refresh, has_input, read, ReadStr, peek and delay.
 	// NOTE: this introduces an unlikely data race which should be acceptable in this particular case.
 	#define CHECK_THREAD(name, ret) \
 	if (m_state == kClosed) { \
@@ -1753,7 +1753,7 @@ namespace BearLibTerminal
 	 */
 	int Terminal::ReadString(int x, int y, wchar_t* buffer, int max)
 	{
-		CHECK_THREAD("read_str", TK_INPUT_CANCELLED);
+		CHECK_THREAD("ReadStr", TK_INPUT_CANCELLED);
 
 		std::vector<Cell> original;
 		int composition_mode = m_world.state.composition;

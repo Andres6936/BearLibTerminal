@@ -291,7 +291,7 @@ int TerminalRead()
 	return g_instance->Read();
 }
 
-template<typename char_t, typename enc_t> int read_str(int x, int y, char_t* buffer, int max, const enc_t& encoding)
+template<typename char_t, typename enc_t> int ReadStr( int x, int y, char_t *buffer, int max, const enc_t &encoding)
 {
 	if (!g_instance) return -1;
 	std::wstring wide_buffer = encoding.Convert((const char_t*)buffer);
@@ -308,19 +308,19 @@ template<typename char_t, typename enc_t> int read_str(int x, int y, char_t* buf
 int terminal_read_str8(int x, int y, int8_t* buffer, int max)
 {
 	if (!g_instance) return TK_INPUT_CANCELLED;
-	return read_str(x, y, (char*)buffer, max, g_instance->GetEncoding());
+	return ReadStr( x, y, ( char * ) buffer, max, g_instance->GetEncoding( ));
 }
 
 int terminal_read_str16(int x, int y, int16_t* buffer, int max)
 {
 	if (!g_instance) return TK_INPUT_CANCELLED;
-	return read_str(x, y, (char16_t*)buffer, max, BearLibTerminal::UCS2Encoding());
+	return ReadStr( x, y, ( char16_t * ) buffer, max, BearLibTerminal::UCS2Encoding( ));
 }
 
 int terminal_read_str32(int x, int y, int32_t* buffer, int max)
 {
 	if (!g_instance) return TK_INPUT_CANCELLED;
-	return read_str(x, y, (char32_t*)buffer, max, BearLibTerminal::UCS4Encoding());
+	return ReadStr( x, y, ( char32_t * ) buffer, max, BearLibTerminal::UCS4Encoding( ));
 }
 
 int terminal_peek()

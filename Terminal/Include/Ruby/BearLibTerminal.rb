@@ -143,7 +143,7 @@ module Terminal
 	def self.check? code; return state(code) > 0; end
 	def self.read; return Read.call; end
 	def self.peek; return Peek.call; end
-	def self.read_str x, y, s, max
+	def self.ReadStr x, y, s, max
 		p = Ptr.malloc max*3+1
 		ps = Ptr[s]
 		for i in 0..ps.size
