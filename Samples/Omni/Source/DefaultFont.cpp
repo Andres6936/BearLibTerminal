@@ -23,7 +23,7 @@ void TestDefaultFont()
 		for (int i=0; i<g_wgl4_ranges.size(); i++)
 		{
 			bool selected = i == current_range;
-			terminal_color(selected? color_from_name("orange"): color_from_name("light gray"));
+            TerminalColor( selected ? color_from_name( "orange" ) : color_from_name( "light gray" ));
 			terminal_printf(1, 2+i, "%s%s", selected? "[U+203A]": " ", g_wgl4_ranges[i].name.c_str());
 		}
 
@@ -37,7 +37,7 @@ void TestDefaultFont()
 			if (code%16 == 0) terminal_printf(hoffset, 2+y*1, "[color=orange]%04X:", code);
 
 			bool included = range.codes.count(code);
-			terminal_color(included? color_from_name("white"): color_from_name("dark gray"));
+            TerminalColor( included ? color_from_name( "white" ) : color_from_name( "dark gray" ));
 			terminal_put(hoffset+6+(code%16)*2, 2+y*1, code);
 
 			if ((code+1)%16 == 0) y += 1;

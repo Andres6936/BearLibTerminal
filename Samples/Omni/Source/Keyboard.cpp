@@ -16,7 +16,7 @@ struct mkey_t
 
 static void FillRectangle(int x, int y, int w, int h, color_t color)
 {
-	terminal_color(color);
+    TerminalColor( color );
 
 	for ( int i = x; i < x+w; i++ )
 	{
@@ -227,12 +227,12 @@ void TestKeyboard()
 			if (terminal_state(keys[i].vk))
 			{
 				FillRectangle(6+keys[i].x, 1+keys[i].y, keys[i].w, keys[i].h, pressed_key);
-				terminal_color(pressed_key_text);
+                TerminalColor( pressed_key_text );
 				terminal_printf(6+keys[i].x, 1+keys[i].y, "%s", keys[i].caption);
 			}
 			else
 			{
-				terminal_color(available_key_text);
+                TerminalColor( available_key_text );
 				terminal_printf(6+keys[i].x, 1+keys[i].y, "%s", keys[i].caption);
 			}
 		}
@@ -257,31 +257,31 @@ void TestKeyboard()
 		}
 
 		// Main keyboard
-		terminal_color(terminal_state(TK_RETURN)? pressed_key_text: available_key_text);
+        TerminalColor( terminal_state( TK_RETURN ) ? pressed_key_text : available_key_text );
 		terminal_put(6+32, 1+6+0, 'E');
 		terminal_put(6+32, 1+6+1, 'N');
 		terminal_put(6+32, 1+6+2, 'T');
 
 		// Numpad
-		terminal_color(terminal_state(TK_KP_ENTER)? pressed_key_text: available_key_text);
+        TerminalColor( terminal_state( TK_KP_ENTER ) ? pressed_key_text : available_key_text );
 		terminal_put(6+65, 1+10+0, 'E');
 		terminal_put(6+65, 1+10+1, 'N');
 		terminal_put(6+65, 1+10+2, 'T');
 
-		terminal_color(grid_color);
+        TerminalColor( grid_color );
 		for ( size_t i=0; i<N_grid_lines; i++ )
 		{
 			terminal_wprintf(6, 1+i, L"%ls", grid[i]);
 		}
 
-		terminal_color(unavailable_key_text);
+        TerminalColor( unavailable_key_text );
 		for (int i=0; i < N_unavailable_keys; i++)
 		{
 			mkey_t& k = unavailable_keys[i];
 			terminal_printf(6+k.x, 1+k.y, "%s", k.caption);
 		}
 
-		terminal_color(normal_text);
+        TerminalColor( normal_text );
 		terminal_printf(6, 1+15, "[color=orange]NOTE:[/color] keys printed in dark gray color are not available by design.");
 		terminal_printf(6, 1+17, "[color=orange]NOTE:[/color] for demonstration purposes Escape will not close this demo;");
 		terminal_printf(6, 1+18, "use Shift+Escape combination to exit.");

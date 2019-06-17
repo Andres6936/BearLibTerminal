@@ -22,7 +22,7 @@ void TestBasicOutput()
 		float factor = float(i)/long_word_length;
 		int red = (1.0f - factor) * 255;
 		int green = factor * 255;
-		terminal_color(color_from_argb(255, red, green, 0));
+        TerminalColor( color_from_argb( 255, red, green, 0 ));
 		terminal_put(2+n+i, 1, long_word[i]);
 	}
 	terminal_color("white");

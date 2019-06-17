@@ -384,7 +384,7 @@ end;
 
 procedure terminal_color(Color: WideString); overload;
 begin
-    terminal_color(color_from_name(Color));
+    TerminalColor(color_from_name(Color));
 end;
 
 procedure terminal_bkcolor(Color: AnsiString); overload;

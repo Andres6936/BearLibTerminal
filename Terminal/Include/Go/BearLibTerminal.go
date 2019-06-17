@@ -235,7 +235,7 @@ func Set(value string) int {
 //
 
 func Color(color uint32) {
-	C.terminal_color(C.color_t(color))
+	C.TerminalColor(C.color_t(color))
 }
 
 func BkColor(color uint32) {

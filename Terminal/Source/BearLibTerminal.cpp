@@ -167,7 +167,7 @@ void TerminalLayer( int index)
 	g_instance->SetLayer(index);
 }
 
-void terminal_color(color_t color)
+void TerminalColor( color_t color)
 {
 	if (!g_instance) return;
 	g_instance->SetForeColor(BearLibTerminal::Color(color));

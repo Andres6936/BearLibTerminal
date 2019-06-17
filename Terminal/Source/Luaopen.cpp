@@ -312,15 +312,15 @@ int luaterminal_color(lua_State* L)
 
 	if (type == LUA_TNUMBER)
 	{
-		terminal_color(lua_tonumber(L, 1));
+        TerminalColor( lua_tonumber( L, 1 ));
 	}
 	else if (type == LUA_TSTRING)
 	{
-		terminal_color(color_from_name8((const int8_t*)lua_tostring(L, 1)));
+        TerminalColor( color_from_name8(( const int8_t * ) lua_tostring( L, 1 )));
 	}
 	else
 	{
-		terminal_color(0xFFFFFFFF);
+        TerminalColor( 0xFFFFFFFF );
 	}
 
 	return 0;

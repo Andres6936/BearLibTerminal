@@ -104,12 +104,12 @@ void TestSpeed()
 		{
 			for (int x = 0; x < 80; x++)
 			{
-				terminal_color(shifted_b[(shift_b+x+y)%80]);
+                TerminalColor( shifted_b[ ( shift_b + x + y ) % 80 ] );
 				terminal_put(x, y, 0x2588);
-				terminal_color(color_from_another(100, shifted_b[(shift_f2+y-x)%80]));
+                TerminalColor( color_from_another( 100, shifted_b[ ( shift_f2 + y - x ) % 80 ] ));
 				terminal_put(x, y, 0x2588);
 				int d = (int)std::fabs(40-(int)((shift_f)%80));
-				terminal_color(color_from_argb((int)(d/40.0f*128.0f), 255, 255, 255));
+                TerminalColor( color_from_argb(( int ) ( d / 40.0f * 128.0f ), 255, 255, 255 ));
 				terminal_put(x, y, '0' + (r1+r0[y*80+x])%10);
 			}
 		}

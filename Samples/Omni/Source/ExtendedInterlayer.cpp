@@ -44,7 +44,7 @@ void AnimateDamage(int x, int y, int damage)
         TerminalClearArea( 0, 0, terminal_state( TK_WIDTH ), terminal_state( TK_HEIGHT ));
 		float dx = std::sin(i*angle_delta) * radius * terminal_state(TK_CELL_WIDTH) + i*2;
 		float dy = -2.0f * radius * terminal_state(TK_CELL_WIDTH) / n_steps * i - terminal_state(TK_CELL_HEIGHT)/2;
-		terminal_color(color_from_argb(255/n_steps*(n_steps-i), 255, 64, 0));
+        TerminalColor( color_from_argb( 255 / n_steps * ( n_steps - i ), 255, 64, 0 ));
 		terminal_printf(x, y, "[offset=%dx%d]%s", (int)dx, (int)dy, s.c_str());
         TerminalRefresh( );
 		terminal_delay(1000/fps);

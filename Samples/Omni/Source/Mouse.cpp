@@ -104,14 +104,14 @@ void TestMouse()
 
 		int mx = terminal_state(TK_MOUSE_X);
 		int my = terminal_state(TK_MOUSE_Y);
-		terminal_color(0x60FFFFFF);
+        TerminalColor( 0x60FFFFFF );
 		for (int x = 0; x < 80; x++) terminal_put(x, my, 0x2588);
 		for (int y = 0; y < 25; y++) if (y != my) terminal_put(mx, y, 0x2588);
 
-		terminal_color(0x8000FF00);
+        TerminalColor( 0x8000FF00 );
 		terminal_put(mlx, mly, 0x2588);
 
-		terminal_color(0x80FF00FF);
+        TerminalColor( 0x80FF00FF );
 		terminal_put(mrx, mry, 0x2588);
 
         TerminalRefresh( );

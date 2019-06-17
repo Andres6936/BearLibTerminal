@@ -273,7 +273,7 @@ namespace BearLib
             Crop(area.X, area.Y, area.Width, area.Height);
         }
 
-        [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_color", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", EntryPoint = "TerminalColor", CallingConvention = CallingConvention.Cdecl)]
         private static extern void ColorImpl(int argb);
 
         public static void Color(Color color)
