@@ -99,19 +99,21 @@ void TestTextInput()
 	while (true)
 	{
         TerminalClear( );
-		terminal_color("white");
+        TerminalColor( "white" );
 
-		terminal_print(2, 1, "Select different input tests by pressing corresponding number:");
+        TerminalPrint( 2, 1, "Select different input tests by pressing corresponding number:" );
 
-		terminal_print(2, 3, "[color=orange]1.[/color] TerminalReadStr");
+        TerminalPrint( 2, 3, "[color=orange]1.[/color] TerminalReadStr" );
 		DrawFrame(5, 4, max_chars+2, 3);
-		terminal_printf(6, 5, L"%ls", buffer);
-		terminal_printf(5+max_chars+2+1, 5, "[color=gray] %s", result >=0? "OK": "Cancelled");
+        TerminalPrintF( 6, 5, L"%ls", buffer );
+        TerminalPrintF( 5 + max_chars + 2 + 1, 5, "[color=gray] %s", result >= 0 ? "OK" : "Cancelled" );
 
-		terminal_print(2, 8, "[color=orange]2.[/color] terminal_read_char");
+        TerminalPrint( 2, 8, "[color=orange]2.[/color] terminal_read_char" );
 		DrawFrame(5, 9, 5, 3);
         TerminalPut( 7, 10, character );
-		terminal_printf(5+3+2+1, 10, "[color=gray]%s", (key_names.count(char_result)? key_names[char_result]: to_string(char_result)).c_str());
+        TerminalPrintF( 5 + 3 + 2 + 1, 10, "[color=gray]%s",
+                        ( key_names.count( char_result ) ? key_names[ char_result ] : to_string(
+                                char_result )).c_str( ));
 
         TerminalRefresh( );
 
@@ -123,20 +125,22 @@ void TestTextInput()
 		}
 		else if (key == TK_1)
 		{
-			terminal_color("orange");
+            TerminalColor( "orange" );
 			DrawFrame(5, 4, max_chars+2, 3);
-			result = terminal_read_wstr(6, 5, buffer, max_chars);
+			result = TerminalReadWStr( 6, 5, buffer, max_chars );
 		}
 		else if (key == TK_2)
 		{
-			terminal_color("orange");
+            TerminalColor( "orange" );
 			DrawFrame(5, 9, 5, 3);
 
 			do
 			{
                 TerminalPut( 7, 10, character );
                 TerminalClearArea( 5 + 3 + 2 + 1, 10, 16, 1 );
-				terminal_printf(5+3+2+1, 10, "[color=gray]%s", (key_names.count(char_result)? key_names[char_result]: to_string(char_result)).c_str());
+                TerminalPrintF( 5 + 3 + 2 + 1, 10, "[color=gray]%s",
+                                ( key_names.count( char_result ) ? key_names[ char_result ] : to_string(
+                                        char_result )).c_str( ));
                 TerminalRefresh( );
 
 				character = L' ';
@@ -145,7 +149,7 @@ void TestTextInput()
 				{
 					break;
 				}
-				else if (terminal_check(TK_WCHAR))
+				else if ( TerminalCheck( TK_WCHAR ))
 				{
 					character = TerminalState( TK_WCHAR );
 					char_result = key;

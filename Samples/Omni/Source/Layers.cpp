@@ -12,22 +12,22 @@ void TestLayers()
     TerminalSet( "window.title='Omni: layers'" );
 
 	color_t pixel = ColorFromName( "dark gray" );
-	terminal_setf("U+E000: %#p, raw-size=1x1, resize=48x48, resize-filter=nearest", &pixel);
+    TerminalSetF( "U+E000: %#p, raw-size=1x1, resize=48x48, resize-filter=nearest", &pixel );
 
 	while (true)
 	{
         TerminalClear( );
-		terminal_color("white");
+        TerminalColor( "white" );
 
-		terminal_print(2, 1, "[color=orange]1.[/color] Without layers:");
+        TerminalPrint( 2, 1, "[color=orange]1.[/color] Without layers:" );
         TerminalPut( 7, 3, 0xE000 );
-		terminal_print(5, 4, "[color=dark green]abcdefghij");
+        TerminalPrint( 5, 4, "[color=dark green]abcdefghij" );
 
-		terminal_print(2, 8, "[color=orange]2.[/color] With layers:");
+        TerminalPrint( 2, 8, "[color=orange]2.[/color] With layers:" );
         TerminalLayer( 1 );
         TerminalPut( 7, 10, 0xE000 );
         TerminalLayer( 0 );
-		terminal_print(5, 11, "[color=dark green]abcdefghij");
+        TerminalPrint( 5, 11, "[color=dark green]abcdefghij" );
 
         TerminalRefresh( );
 

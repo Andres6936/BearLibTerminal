@@ -39,61 +39,61 @@ void TestMouse()
 	{
         TerminalClear( );
 
-		terminal_color("white");
-		terminal_printf(1, 1, "Received [color=orange]%d[/color] %s", counter, counter == 1? "event": "events");
+        TerminalColor( "white" );
+        TerminalPrintF( 1, 1, "Received [color=orange]%d[/color] %s", counter, counter == 1 ? "event" : "events" );
 
-		terminal_color("white");
-		terminal_printf
-		(
-			1, 3,
-			"Buttons: "
-			"[color=%s]left "
-			"[color=%s]middle "
-			"[color=%s]right "
-			"[color=%s]x1 "
-			"[color=%s]x2 ",
-            TerminalState( TK_MOUSE_LEFT )? "orange": "dark gray",
-            TerminalState( TK_MOUSE_MIDDLE )? "orange": "dark gray",
-            TerminalState( TK_MOUSE_RIGHT )? "orange": "dark gray",
-            TerminalState( TK_MOUSE_X1 )? "orange": "dark gray",
-            TerminalState( TK_MOUSE_X2 )? "orange": "dark gray"
-		);
+        TerminalColor( "white" );
+        TerminalPrintF
+                (
+                        1, 3,
+                        "Buttons: "
+                        "[color=%s]left "
+                        "[color=%s]middle "
+                        "[color=%s]right "
+                        "[color=%s]x1 "
+                        "[color=%s]x2 ",
+                        TerminalState( TK_MOUSE_LEFT ) ? "orange" : "dark gray",
+                        TerminalState( TK_MOUSE_MIDDLE ) ? "orange" : "dark gray",
+                        TerminalState( TK_MOUSE_RIGHT ) ? "orange" : "dark gray",
+                        TerminalState( TK_MOUSE_X1 ) ? "orange" : "dark gray",
+                        TerminalState( TK_MOUSE_X2 ) ? "orange" : "dark gray"
+                );
 
-		terminal_printf
-		(
-			1, 4,
-			"Cursor: [color=orange]%d:%d[/color] [color=dark gray]cells[/color]"
-			", [color=orange]%d:%d[/color] [color=dark gray]pixels[/color]",
-            TerminalState( TK_MOUSE_X ),
-            TerminalState( TK_MOUSE_Y ),
-            TerminalState( TK_MOUSE_PIXEL_X ),
-            TerminalState( TK_MOUSE_PIXEL_Y )
-		);
+        TerminalPrintF
+                (
+                        1, 4,
+                        "Cursor: [color=orange]%d:%d[/color] [color=dark gray]cells[/color]"
+                        ", [color=orange]%d:%d[/color] [color=dark gray]pixels[/color]",
+                        TerminalState( TK_MOUSE_X ),
+                        TerminalState( TK_MOUSE_Y ),
+                        TerminalState( TK_MOUSE_PIXEL_X ),
+                        TerminalState( TK_MOUSE_PIXEL_Y )
+                );
 
-		terminal_printf
-		(
-			1, 5,
-			"Wheel: [color=orange]%d[/color] [color=dark gray]delta[/color]"
-			", [color=orange]%d[/color] [color=dark gray]cumulative",
-            TerminalState( TK_MOUSE_WHEEL ), scroll
-		);
+        TerminalPrintF
+                (
+                        1, 5,
+                        "Wheel: [color=orange]%d[/color] [color=dark gray]delta[/color]"
+                        ", [color=orange]%d[/color] [color=dark gray]cumulative",
+                        TerminalState( TK_MOUSE_WHEEL ), scroll
+                );
 
-		terminal_printf
-		(
-			1, 7, "[color=%s][U+25CF][/color] Precise mouse movement",
-			precise_mouse? "orange": "black"
-		);
+        TerminalPrintF
+                (
+                        1, 7, "[color=%s][U+25CF][/color] Precise mouse movement",
+                        precise_mouse ? "orange" : "black"
+                );
         TerminalPut( 1, 7, 0x25CB );
 
-		terminal_printf
-		(
-			1, 8, "[color=%s][U+25CF][/color] Mouse cursor is visible",
-			cursor_visible? "orange": "black"
-		);
+        TerminalPrintF
+                (
+                        1, 8, "[color=%s][U+25CF][/color] Mouse cursor is visible",
+                        cursor_visible ? "orange" : "black"
+                );
         TerminalPut( 1, 8, 0x25CB );
 
-		terminal_print(double_click_area.x, double_click_area.y-1, "Double-click here:");
-		terminal_color(plate? "darker orange": "darker gray");
+        TerminalPrint( double_click_area.x, double_click_area.y - 1, "Double-click here:" );
+        TerminalColor( plate ? "darker orange" : "darker gray" );
 		for (int x=double_click_area.x; x<=double_click_area.x+double_click_area.width; x++)
 		{
 			for (int y=double_click_area.y; y<=double_click_area.y+double_click_area.height; y++)
@@ -135,12 +135,12 @@ void TestMouse()
 					if (y == 7)
 					{
 						precise_mouse = !precise_mouse;
-						terminal_setf("input.precise-mouse=%s", precise_mouse? "true": "false");
+                        TerminalSetF( "input.precise-mouse=%s", precise_mouse ? "true" : "false" );
 					}
 					else
 					{
 						cursor_visible = !cursor_visible;
-						terminal_setf("input.mouse-cursor=%s", cursor_visible? "true": "false");
+                        TerminalSetF( "input.mouse-cursor=%s", cursor_visible ? "true" : "false" );
 					}
 				}
 				else if (x >= double_click_area.x && x <= (double_click_area.x+double_click_area.width) &&
@@ -170,13 +170,13 @@ void TestMouse()
 			else if (code == TK_SPACE)
 			{
 				cursor_visible = !cursor_visible;
-				terminal_setf("input.mouse-cursor=%s", cursor_visible? "true": "false");
+                TerminalSetF( "input.mouse-cursor=%s", cursor_visible ? "true" : "false" );
 			}
 		}
 		while (proceed && TerminalHasInput( ));
 	}
 
-	terminal_color("white");
+    TerminalColor( "white" );
     TerminalComposition( TK_OFF );
     TerminalSet( "input: precise-mouse=false, mouse-cursor=true, filter={keyboard}" );
 }

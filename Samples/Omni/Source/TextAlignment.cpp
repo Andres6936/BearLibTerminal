@@ -72,28 +72,28 @@ void TestTextAlignment()
         TerminalClear( );
 
 		// Background square
-		terminal_bkcolor("darkest gray");
+        TerminalBackColor( "darkest gray" );
         TerminalClearArea( frame_left, frame_top, frame_width, frame_height );
-		terminal_bkcolor("none");
+        TerminalBackColor( "none" );
 
 		// Comment
-		terminal_printf
-		(
-			frame_left,
-			frame_top - padding_v - 2,
-			"Use arrows to change text alignment.\n"
-			"Current alignment is [c=orange]%s[/c] | [c=orange]%s[/c].",
-			names[vertical_align].c_str(),
-			names[horisontal_align].c_str()
-		);
+        TerminalPrintF
+                (
+                        frame_left,
+                        frame_top - padding_v - 2,
+                        "Use arrows to change text alignment.\n"
+                        "Current alignment is [c=orange]%s[/c] | [c=orange]%s[/c].",
+                        names[ vertical_align ].c_str( ),
+                        names[ horisontal_align ].c_str( )
+                );
 
 		// Text origin
 		int x = frame_left, y = frame_top;
 
-		terminal_color("white");
+        TerminalColor( "white" );
         TerminalPrintExt( x, y, frame_width, frame_height, vertical_align | horisontal_align, lorem_ipsum );
 
-		terminal_print(80-14, 3, "[c=orange][U+2588]");
+        TerminalPrint( 80 - 14, 3, "[c=orange][U+2588]" );
         TerminalPrintExt( 80 - 14, 3, 0, 0, vertical_align | horisontal_align, "12345\nabc\n-=#=-" );
 
         TerminalRefresh( );

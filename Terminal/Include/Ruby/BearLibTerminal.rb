@@ -158,7 +158,7 @@ module Terminal
 		return (Get.call Ptr[s], Ptr[default_value]).to_s
 	end
 	def self.ColorFromName name; return ColorFromName.call Ptr[name]; end
-	def self.color_from_argb a, r, g, b
+	def self.ColorFromARGB a, r, g, b
 		return (a << 24) | (r << 16) | (g << 8) | b
 	end
 	

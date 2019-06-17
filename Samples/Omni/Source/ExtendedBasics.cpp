@@ -36,24 +36,26 @@ void TestExtendedBasics()
 	for (bool proceed=true; proceed;)
 	{
         TerminalClear( );
-		terminal_color("white");
+        TerminalColor( "white" );
 
-		terminal_print(2, 1, "[color=orange]1.[/color] TerminalPutExt(x, y, [color=orange]dx[/color], [color=orange]dy[/color], code, corners);");
+        TerminalPrint( 2, 1,
+                       "[color=orange]1.[/color] TerminalPutExt(x, y, [color=orange]dx[/color], [color=orange]dy[/color], code, corners);" );
 		for (int i=0; i<n_symbols; i++)
 		{
 			float angle_delta = 2.0f*g_pi/n_symbols;
 			float dx = std::cos(angle+i*angle_delta)*radius* TerminalState( TK_CELL_WIDTH );
 			float dy = std::sin(angle+i*angle_delta)*radius* TerminalState( TK_CELL_WIDTH )-4;
-			terminal_color(i? "white": "orange");
+            TerminalColor( i ? "white" : "orange" );
             TerminalPutExt( cx, cy, dx, dy, 'a' + i, nullptr );
 		}
 		angle += 2.0f*g_pi / (2*fps);
 
-		terminal_print(2, 9, "[color=orange]2.[/color] TerminalPutExt(x, y, dx, dy, code, [color=orange]corners[/color]);");
+        TerminalPrint( 2, 9,
+                       "[color=orange]2.[/color] TerminalPutExt(x, y, dx, dy, code, [color=orange]corners[/color]);" );
         TerminalPutExt( 5, 11, 0, 0, 0xE000 + 19, m00 );
         TerminalPutExt( 10, 11, 0, 0, 0xE000 + 19, m01 );
 
-		terminal_print(2, 14, "[color=orange]3.[/color] TerminalPutExt + composition");
+        TerminalPrint( 2, 14, "[color=orange]3.[/color] TerminalPutExt + composition" );
 		int x1 = 5;
 		int y1 = 16;
         TerminalPut( x1 + 0, y1 + 0, 0xE000 + 19 );

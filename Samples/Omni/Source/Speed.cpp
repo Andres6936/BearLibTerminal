@@ -109,12 +109,12 @@ void TestSpeed()
                 TerminalColor( color_from_another( 100, shifted_b[ ( shift_f2 + y - x ) % 80 ] ));
                 TerminalPut( x, y, 0x2588 );
 				int d = (int)std::fabs(40-(int)((shift_f)%80));
-                TerminalColor( color_from_argb(( int ) ( d / 40.0f * 128.0f ), 255, 255, 255 ));
+                TerminalColor( ColorFromARGB(( int ) ( d / 40.0f * 128.0f ), 255, 255, 255 ));
                 TerminalPut( x, y, '0' + ( r1 + r0[ y * 80 + x ] ) % 10 );
 			}
 		}
-		terminal_printf(2, 1, "[color=black]vsync: %s\nFPS: %d", vsync? "yes": "no", fps_value);
-		terminal_printf(2, 4, "[color=black]Press TAB to switch vsync on an off");
+        TerminalPrintF( 2, 1, "[color=black]vsync: %s\nFPS: %d", vsync ? "yes" : "no", fps_value );
+        TerminalPrintF( 2, 4, "[color=black]Press TAB to switch vsync on an off" );
         TerminalRefresh( );
 
 
@@ -137,7 +137,7 @@ void TestSpeed()
 			else if (code == TK_TAB)
 			{
 				vsync = !vsync;
-				terminal_setf("output.vsync=%s", vsync? "true": "false");
+                TerminalSetF( "output.vsync=%s", vsync ? "true" : "false" );
 			}
 		}
 

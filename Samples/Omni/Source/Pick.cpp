@@ -8,12 +8,12 @@ void TestPick()
     TerminalSet( "input.filter={keyboard, mouse}" ); // Enable mouse events.
 
     TerminalClear( );
-	terminal_color("white");
-	terminal_printf(2, 1, "Move mouse over characters:");
+    TerminalColor( "white" );
+    TerminalPrintF( 2, 1, "Move mouse over characters:" );
 
-	terminal_bkcolor("darkest gray");
+    TerminalBackColor( "darkest gray" );
     TerminalClearArea( 2, 3, 76, 19 );
-	terminal_bkcolor("none");
+    TerminalBackColor( "none" );
 
 	const char* colors[] = {"red", "orange", "yellow", "green", "cyan", "light blue", "violet"};
 	int combining[] = {0x02C6, 0x02C9, 0x02DC, 0x2014, 0x2044, 0x2017, 0x203E};
@@ -26,19 +26,19 @@ void TestPick()
 		int x = 2 + (rand() % 76);
 		int y = 3 + (rand() % 19);
 
-		terminal_color(colors[rand() % 7]);
+        TerminalColor( colors[ rand( ) % 7 ] );
         TerminalPut( x, y, 'a' + ( rand( ) % 26 ));
 
         TerminalComposition( TK_ON );
 		for (int i = 1; i < n; i++)
 		{
-			terminal_color(colors[rand() % 7]);
+            TerminalColor( colors[ rand( ) % 7 ] );
             TerminalPut( x, y, combining[ rand( ) % 7 ] );
 		}
         TerminalComposition( TK_OFF );
 	}
 
-	terminal_color("white");
+    TerminalColor( "white" );
 
 	while (true)
 	{
@@ -56,7 +56,7 @@ void TestPick()
 				if (code == 0) break;
 
 				color_t color = TerminalPickColor( x, y, n );
-				terminal_printf(2+n*2, 23, L"[color=%d]%lc", color, (wchar_t)code);
+                TerminalPrintF( 2 + n * 2, 23, L"[color=%d]%lc", color, ( wchar_t ) code );
 
 				n += 1;
 			}
@@ -64,7 +64,7 @@ void TestPick()
 
 			if (n == 0)
 			{
-				terminal_printf(2, 23, "Empty cell");
+                TerminalPrintF( 2, 23, "Empty cell" );
 			}
 		}
 

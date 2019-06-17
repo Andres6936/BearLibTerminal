@@ -18,7 +18,7 @@ void TestMultipleFonts()
     TerminalSet( "huge font: ../Media/VeraMono.ttf, size=20x40, spacing=2x2" );
 
     TerminalClear( );
-	terminal_color("white");
+    TerminalColor( "white" );
 	int h = TerminalPrintExt
             (
                     2, 1, 60, 0, TK_ALIGN_DEFAULT,

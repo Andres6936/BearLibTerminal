@@ -631,7 +631,7 @@ int luaterminal_color_from_argb(lua_State* L)
 	int r = lua_tointeger(L, 2);
 	int g = lua_tointeger(L, 3);
 	int b = lua_tointeger(L, 4);
-	lua_pushnumber(L, color_from_argb(a, r, g, b));
+	lua_pushnumber(L, ColorFromARGB( a, r, g, b ));
 	return 1;
 }
 
@@ -668,7 +668,7 @@ static const luaL_Reg luaterminal_lib[] =
 	{"delay",  luaterminal_delay},
 	{"get", luaterminal_get},
 	{"ColorFromName", luaterminal_color_from_name},
-	{"color_from_argb", luaterminal_color_from_argb},
+	{"ColorFromARGB", luaterminal_color_from_argb},
 	{NULL, NULL}
 };
 

@@ -20,8 +20,9 @@ void TestManualCellsize()
 	int cell_width = 8;
 	int cell_height = 16;
 
-	auto setup_font = [&](){terminal_setf("font: %s, size=%d, hinting=%s", font_name, font_size, font_hintings[font_hinting].c_str());};
-	auto setup_cellsize = [&](){terminal_setf("window: cellsize=%dx%d", cell_width, cell_height);};
+	auto setup_font = [&](){
+        TerminalSetF( "font: %s, size=%d, hinting=%s", font_name, font_size, font_hintings[ font_hinting ].c_str( ));};
+	auto setup_cellsize = [&](){ TerminalSetF( "window: cellsize=%dx%d", cell_width, cell_height );};
 
 	setup_cellsize();
 	setup_font();
@@ -29,15 +30,15 @@ void TestManualCellsize()
 	while (true)
 	{
         TerminalClear( );
-		terminal_color("white");
+        TerminalColor( "white" );
 
-		terminal_printf(2, 1, "Hello, world!");
-		terminal_printf(2, 3, "[color=orange]Font size:[/color] %d", font_size);
-		terminal_printf(2, 4, "[color=orange]Font hinting:[/color] %s", font_hintings[font_hinting].c_str());
-		terminal_printf(2, 5, "[color=orange]Cell size:[/color] %dx%d", cell_width, cell_height);
-		terminal_printf(2, 7, "[color=orange]TIP:[/color] Use arrow keys to change cell size");
-		terminal_printf(2, 8, "[color=orange]TIP:[/color] Use Shift+Up/Down arrow keys to change font size");
-		terminal_printf(2, 9, "[color=orange]TIP:[/color] Use TAB to switch font hinting mode");
+        TerminalPrintF( 2, 1, "Hello, world!" );
+        TerminalPrintF( 2, 3, "[color=orange]Font size:[/color] %d", font_size );
+        TerminalPrintF( 2, 4, "[color=orange]Font hinting:[/color] %s", font_hintings[ font_hinting ].c_str( ));
+        TerminalPrintF( 2, 5, "[color=orange]Cell size:[/color] %dx%d", cell_width, cell_height );
+        TerminalPrintF( 2, 7, "[color=orange]TIP:[/color] Use arrow keys to change cell size" );
+        TerminalPrintF( 2, 8, "[color=orange]TIP:[/color] Use Shift+Up/Down arrow keys to change font size" );
+        TerminalPrintF( 2, 9, "[color=orange]TIP:[/color] Use TAB to switch font hinting mode" );
 
         TerminalRefresh( );
 

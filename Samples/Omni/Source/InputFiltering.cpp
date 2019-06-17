@@ -31,7 +31,7 @@ void TestInputFiltering()
 			ss << ", ";
 		}
 
-		terminal_setf("input.filter=[%s]", ss.str().c_str());
+        TerminalSetF( "input.filter=[%s]", ss.str( ).c_str( ));
 	};
 
 	apply_input_filter();
@@ -41,35 +41,35 @@ void TestInputFiltering()
 	for (bool proceed=true; proceed;)
 	{
         TerminalClear( );
-		terminal_color("white");
+        TerminalColor( "white" );
 
-		int h = terminal_printf_ext
-		(
-			2, 1, 76, 0, TK_ALIGN_DEFAULT,
-			"Modify input filter by pressing corresponding numbers (digits are added "
-			"to filter automatically). Gray color ([color=%s]like this[/color]) means that "
-			"event is disabled. Regular white color means keypress is enabled. Blueish color "
-			"([color=%s]like this[/color]) means both keypress and keyrelease are enabled.\n\n"
-			"Both CLOSE and ESCAPE close this demo.",
-			colors[0], colors[2]
-		).height;
+		int h = TerminalPrintFExt
+                (
+                        2, 1, 76, 0, TK_ALIGN_DEFAULT,
+                        "Modify input filter by pressing corresponding numbers (digits are added "
+                        "to filter automatically). Gray color ([color=%s]like this[/color]) means that "
+                        "event is disabled. Regular white color means keypress is enabled. Blueish color "
+                        "([color=%s]like this[/color]) means both keypress and keyrelease are enabled.\n\n"
+                        "Both CLOSE and ESCAPE close this demo.",
+                        colors[ 0 ], colors[ 2 ]
+                ).height;
 
 		for (size_t i = 0; i < events.size(); i++)
 		{
-			terminal_printf
-			(
-				2, 1+h+1+i,
-				"[color=orange]%i[/color]. [color=%s]%s",
-				i, colors[events[i].second], events[i].first
-			);
+            TerminalPrintF
+                    (
+                            2, 1 + h + 1 + i,
+                            "[color=orange]%i[/color]. [color=%s]%s",
+                            i, colors[ events[ i ].second ], events[ i ].first
+                    );
 		}
 
-		terminal_printf
-		(
-			2, 1+h+1+events.size()+1,
-			"Events read: [color=orange]%i",
-			event_counter
-		);
+        TerminalPrintF
+                (
+                        2, 1 + h + 1 + events.size( ) + 1,
+                        "Events read: [color=orange]%i",
+                        event_counter
+                );
 
         TerminalRefresh( );
 

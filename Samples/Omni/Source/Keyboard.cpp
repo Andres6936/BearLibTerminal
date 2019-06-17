@@ -228,12 +228,12 @@ void TestKeyboard()
 			{
 				FillRectangle(6+keys[i].x, 1+keys[i].y, keys[i].w, keys[i].h, pressed_key);
                 TerminalColor( pressed_key_text );
-				terminal_printf(6+keys[i].x, 1+keys[i].y, "%s", keys[i].caption);
+                TerminalPrintF( 6 + keys[ i ].x, 1 + keys[ i ].y, "%s", keys[ i ].caption );
 			}
 			else
 			{
                 TerminalColor( available_key_text );
-				terminal_printf(6+keys[i].x, 1+keys[i].y, "%s", keys[i].caption);
+                TerminalPrintF( 6 + keys[ i ].x, 1 + keys[ i ].y, "%s", keys[ i ].caption );
 			}
 		}
 
@@ -247,10 +247,10 @@ void TestKeyboard()
 				L"▝▜███▌\n"
 				L" ▐███▌\n"
 				L" ▝▀▀▀▘\n";
-			terminal_wprintf(6+29, 6, L"[color=%d]%ls", pressed_key, region);
+            TerminalWPrintF( 6 + 29, 6, L"[color=%d]%ls", pressed_key, region );
 		}
 
-		if (terminal_check(TK_KP_ENTER))
+		if ( TerminalCheck( TK_KP_ENTER ))
 		{
 			// Numpad
 			FillRectangle(6+64, 1+10, 3, 3, pressed_key);
@@ -271,20 +271,22 @@ void TestKeyboard()
         TerminalColor( grid_color );
 		for ( size_t i=0; i<N_grid_lines; i++ )
 		{
-			terminal_wprintf(6, 1+i, L"%ls", grid[i]);
+            TerminalWPrintF( 6, 1 + i, L"%ls", grid[ i ] );
 		}
 
         TerminalColor( unavailable_key_text );
 		for (int i=0; i < N_unavailable_keys; i++)
 		{
 			mkey_t& k = unavailable_keys[i];
-			terminal_printf(6+k.x, 1+k.y, "%s", k.caption);
+            TerminalPrintF( 6 + k.x, 1 + k.y, "%s", k.caption );
 		}
 
         TerminalColor( normal_text );
-		terminal_printf(6, 1+15, "[color=orange]NOTE:[/color] keys printed in dark gray color are not available by design.");
-		terminal_printf(6, 1+17, "[color=orange]NOTE:[/color] for demonstration purposes Escape will not close this demo;");
-		terminal_printf(6, 1+18, "use Shift+Escape combination to exit.");
+        TerminalPrintF( 6, 1 + 15,
+                        "[color=orange]NOTE:[/color] keys printed in dark gray color are not available by design." );
+        TerminalPrintF( 6, 1 + 17,
+                        "[color=orange]NOTE:[/color] for demonstration purposes Escape will not close this demo;" );
+        TerminalPrintF( 6, 1 + 18, "use Shift+Escape combination to exit." );
 
         TerminalRefresh( );
 
@@ -297,5 +299,5 @@ void TestKeyboard()
 	}
 
     TerminalComposition( TK_OFF );
-	terminal_setf("input.filter={keyboard}");
+    TerminalSetF( "input.filter={keyboard}" );
 }

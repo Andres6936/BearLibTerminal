@@ -51,7 +51,7 @@ int main()
                 "font: default;"
                 "input: filter={keyboard}"
         );
-		terminal_color("white");
+        TerminalColor( "white" );
 	};
 
 	std::vector<TestEntry> entries =
@@ -87,11 +87,12 @@ int main()
 		for (size_t i=0; i<entries.size(); i++)
 		{
 			char shortcut = i < 9? '1'+i: 'a'+(i-9);
-			terminal_printf(2, 1+i, "[color=orange]%c.[/color] %s%s", shortcut, entries[i].func? "": "[color=gray]", entries[i].name);
+            TerminalPrintF( 2, 1 + i, "[color=orange]%c.[/color] %s%s", shortcut,
+                            entries[ i ].func ? "" : "[color=gray]", entries[ i ].name );
 		}
-		terminal_printf(2, 23, "[color=orange]ESC.[/color] Exit");
-		terminal_printf_ext(77, 22, 0, 0, TK_ALIGN_RIGHT, "library version %s", TerminalGet( "version" ));
-		terminal_printf_ext(77, 23, 0, 0, TK_ALIGN_RIGHT, "http://wyrd.name/en:bearlibterminal");
+        TerminalPrintF( 2, 23, "[color=orange]ESC.[/color] Exit" );
+        TerminalPrintFExt( 77, 22, 0, 0, TK_ALIGN_RIGHT, "library version %s", TerminalGet( "version" ));
+        TerminalPrintFExt( 77, 23, 0, 0, TK_ALIGN_RIGHT, "http://wyrd.name/en:bearlibterminal" );
         TerminalRefresh( );
 
 		int key = TerminalRead( );

@@ -334,7 +334,7 @@ func State(code int) int {
 }
 
 func Check(code int) int {
-	return int(C.terminal_check(C.int(code)))
+	return int(C.TerminalCheck(C.int(code)))
 }
 
 func HasInput() bool {
@@ -378,6 +378,6 @@ func ColorFromName(name string) uint32 {
 }
 
 func ColorFromARGB(a, r, g, b uint8) uint32 {
-	val := C.color_from_argb(C.uint8_t(a), C.uint8_t(r), C.uint8_t(g), C.uint8_t(b))
+	val := C.ColorFromARGB(C.uint8_t(a), C.uint8_t(r), C.uint8_t(g), C.uint8_t(b))
 	return uint32(val)
 }

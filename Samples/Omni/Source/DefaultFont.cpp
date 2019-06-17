@@ -18,23 +18,23 @@ void TestDefaultFont()
 	while (true)
 	{
         TerminalClear( );
-		terminal_wprint(2, 1, L"[color=white]Select unicode character range:");
+        TerminalWPrint( 2, 1, L"[color=white]Select unicode character range:" );
 
 		for (int i=0; i<g_wgl4_ranges.size(); i++)
 		{
 			bool selected = i == current_range;
             TerminalColor( selected ? ColorFromName( "orange" ) : ColorFromName( "light gray" ));
-			terminal_printf(1, 2+i, "%s%s", selected? "[U+203A]": " ", g_wgl4_ranges[i].name.c_str());
+            TerminalPrintF( 1, 2 + i, "%s%s", selected ? "[U+203A]" : " ", g_wgl4_ranges[ i ].name.c_str( ));
 		}
 
 		UnicodeRange& range = g_wgl4_ranges[current_range];
 		for (int j=0; j<16; j++)
 		{
-			terminal_printf(hoffset+6+j*2, 1, "[color=orange]%X", j);
+            TerminalPrintF( hoffset + 6 + j * 2, 1, "[color=orange]%X", j );
 		}
 		for (int code=range.start, y=0; code<=range.end; code++)
 		{
-			if (code%16 == 0) terminal_printf(hoffset, 2+y*1, "[color=orange]%04X:", code);
+			if (code%16 == 0) TerminalPrintF( hoffset, 2 + y * 1, "[color=orange]%04X:", code );
 
 			bool included = range.codes.count(code);
             TerminalColor( included ? ColorFromName( "white" ) : ColorFromName( "dark gray" ));
@@ -43,9 +43,10 @@ void TestDefaultFont()
 			if ((code+1)%16 == 0) y += 1;
 		}
 
-		terminal_color("white");
-		terminal_print(hoffset, 20, L"[color=orange]TIP:[/color] Use ↑/↓ keys to select range");
-		terminal_print(hoffset, 22, L"[color=orange]NOTE:[/color] Character code points printed in\ngray are not included in the WGL4 set.");
+        TerminalColor( "white" );
+        TerminalPrint( hoffset, 20, L"[color=orange]TIP:[/color] Use ↑/↓ keys to select range" );
+        TerminalPrint( hoffset, 22,
+                       L"[color=orange]NOTE:[/color] Character code points printed in\ngray are not included in the WGL4 set." );
 
         TerminalRefresh( );
 

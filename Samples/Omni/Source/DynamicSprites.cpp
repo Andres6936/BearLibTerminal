@@ -71,7 +71,7 @@ void TestDynamicSprites()
 
 	auto DrawMap = [&]
 	{
-		terminal_color("white");
+        TerminalColor( "white" );
 		for (int y=y0; y<y0+view_height; y++)
 		{
 			for (int x=x0; x<x0+view_width; x++)
@@ -114,13 +114,13 @@ void TestDynamicSprites()
 			}
 		}
 
-		terminal_setf
-		(
-			"U+E100: %#p, raw-size=%dx%d, resize=%dx%d, resize-filter=nearest",
-			(void*)minimap.data(),
-			map_width, map_height,
-			map_width*4, map_height*4
-		);
+        TerminalSetF
+                (
+                        "U+E100: %#p, raw-size=%dx%d, resize=%dx%d, resize-filter=nearest",
+                        ( void * ) minimap.data( ),
+                        map_width, map_height,
+                        map_width * 4, map_height * 4
+                );
 	};
 
 	while (true)
@@ -128,15 +128,16 @@ void TestDynamicSprites()
         TerminalClear( );
 
 		DrawMap();
-		terminal_color("light gray");
+        TerminalColor( "light gray" );
 		for (int x=0; x<80; x++) TerminalPut( x, view_height * 2, 0x2580 );
 		for (int y=0; y<view_height*2; y++) TerminalPut( view_width * 4, y, 0x2588 );
 
 		MakeMinimap();
-		terminal_color("white");
+        TerminalColor( "white" );
         TerminalPutExt( view_width * 4 + 1, 0, margin, margin, 0xE100, nullptr );
 
-		terminal_print(1, view_height*2+1, "[color=orange]Tip:[/color] use arrow keys to move viewport over the map");
+        TerminalPrint( 1, view_height * 2 + 1,
+                       "[color=orange]Tip:[/color] use arrow keys to move viewport over the map" );
 
         TerminalRefresh( );
 

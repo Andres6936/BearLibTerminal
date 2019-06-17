@@ -59,8 +59,8 @@ void TestExtendedSmoothScroll()
 		int hc = std::ceil((screen_width+tile_size-tx)/(float)tile_size);
 		int vc = std::ceil((screen_height+tile_size-ty)/(float)tile_size);
 
-		terminal_printf(2, 1, "speed: %d, %d", hspeed, vspeed);
-		terminal_printf(2, 2, "offset: %d/%d, %d/%d", ix, jx, iy, jy);
+        TerminalPrintF( 2, 1, "speed: %d, %d", hspeed, vspeed );
+        TerminalPrintF( 2, 2, "offset: %d/%d, %d/%d", ix, jx, iy, jy );
 
 		for (int y=0; y<=vc; y++)
 		{

@@ -44,12 +44,12 @@ void AnimateDamage(int x, int y, int damage)
         TerminalClearArea( 0, 0, TerminalState( TK_WIDTH ), TerminalState( TK_HEIGHT ));
 		float dx = std::sin(i*angle_delta) * radius * TerminalState( TK_CELL_WIDTH ) + i*2;
 		float dy = -2.0f * radius * TerminalState( TK_CELL_WIDTH ) / n_steps * i - TerminalState( TK_CELL_HEIGHT )/2;
-        TerminalColor( color_from_argb( 255 / n_steps * ( n_steps - i ), 255, 64, 0 ));
-		terminal_printf(x, y, "[offset=%dx%d]%s", (int)dx, (int)dy, s.c_str());
+        TerminalColor( ColorFromARGB( 255 / n_steps * ( n_steps - i ), 255, 64, 0 ));
+        TerminalPrintF( x, y, "[offset=%dx%d]%s", ( int ) dx, ( int ) dy, s.c_str( ));
         TerminalRefresh( );
         TerminalDelay( 1000 / fps );
 	}
-	terminal_color("white");
+    TerminalColor( "white" );
 }
 
 std::vector<int> PrepareMap()
@@ -94,22 +94,22 @@ void DrawMap(int x, int y, std::vector<int>& map)
 			int v = map[j*map_width+i];
 			if (i == player_x && j == player_y)
 			{
-				terminal_color("orange");
+                TerminalColor( "orange" );
                 TerminalPut( x + i, y + j, '@' );
 			}
 			else if (i == foe_x && j == foe_y && foe_hp > 0)
 			{
-				terminal_color("white");
+                TerminalColor( "white" );
                 TerminalPut( x + i, y + j, 'g' );
 			}
 			else if (v == 0 || v == 1)
 			{
-				terminal_color(v? "red": "gray");
+                TerminalColor( v ? "red" : "gray" );
                 TerminalPut( x + i, y + j, 0x2219 );
 			}
 			else
 			{
-				terminal_color("white");
+                TerminalColor( "white" );
                 TerminalPut( x + i, y + j, v );
 			}
 		}

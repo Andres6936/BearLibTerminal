@@ -198,13 +198,13 @@ void TestFormattedLog()
 	while (true)
 	{
         TerminalClear( );
-		terminal_color("white");
+        TerminalColor( "white" );
 
 		// Frame background
         TerminalLayer( 0 );
-		terminal_bkcolor("darkest gray");
+        TerminalBackColor( "darkest gray" );
         TerminalClearArea( padding_left, padding_top, frame_width, frame_height );
-		terminal_bkcolor("none");
+        TerminalBackColor( "none" );
 
 		// Find topmost visible message
 		int index = 0, first_line = 0;
@@ -234,10 +234,10 @@ void TestFormattedLog()
 
 		// Scroll bar
         TerminalLayer( 0 );
-		terminal_bkcolor("darker gray");
+        TerminalBackColor( "darker gray" );
         TerminalClearArea( padding_left + frame_width, padding_top, 1, frame_height );
-		terminal_bkcolor("none");
-		terminal_color("dark orange");
+        TerminalBackColor( "none" );
+        TerminalColor( "dark orange" );
 		int scrollbar_column = padding_left+frame_width;
 		int scrollbar_offset =
 			(padding_top + (frame_height-scrollbar_height) * (frame_offset / (float)(total_messages_height - frame_height))) *
