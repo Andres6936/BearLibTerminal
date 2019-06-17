@@ -75,7 +75,7 @@ void TestExtendedSmoothScroll()
 
         TerminalRefresh( );
 
-		while (proceed && terminal_has_input())
+		while (proceed && TerminalHasInput( ))
 		{
 			int key = terminal_read();
 			if (key == TK_CLOSE || key == TK_ESCAPE)

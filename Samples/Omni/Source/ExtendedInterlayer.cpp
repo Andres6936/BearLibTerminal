@@ -40,7 +40,7 @@ void AnimateDamage(int x, int y, int damage)
     TerminalLayer( animation_layer );
 	for (int i=0; i<n_steps; i++)
 	{
-		if (terminal_has_input()) break;
+		if ( TerminalHasInput( )) break;
         TerminalClearArea( 0, 0, terminal_state( TK_WIDTH ), terminal_state( TK_HEIGHT ));
 		float dx = std::sin(i*angle_delta) * radius * terminal_state(TK_CELL_WIDTH) + i*2;
 		float dy = -2.0f * radius * terminal_state(TK_CELL_WIDTH) / n_steps * i - terminal_state(TK_CELL_HEIGHT)/2;
@@ -187,7 +187,7 @@ void TestExtendedInterlayer()
 				Step(0, 1);
 			}
 		}
-		while (proceed && terminal_has_input());
+		while (proceed && TerminalHasInput( ));
 	}
 
 	// Clean up

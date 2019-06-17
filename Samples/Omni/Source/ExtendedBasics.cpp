@@ -69,7 +69,7 @@ void TestExtendedBasics()
 
         TerminalRefresh( );
 
-		while (terminal_has_input())
+		while ( TerminalHasInput( ))
 		{
 			int key = terminal_read();
 			if (key == TK_CLOSE || key == TK_ESCAPE)

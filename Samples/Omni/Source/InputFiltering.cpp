@@ -95,7 +95,7 @@ void TestInputFiltering()
 				apply_input_filter();
 			}
 		}
-		while (proceed && terminal_has_input());
+		while (proceed && TerminalHasInput( ));
 	}
 
 	terminal_set("input.filter={keyboard}");

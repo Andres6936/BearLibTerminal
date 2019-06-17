@@ -551,7 +551,7 @@ int luaterminal_measuref(lua_State* L)
 
 int luaterminal_has_input(lua_State* L)
 {
-	lua_pushboolean(L, terminal_has_input());
+	lua_pushboolean(L, TerminalHasInput( ));
 	return 1;
 }
 

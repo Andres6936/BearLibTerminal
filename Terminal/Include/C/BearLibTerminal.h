@@ -274,7 +274,7 @@ TERMINAL_API void TerminalPrintExt32( int x, int y, int w, int h, int align, con
 TERMINAL_API void TerminalMeasureExt8( int w, int h, const int8_t *s, int *out_w, int *out_h);
 TERMINAL_API void TerminalMeasureExt16( int w, int h, const int16_t *s, int *out_w, int *out_h);
 TERMINAL_API void TerminalMeasureExt32( int w, int h, const int32_t *s, int *out_w, int *out_h);
-TERMINAL_API int terminal_has_input();
+TERMINAL_API int TerminalHasInput();
 TERMINAL_API int terminal_state(int code);
 TERMINAL_API int terminal_read();
 TERMINAL_API int terminal_read_str8(int x, int y, int8_t* buffer, int max);

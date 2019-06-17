@@ -312,7 +312,7 @@ function terminal_measure(W, H: Int32; const S: WideString): TSize; overload;
 
 // HasInput
 function terminal_has_input(): LongBool;
-  cdecl; external 'BearLibTerminal' name 'terminal_has_input';
+  cdecl; external 'BearLibTerminal' name 'TerminalHasInput';
 
 // State
 function terminal_state(Code: Int32): Int32;

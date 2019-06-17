@@ -127,7 +127,7 @@ void TestSpeed()
 			fps_update_time = time;
 		}
 
-		while (proceed && terminal_has_input())
+		while (proceed && TerminalHasInput( ))
 		{
 			int code = terminal_read();
 			if (code == TK_ESCAPE || code == TK_CLOSE)

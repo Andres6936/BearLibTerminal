@@ -338,7 +338,7 @@ func Check(code int) int {
 }
 
 func HasInput() bool {
-	result := int(C.terminal_has_input())
+	result := int(C.TerminalHasInput())
 	return result > 0
 }
 

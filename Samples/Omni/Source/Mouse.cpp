@@ -28,7 +28,7 @@ void TestMouse()
 	bool plate = false;
 
 	// Flush input
-	while (terminal_has_input())
+	while ( TerminalHasInput( ))
 	{
 		terminal_read();
 	}
@@ -173,7 +173,7 @@ void TestMouse()
 				terminal_setf("input.mouse-cursor=%s", cursor_visible? "true": "false");
 			}
 		}
-		while (proceed && terminal_has_input());
+		while (proceed && TerminalHasInput( ));
 	}
 
 	terminal_color("white");

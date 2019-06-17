@@ -273,7 +273,7 @@ void TerminalMeasureExt32( int w, int h, const int32_t *s, int *out_w, int *out_
 	TERMINAL_PRINT_OR_MEASURE(0, 0, TK_ALIGN_DEFAULT, BearLibTerminal::UCS4Encoding().Convert((const char32_t*)s), true)
 }
 
-int terminal_has_input()
+int TerminalHasInput()
 {
 	if (!g_instance) return 1;
 	return g_instance->HasInput();

@@ -484,7 +484,7 @@ namespace BearLib
         	return Measure(new Size(), text, args);
         }
 
-        [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_has_input", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", EntryPoint = "TerminalHasInput", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool HasInput();
 
         [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_state", CallingConvention = CallingConvention.Cdecl)]
