@@ -199,7 +199,7 @@ type
 
 // Open
 function terminal_open(): LongBool;
-  cdecl; external 'BearLibTerminal' name 'terminal_open';
+  cdecl; external 'BearLibTerminal' name 'TerminalOpen';
 
 // Close
 procedure terminal_close();

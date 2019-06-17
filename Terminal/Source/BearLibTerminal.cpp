@@ -84,11 +84,11 @@ namespace
 	std::map<std::wstring, cached_setting_t> g_cached_settings;
 }
 
-int terminal_open()
+int TerminalOpen()
 {
 	if (g_instance)
 	{
-		LOG(Error, "terminal_open: BearLibTerminal instance already initialized");
+		LOG(Error, "TerminalOpen: BearLibTerminal instance already initialized");
 		return 0;
 	}
 
@@ -104,7 +104,7 @@ int terminal_open()
 	}
 	catch (std::exception& e)
 	{
-		LOG(Fatal, "terminal_open: " << e.what());
+		LOG(Fatal, "TerminalOpen: " << e.what());
 		return 0;
 	}
 }

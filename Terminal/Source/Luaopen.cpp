@@ -191,7 +191,7 @@ static bool check_stack(lua_State* L, std::initializer_list<int> types)
 
 int luaterminal_open(lua_State* L)
 {
-	lua_pushboolean(L, terminal_open());
+	lua_pushboolean(L, TerminalOpen( ));
 	return 1;
 }
 

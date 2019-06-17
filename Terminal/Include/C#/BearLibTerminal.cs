@@ -206,7 +206,7 @@ namespace BearLib
             }
         }
 
-        [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_open", CallingConvention=CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", EntryPoint = "TerminalOpen", CallingConvention=CallingConvention.Cdecl)]
         public static extern bool Open();
 
         [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_close", CallingConvention = CallingConvention.Cdecl)]

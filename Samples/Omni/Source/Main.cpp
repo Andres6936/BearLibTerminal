@@ -42,7 +42,7 @@ int main()
 	chdir(path);
 #endif
 
-	terminal_open();
+    TerminalOpen( );
 
 	auto reset = []()
 	{

@@ -217,7 +217,7 @@ const (
 //
 
 func Open() int {
-	return int(C.terminal_open())
+	return int(C.TerminalOpen())
 }
 
 func Close() {

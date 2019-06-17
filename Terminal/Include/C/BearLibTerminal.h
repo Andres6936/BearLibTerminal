@@ -247,7 +247,7 @@ dimensions_t;
 extern "C" {
 #endif
 
-TERMINAL_API int terminal_open();
+TERMINAL_API int TerminalOpen();
 TERMINAL_API void terminal_close();
 TERMINAL_API int terminal_set8(const int8_t* value);
 TERMINAL_API int terminal_set16(const int16_t* value);
