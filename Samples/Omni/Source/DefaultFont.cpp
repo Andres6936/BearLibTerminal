@@ -49,7 +49,7 @@ void TestDefaultFont()
 
         TerminalRefresh( );
 
-		int key = terminal_read();
+		int key = TerminalRead( );
 
 		if (key == TK_ESCAPE || key == TK_CLOSE)
 		{

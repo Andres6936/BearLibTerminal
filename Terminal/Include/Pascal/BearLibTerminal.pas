@@ -323,7 +323,7 @@ function terminal_check(Code: Int32): Boolean;
 
 // Read
 function terminal_read(): Int32;
-  cdecl; external 'BearLibTerminal' name 'terminal_read';
+  cdecl; external 'BearLibTerminal' name 'TerminalRead';
 
 // ReadStr
 function terminal_read_str(X, Y: Int32; var S: AnsiString; MaxLength: Int32): Int32; overload;

@@ -569,7 +569,7 @@ int luaterminal_check(lua_State* L)
 
 int luaterminal_read(lua_State* L)
 {
-	int code = terminal_read();
+	int code = TerminalRead( );
 	lua_pushnumber(L, code);
 	return 1;
 }

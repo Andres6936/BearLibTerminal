@@ -197,7 +197,7 @@
 #define TK_ON                  1
 
 /*
- * Input result codes for terminal_read function.
+ * Input result codes for TerminalRead function.
  */
 #define TK_INPUT_NONE          0
 #define TK_INPUT_CANCELLED    -1
@@ -276,7 +276,7 @@ TERMINAL_API void TerminalMeasureExt16( int w, int h, const int16_t *s, int *out
 TERMINAL_API void TerminalMeasureExt32( int w, int h, const int32_t *s, int *out_w, int *out_h);
 TERMINAL_API int TerminalHasInput();
 TERMINAL_API int TerminalState( int code);
-TERMINAL_API int terminal_read();
+TERMINAL_API int TerminalRead();
 TERMINAL_API int terminal_read_str8(int x, int y, int8_t* buffer, int max);
 TERMINAL_API int terminal_read_str16(int x, int y, int16_t* buffer, int max);
 TERMINAL_API int terminal_read_str32(int x, int y, int32_t* buffer, int max);

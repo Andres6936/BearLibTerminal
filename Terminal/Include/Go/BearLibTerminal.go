@@ -343,7 +343,7 @@ func HasInput() bool {
 }
 
 func Read() int {
-	return int(C.terminal_read())
+	return int(C.TerminalRead())
 }
 
 func Peek() int {

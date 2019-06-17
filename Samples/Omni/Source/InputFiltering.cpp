@@ -75,7 +75,7 @@ void TestInputFiltering()
 
 		do
 		{
-			int key = terminal_read();
+			int key = TerminalRead( );
 			event_counter += 1;
 
 			if (key == TK_CLOSE || key == TK_ESCAPE)

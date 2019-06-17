@@ -246,7 +246,7 @@ void TestFormattedLog()
 		// Render
         TerminalRefresh( );
 
-		int key = terminal_read();
+		int key = TerminalRead( );
 
 		if (key == TK_CLOSE || key == TK_ESCAPE)
 		{
@@ -292,7 +292,7 @@ void TestFormattedLog()
 				ScrollToPixel( TerminalState( TK_MOUSE_PIXEL_Y ) - dragging_scrollbar_offset);
 
 			while (terminal_peek() == TK_MOUSE_MOVE)
-				terminal_read();
+                TerminalRead( );
 		}
 		else if (key == TK_RESIZED)
 		{

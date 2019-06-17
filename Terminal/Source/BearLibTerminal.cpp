@@ -285,7 +285,7 @@ int TerminalState( int code)
 	return g_instance->GetState(code);
 }
 
-int terminal_read()
+int TerminalRead()
 {
 	if (!g_instance) return TK_CLOSE;
 	return g_instance->Read();

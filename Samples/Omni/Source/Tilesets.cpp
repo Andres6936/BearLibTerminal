@@ -66,7 +66,7 @@ void TestTilesets()
 
     TerminalRefresh( );
 
-	for (int key=0; key!=TK_CLOSE && key!=TK_ESCAPE; key=terminal_read());
+	for (int key=0; key!=TK_CLOSE && key!=TK_ESCAPE; key= TerminalRead( ));
 
 	// Clean up
 	terminal_set("U+E100: none; U+E200: none; U+E300: none; zodiac font: none");

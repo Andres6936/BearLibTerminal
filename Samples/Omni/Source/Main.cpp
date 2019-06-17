@@ -94,7 +94,7 @@ int main()
 		terminal_printf_ext(77, 23, 0, 0, TK_ALIGN_RIGHT, "http://wyrd.name/en:bearlibterminal");
         TerminalRefresh( );
 
-		int key = terminal_read();
+		int key = TerminalRead( );
 
 		if (key == TK_ESCAPE || key == TK_CLOSE)
 		{

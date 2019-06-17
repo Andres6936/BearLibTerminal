@@ -495,7 +495,7 @@ namespace BearLib
             return State(code) > 0;
         }
 
-        [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_read", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", EntryPoint = "TerminalRead", CallingConvention = CallingConvention.Cdecl)]
         public static extern int Read();
 
         [DllImport("BearLibTerminal.dll", CharSet = CharSet.Unicode, EntryPoint = "terminal_read_str16", CallingConvention = CallingConvention.Cdecl)]

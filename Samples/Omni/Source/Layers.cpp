@@ -31,7 +31,7 @@ void TestLayers()
 
         TerminalRefresh( );
 
-		int key = terminal_read();
+		int key = TerminalRead( );
 
 		if (key == TK_CLOSE || key == TK_ESCAPE)
 		{

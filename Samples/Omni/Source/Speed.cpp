@@ -129,7 +129,7 @@ void TestSpeed()
 
 		while (proceed && TerminalHasInput( ))
 		{
-			int code = terminal_read();
+			int code = TerminalRead( );
 			if (code == TK_ESCAPE || code == TK_CLOSE)
 			{
 				proceed = false;

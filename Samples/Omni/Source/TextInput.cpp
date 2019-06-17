@@ -115,7 +115,7 @@ void TestTextInput()
 
         TerminalRefresh( );
 
-		int key = terminal_read();
+		int key = TerminalRead( );
 
 		if (key == TK_CLOSE || key == TK_ESCAPE)
 		{
@@ -140,7 +140,7 @@ void TestTextInput()
                 TerminalRefresh( );
 
 				character = L' ';
-				int key = terminal_read();
+				int key = TerminalRead( );
 				if (key == TK_ESCAPE || key == TK_CLOSE || key == TK_RETURN)
 				{
 					break;

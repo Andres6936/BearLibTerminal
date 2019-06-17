@@ -30,7 +30,7 @@ void TestMouse()
 	// Flush input
 	while ( TerminalHasInput( ))
 	{
-		terminal_read();
+        TerminalRead( );
 	}
 
 	int counter = 0;
@@ -118,7 +118,7 @@ void TestMouse()
 
 		do
 		{
-			int code = terminal_read();
+			int code = TerminalRead( );
 			counter += 1;
 
 			if (code == TK_ESCAPE || code == TK_CLOSE)

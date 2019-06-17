@@ -31,7 +31,7 @@ void TestWindowResize()
 		terminal_printf(3, 2, "Terminal size is %dx%d", w, h);
         TerminalRefresh( );
 
-		int key = terminal_read();
+		int key = TerminalRead( );
 
 		if (key == TK_CLOSE || key == TK_ESCAPE)
 		{
