@@ -398,10 +398,10 @@ begin
 end;
 
 procedure terminal_font_ansi(const Name: PAnsiChar);
-  cdecl; external 'BearLibTerminal' name 'terminal_font8';
+  cdecl; external 'BearLibTerminal' name 'TerminalFont8';
 
 procedure terminal_font_unicode(const Name: PWideChar);
-  cdecl; external 'BearLibTerminal' name 'terminal_font16';
+  cdecl; external 'BearLibTerminal' name 'TerminalFont16';
 
 procedure terminal_font(const Name: AnsiString); overload;
 begin

@@ -302,7 +302,7 @@ int luaterminal_layer(lua_State* L)
 int luaterminal_font(lua_State* L)
 {
 	const char* name = lua_tostring(L, 1);
-	terminal_font8((const int8_t*)name);
+    TerminalFont8(( const int8_t * ) name );
 	return 0;
 }
 
