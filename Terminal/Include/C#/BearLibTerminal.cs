@@ -404,7 +404,7 @@ namespace BearLib
             return PickColor(location.X, location.Y, 0);
         }
 
-        [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_pick_color", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", EntryPoint = "TerminalPickColor", CallingConvention = CallingConvention.Cdecl)]
         private static extern int PickColorImpl(int x, int y, int index);
 
         public static Color PickColor(int x, int y, int index)
@@ -417,7 +417,7 @@ namespace BearLib
             return PickColor(location.X, location.Y, index);
         }
 
-        [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_pick_bkcolor", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", EntryPoint = "TerminalPickBackColor", CallingConvention = CallingConvention.Cdecl)]
         private static extern int PickBkColorImpl(int x, int y);
 
         public static Color PickBkColor(int x, int y)

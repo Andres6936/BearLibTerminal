@@ -221,13 +221,13 @@ int TerminalPick( int x, int y, int index)
 	return g_instance->Pick(x, y, index);
 }
 
-color_t terminal_pick_color(int x, int y, int index)
+color_t TerminalPickColor( int x, int y, int index)
 {
 	if (!g_instance) return 0;
 	return g_instance->PickForeColor(x, y, index);
 }
 
-color_t terminal_pick_bkcolor(int x, int y)
+color_t TerminalPickBackColor( int x, int y)
 {
 	if (!g_instance) return 0;
 	return g_instance->PickBackColor(x, y);

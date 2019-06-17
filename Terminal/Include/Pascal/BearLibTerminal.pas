@@ -286,7 +286,7 @@ function terminal_pick_color(X, Y: Int32): UInt32; overload;
 
 // PickBkColor
 function terminal_pick_bkcolor(X, Y: Int32): UInt32;
-  cdecl; external 'BearLibTerminal' name 'terminal_pick_bkcolor';
+  cdecl; external 'BearLibTerminal' name 'TerminalPickBackColor';
 
 // Print
 function terminal_print(X, Y: Int32; const S: AnsiString): TSize; overload;
@@ -453,7 +453,7 @@ end;
 
 function terminal_pick_color(X, Y: Int32): UInt32; overload;
 begin;
-    terminal_pick_color := terminal_pick_color(X, Y, 0);
+    terminal_pick_color := TerminalPickColor(X, Y, 0);
 end;
 
 procedure terminal_print_ansi(X, Y, W, H, Alignment: Int32; const S: PAnsiChar; OutW, OutH: PInt32);

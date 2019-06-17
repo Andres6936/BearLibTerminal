@@ -285,12 +285,12 @@ func Pick(x, y, index int) int {
 }
 
 func PickColor(x, y, index int) uint32 {
-	val := C.terminal_pick_color(C.int(x), C.int(y), C.int(index))
+	val := C.TerminalPickColor(C.int(x), C.int(y), C.int(index))
 	return uint32(val)
 }
 
 func PickBkColor(x, y int) uint32 {
-	val := C.terminal_pick_bkcolor(C.int(x), C.int(y))
+	val := C.TerminalPickBackColor(C.int(x), C.int(y))
 	return uint32(val)
 }
 

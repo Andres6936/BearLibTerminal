@@ -55,7 +55,7 @@ void TestPick()
 				int code = TerminalPick( x, y, n );
 				if (code == 0) break;
 
-				color_t color = terminal_pick_color(x, y, n);
+				color_t color = TerminalPickColor( x, y, n );
 				terminal_printf(2+n*2, 23, L"[color=%d]%lc", color, (wchar_t)code);
 
 				n += 1;

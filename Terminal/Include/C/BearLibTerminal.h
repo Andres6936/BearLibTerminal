@@ -266,8 +266,8 @@ TERMINAL_API void TerminalFont32( const int32_t *name);
 TERMINAL_API void TerminalPut( int x, int y, int code);
 TERMINAL_API void TerminalPutExt( int x, int y, int dx, int dy, int code, color_t *corners);
 TERMINAL_API int TerminalPick( int x, int y, int index);
-TERMINAL_API color_t terminal_pick_color(int x, int y, int index);
-TERMINAL_API color_t terminal_pick_bkcolor(int x, int y);
+TERMINAL_API color_t TerminalPickColor( int x, int y, int index);
+TERMINAL_API color_t TerminalPickBackColor( int x, int y);
 TERMINAL_API void terminal_print_ext8(int x, int y, int w, int h, int align, const int8_t* s, int* out_w, int* out_h);
 TERMINAL_API void terminal_print_ext16(int x, int y, int w, int h, int align, const int16_t* s, int* out_w, int* out_h);
 TERMINAL_API void terminal_print_ext32(int x, int y, int w, int h, int align, const int32_t* s, int* out_w, int* out_h);
@@ -682,7 +682,7 @@ TERMINAL_INLINE int terminal_pick(int x, int y)
 
 TERMINAL_INLINE color_t terminal_pick_color(int x, int y)
 {
-	return terminal_pick_color(x, y, 0);
+	return TerminalPickColor( x, y, 0 );
 }
 
 TERMINAL_INLINE const wchar_t* terminal_get(const wchar_t* key, const wchar_t* default_ = (const wchar_t*)0)

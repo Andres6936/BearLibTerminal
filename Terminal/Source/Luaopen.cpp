@@ -416,13 +416,13 @@ int luaterminal_pick_color(lua_State* L)
 	int x = lua_tointeger(L, 1);
 	int y = lua_tointeger(L, 2);
 	int z = nargs > 2? lua_tointeger(L, 3): 0;
-	lua_pushnumber(L, terminal_pick_color(x, y, z));
+	lua_pushnumber(L, TerminalPickColor( x, y, z ));
 	return 1;
 }
 
 int luaterminal_pick_bkcolor(lua_State* L)
 {
-	lua_pushnumber(L, terminal_pick_bkcolor(lua_tointeger(L, 1), lua_tointeger(L, 2)));
+	lua_pushnumber(L, TerminalPickBackColor( lua_tointeger( L, 1 ), lua_tointeger( L, 2 )));
 	return 1;
 }
 
