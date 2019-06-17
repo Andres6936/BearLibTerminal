@@ -10,7 +10,7 @@
 void TestBasicOutput()
 {
 	terminal_set("window.title='Omni: basic output'");
-	terminal_clear();
+    TerminalClear( );
 	terminal_color("white");
 
 	// Wide color range

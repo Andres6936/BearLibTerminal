@@ -40,7 +40,7 @@ void TestInputFiltering()
 
 	for (bool proceed=true; proceed;)
 	{
-		terminal_clear();
+        TerminalClear( );
 		terminal_color("white");
 
 		int h = terminal_printf_ext

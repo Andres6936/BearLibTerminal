@@ -17,7 +17,7 @@ void TestDefaultFont()
 
 	while (true)
 	{
-		terminal_clear();
+        TerminalClear( );
 		terminal_wprint(2, 1, L"[color=white]Select unicode character range:");
 
 		for (int i=0; i<g_wgl4_ranges.size(); i++)

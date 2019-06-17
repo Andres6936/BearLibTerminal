@@ -99,7 +99,7 @@ void TestSpeed()
 	{
 		int r1 = rand()%256;
 
-		terminal_clear();
+        TerminalClear( );
 		for (int y = 0; y < 25; y++)
 		{
 			for (int x = 0; x < 80; x++)

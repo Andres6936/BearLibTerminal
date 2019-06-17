@@ -83,7 +83,7 @@ int main()
 
 	while (true)
 	{
-		terminal_clear();
+        TerminalClear( );
 		for (size_t i=0; i<entries.size(); i++)
 		{
 			char shortcut = i < 9? '1'+i: 'a'+(i-9);

@@ -269,7 +269,7 @@ int luaterminal_refresh(lua_State* L)
 
 int luaterminal_clear(lua_State* L)
 {
-	terminal_clear();
+    TerminalClear( );
 	return 0;
 }
 

@@ -19,7 +19,7 @@ void TestTilesets()
 	terminal_set("U+E300: ../Media/fontawesome-webfont.ttf, size=24x24, spacing=3x2, codepage=../Media/fontawesome-codepage.txt");
 	terminal_set("zodiac font: ../Media/Zodiac-S.ttf, size=24x36, spacing=3x3, codepage=437");
 
-	terminal_clear();
+    TerminalClear( );
 	terminal_color("white");
 
 	terminal_print(2, 1, "[color=orange]1.[/color] Of course, there is default font tileset.");

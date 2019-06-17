@@ -69,7 +69,7 @@ void TestTextAlignment()
 
 	while (true)
 	{
-		terminal_clear();
+        TerminalClear( );
 
 		// Background square
 		terminal_bkcolor("darkest gray");

@@ -194,7 +194,7 @@ void TestFormattedLog()
 
 	while (true)
 	{
-		terminal_clear();
+        TerminalClear( );
 		terminal_color("white");
 
 		// Frame background

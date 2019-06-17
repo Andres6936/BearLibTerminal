@@ -37,7 +37,7 @@ void TestMouse()
 
 	for (bool proceed=true; proceed;)
 	{
-		terminal_clear();
+        TerminalClear( );
 
 		terminal_color("white");
 		terminal_printf(1, 1, "Received [color=orange]%d[/color] %s", counter, counter == 1? "event": "events");

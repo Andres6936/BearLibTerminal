@@ -220,7 +220,7 @@ void TestKeyboard()
 
 	while (true)
 	{
-		terminal_clear();
+        TerminalClear( );
 
 		for (size_t i = 0; i < N_keys; i++)
 		{

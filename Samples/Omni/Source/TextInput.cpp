@@ -98,7 +98,7 @@ void TestTextInput()
 
 	while (true)
 	{
-		terminal_clear();
+        TerminalClear( );
 		terminal_color("white");
 
 		terminal_print(2, 1, "Select different input tests by pressing corresponding number:");

@@ -50,7 +50,7 @@ void TestExtendedSmoothScroll()
 		hoffset -= hspeed;
 		voffset -= vspeed;
 
-		terminal_clear();
+        TerminalClear( );
 
 		int tx = hoffset%tile_size, ty = voffset%tile_size;
 		int ix = (hoffset-tx)/tile_size, iy = (voffset-ty)/tile_size;

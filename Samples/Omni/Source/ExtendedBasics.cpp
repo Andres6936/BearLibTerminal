@@ -35,7 +35,7 @@ void TestExtendedBasics()
 
 	for (bool proceed=true; proceed;)
 	{
-		terminal_clear();
+        TerminalClear( );
 		terminal_color("white");
 
 		terminal_print(2, 1, "[color=orange]1.[/color] terminal_put_ext(x, y, [color=orange]dx[/color], [color=orange]dy[/color], code, corners);");

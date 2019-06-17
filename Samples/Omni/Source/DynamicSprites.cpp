@@ -125,7 +125,7 @@ void TestDynamicSprites()
 
 	while (true)
 	{
-		terminal_clear();
+        TerminalClear( );
 
 		DrawMap();
 		terminal_color("light gray");

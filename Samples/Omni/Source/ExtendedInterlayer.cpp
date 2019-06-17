@@ -138,7 +138,7 @@ void TestExtendedInterlayer()
 		{
 			map[foe_y*map_width+foe_x] = 1;
 			PlaceFoe();
-			terminal_clear();
+            TerminalClear( );
 			DrawMap(map_left, map_top, map);
 		}
 		AnimateDamage(map_left+x, map_top+y, -damage);
@@ -159,7 +159,7 @@ void TestExtendedInterlayer()
 
 	for (bool proceed=true; proceed;)
 	{
-		terminal_clear();
+        TerminalClear( );
 		DrawMap(map_left, map_top, map);
         TerminalRefresh( );
 
@@ -192,6 +192,6 @@ void TestExtendedInterlayer()
 
 	// Clean up
 	terminal_composition(TK_OFF);
-	terminal_clear();
+    TerminalClear( );
 	terminal_layer(0);
 }

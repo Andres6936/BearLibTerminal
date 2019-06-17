@@ -16,7 +16,7 @@ void TestLayers()
 
 	while (true)
 	{
-		terminal_clear();
+        TerminalClear( );
 		terminal_color("white");
 
 		terminal_print(2, 1, "[color=orange]1.[/color] Without layers:");

@@ -261,7 +261,7 @@ func Font(name string) {
 //
 
 func Clear() {
-	C.terminal_clear()
+	C.TerminalClear()
 }
 
 func ClearArea(x, y, w, h int) {

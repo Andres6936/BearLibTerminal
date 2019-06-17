@@ -254,7 +254,7 @@ namespace BearLib
             return result;
         }
 
-        [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_clear", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("BearLibTerminal.dll", EntryPoint = "TerminalClear", CallingConvention = CallingConvention.Cdecl)]
         public static extern void Clear();
 
         [DllImport("BearLibTerminal.dll", EntryPoint = "terminal_clear_area", CallingConvention = CallingConvention.Cdecl)]

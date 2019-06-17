@@ -143,7 +143,7 @@ void TerminalRefresh()
 	g_instance->Refresh();
 }
 
-void terminal_clear()
+void TerminalClear()
 {
 	if (!g_instance) return;
 	g_instance->Clear();

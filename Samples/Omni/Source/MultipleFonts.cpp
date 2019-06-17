@@ -17,7 +17,7 @@ void TestMultipleFonts()
 	terminal_set("bold font: ../Media/VeraMoBd.ttf, size=10x20");
 	terminal_set("huge font: ../Media/VeraMono.ttf, size=20x40, spacing=2x2");
 
-	terminal_clear();
+    TerminalClear( );
 	terminal_color("white");
 	int h = terminal_print_ext
 	(

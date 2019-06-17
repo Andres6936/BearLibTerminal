@@ -28,7 +28,7 @@ void TestManualCellsize()
 
 	while (true)
 	{
-		terminal_clear();
+        TerminalClear( );
 		terminal_color("white");
 
 		terminal_printf(2, 1, "Hello, world!");

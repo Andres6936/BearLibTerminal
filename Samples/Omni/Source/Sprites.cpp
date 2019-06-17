@@ -24,7 +24,7 @@ void TestSprites()
 	};
 	terminal_setf("U+E003: %#p, raw-size=2x2, resize=128x128, resize-filter=bicubic", &c);
 
-	terminal_clear();
+    TerminalClear( );
 
 	terminal_color("black");
 	terminal_print(2, 1, "[color=black]This primarily serves as a quick test of image format support");

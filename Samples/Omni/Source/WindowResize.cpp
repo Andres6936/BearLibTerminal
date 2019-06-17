@@ -15,7 +15,7 @@ void TestWindowResize()
 
 	while (true)
 	{
-		terminal_clear();
+        TerminalClear( );
 		int w = terminal_state(TK_WIDTH);
 		int h = terminal_state(TK_HEIGHT);
 		for (int x=0; x<w; x++)

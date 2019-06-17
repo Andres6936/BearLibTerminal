@@ -216,7 +216,7 @@ procedure terminal_refresh();
 
 // Clear
 procedure terminal_clear();
-  cdecl; external 'BearLibTerminal' name 'terminal_clear';
+  cdecl; external 'BearLibTerminal' name 'TerminalClear';
 
 // ClearArea
 procedure terminal_clear_area(Left, Top, Width, Height: Int32);

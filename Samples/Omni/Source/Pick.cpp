@@ -7,7 +7,7 @@ void TestPick()
 	terminal_set("window.title='Omni: examining cell contents'");
 	terminal_set("input.filter={keyboard, mouse}"); // Enable mouse events.
 
-	terminal_clear();
+    TerminalClear( );
 	terminal_color("white");
 	terminal_printf(2, 1, "Move mouse over characters:");
 
