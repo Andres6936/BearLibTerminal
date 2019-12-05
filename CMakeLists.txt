@@ -1,19 +1,21 @@
-cmake_minimum_required(VERSION 2.8)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 
-if (NOT ((${CMAKE_SYSTEM_NAME} MATCHES "Linux") OR (${CMAKE_SYSTEM_NAME} MATCHES "Windows") OR (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")))
-    message(FATAL_ERROR "${CMAKE_SYSTEM_NAME} is not supported.")
-endif()
+PROJECT(BearLibTerminal)
 
-if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
-    message(STATUS "Build type was not specified, switching to 'Release'")
-    set(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build." FORCE)
+IF (NOT ((${CMAKE_SYSTEM_NAME} MATCHES "Linux") OR (${CMAKE_SYSTEM_NAME} MATCHES "Windows") OR (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")))
+    MESSAGE(FATAL_ERROR "${CMAKE_SYSTEM_NAME} is not supported.")
+ENDIF ()
+
+IF (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+    MESSAGE(STATUS "Build type was not specified, switching to 'Release'")
+    SET(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build." FORCE)
 
     # Set the possible values of build type for cmake-gui
-    set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release")
-endif()
+    SET_PROPERTY(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release")
+ENDIF ()
 
-add_subdirectory(./Terminal)
+ADD_SUBDIRECTORY(./Terminal)
 
-if(IS_DIRECTORY "${CMAKE_SOURCE_DIR}/Samples")
-    add_subdirectory(./Samples/Omni)
-endif()
+IF (IS_DIRECTORY "${CMAKE_SOURCE_DIR}/Samples")
+    ADD_SUBDIRECTORY(./Samples/Omni)
+ENDIF ()
