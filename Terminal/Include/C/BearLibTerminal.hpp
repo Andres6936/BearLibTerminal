@@ -258,32 +258,6 @@ color_t ColorFromName16( const int16_t *name );
 color_t ColorFromName32( const int32_t *name );
 
 /*
- * Utility macro trick which allows macro-in-macro expansion
- */
-#define TERMINAL_CAT( a, b ) TERMINAL_PRIMITIVE_CAT(a, b)
-#define TERMINAL_PRIMITIVE_CAT( a, b ) a ## b
-
-/*
- * wchar_t has different sized depending on platform. Furthermore, it's size
- * can be changed for GCC compiler.
- */
-#if !defined(__SIZEOF_WCHAR_T__)
-#  if defined(_WIN32)
-#    define __SIZEOF_WCHAR_T__ 2
-#  else
-#    define __SIZEOF_WCHAR_T__ 4
-#  endif
-#endif
-
-#if __SIZEOF_WCHAR_T__ == 2
-#define TERMINAL_WCHAR_SUFFIX 16
-#define TERMINAL_WCHAR_TYPE int16_t
-#else // 4
-#define TERMINAL_WCHAR_SUFFIX 32
-#define TERMINAL_WCHAR_TYPE int32_t
-#endif
-
-/*
  * These functions provide inline string formatting support
  * for TerminalSetF, TerminalPrintF, etc.
  *
@@ -308,7 +282,7 @@ inline const char *terminal_vsprintf( const char *s, va_list args )
         buffer = ( char * ) malloc( buffer_size );
     }
 
-    while ( 1 )
+    while ( true )
     {
         buffer[ buffer_size - 1 ] = '\0';
         rc = vsnprintf( buffer, buffer_size, s, args );
@@ -398,7 +372,7 @@ inline int TerminalSetF( const char *s, ... )
 
 inline int TerminalWSet( const wchar_t *s )
 {
-    return TERMINAL_CAT( TerminalSet, TERMINAL_WCHAR_SUFFIX )(( const TERMINAL_WCHAR_TYPE * ) s );
+    return TerminalSet32(( const int32_t * ) s );
 }
 
 inline int TerminalWSetF( const wchar_t *s, ... )
@@ -413,7 +387,7 @@ inline void TerminalFont( const char *name )
 
 inline void TerminalWFont( const wchar_t *name )
 {
-    TERMINAL_CAT( TerminalFont, TERMINAL_WCHAR_SUFFIX )(( const TERMINAL_WCHAR_TYPE * ) name );
+    TerminalFont32(( const int32_t * ) name );
 }
 
 inline dimensions_t TerminalPrint( int x, int y, const char *s )
@@ -431,8 +405,8 @@ inline dimensions_t TerminalPrintF( int x, int y, const char *s, ... )
 inline dimensions_t TerminalWPrint( int x, int y, const wchar_t *s )
 {
     dimensions_t ret;
-    TERMINAL_CAT( TerminalPrintExt, TERMINAL_WCHAR_SUFFIX )( x, y, 0, 0, TK_ALIGN_DEFAULT,
-                                                             ( const TERMINAL_WCHAR_TYPE * ) s, &ret.width,
+    TerminalPrintExt32( x, y, 0, 0, TK_ALIGN_DEFAULT,
+                                                             ( const int32_t * ) s, &ret.width,
                                                              &ret.height );
     return ret;
 }
@@ -457,7 +431,7 @@ inline dimensions_t TerminalPrintFExt( int x, int y, int w, int h, int align, co
 inline dimensions_t TerminalWPrintExt( int x, int y, int w, int h, int align, const wchar_t *s )
 {
     dimensions_t ret;
-    TERMINAL_CAT( TerminalPrintExt, TERMINAL_WCHAR_SUFFIX )( x, y, w, h, align, ( const TERMINAL_WCHAR_TYPE * ) s,
+    TerminalPrintExt32( x, y, w, h, align, ( const int32_t * ) s,
                                                              &ret.width, &ret.height );
     return ret;
 }
@@ -482,7 +456,7 @@ inline dimensions_t TerminalMeasureF( const char *s, ... )
 inline dimensions_t TerminalWMeasure( const wchar_t *s )
 {
     dimensions_t ret;
-    TERMINAL_CAT( TerminalMeasureExt, TERMINAL_WCHAR_SUFFIX )( 0, 0, ( const TERMINAL_WCHAR_TYPE * ) s, &ret.width,
+    TerminalMeasureExt32( 0, 0, ( const int32_t * ) s, &ret.width,
                                                                &ret.height );
     return ret;
 }
@@ -507,7 +481,7 @@ inline dimensions_t TerminalMeasureFExt( int w, int h, const char *s, ... )
 inline dimensions_t TerminalWMeasureExt( int w, int h, const wchar_t *s )
 {
     dimensions_t ret;
-    TERMINAL_CAT( TerminalMeasureExt, TERMINAL_WCHAR_SUFFIX )( w, h, ( const TERMINAL_WCHAR_TYPE * ) s, &ret.width,
+    TerminalMeasureExt32( w, h, ( const int32_t * ) s, &ret.width,
                                                                &ret.height );
     return ret;
 }
@@ -524,7 +498,7 @@ inline int TerminalReadStr( int x, int y, char *buffer, int max )
 
 inline int TerminalReadWStr( int x, int y, wchar_t *buffer, int max )
 {
-    return TERMINAL_CAT( TerminalReadStr, TERMINAL_WCHAR_SUFFIX )( x, y, ( TERMINAL_WCHAR_TYPE * ) buffer, max );
+    return TerminalReadStr32( x, y, ( int32_t * ) buffer, max );
 }
 
 inline const char *TerminalGet( const char *key, const char *default_ = ( const char * ) 0 )
@@ -535,8 +509,8 @@ inline const char *TerminalGet( const char *key, const char *default_ = ( const 
 inline const wchar_t *TerminalWGet( const wchar_t *key,
                                              const wchar_t *default_ = ( const wchar_t * ) 0 )
 {
-    return ( const wchar_t * ) TERMINAL_CAT( TerminalGet, TERMINAL_WCHAR_SUFFIX )(( const TERMINAL_WCHAR_TYPE * ) key,
-                                                                                  ( const TERMINAL_WCHAR_TYPE * ) default_ );
+    return ( const wchar_t * ) TerminalGet32(( const int32_t * ) key,
+                                                                                  ( const int32_t * ) default_ );
 }
 
 inline color_t ColorFromName( const char *name )
@@ -546,7 +520,7 @@ inline color_t ColorFromName( const char *name )
 
 inline color_t ColorFromWName( const wchar_t *name )
 {
-    return TERMINAL_CAT( ColorFromName, TERMINAL_WCHAR_SUFFIX )(( const TERMINAL_WCHAR_TYPE * ) name );
+    return ColorFromName32(( const int32_t * ) name );
 }
 
 #ifdef __cplusplus
@@ -591,7 +565,7 @@ inline void TerminalFont( const wchar_t *name )
 
 inline void TerminalPutExt( int x, int y, int dx, int dy, int code )
 {
-    TerminalPutExt( x, y, dx, dy, code, 0 );
+    TerminalPutExt( x, y, dx, dy, code, nullptr );
 }
 
 inline dimensions_t TerminalPrint( int x, int y, const wchar_t *s )
