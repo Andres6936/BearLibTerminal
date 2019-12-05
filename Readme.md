@@ -28,14 +28,18 @@ Visual C++ projects should be linked against BearLibTerminal.lib import library 
 
 MinGW projects should link against .dll directly (the .lib is just an import library for Visual C++, do not copy it):
 
-    g++ -I/path/to/header -L/path/to/dll main.cpp -lBearLibTerminal -o app.exe
+```sh
+g++ -I/path/to/header -L/path/to/dll main.cpp -lBearLibTerminal -o app.exe
+```
 
 
 #### Python
 
 Python packages are available. You can install everything you need to use the library with
 
-    pip install bearlibterminal
+```sh
+pip install bearlibterminal
+```
 
 Depending on the OS and Python installation, you might also want to
 
@@ -44,14 +48,16 @@ Depending on the OS and Python installation, you might also want to
 
 Package contains both wrapper and an appropriate binary for the platform, so you do not need to copy anything else anywhere. Just import the library in the source:
 
-    from bearlibterminal import terminal
-    
-    terminal.open()
-    terminal.printf(2, 1, "Hello, world!")
-    terminal.refresh()
-    while terminal.read() != terminal.TK_CLOSE:
-        pass
-    terminal.close()
+```python
+from bearlibterminal import terminal
+
+terminal.open()
+terminal.printf(2, 1, "Hello, world!")
+terminal.refresh()
+while terminal.read() != terminal.TK_CLOSE:
+    pass
+terminal.close()
+```
 
 #### Lua
 
@@ -60,7 +66,9 @@ in a suitable location (e. g. in the same directory as script). For Linux you'll
 to just 'BearLibTerminal.so' (dropping the 'lib' prefix). After that it would be possible to import the library
 the usual way:
 
-    local terminal = require "BearLibTerminal" 
+```lua
+local terminal = require "BearLibTerminal" 
+```
 
 ### Building
 
