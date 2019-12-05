@@ -22,7 +22,7 @@
 
 #define BEARLIBTERMINAL_BUILDING_LIBRARY
 
-#include "BearLibTerminal.h"
+#include "BearLibTerminal.hpp"
 #include "Platform.hpp"
 #include "Log.hpp"
 #include <vector>
@@ -61,7 +61,7 @@ typedef LUA_INTEGER lua_Integer;
 
 extern "C"
 {
-TERMINAL_API int luaopen_BearLibTerminal( lua_State *L );
+    int luaopen_BearLibTerminal( lua_State *L );
 }
 
 typedef int (*PFNLUAGETTOP)( lua_State *L ); // lua_gettop

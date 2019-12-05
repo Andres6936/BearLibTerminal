@@ -8,7 +8,7 @@
 #ifndef COMMON_HPP_
 #define COMMON_HPP_
 
-#include "BearLibTerminal.h"
+#include "BearLibTerminal.hpp"
 #include <stdint.h>
 #include <sstream>
 

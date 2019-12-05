@@ -21,7 +21,7 @@
 */
 
 #include "Stage.hpp"
-#include "BearLibTerminal.h"
+#include "BearLibTerminal.hpp"
 
 namespace BearLibTerminal
 {

@@ -23,8 +23,6 @@ struct TestEntry
 	void (*func)();
 };
 
-TERMINAL_TAKE_CARE_OF_WINMAIN
-
 int main()
 {
 #if defined(__APPLE__)

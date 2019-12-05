@@ -26,7 +26,7 @@
 #include "Geometry.hpp"
 #include "Log.hpp"
 #include "Palette.hpp"
-#include "BearLibTerminal.h"
+#include "BearLibTerminal.hpp"
 #include <cmath>
 #include <future>
 #include <vector>
