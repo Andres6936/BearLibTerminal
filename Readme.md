@@ -1,3 +1,6 @@
+![SeeWiki](/Documentation/Screenshots/SeeWiki.png)
+###### Please, See Wiki
+
 BearLibTerminal provides a pseudoterminal window with a grid of character cells and a simple yet powerful API for flexible textual output and uncomplicated input processing.
 
 ### Features
