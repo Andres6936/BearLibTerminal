@@ -1,18 +1,13 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.14 FATAL_ERROR)
 
 PROJECT(BearLibTerminal VERSION 2020.4 LANGUAGES CXX )
 
-IF (NOT ((${CMAKE_SYSTEM_NAME} MATCHES "Linux") OR (${CMAKE_SYSTEM_NAME} MATCHES "Windows") OR (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")))
-    MESSAGE(FATAL_ERROR "${CMAKE_SYSTEM_NAME} is not supported.")
-ENDIF ()
-
-IF (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
-    MESSAGE(STATUS "Build type was not specified, switching to 'Release'")
-    SET(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build." FORCE)
-
-    # Set the possible values of build type for cmake-gui
-    SET_PROPERTY(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release")
-ENDIF ()
+# Include guards, avoid called to cmake from the main directory
+# For a correct use, is better create an new directory (called
+# <Build> for example) and call to cmake
+if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
+    message(FATAL_ERROR "In-source builds not allowed. Please make a new directory (called a build directory) and run CMake from there.")
+endif()
 
 ADD_SUBDIRECTORY(./Terminal)
 
