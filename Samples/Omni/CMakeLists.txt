@@ -1,10 +1,10 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.5)
 
 if (UNIX AND NOT APPLE)
 	set(LINUX TRUE)
 endif()
 
-project(SampleOmni)
+project(SampleOmni VERSION 2020.4 LANGUAGES CXX)
 
 set(CMAKE_SKIP_RPATH TRUE)
 

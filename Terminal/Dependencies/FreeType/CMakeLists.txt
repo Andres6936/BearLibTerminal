@@ -1,6 +1,6 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
 
-PROJECT(freetype2)
+PROJECT(freetype2 VERSION 2.0.0 LANGUAGES C)
 
 SET(SOURCES ./Source/autofit/autofit.c
         ./Source/base/ftbase.c
