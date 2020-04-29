@@ -35,7 +35,7 @@ Possibles values of expression: 32, 64
 MATH(EXPR BITNESS "8*${CMAKE_SIZEOF_VOID_P}")
 
 FILE(GLOB TERMINAL_HEADERS ./Source/*.hpp ./Source/*.h)
-LIST(APPEND TERMINAL_HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/Include/C/BearLibTerminal.hpp")
+
 IF (APPLE)
     FILE(GLOB TERMINAL_SOURCES ./Source/*.cpp ./Source/*.mm)
 ELSE ()
@@ -59,7 +59,7 @@ IF (APPLE)
     FIND_LIBRARY(COCOA_LIBRARY Cocoa)
 ENDIF ()
 
-INCLUDE_DIRECTORIES(./Include/C)
+INCLUDE_DIRECTORIES(../Include/BearLibTerminal)
 INCLUDE_DIRECTORIES(./Dependencies/FreeType/Include)
 INCLUDE_DIRECTORIES(./Dependencies/PicoPNG/Include)
 INCLUDE_DIRECTORIES(./Dependencies/NanoJPEG/Include)

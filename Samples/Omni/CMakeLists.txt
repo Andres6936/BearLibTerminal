@@ -6,6 +6,8 @@ endif()
 
 project(SampleOmni VERSION 2020.4 LANGUAGES CXX)
 
+INCLUDE_DIRECTORIES(../../Include/BearLibTerminal)
+
 set(CMAKE_SKIP_RPATH TRUE)
 
 # Detect system bitness
