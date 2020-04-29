@@ -6,7 +6,10 @@ ENDIF ()
 
 OPTION(BUILD_SHARED_LIBS "Build dynamic version of library" ON)
 
+# Define the library FreeType2
 ADD_SUBDIRECTORY(Dependencies/FreeType)
+
+# Define the library PicoPNG
 ADD_SUBDIRECTORY(Dependencies/PicoPNG)
 
 PROJECT(BearLibTerminal VERSION 2020.4 LANGUAGES CXX)
