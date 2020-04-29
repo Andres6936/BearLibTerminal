@@ -31,7 +31,8 @@ This variable is set to the size of a pointer on the target machine, and
  first.
 
 Possibles values of expression: 32, 64
-]=]#
+]=]
+#
 MATH(EXPR BITNESS "8*${CMAKE_SIZEOF_VOID_P}")
 
 FILE(GLOB TERMINAL_HEADERS ./Source/*.hpp ./Source/*.h)
@@ -92,3 +93,27 @@ SET_TARGET_PROPERTIES(BearLibTerminal PROPERTIES
         RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_DIR}
         LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_DIR}
         ARCHIVE_OUTPUT_DIRECTORY ${OUTPUT_DIR})
+
+# Must use GNUInstallDirs to install libraries into correct
+# locations on all platforms.
+INCLUDE(GNUInstallDirs)
+
+
+# Define headers for this library. PUBLIC headers are used for
+# compiling the library, and will be added to consumers' build
+# paths.
+TARGET_INCLUDE_DIRECTORIES(BearLibTerminal
+        PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Source>
+        $<INSTALL_INTERFACE:../Include>
+        PRIVATE
+        Source)
+
+# 'make install' to the correct locations (provided by GNUInstallDirs).
+INSTALL(TARGETS BearLibTerminal
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+
+# This is for Windows
+INSTALL(DIRECTORY ../Include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
