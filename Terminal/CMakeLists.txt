@@ -14,7 +14,24 @@ ADD_SUBDIRECTORY(Dependencies/PicoPNG)
 
 PROJECT(BearLibTerminal VERSION 2020.4 LANGUAGES CXX)
 
-# Detect system bitness
+#[=[
+Objective: Detect system bitness
+
+The function <MATH> evaluate a mathematical <expression> and sets
+ <variable> to the resulting value.
+
+The mathematical expression must be given as a string (i.e.
+ enclosed in double quotation marks). An example is "5 * (10 + 13)".
+
+The variable <CMAKE_SIZEOF_VOID_P> is size of a void pointer.
+
+This variable is set to the size of a pointer on the target machine, and
+ is determined by a try compile. If a 64-bit size is found, then
+ the library search path is modified to look for 64-bit  libraries
+ first.
+
+Possibles values of expression: 32, 64
+]=]#
 MATH(EXPR BITNESS "8*${CMAKE_SIZEOF_VOID_P}")
 
 FILE(GLOB TERMINAL_HEADERS ./Source/*.hpp ./Source/*.h)
