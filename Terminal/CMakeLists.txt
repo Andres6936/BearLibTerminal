@@ -68,20 +68,8 @@ ELSEIF (APPLE)
 ENDIF ()
 
 SET(OUTPUT_DIR ${CMAKE_SOURCE_DIR}/Output/${CMAKE_SYSTEM_NAME}${BITNESS})
+
 SET_TARGET_PROPERTIES(BearLibTerminal PROPERTIES
         RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_DIR}
         LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_DIR}
         ARCHIVE_OUTPUT_DIRECTORY ${OUTPUT_DIR})
-
-IF (WIN32)
-    # Fix unix-like "lib" prefix and ".a" suffix
-    SET_TARGET_PROPERTIES(BearLibTerminal PROPERTIES
-            PREFIX ""
-            SUFFIX ".dll"
-            IMPORT_PREFIX ""
-            IMPORT_SUFFIX ".lib")
-ELSEIF (APPLE)
-    SET_TARGET_PROPERTIES(BearLibTerminal PROPERTIES
-            BUILD_WITH_INSTALL_RPATH TRUE
-            INSTALL_NAME_DIR "@executable_path")
-ENDIF ()
