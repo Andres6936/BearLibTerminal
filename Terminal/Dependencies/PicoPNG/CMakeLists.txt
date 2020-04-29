@@ -10,5 +10,5 @@ ENDIF ()
 
 ADD_LIBRARY(PicoPNG STATIC Source/PicoPNG.cpp)
 
-# # Support to compiler on mode C++ 17 standard.
+# Support to compiler on mode C++ 17 standard.
 TARGET_COMPILE_FEATURES(PicoPNG PRIVATE cxx_std_17)

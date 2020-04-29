@@ -43,7 +43,6 @@ ELSE ()
 ENDIF ()
 
 # Common flags
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
 SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -fvisibility=hidden")
 IF (WIN32)
     SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DUNICODE")
@@ -66,6 +65,9 @@ INCLUDE_DIRECTORIES(./Dependencies/PicoPNG/Include)
 INCLUDE_DIRECTORIES(./Dependencies/NanoJPEG/Include)
 
 ADD_LIBRARY(BearLibTerminal ${TERMINAL_SOURCES} ${TERMINAL_HEADERS})
+
+# Support to compiler on mode C++ 17 standard.
+TARGET_COMPILE_FEATURES(BearLibTerminal PRIVATE cxx_std_17)
 
 # Set a definition [TERMINAL_VERSION] with the version of this library (BearLibTerminal)
 TARGET_COMPILE_DEFINITIONS(BearLibTerminal PRIVATE
