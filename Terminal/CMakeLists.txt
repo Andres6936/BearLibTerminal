@@ -143,7 +143,7 @@ INCLUDE(../CMakeModules/CPM.cmake)
 # of boilerplate code to get things working. This small script should
 # simplify the CMake packaging process into a single, easy-to-use command.
 CPMAddPackage(
-        NAME BearLibTerminal.cmake
+        NAME PackageProject.cmake
         GITHUB_REPOSITORY TheLartians/PackageProject.cmake
         VERSION 1.2
 )
