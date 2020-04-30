@@ -1,4 +1,4 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.5 FATAL_ERROR)
 
 IF (UNIX AND NOT APPLE)
     SET(LINUX TRUE)
@@ -60,19 +60,34 @@ IF (APPLE)
     FIND_LIBRARY(COCOA_LIBRARY Cocoa)
 ENDIF ()
 
+### Definition of Files Includes
+
 INCLUDE_DIRECTORIES(./Include/BearLibTerminal)
 INCLUDE_DIRECTORIES(./Dependencies/FreeType/Include)
 INCLUDE_DIRECTORIES(./Dependencies/PicoPNG/Include)
 INCLUDE_DIRECTORIES(./Dependencies/NanoJPEG/Include)
 
+### Definition of <BearLibTerminal> Library
+
 ADD_LIBRARY(BearLibTerminal ${TERMINAL_SOURCES} ${TERMINAL_HEADERS})
 
+### Definition of Properties of <BearLibTerminal> Library
+
 # Support to compiler on mode C++ 17 standard.
-TARGET_COMPILE_FEATURES(BearLibTerminal PRIVATE cxx_std_17)
+SET_TARGET_PROPERTIES(BearLibTerminal PROPERTIES CXX_STANDARD 17)
+
+# <OUTPUT_DIR> is a variable that define the directory where the binaries are stored
+SET(OUTPUT_DIR ${CMAKE_SOURCE_DIR}/Output/${CMAKE_SYSTEM_NAME}${BITNESS})
+SET_TARGET_PROPERTIES(BearLibTerminal PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_DIR}
+        LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_DIR}
+        ARCHIVE_OUTPUT_DIRECTORY ${OUTPUT_DIR})
 
 # Set a definition [TERMINAL_VERSION] with the version of this library (BearLibTerminal)
 TARGET_COMPILE_DEFINITIONS(BearLibTerminal PRIVATE
         TERMINAL_VERSION=\"${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}\")
+
+### Link of Dependencies for <BearLibTerminal> Library
 
 TARGET_LINK_LIBRARIES(BearLibTerminal PRIVATE FreeType2)
 TARGET_LINK_LIBRARIES(BearLibTerminal PRIVATE PicoPNG)
@@ -87,12 +102,7 @@ ELSEIF (APPLE)
     TARGET_LINK_LIBRARIES(BearLibTerminal PRIVATE ${COCOA_LIBRARY})
 ENDIF ()
 
-SET(OUTPUT_DIR ${CMAKE_SOURCE_DIR}/Output/${CMAKE_SYSTEM_NAME}${BITNESS})
-
-SET_TARGET_PROPERTIES(BearLibTerminal PROPERTIES
-        RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_DIR}
-        LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_DIR}
-        ARCHIVE_OUTPUT_DIRECTORY ${OUTPUT_DIR})
+### Support to Command <make install>
 
 # Must use GNUInstallDirs to install libraries into correct
 # locations on all platforms.
