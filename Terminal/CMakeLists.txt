@@ -14,7 +14,7 @@ ADD_SUBDIRECTORY(Dependencies/PicoPNG)
 
 PROJECT(BearLibTerminal VERSION 2020.4 LANGUAGES CXX)
 
-#[=[
+#[[
 Objective: Detect system bitness
 
 The function <MATH> evaluate a mathematical <expression> and sets
@@ -31,8 +31,8 @@ This variable is set to the size of a pointer on the target machine, and
  first.
 
 Possibles values of expression: 32, 64
-]=]
-#
+]]
+
 MATH(EXPR BITNESS "8*${CMAKE_SIZEOF_VOID_P}")
 
 FILE(GLOB TERMINAL_HEADERS ./Source/*.hpp ./Source/*.h)
@@ -60,6 +60,7 @@ IF (APPLE)
     FIND_LIBRARY(COCOA_LIBRARY Cocoa)
 ENDIF ()
 
+
 ### Definition of Files Includes
 
 INCLUDE_DIRECTORIES(./Include/BearLibTerminal)
@@ -67,9 +68,11 @@ INCLUDE_DIRECTORIES(./Dependencies/FreeType/Include)
 INCLUDE_DIRECTORIES(./Dependencies/PicoPNG/Include)
 INCLUDE_DIRECTORIES(./Dependencies/NanoJPEG/Include)
 
+
 ### Definition of <BearLibTerminal> Library
 
 ADD_LIBRARY(BearLibTerminal ${TERMINAL_SOURCES} ${TERMINAL_HEADERS})
+
 
 ### Definition of Properties of <BearLibTerminal> Library
 
@@ -102,6 +105,7 @@ ELSEIF (APPLE)
     TARGET_LINK_LIBRARIES(BearLibTerminal PRIVATE ${COCOA_LIBRARY})
 ENDIF ()
 
+
 ### Support to Command <make install>
 
 # Must use GNUInstallDirs to install libraries into correct
@@ -127,3 +131,28 @@ INSTALL(TARGETS BearLibTerminal
 
 # This is for Windows
 INSTALL(DIRECTORY Include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+
+
+### Support to CPM (Content Package Manager)
+
+# This CMake allow ddd dependencies (Like Gradle, Maven, Pip, etc ...)
+# For more information see: https://github.com/TheLartians/CPM.cmake
+INCLUDE(../CMakeModules/CPM.cmake)
+
+# Creating installable CMake scripts always requires a large amount
+# of boilerplate code to get things working. This small script should
+# simplify the CMake packaging process into a single, easy-to-use command.
+CPMAddPackage(
+        NAME BearLibTerminal.cmake
+        GITHUB_REPOSITORY TheLartians/PackageProject.cmake
+        VERSION 1.2
+)
+
+packageProject(
+        NAME BearLibTerminal
+        VERSION ${PROJECT_VERSION}
+        BINARY_DIR ${PROJECT_BINARY_DIR}
+        INCLUDE_DIR ${PROJECT_SOURCE_DIR}/Include
+        INCLUDE_DESTINATION Include
+        DEPENDENCIES ""
+)
