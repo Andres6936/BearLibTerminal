@@ -6,10 +6,8 @@ ENDIF ()
 
 OPTION(BUILD_SHARED_LIBS "Build dynamic version of library" ON)
 
-# Define the library FreeType2
 ADD_SUBDIRECTORY(Dependencies/FreeType)
-
-# Define the library PicoPNG
+ADD_SUBDIRECTORY(Dependencies/NanoJPEG)
 ADD_SUBDIRECTORY(Dependencies/PicoPNG)
 
 PROJECT(BearLibTerminal VERSION 2020.4 LANGUAGES CXX)
@@ -51,11 +49,6 @@ FIND_PACKAGE(OpenGL)
 IF (APPLE)
     FIND_LIBRARY(COCOA_LIBRARY Cocoa)
 ENDIF ()
-
-
-### Definition of Files Includes
-INCLUDE_DIRECTORIES(./Dependencies/NanoJPEG/Include)
-
 
 ### Definition of <BearLibTerminal> Library
 
@@ -117,6 +110,7 @@ TARGET_COMPILE_DEFINITIONS(BearLibTerminal PRIVATE
 ### Link of Dependencies for <BearLibTerminal> Library
 
 TARGET_LINK_LIBRARIES(BearLibTerminal PRIVATE FreeType2)
+TARGET_LINK_LIBRARIES(BearLibTerminal PRIVATE BearLibTerminal::NanoPNG)
 TARGET_LINK_LIBRARIES(BearLibTerminal PRIVATE PicoPNG)
 TARGET_LINK_LIBRARIES(BearLibTerminal PRIVATE ${OPENGL_gl_LIBRARY})
 
