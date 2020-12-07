@@ -56,10 +56,6 @@ ENDIF ()
 
 
 ### Definition of Files Includes
-
-INCLUDE_DIRECTORIES(./Include/BearLibTerminal)
-INCLUDE_DIRECTORIES(./Dependencies/FreeType/Include)
-INCLUDE_DIRECTORIES(./Dependencies/PicoPNG/Include)
 INCLUDE_DIRECTORIES(./Dependencies/NanoJPEG/Include)
 
 
@@ -107,6 +103,15 @@ ADD_LIBRARY(BearLibTerminal
 
 # Support to compiler on mode C++ 17 standard.
 SET_TARGET_PROPERTIES(BearLibTerminal PROPERTIES CXX_STANDARD 17)
+# Define headers for this library. PUBLIC headers are used for
+# compiling the library, and will be added to consumers' build
+# paths.
+TARGET_INCLUDE_DIRECTORIES(BearLibTerminal
+        PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Source>
+        $<INSTALL_INTERFACE:Include>
+        PRIVATE
+        Source)
 
 # <OUTPUT_DIR> is a variable that define the directory where the binaries are stored
 SET(OUTPUT_DIR ${CMAKE_SOURCE_DIR}/Output/${CMAKE_SYSTEM_NAME}${BITNESS})
@@ -140,17 +145,6 @@ ENDIF ()
 # Must use GNUInstallDirs to install libraries into correct
 # locations on all platforms.
 INCLUDE(GNUInstallDirs)
-
-
-# Define headers for this library. PUBLIC headers are used for
-# compiling the library, and will be added to consumers' build
-# paths.
-TARGET_INCLUDE_DIRECTORIES(BearLibTerminal
-        PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Source>
-        $<INSTALL_INTERFACE:Include>
-        PRIVATE
-        Source)
 
 # 'make install' to the correct locations (provided by GNUInstallDirs).
 INSTALL(TARGETS BearLibTerminal
