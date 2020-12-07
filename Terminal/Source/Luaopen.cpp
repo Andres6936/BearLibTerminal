@@ -22,7 +22,7 @@
 
 #define BEARLIBTERMINAL_BUILDING_LIBRARY
 
-#include "BearLibTerminal.hpp"
+#include "BearLibTerminal/BearLibTerminal.hpp"
 #include "Platform.hpp"
 #include "Log.hpp"
 #include <vector>

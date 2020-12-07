@@ -108,10 +108,9 @@ SET_TARGET_PROPERTIES(BearLibTerminal PROPERTIES CXX_STANDARD 17)
 # paths.
 TARGET_INCLUDE_DIRECTORIES(BearLibTerminal
         PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Source>
-        $<INSTALL_INTERFACE:Include>
-        PRIVATE
-        Source)
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Source/>
+        $<INSTALL_INTERFACE:Include/>
+        )
 
 # <OUTPUT_DIR> is a variable that define the directory where the binaries are stored
 SET(OUTPUT_DIR ${CMAKE_SOURCE_DIR}/Output/${CMAKE_SYSTEM_NAME}${BITNESS})

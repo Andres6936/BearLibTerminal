@@ -39,7 +39,7 @@
 
 #define BEARLIBTERMINAL_BUILDING_LIBRARY
 
-#include "BearLibTerminal.hpp"
+#include "BearLibTerminal/BearLibTerminal.hpp"
 
 // X11 hack because X.h #defines these names without any regards to others
 #define XlibKeyPress 2
