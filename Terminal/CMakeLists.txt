@@ -35,8 +35,6 @@ Possibles values of expression: 32, 64
 
 MATH(EXPR BITNESS "8*${CMAKE_SIZEOF_VOID_P}")
 
-FILE(GLOB TERMINAL_HEADERS ./Source/*.hpp ./Source/*.h)
-
 # Common flags
 SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -fvisibility=hidden")
 IF (WIN32)
