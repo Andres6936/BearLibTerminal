@@ -16,7 +16,7 @@ ADD_SUBDIRECTORY(Dependencies/FreeType)
 ADD_SUBDIRECTORY(Dependencies/NanoJPEG)
 ADD_SUBDIRECTORY(Dependencies/PicoPNG)
 
-PROJECT(BearLibTerminal VERSION 2020.4 LANGUAGES CXX)
+PROJECT(BearLibTerminal VERSION 2020.12 LANGUAGES CXX)
 
 #[[
 Objective: Detect system bitness
