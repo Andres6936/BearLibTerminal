@@ -58,7 +58,7 @@ ENDIF ()
 
 ### Definition of <BearLibTerminal> Library
 
-ADD_LIBRARY(BearLibTerminal
+ADD_LIBRARY(BearLibTerminal.Framework
         Source/Atlas.cpp
         Source/Base64.cpp
         Source/BearLibTerminal.cpp
@@ -95,45 +95,47 @@ ADD_LIBRARY(BearLibTerminal
         $<$<PLATFORM_ID:Darwin>:Source/CocoaWindow.mm>
         )
 
+ADD_LIBRARY(BearLibTerminal::Framework ALIAS BearLibTerminal.Framework)
+
 
 ### Definition of Properties of <BearLibTerminal> Library
 
 # Support to compiler on mode C++ 17 standard.
-SET_TARGET_PROPERTIES(BearLibTerminal PROPERTIES CXX_STANDARD 17)
+SET_TARGET_PROPERTIES(BearLibTerminal.Framework PROPERTIES CXX_STANDARD 17)
 # Define headers for this library. PUBLIC headers are used for
 # compiling the library, and will be added to consumers' build
 # paths.
 # Adding the install interface generator expression makes sure
 # that the include file are installed to the proper location (provided
 # by GNUInstallDirs.
-TARGET_INCLUDE_DIRECTORIES(BearLibTerminal
+TARGET_INCLUDE_DIRECTORIES(BearLibTerminal.Framework
         PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Include/>
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/>
         )
 
 # Set a definition [TERMINAL_VERSION] with the version of this library (BearLibTerminal)
-TARGET_COMPILE_DEFINITIONS(BearLibTerminal PRIVATE
+TARGET_COMPILE_DEFINITIONS(BearLibTerminal.Framework PRIVATE
         TERMINAL_VERSION=\"${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}\")
 
 ### Link of Dependencies for <BearLibTerminal> Library
 
-TARGET_LINK_LIBRARIES(BearLibTerminal PRIVATE FreeType2)
-TARGET_LINK_LIBRARIES(BearLibTerminal PRIVATE BearLibTerminal::NanoPNG)
-TARGET_LINK_LIBRARIES(BearLibTerminal PRIVATE PicoPNG)
-TARGET_LINK_LIBRARIES(BearLibTerminal PRIVATE ${OPENGL_gl_LIBRARY})
+TARGET_LINK_LIBRARIES(BearLibTerminal.Framework PRIVATE FreeType2)
+TARGET_LINK_LIBRARIES(BearLibTerminal.Framework PRIVATE BearLibTerminal::NanoPNG)
+TARGET_LINK_LIBRARIES(BearLibTerminal.Framework PRIVATE PicoPNG)
+TARGET_LINK_LIBRARIES(BearLibTerminal.Framework PRIVATE ${OPENGL_gl_LIBRARY})
 
 IF (WIN32)
-    TARGET_LINK_LIBRARIES(BearLibTerminal PRIVATE winmm.lib)
-    TARGET_LINK_LIBRARIES(BearLibTerminal PRIVATE ${PROJECT_SOURCE_DIR}/Resource/Terminal-${BITNESS}bit.res)
+    TARGET_LINK_LIBRARIES(BearLibTerminal.Framework PRIVATE winmm.lib)
+    TARGET_LINK_LIBRARIES(BearLibTerminal.Framework PRIVATE ${PROJECT_SOURCE_DIR}/Resource/Terminal-${BITNESS}bit.res)
 ELSEIF (LINUX)
-    TARGET_LINK_LIBRARIES(BearLibTerminal PRIVATE pthread)
+    TARGET_LINK_LIBRARIES(BearLibTerminal.Framework PRIVATE pthread)
 ELSEIF (APPLE)
-    TARGET_LINK_LIBRARIES(BearLibTerminal PRIVATE ${COCOA_LIBRARY})
+    TARGET_LINK_LIBRARIES(BearLibTerminal.Framework PRIVATE ${COCOA_LIBRARY})
 ENDIF ()
 
 # 'make install' to the correct locations (provided by GNUInstallDirs).
-INSTALL(TARGETS BearLibTerminal
+INSTALL(TARGETS BearLibTerminal.Framework
         ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
