@@ -19,6 +19,10 @@ ADD_LIBRARY(FreeType2 STATIC
         Source/smooth/smooth.c
         Source/truetype/truetype.c)
 
+# The POSITION_INDEPENDENT_CODE property determines whether position
+# independent executables or shared libraries will be created. This
+# property is True by default for SHARED and MODULE library targets
+# and False otherwise.
 SET_TARGET_PROPERTIES(FreeType2 PROPERTIES POSITION_INDEPENDENT_CODE ON)
 # Support to compiler on mode C 11 standard.
 SET_TARGET_PROPERTIES(FreeType2 PROPERTIES C_STANDARD 11)
