@@ -37,12 +37,6 @@ MATH(EXPR BITNESS "8*${CMAKE_SIZEOF_VOID_P}")
 
 FILE(GLOB TERMINAL_HEADERS ./Source/*.hpp ./Source/*.h)
 
-IF (APPLE)
-    FILE(GLOB TERMINAL_SOURCES ./Source/*.cpp ./Source/*.mm)
-ELSE ()
-    FILE(GLOB TERMINAL_SOURCES ./Source/*.cpp) # FIXME: manual selection
-ENDIF ()
-
 # Common flags
 SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -fvisibility=hidden")
 IF (WIN32)
@@ -71,7 +65,42 @@ INCLUDE_DIRECTORIES(./Dependencies/NanoJPEG/Include)
 
 ### Definition of <BearLibTerminal> Library
 
-ADD_LIBRARY(BearLibTerminal ${TERMINAL_SOURCES} ${TERMINAL_HEADERS})
+ADD_LIBRARY(BearLibTerminal
+        Source/Atlas.cpp
+        Source/Base64.cpp
+        Source/BearLibTerminal.cpp
+        Source/Bitmap.cpp
+        Source/BitmapTileset.cpp
+        Source/BOM.cpp
+        Source/Config.cpp
+        Source/DynamicTileset.cpp
+        Source/Encoding.cpp
+        Source/Keystroke.cpp
+        Source/LoadBitmap.cpp
+        Source/LoadBMP.cpp
+        Source/LoadJPEG.cpp
+        Source/LoadPNG.cpp
+        Source/Log.cpp
+        Source/Luaopen.cpp
+        Source/OpenGL.cpp
+        Source/OptionGroup.cpp
+        Source/Options.cpp
+        Source/Palette.cpp
+        Source/Platform.cpp
+        Source/Resource.cpp
+        Source/SaveBMP.cpp
+        Source/Stage.cpp
+        Source/Terminal.cpp
+        Source/Texture.cpp
+        Source/Tileset.cpp
+        Source/TrueTypeTileset.cpp
+        Source/Utility.cpp
+        Source/WinApiWindow.cpp
+        Source/Window.cpp
+        Source/X11Window.cpp
+        # Insert source code only if the platform is Apple (macOS)
+        $<$<PLATFORM_ID:Darwin>:Source/CocoaWindow.mm>
+        )
 
 
 ### Definition of Properties of <BearLibTerminal> Library
