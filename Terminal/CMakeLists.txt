@@ -110,13 +110,6 @@ TARGET_INCLUDE_DIRECTORIES(BearLibTerminal
         $<INSTALL_INTERFACE:Include/>
         )
 
-# <OUTPUT_DIR> is a variable that define the directory where the binaries are stored
-SET(OUTPUT_DIR ${CMAKE_SOURCE_DIR}/Output/${CMAKE_SYSTEM_NAME}${BITNESS})
-SET_TARGET_PROPERTIES(BearLibTerminal PROPERTIES
-        RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_DIR}
-        LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_DIR}
-        ARCHIVE_OUTPUT_DIRECTORY ${OUTPUT_DIR})
-
 # Set a definition [TERMINAL_VERSION] with the version of this library (BearLibTerminal)
 TARGET_COMPILE_DEFINITIONS(BearLibTerminal PRIVATE
         TERMINAL_VERSION=\"${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}\")
