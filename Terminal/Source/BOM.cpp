@@ -20,7 +20,7 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "BOM.hpp"
+#include "BearLibTerminal/BOM.hpp"
 #include <stdint.h>
 #include <string.h>
 

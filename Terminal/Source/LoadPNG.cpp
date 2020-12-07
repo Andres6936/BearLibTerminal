@@ -32,9 +32,9 @@
 #include <functional>
 #include <memory>
 #include <stdexcept>
-#include "Bitmap.hpp"
-#include "Utility.hpp"
-#include "Log.hpp"
+#include "BearLibTerminal/Bitmap.hpp"
+#include "BearLibTerminal/Utility.hpp"
+#include "BearLibTerminal/Log.hpp"
 
 namespace BearLibTerminal
 {

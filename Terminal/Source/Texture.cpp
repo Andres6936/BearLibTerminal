@@ -21,9 +21,9 @@
 */
 
 #include <stdexcept>
-#include "Texture.hpp"
-#include "OpenGL.hpp"
-#include "Log.hpp"
+#include "BearLibTerminal/Texture.hpp"
+#include "BearLibTerminal/OpenGL.hpp"
+#include "BearLibTerminal/Log.hpp"
 
 namespace BearLibTerminal
 {

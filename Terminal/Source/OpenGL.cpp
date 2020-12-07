@@ -20,8 +20,8 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "OpenGL.hpp"
-#include "Log.hpp"
+#include "BearLibTerminal/OpenGL.hpp"
+#include "BearLibTerminal/Log.hpp"
 #include <string>
 #include <algorithm>
 

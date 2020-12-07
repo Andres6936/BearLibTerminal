@@ -20,11 +20,11 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "Log.hpp"
-#include "Encoding.hpp"
-#include "Utility.hpp"
-#include "Platform.hpp"
-#include "Config.hpp"
+#include "BearLibTerminal/Log.hpp"
+#include "BearLibTerminal/Encoding.hpp"
+#include "BearLibTerminal/Utility.hpp"
+#include "BearLibTerminal/Platform.hpp"
+#include "BearLibTerminal/Config.hpp"
 #include <fstream>
 #include <time.h>
 #include <chrono>

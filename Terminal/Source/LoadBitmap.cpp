@@ -22,8 +22,8 @@
 
 #include <stdexcept>
 #include <cstring>
-#include "LoadBitmap.hpp"
-#include "Log.hpp"
+#include "BearLibTerminal/LoadBitmap.hpp"
+#include "BearLibTerminal/Log.hpp"
 
 // Forward declarations. See LoadXXX.cpp files for definitions.
 namespace BearLibTerminal

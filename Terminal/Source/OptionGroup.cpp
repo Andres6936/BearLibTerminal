@@ -20,10 +20,9 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "OptionGroup.hpp"
-
-#include "Encoding.hpp"
-#include "Utility.hpp"
+#include "BearLibTerminal/OptionGroup.hpp"
+#include "BearLibTerminal/Encoding.hpp"
+#include "BearLibTerminal/Utility.hpp"
 #include <iostream>
 
 namespace BearLibTerminal

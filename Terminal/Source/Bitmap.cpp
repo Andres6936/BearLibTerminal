@@ -20,8 +20,8 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "Bitmap.hpp"
-#include "Log.hpp"
+#include "BearLibTerminal/Bitmap.hpp"
+#include "BearLibTerminal/Log.hpp"
 #include <stdexcept>
 #include <cstring>
 #include <cmath>

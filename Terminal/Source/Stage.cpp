@@ -20,7 +20,7 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "Stage.hpp"
+#include "BearLibTerminal/Stage.hpp"
 #include "BearLibTerminal/BearLibTerminal.hpp"
 
 namespace BearLibTerminal

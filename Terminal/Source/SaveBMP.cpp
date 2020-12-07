@@ -20,7 +20,7 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "Bitmap.hpp"
+#include "BearLibTerminal/Bitmap.hpp"
 #include <ostream>
 #include <cstdint>
 #include <functional>

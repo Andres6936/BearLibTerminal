@@ -23,7 +23,7 @@
 #define BEARLIBTERMINAL_BUILDING_LIBRARY
 
 #include "BearLibTerminal/BearLibTerminal.hpp"
-#include "Keystroke.hpp"
+#include "BearLibTerminal/Keystroke.hpp"
 #include <stdexcept>
 
 namespace BearLibTerminal

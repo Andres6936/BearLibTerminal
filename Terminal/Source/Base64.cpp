@@ -21,7 +21,7 @@
 */
 
 #include <stdexcept>
-#include "Base64.hpp"
+#include "BearLibTerminal/Base64.hpp"
 
 namespace BearLibTerminal
 {

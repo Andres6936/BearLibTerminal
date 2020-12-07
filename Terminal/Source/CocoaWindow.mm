@@ -22,12 +22,12 @@
 
 #if defined(__APPLE__)
 
-#include "CocoaWindow.h"
 #include <map>
 #include <iostream>
 #import <Cocoa/Cocoa.h>
-#include "Encoding.hpp"
-#include "OpenGL.hpp"
+#include "BearLibTerminal/CocoaWindow.h"
+#include "BearLibTerminal/Encoding.hpp"
+#include "BearLibTerminal/OpenGL.hpp"
 
 #define TERMINAL_BUILDING_LIBRARY
 #include "BearLibTerminal.h"

@@ -20,8 +20,8 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "Palette.hpp"
-#include "Utility.hpp"
+#include "BearLibTerminal/Palette.hpp"
+#include "BearLibTerminal/Utility.hpp"
 #include <cctype>
 
 namespace BearLibTerminal

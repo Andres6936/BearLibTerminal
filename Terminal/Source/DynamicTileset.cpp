@@ -20,12 +20,12 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "DynamicTileset.hpp"
-#include "Log.hpp"
-#include "Bitmap.hpp"
-#include "Utility.hpp"
-#include "Geometry.hpp"
-#include "Encoding.hpp"
+#include "BearLibTerminal/DynamicTileset.hpp"
+#include "BearLibTerminal/Log.hpp"
+#include "BearLibTerminal/Bitmap.hpp"
+#include "BearLibTerminal/Utility.hpp"
+#include "BearLibTerminal/Geometry.hpp"
+#include "BearLibTerminal/Encoding.hpp"
 #include <cmath>
 
 namespace BearLibTerminal

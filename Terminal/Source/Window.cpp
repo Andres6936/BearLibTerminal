@@ -20,22 +20,22 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "Window.hpp"
+#include "BearLibTerminal/Window.hpp"
 
 #if defined(__linux)
 
-#include "X11Window.hpp"
+#include "BearLibTerminal/X11Window.hpp"
 
 #endif
 #if defined(_WIN32)
-#include "WinApiWindow.hpp"
+#include "BearLibTerminal/WinApiWindow.hpp"
 #endif
 #if defined(__APPLE__)
-#include "CocoaWindow.h"
+#include "BearLibTerminal/CocoaWindow.h"
 #endif
 
-#include "Log.hpp"
-#include "Utility.hpp"
+#include "BearLibTerminal/Log.hpp"
+#include "BearLibTerminal/Utility.hpp"
 
 namespace BearLibTerminal
 {

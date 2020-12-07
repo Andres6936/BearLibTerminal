@@ -20,12 +20,12 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "Resource.hpp"
-#include "Encoding.hpp"
-#include "Platform.hpp"
-#include "Utility.hpp"
-#include "Base64.hpp"
-#include "Log.hpp"
+#include "BearLibTerminal/Resource.hpp"
+#include "BearLibTerminal/Encoding.hpp"
+#include "BearLibTerminal/Platform.hpp"
+#include "BearLibTerminal/Utility.hpp"
+#include "BearLibTerminal/Base64.hpp"
+#include "BearLibTerminal/Log.hpp"
 #include <sstream>
 #include <fstream>
 #include <map>
@@ -34,8 +34,8 @@
 namespace BearLibTerminal
 {
 
-#include "Builtin.Codepages.hpp"
-	#include "Builtin.DefaultFont.hpp"
+#include "BearLibTerminal/Builtin.Codepages.hpp"
+#include "BearLibTerminal/Builtin.DefaultFont.hpp"
 
     struct BuiltinResource
     {

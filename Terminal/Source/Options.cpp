@@ -20,9 +20,9 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "Options.hpp"
-#include "Keystroke.hpp"
-#include "OpenGL.hpp"
+#include "BearLibTerminal/Options.hpp"
+#include "BearLibTerminal/Keystroke.hpp"
+#include "BearLibTerminal/OpenGL.hpp"
 
 namespace BearLibTerminal
 {

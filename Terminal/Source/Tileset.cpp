@@ -20,14 +20,14 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "Tileset.hpp"
-#include "BitmapTileset.hpp"
-#include "TrueTypeTileset.hpp"
-#include "DynamicTileset.hpp"
-#include "Utility.hpp"
-#include "Resource.hpp"
-#include "Geometry.hpp"
-#include "Log.hpp"
+#include "BearLibTerminal/Tileset.hpp"
+#include "BearLibTerminal/BitmapTileset.hpp"
+#include "BearLibTerminal/TrueTypeTileset.hpp"
+#include "BearLibTerminal/DynamicTileset.hpp"
+#include "BearLibTerminal/Utility.hpp"
+#include "BearLibTerminal/Resource.hpp"
+#include "BearLibTerminal/Geometry.hpp"
+#include "BearLibTerminal/Log.hpp"
 #include <stdexcept>
 #include <set>
 

@@ -23,11 +23,11 @@
 #define BEARLIBTERMINAL_BUILDING_LIBRARY
 
 #include "BearLibTerminal/BearLibTerminal.hpp"
-#include "Config.hpp"
-#include "Terminal.hpp"
-#include "Palette.hpp"
-#include "Config.hpp"
-#include "Log.hpp"
+#include "BearLibTerminal/Config.hpp"
+#include "BearLibTerminal/Terminal.hpp"
+#include "BearLibTerminal/Palette.hpp"
+#include "BearLibTerminal/Config.hpp"
+#include "BearLibTerminal/Log.hpp"
 #include <map>
 #include <memory>
 #include <string>

@@ -20,12 +20,12 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "Encoding.hpp"
-#include "Resource.hpp"
-#include "Utility.hpp"
-#include "Log.hpp"
-#include "BOM.hpp"
-#include "OptionGroup.hpp"
+#include "BearLibTerminal/Encoding.hpp"
+#include "BearLibTerminal/Resource.hpp"
+#include "BearLibTerminal/Utility.hpp"
+#include "BearLibTerminal/Log.hpp"
+#include "BearLibTerminal/BOM.hpp"
+#include "BearLibTerminal/OptionGroup.hpp"
 #include <unordered_map>
 #include <stdint.h>
 #include <istream>

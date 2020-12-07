@@ -20,13 +20,13 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "Platform.hpp"
-#include "Utility.hpp"
-#include "Encoding.hpp"
-#include "OptionGroup.hpp"
-#include "Config.hpp"
-#include "Log.hpp"
-#include "BOM.hpp"
+#include "BearLibTerminal/Platform.hpp"
+#include "BearLibTerminal/Utility.hpp"
+#include "BearLibTerminal/Encoding.hpp"
+#include "BearLibTerminal/OptionGroup.hpp"
+#include "BearLibTerminal/Config.hpp"
+#include "BearLibTerminal/Log.hpp"
+#include "BearLibTerminal/BOM.hpp"
 #include <fstream>
 
 namespace BearLibTerminal

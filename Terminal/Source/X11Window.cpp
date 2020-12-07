@@ -22,12 +22,12 @@
 
 #ifdef __linux__
 
-#include "X11Window.hpp"
-#include "OpenGL.hpp"
-#include "Log.hpp"
-#include "Encoding.hpp"
-#include "Utility.hpp"
-#include "Geometry.hpp"
+#include "BearLibTerminal/X11Window.hpp"
+#include "BearLibTerminal/OpenGL.hpp"
+#include "BearLibTerminal/Log.hpp"
+#include "BearLibTerminal/Encoding.hpp"
+#include "BearLibTerminal/Utility.hpp"
+#include "BearLibTerminal/Geometry.hpp"
 #include <unistd.h>
 #include <sys/time.h>
 #include <future>

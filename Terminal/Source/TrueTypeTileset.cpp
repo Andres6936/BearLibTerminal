@@ -20,10 +20,10 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "TrueTypeTileset.hpp"
-#include "Geometry.hpp"
-#include "Utility.hpp"
-#include "Log.hpp"
+#include "BearLibTerminal/TrueTypeTileset.hpp"
+#include "BearLibTerminal/Geometry.hpp"
+#include "BearLibTerminal/Utility.hpp"
+#include "BearLibTerminal/Log.hpp"
 #include <cmath>
 #include <freetype/ftlcdfil.h>
 #include <freetype/ftglyph.h>

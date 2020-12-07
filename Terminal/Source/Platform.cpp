@@ -20,11 +20,11 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "Platform.hpp"
-#include "Encoding.hpp"
-#include "Utility.hpp"
-#include "Log.hpp"
-#include "Terminal.hpp"
+#include "BearLibTerminal/Platform.hpp"
+#include "BearLibTerminal/Encoding.hpp"
+#include "BearLibTerminal/Utility.hpp"
+#include "BearLibTerminal/Log.hpp"
+#include "BearLibTerminal/Terminal.hpp"
 #include <vector>
 #include <fstream>
 #include <iostream>

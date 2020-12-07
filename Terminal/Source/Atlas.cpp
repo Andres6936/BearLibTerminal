@@ -20,12 +20,12 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "Atlas.hpp"
-#include "Stage.hpp"
-#include "Log.hpp"
-#include "OpenGL.hpp"
-#include "Geometry.hpp"
-#include "Utility.hpp"
+#include "BearLibTerminal/Atlas.hpp"
+#include "BearLibTerminal/Stage.hpp"
+#include "BearLibTerminal/Log.hpp"
+#include "BearLibTerminal/OpenGL.hpp"
+#include "BearLibTerminal/Geometry.hpp"
+#include "BearLibTerminal/Utility.hpp"
 #include <algorithm>
 #include <fstream>
 

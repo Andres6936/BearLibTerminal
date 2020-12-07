@@ -20,20 +20,19 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "Terminal.hpp"
-#include "OpenGL.hpp"
-#include "Utility.hpp"
-#include "Geometry.hpp"
-#include "Log.hpp"
-#include "Palette.hpp"
+#include "BearLibTerminal/Terminal.hpp"
+#include "BearLibTerminal/OpenGL.hpp"
+#include "BearLibTerminal/Utility.hpp"
+#include "BearLibTerminal/Geometry.hpp"
+#include "BearLibTerminal/Log.hpp"
+#include "BearLibTerminal/Palette.hpp"
+#include "BearLibTerminal/Config.hpp"
 #include "BearLibTerminal/BearLibTerminal.hpp"
 #include <cmath>
 #include <future>
 #include <vector>
 #include <locale.h>
-
 #include <iostream>
-#include "Config.hpp"
 
 // Internal usage
 #define TK_CLIENT_WIDTH  0xF0

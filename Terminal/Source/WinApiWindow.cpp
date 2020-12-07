@@ -26,15 +26,15 @@
 #include <set>
 #include <future>
 #include <algorithm>
-#include "WinApiWindow.hpp"
-#include "BearLibTerminal.h"
-#include "Point.hpp"
-#include "Log.hpp"
-#include "OpenGL.hpp"
-#include "Resource.hpp"
-#include "Geometry.hpp"
-#include "Utility.hpp"
-#include "Platform.hpp"
+#include "BearLibTerminal/WinApiWindow.hpp"
+#include "BearLibTerminal/BearLibTerminal.h"
+#include "BearLibTerminal/Point.hpp"
+#include "BearLibTerminal/Log.hpp"
+#include "BearLibTerminal/OpenGL.hpp"
+#include "BearLibTerminal/Resource.hpp"
+#include "BearLibTerminal/Geometry.hpp"
+#include "BearLibTerminal/Utility.hpp"
+#include "BearLibTerminal/Platform.hpp"
 
 #include <mmsystem.h>
 

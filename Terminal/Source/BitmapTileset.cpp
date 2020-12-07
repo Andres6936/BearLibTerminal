@@ -20,14 +20,14 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "BitmapTileset.hpp"
-#include "LoadBitmap.hpp"
-#include "Geometry.hpp"
-#include "Resource.hpp"
-#include "Utility.hpp"
-#include "Palette.hpp"
-#include "Encoding.hpp"
-#include "Log.hpp"
+#include "BearLibTerminal/BitmapTileset.hpp"
+#include "BearLibTerminal/LoadBitmap.hpp"
+#include "BearLibTerminal/Geometry.hpp"
+#include "BearLibTerminal/Resource.hpp"
+#include "BearLibTerminal/Utility.hpp"
+#include "BearLibTerminal/Palette.hpp"
+#include "BearLibTerminal/Encoding.hpp"
+#include "BearLibTerminal/Log.hpp"
 #include <stdexcept>
 #include <fstream>
 #include <cmath>

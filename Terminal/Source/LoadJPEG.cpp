@@ -27,10 +27,10 @@
 #include <istream>
 #include <vector>
 #include <memory>
-#include "Geometry.hpp"
-#include "Utility.hpp"
-#include "Bitmap.hpp"
-#include "Log.hpp"
+#include "BearLibTerminal/Geometry.hpp"
+#include "BearLibTerminal/Utility.hpp"
+#include "BearLibTerminal/Bitmap.hpp"
+#include "BearLibTerminal/Log.hpp"
 
 namespace BearLibTerminal
 {
