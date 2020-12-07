@@ -27,14 +27,32 @@ Some notes about using it with various languages or compilers:
 
 #### C/C++
 
-Visual C++ projects should be linked against BearLibTerminal.lib import library (specify it in the additional linker dependencies).
+With the arrival of CMake 14, a script was added that allows to get 
+repositories from the Internet, taking into account this the user 
+[TheLartians](https://github.com/TheLartians) decided to write a script 
+for CMake that acts as a package manager. In my opinion, this marks a 
+new step for C++ and CMake, allowing work with libraries that are 
+downloaded and updated without direct intervention of the user.
 
-MinGW projects should link against .dll directly (the .lib is just an import library for Visual C++, do not copy it):
+To use this library, you need the script written by [TheLartians](https://github.com/TheLartians),
+named [CPM.cmake](https://github.com/TheLartians/CPM.cmake) (acronym for CMake
+Package Manager). Add it to your project, for example, under the directory
+`CMakeModules` and then in your `CMakeFiles.txt` write the following:
 
-```sh
-g++ -I/path/to/header -L/path/to/dll main.cpp -lBearLibTerminal -o app.exe
+```cmake
+Include(CMakeModules/CPM.cmake)
+
+CPMAddPackage(
+  NAME BearLibTerminal
+  VERSION 2020.12
+  GITHUB_REPOSITORY Andres6936/BearLibTerminal
+)
+ 
+TARGET_LINK_LIBRARIES(<TARGET> PRIVATE BearLibTerminal::Framework)
 ```
 
+- The directory `CMakeModules` should be created in case it does not exist.
+- `<TARGET>` must be replaced by the executable to which you will link BearLibTerminal. 
 
 #### Python
 
