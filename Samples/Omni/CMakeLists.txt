@@ -1,30 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-if (UNIX AND NOT APPLE)
-	set(LINUX TRUE)
-endif()
-
 project(SampleOmni VERSION 2020.4 LANGUAGES CXX)
-
-# Detect system bitness
-math(EXPR BITNESS "8*${CMAKE_SIZEOF_VOID_P}")
-
-# Release flags
-set(CMAKE_CXX_FLAGS_RELEASE "-O3 -g0")
-if(NOT APPLE)
-    set(CMAKE_EXE_LINKER_FLAGS_RELEASE "-s")
-endif()
-
-# Debug flags
-set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g3")
-
-# Common flags
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
-if(WIN32)
-	set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static -mwindows")
-elseif(LINUX)
-	set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static-libgcc -static-libstdc++")
-endif()
 
 add_executable(SampleOmni
 		Source/Main.cpp
@@ -54,10 +30,3 @@ add_executable(SampleOmni
 		)
 
 target_link_libraries(SampleOmni PRIVATE BearLibTerminal::Framework)
-
-if (LINUX)
-    target_link_libraries(SampleOmni PRIVATE -Wl,-R.)
-endif()
-if(WIN32)
-	target_link_libraries(SampleOmni PRIVATE winmm.lib)
-endif()
