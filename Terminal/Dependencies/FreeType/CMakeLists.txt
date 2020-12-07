@@ -19,6 +19,7 @@ ADD_LIBRARY(FreeType2 STATIC
         Source/smooth/smooth.c
         Source/truetype/truetype.c)
 
+SET_TARGET_PROPERTIES(FreeType2 PROPERTIES POSITION_INDEPENDENT_CODE ON)
 # Support to compiler on mode C 11 standard.
 SET_TARGET_PROPERTIES(FreeType2 PROPERTIES C_STANDARD 11)
 TARGET_COMPILE_DEFINITIONS(FreeType2 PRIVATE -DFT2_BUILD_LIBRARY)
