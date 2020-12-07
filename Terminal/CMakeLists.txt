@@ -153,28 +153,3 @@ INSTALL(TARGETS BearLibTerminal
 
 # This is for Windows
 INSTALL(DIRECTORY Include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-
-
-### Support to CPM (Content Package Manager)
-
-# This CMake allow ddd dependencies (Like Gradle, Maven, Pip, etc ...)
-# For more information see: https://github.com/TheLartians/CPM.cmake
-INCLUDE(../CMakeModules/CPM.cmake)
-
-# Creating installable CMake scripts always requires a large amount
-# of boilerplate code to get things working. This small script should
-# simplify the CMake packaging process into a single, easy-to-use command.
-CPMAddPackage(
-        NAME PackageProject.cmake
-        GITHUB_REPOSITORY TheLartians/PackageProject.cmake
-        VERSION 1.2
-)
-
-packageProject(
-        NAME BearLibTerminal
-        VERSION ${PROJECT_VERSION}
-        BINARY_DIR ${PROJECT_BINARY_DIR}
-        INCLUDE_DIR ${PROJECT_SOURCE_DIR}/Include
-        INCLUDE_DESTINATION Include
-        DEPENDENCIES ""
-)
