@@ -1,5 +1,11 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.5 FATAL_ERROR)
 
+### Support to Command <make install>
+
+# Must use GNUInstallDirs to install libraries into correct
+# locations on all platforms.
+INCLUDE(GNUInstallDirs)
+
 IF (UNIX AND NOT APPLE)
     SET(LINUX TRUE)
 ENDIF ()
@@ -97,10 +103,13 @@ SET_TARGET_PROPERTIES(BearLibTerminal PROPERTIES CXX_STANDARD 17)
 # Define headers for this library. PUBLIC headers are used for
 # compiling the library, and will be added to consumers' build
 # paths.
+# Adding the install interface generator expression makes sure
+# that the include file are installed to the proper location (provided
+# by GNUInstallDirs.
 TARGET_INCLUDE_DIRECTORIES(BearLibTerminal
         PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Source/>
-        $<INSTALL_INTERFACE:Include/>
+        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/>
         )
 
 # Set a definition [TERMINAL_VERSION] with the version of this library (BearLibTerminal)
@@ -122,13 +131,6 @@ ELSEIF (LINUX)
 ELSEIF (APPLE)
     TARGET_LINK_LIBRARIES(BearLibTerminal PRIVATE ${COCOA_LIBRARY})
 ENDIF ()
-
-
-### Support to Command <make install>
-
-# Must use GNUInstallDirs to install libraries into correct
-# locations on all platforms.
-INCLUDE(GNUInstallDirs)
 
 # 'make install' to the correct locations (provided by GNUInstallDirs).
 INSTALL(TARGETS BearLibTerminal

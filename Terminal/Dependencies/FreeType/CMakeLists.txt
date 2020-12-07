@@ -27,6 +27,9 @@ SET_TARGET_PROPERTIES(FreeType2 PROPERTIES POSITION_INDEPENDENT_CODE ON)
 # Support to compiler on mode C 11 standard.
 SET_TARGET_PROPERTIES(FreeType2 PROPERTIES C_STANDARD 11)
 TARGET_COMPILE_DEFINITIONS(FreeType2 PRIVATE -DFT2_BUILD_LIBRARY)
+# Adding the install interface generator expression makes sure
+# that the include file are installed to the proper location (provided
+# by GNUInstallDirs.
 TARGET_INCLUDE_DIRECTORIES(FreeType2 PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Include/>
-        $<INSTALL_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Include/>)
+        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)

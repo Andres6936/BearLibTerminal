@@ -11,6 +11,9 @@ ADD_LIBRARY(PicoPNG STATIC Source/PicoPNG.cpp)
 SET_TARGET_PROPERTIES(PicoPNG PROPERTIES POSITION_INDEPENDENT_CODE ON)
 # Support to compiler on mode C++ 17 standard.
 SET_TARGET_PROPERTIES(PicoPNG PROPERTIES CXX_STANDARD 17)
+# Adding the install interface generator expression makes sure
+# that the include file are installed to the proper location (provided
+# by GNUInstallDirs.
 TARGET_INCLUDE_DIRECTORIES(PicoPNG PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Include/>
-        $<INSTALL_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Include/>)
+        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
