@@ -6,8 +6,6 @@ endif()
 
 project(SampleOmni VERSION 2020.4 LANGUAGES CXX)
 
-set(CMAKE_SKIP_RPATH TRUE)
-
 # Detect system bitness
 math(EXPR BITNESS "8*${CMAKE_SIZEOF_VOID_P}")
 
@@ -63,6 +61,3 @@ endif()
 if(WIN32)
 	target_link_libraries(SampleOmni PRIVATE winmm.lib)
 endif()
-
-set(OUTPUT_DIR ${CMAKE_SOURCE_DIR}/Output/${CMAKE_SYSTEM_NAME}${BITNESS})
-set_target_properties(SampleOmni PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_DIR})
