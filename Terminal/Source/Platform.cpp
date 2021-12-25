@@ -168,36 +168,36 @@ namespace BearLibTerminal
     Module Module::GetProviding( std::string name )
     {
 #if defined(_WIN32)
-        try
-        {
-            Module psapi(L"Psapi.dll");
-            auto EnumProcessModules = (BOOL WINAPI (*)(HANDLE, HMODULE*, DWORD, LPDWORD))psapi["EnumProcessModules"];
-            auto GetModuleFileNameExW = (DWORD WINAPI (*)(HANDLE, HMODULE, LPWSTR, DWORD))psapi["GetModuleFileNameExW"];
-
-            HANDLE process = GetCurrentProcess();
-            DWORD bytes_needed = 0;
-            EnumProcessModules(process, nullptr, 0, &bytes_needed);
-            size_t n_modules = bytes_needed / sizeof(HMODULE);
-            std::vector<HMODULE> modules(n_modules);
-
-            EnumProcessModules(process, modules.data(), modules.size()*sizeof(HMODULE), &bytes_needed);
-            for (auto m: modules)
-            {
-                Module module(m);
-                if (module.Probe(name))
-                {
-                    wchar_t filename[MAX_PATH];
-                    GetModuleFileNameExW(process, m, filename, MAX_PATH);
-                    //LOG(Info, "Symbol \"" << name.c_str() << "\" was found in \"" << filename << "\""); // FIXME: global object dependency failure
-
-                    return module;
-                }
-            }
-        }
-        catch (std::exception& e)
-        {
-            //LOG(Error, "Module enumeration has failed: " << e.what()); // FIXME: global object dependency failure
-        }
+//        try
+//        {
+//            Module psapi(L"Psapi.dll");
+//            auto EnumProcessModules = (BOOL WINAPI (*)(HANDLE, HMODULE*, DWORD, LPDWORD))psapi["EnumProcessModules"];
+//            auto GetModuleFileNameExW = (DWORD WINAPI (*)(HANDLE, HMODULE, LPWSTR, DWORD))psapi["GetModuleFileNameExW"];
+//
+//            HANDLE process = GetCurrentProcess();
+//            DWORD bytes_needed = 0;
+//            EnumProcessModules(process, nullptr, 0, &bytes_needed);
+//            size_t n_modules = bytes_needed / sizeof(HMODULE);
+//            std::vector<HMODULE> modules(n_modules);
+//
+//            EnumProcessModules(process, modules.data(), modules.size()*sizeof(HMODULE), &bytes_needed);
+//            for (auto m: modules)
+//            {
+//                Module module(m);
+//                if (module.Probe(name))
+//                {
+//                    wchar_t filename[MAX_PATH];
+//                    GetModuleFileNameExW(process, m, filename, MAX_PATH);
+//                    //LOG(Info, "Symbol \"" << name.c_str() << "\" was found in \"" << filename << "\""); // FIXME: global object dependency failure
+//
+//                    return module;
+//                }
+//            }
+//        }
+//        catch (std::exception& e)
+//        {
+//            //LOG(Error, "Module enumeration has failed: " << e.what()); // FIXME: global object dependency failure
+//        }
 #else
         void *m = dlopen( 0, RTLD_NOW | RTLD_GLOBAL );
         if ( dlsym( m, name.c_str( )) != nullptr )

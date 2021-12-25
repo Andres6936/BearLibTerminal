@@ -20,6 +20,13 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+#if defined(_WIN32)
+
+// Reference: https://stackoverflow.com/a/5004874
+#define NOMINMAX
+
+#endif
+
 #include "BearLibTerminal/Terminal.hpp"
 #include "BearLibTerminal/OpenGL.hpp"
 #include "BearLibTerminal/Utility.hpp"
@@ -28,11 +35,13 @@
 #include "BearLibTerminal/Palette.hpp"
 #include "BearLibTerminal/Config.hpp"
 #include "BearLibTerminal/BearLibTerminal.hpp"
+
 #include <cmath>
 #include <future>
 #include <vector>
-#include <locale.h>
+#include <clocale>
 #include <iostream>
+#include <algorithm>
 
 // Internal usage
 #define TK_CLIENT_WIDTH  0xF0

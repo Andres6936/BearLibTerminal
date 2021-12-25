@@ -27,7 +27,7 @@
 #include <future>
 #include <algorithm>
 #include "BearLibTerminal/WinApiWindow.hpp"
-#include "BearLibTerminal/BearLibTerminal.h"
+#include "BearLibTerminal/BearLibTerminal.hpp"
 #include "BearLibTerminal/Point.hpp"
 #include "BearLibTerminal/Log.hpp"
 #include "BearLibTerminal/OpenGL.hpp"
@@ -235,12 +235,12 @@ namespace BearLibTerminal
 
     void WinApiWindow::ClipToScreen(int width, int height, bool center)
     {
-        typedef HRESULT WINAPI (*PFNDWMGETWINDOWATTRIBUTE) ( //DwmGetWindowAttribute(
-                HWND  hwnd,
-                DWORD dwAttribute,
-                PVOID pvAttribute,
-                DWORD cbAttribute
-        );
+//        typedef HRESULT WINAPI (*PFNDWMGETWINDOWATTRIBUTE) ( //DwmGetWindowAttribute(
+//                HWND  hwnd,
+//                DWORD dwAttribute,
+//                PVOID pvAttribute,
+//                DWORD cbAttribute
+//        );
 
         // Current window area.
         RECT rect;
