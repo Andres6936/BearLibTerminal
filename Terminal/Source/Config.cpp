@@ -335,7 +335,7 @@ namespace BearLibTerminal
 		std::map <std::string, std::string> pieces;
 		std::string piece_name = "_";
 		{
-            size_t period_pos = property_name.find( "." );
+            size_t period_pos = property_name.find('.');
             if ( period_pos != std::string::npos )
             {
                 piece_name = property_name.substr( period_pos + 1 );
