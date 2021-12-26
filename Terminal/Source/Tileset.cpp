@@ -77,8 +77,7 @@ namespace BearLibTerminal
             m_offset( offset )
     { }
 
-    Tileset::~Tileset( )
-    { }
+    Tileset::~Tileset() = default;
 
     char32_t Tileset::GetOffset( ) const
     {
@@ -135,7 +134,7 @@ namespace BearLibTerminal
         // Ascertain the raw bitmap address is in general format.
         if ( is_raw_bitmap )
         {
-            size_t colon_pos = resource.find( L":" );
+			size_t colon_pos = resource.find(L':');
             if ( colon_pos == std::wstring::npos )
             {
                 Size raw_size;
@@ -174,17 +173,17 @@ namespace BearLibTerminal
         return ( offset & kCharOffsetMask ) == 0;
     }
 
-    void AddTileset( std::shared_ptr <Tileset> tileset )
-    {
-        char32_t offset = tileset->GetOffset( );
-        g_tilesets[ offset ] = tileset;
+	void AddTileset(const std::shared_ptr <Tileset>& tileset)
+	{
+		char32_t offset = tileset->GetOffset();
+		g_tilesets[offset] = tileset;
 
-        for ( auto i = g_codespace.begin( ); i != g_codespace.end( ); )
-        {
-            if ( i->first >= offset && i->second->tileset->GetOffset( ) < offset && tileset->Provides( i->first ))
-            {
-                i->second->texture->Remove( i->second, true );
-                i = g_codespace.erase( i );
+		for (auto i = g_codespace.begin(); i != g_codespace.end();)
+		{
+			if (i->first >= offset && i->second->tileset->GetOffset() < offset && tileset->Provides(i->first))
+			{
+				i->second->texture->Remove(i->second, true);
+				i = g_codespace.erase(i);
             }
             else
             {
@@ -193,17 +192,17 @@ namespace BearLibTerminal
         }
     }
 
-    void RemoveTileset( std::shared_ptr <Tileset> tileset )
-    {
-        for ( auto i = g_codespace.begin( ); i != g_codespace.end( ); )
-        {
-            if ( i->second->tileset == tileset.get( ))
-            {
-                i->second->texture->Remove( i->second );
-                i = g_codespace.erase( i );
-            }
-            else
-            {
+	void RemoveTileset(const std::shared_ptr <Tileset>& tileset)
+	{
+		for (auto i = g_codespace.begin(); i != g_codespace.end();)
+		{
+			if (i->second->tileset == tileset.get())
+			{
+				i->second->texture->Remove(i->second);
+				i = g_codespace.erase(i);
+			}
+			else
+			{
                 i++;
             }
         }

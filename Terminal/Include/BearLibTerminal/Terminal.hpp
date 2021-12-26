@@ -61,7 +61,7 @@ namespace BearLibTerminal
 
         void SetComposition( int mode );
 
-        void SetFont( std::wstring name );
+        void SetFont(const std::wstring& name);
 
         void Put( int x, int y, int code );
 
@@ -94,17 +94,17 @@ namespace BearLibTerminal
     private:
         void SetOptionsInternal( const std::wstring &params );
 
-        void ValidateWindowOptions( OptionGroup &group, Options &options );
+		static void ValidateWindowOptions(OptionGroup& group, Options& options);
 
         void ValidateInputOptions( OptionGroup &group, Options &options );
 
-        void ValidateOutputOptions( OptionGroup &group, Options &options );
+		static void ValidateOutputOptions(OptionGroup& group, Options& options);
 
-        void ValidateTerminalOptions( OptionGroup &group, Options &options );
+		static void ValidateTerminalOptions(OptionGroup& group, Options& options);
 
         void ValidateLoggingOptions( OptionGroup &group, Options &options );
 
-        bool ParseInputFilter( const std::wstring &s, std::set <int> &out );
+		static bool ParseInputFilter(const std::wstring& s, std::set <int>& out);
 
         void ConfigureViewport( );
 

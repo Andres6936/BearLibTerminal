@@ -66,9 +66,9 @@ namespace BearLibTerminal
 
     extern std::shared_ptr <Tileset> g_dynamic_tileset;
 
-    void AddTileset( std::shared_ptr <Tileset> tileset );
+    void AddTileset(const std::shared_ptr <Tileset>& tileset);
 
-    void RemoveTileset( std::shared_ptr <Tileset> tileset );
+	void RemoveTileset(const std::shared_ptr <Tileset>& tileset);
 
     void RemoveTileset( char32_t offset );
 

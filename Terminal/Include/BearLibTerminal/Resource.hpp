@@ -34,7 +34,7 @@ namespace BearLibTerminal
     class Resource
     {
     public:
-        static std::vector <uint8_t> Open( std::wstring name, std::wstring prefix = L"" );
+        static std::vector <uint8_t> Open(const std::wstring& name, const std::wstring& prefix = L"");
     };
 }
 

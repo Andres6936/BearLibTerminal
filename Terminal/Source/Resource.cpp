@@ -73,7 +73,7 @@ namespace BearLibTerminal
 
     bool try_parse( const std::wstring &s, MemoryResource &out )
     {
-        size_t colon_pos = s.find( L":" );
+        size_t colon_pos = s.find(L':');
         if ( colon_pos == std::wstring::npos )
         {
             return false;
@@ -92,16 +92,16 @@ namespace BearLibTerminal
         return true;
     }
 
-    std::vector <uint8_t> Resource::Open( std::wstring name, std::wstring prefix )
-    {
-        LOG( Debug, "Requested resource \"" << name << "\" with possible prefix \"" << prefix << "\"" );
+	std::vector <uint8_t> Resource::Open(const std::wstring& name, const std::wstring& prefix)
+	{
+		LOG(Debug, "Requested resource \"" << name << "\" with possible prefix \"" << prefix << "\"");
 
-        auto i = kBuiltinResources.find( prefix + name );
-        MemoryResource mem;
+		auto i = kBuiltinResources.find(prefix + name);
+		MemoryResource mem;
 
-        if ( i != kBuiltinResources.end( ))
-        {
-            LOG( Debug, "Resource \"" << prefix << name << "\" is built-in" );
+		if (i != kBuiltinResources.end())
+		{
+			LOG(Debug, "Resource \"" << prefix << name << "\" is built-in");
 
             if ( i->second.base64encoded )
             {

@@ -123,7 +123,7 @@ namespace BearLibTerminal
 
         Module( );
 
-        Module( std::wstring name );
+        Module(const std::wstring& name);
 
         Module( Module &&from );
 
@@ -139,11 +139,11 @@ namespace BearLibTerminal
 
         explicit operator bool( ) const;
 
-        void *Probe( std::string name ) const;
+		void* Probe(const std::string& name) const;
 
         static Module GetProviding( std::string name );
 
-        static std::shared_ptr <Module> Load( std::wstring name );
+		static std::shared_ptr <Module> Load(const std::wstring& name);
 
     private:
         Module( const Module & );
@@ -165,7 +165,7 @@ namespace BearLibTerminal
 
     std::wstring GetEnvironmentVariable( const std::wstring &name, const std::wstring &default_ = std::wstring( ));
 
-    bool FileExists( std::wstring name );
+	bool FileExists(const std::wstring& name);
 
     std::wstring GetAppName( );
 

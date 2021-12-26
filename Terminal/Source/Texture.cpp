@@ -81,17 +81,17 @@ namespace BearLibTerminal
         }
     }
 
-    void Texture::Bind( )
-    {
-        if ( m_handle == 0 )
-        {
-            LOG( Error, L"[Texture::Bind] texture is not allocated yet" );
-            throw std::runtime_error( "invalid texture handle" );
-        }
+    void Texture::Bind() const
+	{
+		if (m_handle == 0)
+		{
+			LOG(Error, L"[Texture::Bind] texture is not allocated yet");
+			throw std::runtime_error("invalid texture handle");
+		}
 
-        if ( m_handle != m_currently_bound_handle )
-        {
-            glBindTexture( GL_TEXTURE_2D, m_handle );
+		if (m_handle != m_currently_bound_handle)
+		{
+			glBindTexture(GL_TEXTURE_2D, m_handle);
             m_currently_bound_handle = m_handle;
         }
     }
@@ -173,15 +173,15 @@ namespace BearLibTerminal
                          ( uint8_t * ) bitmap.GetData( ));
     }
 
-    void Texture::ApplyTextureFilter( )
-    {
-        if ( m_handle != 0 )
-        {
-            Bind( );
-            glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, g_texture_filter );
-            glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, g_texture_filter );
-        }
-    }
+	void Texture::ApplyTextureFilter() const
+	{
+		if (m_handle != 0)
+		{
+			Bind();
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, g_texture_filter);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, g_texture_filter);
+		}
+	}
 
     Size Texture::GetSize( ) const
     {

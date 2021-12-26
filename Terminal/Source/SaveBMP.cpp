@@ -61,7 +61,7 @@ namespace BearLibTerminal
         int line_stride = line_size + ( modulo > 0 ? padding - modulo : 0 );
         padding = line_stride - line_size;
 
-        BitmapFileHeader file;
+        BitmapFileHeader file{ };
         file.header = 0x4D42;
 
         BitmapInfoHeader header;

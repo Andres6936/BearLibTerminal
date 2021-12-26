@@ -76,7 +76,7 @@ namespace BearLibTerminal
             m_owner( false )
     { }
 
-    Module::Module( std::wstring name )
+    Module::Module(const std::wstring& name)
     {
 #if defined(_WIN32)
         m_handle = (void*)LoadLibraryW(name.c_str());
@@ -114,33 +114,33 @@ namespace BearLibTerminal
 #if defined(_WIN32)
             FreeLibrary((HMODULE)m_handle);
 #else
-            dlclose( m_handle );
+			dlclose( m_handle );
 #endif
-        }
-    }
+		}
+	}
 
-    Module::Handle Module::GetHandle( ) const
-    {
-        return m_handle;
-    }
+	Module::Handle Module::GetHandle() const
+	{
+		return m_handle;
+	}
 
-    Module &Module::operator=( Module &&from )
-    {
-        std::swap( m_handle, from.m_handle );
-        std::swap( m_owner, from.m_owner );
-        return *this;
-    }
+	Module& Module::operator=(Module&& from) noexcept
+	{
+		std::swap(m_handle, from.m_handle);
+		std::swap(m_owner, from.m_owner);
+		return *this;
+	}
 
-    void *Module::Probe( std::string name ) const
-    {
-        if ( m_handle == nullptr )
-        {
-            throw std::runtime_error( "module handle is empty" );
-        }
+	void* Module::Probe(const std::string& name) const
+	{
+		if (m_handle == nullptr)
+		{
+			throw std::runtime_error("module handle is empty");
+		}
 #if defined(_WIN32)
-        return (void*)GetProcAddress((HMODULE)m_handle, name.c_str());
+		return (void*)GetProcAddress((HMODULE)m_handle, name.c_str());
 #else
-        return dlsym( m_handle, name.c_str( ));
+		return dlsym( m_handle, name.c_str( ));
 #endif
     }
 
@@ -210,17 +210,17 @@ namespace BearLibTerminal
 
     std::unordered_map <std::wstring, std::weak_ptr <Module>> Module::m_cache;
 
-    std::shared_ptr <Module> Module::Load( std::wstring name )
-    {
-        try
-        {
-            auto it = m_cache.find( name );
-            if ( it != m_cache.end( ))
-            {
-                if ( auto ret = it->second.lock( ))
-                {
-                    return ret;
-                }
+	std::shared_ptr <Module> Module::Load(const std::wstring& name)
+	{
+		try
+		{
+			auto it = m_cache.find(name);
+			if (it != m_cache.end())
+			{
+				if (auto ret = it->second.lock())
+				{
+					return ret;
+				}
             }
 
             auto ret = std::make_shared <Module>( name );
@@ -306,16 +306,16 @@ namespace BearLibTerminal
         return std::move( result );
     }
 
-    bool FileExists( std::wstring name )
-    {
+	bool FileExists(const std::wstring& name)
+	{
 #if defined(_WIN32)
-        struct _stat st;
-        return ::_wstat(name.c_str(), &st) == 0;
+		struct _stat st;
+		return ::_wstat(name.c_str(), &st) == 0;
 #else
-        struct stat st;
-        return ::stat( UTF8Encoding( ).Convert( name ).c_str( ), &st ) == 0;
+		struct stat st;
+		return ::stat( UTF8Encoding( ).Convert( name ).c_str( ), &st ) == 0;
 #endif
-    }
+	}
 
     std::wstring GetEnvironmentVariable( const std::wstring &name, const std::wstring &default_ )
     {
@@ -398,7 +398,7 @@ namespace BearLibTerminal
         }
 
         // Cut off possible extension.
-        size_t period_pos = result.find_last_of( L"." );
+		size_t period_pos = result.find_last_of(L'.');
         if ( period_pos != std::wstring::npos )
         {
             result = result.substr( 0, period_pos );
@@ -511,8 +511,10 @@ namespace BearLibTerminal
             do
             {
                 if (!(data.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY))
-                    result.push_back(data.cFileName);
-                rc = ::FindNextFileW(dir, &data);
+				{
+					result.emplace_back(data.cFileName);
+				}
+				rc = ::FindNextFileW(dir, &data);
             }
             while (rc);
             ::FindClose(dir);
@@ -568,11 +570,11 @@ namespace BearLibTerminal
     std::wstring GetClipboardContents( )
     {
 #if defined(_WIN32)
-        if (!OpenClipboard(NULL))
-        {
-            LOG(Error, "Failed to open clipboard");
-            return L"";
-        }
+		if (!OpenClipboard(nullptr))
+		{
+			LOG(Error, "Failed to open clipboard");
+			return L"";
+		}
 
         std::wstring text;
         if (HGLOBAL handle = GetClipboardData(CF_UNICODETEXT))

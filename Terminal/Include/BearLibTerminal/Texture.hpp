@@ -46,13 +46,13 @@ namespace BearLibTerminal
 
         void Dispose( );
 
-        void Bind( );
+        void Bind() const;
 
         void Update( const Bitmap &bitmap );
 
         void Update( Rectangle area, const Bitmap &bitmap );
 
-        void ApplyTextureFilter( );
+		void ApplyTextureFilter() const;
 
         Bitmap Download( );
 

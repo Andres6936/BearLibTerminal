@@ -308,17 +308,17 @@ namespace BearLibTerminal
 
     std::map <std::wstring, int> g_fonts;
 
-    int AllocateFontIndex( std::wstring name, std::map <std::wstring, int> &preallocated_fonts )
-    {
-        // Clean up.
-        for ( auto i = g_fonts.begin( ); i != g_fonts.end( ); )
-        {
-            char32_t font_offset = i->second * 0x1000000;
-            auto j = g_tilesets.lower_bound( font_offset );
-            if ( j == g_tilesets.end( ) || ( j->first & Tileset::kFontOffsetMask ) != font_offset )
-            {
-                // The first tileset with offset >= font_offset does not belong to this font.
-                // Meaning there is no tilesets belonging to this font.
+    int AllocateFontIndex(const std::wstring& name, std::map <std::wstring, int>& preallocated_fonts)
+	{
+		// Clean up.
+		for (auto i = g_fonts.begin(); i != g_fonts.end();)
+		{
+			char32_t font_offset = i->second * 0x1000000;
+			auto j = g_tilesets.lower_bound(font_offset);
+			if (j == g_tilesets.end() || (j->first & Tileset::kFontOffsetMask) != font_offset)
+			{
+				// The first tileset with offset >= font_offset does not belong to this font.
+				// Meaning there is no tilesets belonging to this font.
                 i = g_fonts.erase( i );
             }
             else
@@ -329,13 +329,13 @@ namespace BearLibTerminal
 
         auto contains_value = [ ]( std::map <std::wstring, int> &map, int value )
         {
-            for ( auto kv: map )
-            {
-                if ( kv.second == value )
-                {
-                    return true;
-                }
-            }
+			for (const auto& kv: map)
+			{
+				if (kv.second == value)
+				{
+					return true;
+				}
+			}
 
             return false;
         };
@@ -450,10 +450,10 @@ namespace BearLibTerminal
         {
             LOG( Debug, L"Group \"" << group.name << "\":" );
 
-            for ( auto attribute: group.attributes )
-            {
-                LOG( Debug, L"* \"" << attribute.first << "\" = \"" << attribute.second << "\"" );
-            }
+			for (const auto& attribute: group.attributes)
+			{
+				LOG(Debug, L"* \"" << attribute.first << "\" = \"" << attribute.second << "\"");
+			}
 
             if ( group.name == L"window" )
             {
@@ -1228,17 +1228,17 @@ namespace BearLibTerminal
         m_vars[ TK_COMPOSITION ] = mode;
     }
 
-    void Terminal::SetFont( std::wstring name )
-    {
-        if ( name.empty( ) || name == L"main" )
-        {
-            m_world.state.font_offset = 0;
-        }
-        else
-        {
-            auto i = g_fonts.find( name );
-            if ( i != g_fonts.end( ))
-            {
+	void Terminal::SetFont(const std::wstring& name)
+	{
+		if (name.empty() || name == L"main")
+		{
+			m_world.state.font_offset = 0;
+		}
+		else
+		{
+			auto i = g_fonts.find(name);
+			if (i != g_fonts.end())
+			{
                 m_world.state.font_offset = i->second * Tileset::kFontOffsetMultiplier;
             }
         }
@@ -1444,7 +1444,7 @@ namespace BearLibTerminal
                 return tile->spacing;
             }
 
-            return Size( 1, 1 );
+			return { 1, 1 };
         };
 
         auto AppendSymbol = [ & ]( char32_t wcode )
@@ -1458,15 +1458,15 @@ namespace BearLibTerminal
 
             if ( combine )
             {
-                tags.push_back( [ &, code ]
-                                {
-                                    if ( w == -1 )
-                                    { return; }
-                                    auto saved = m_world.state.composition;
-                                    m_world.state.composition = TK_ON;
-                                    PutInternal( w, y, offset.x, offset.y, code, nullptr );
-                                    m_world.state.composition = saved;
-                                } );
+				tags.emplace_back([&, code]
+				{
+					if (w == -1)
+					{ return; }
+					auto saved = m_world.state.composition;
+					m_world.state.composition = TK_ON;
+					PutInternal(w, y, offset.x, offset.y, code, nullptr);
+					m_world.state.composition = saved;
+				});
                 lines.back( ).symbols.emplace_back( -( int ) ( tags.size( ) - 1 ));
                 combine = false;
             }
