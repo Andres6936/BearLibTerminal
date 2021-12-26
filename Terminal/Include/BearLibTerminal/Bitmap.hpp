@@ -79,17 +79,17 @@ namespace BearLibTerminal
 
         void Blit( const Bitmap &src, Rectangle src_region, Point dst_location );
 
-        void Blit( const Bitmap &src, Point location );
+        void Blit(const Bitmap& src, const Point& location);
 
-        void BlitUnchecked( const Bitmap &src, Point location );
+		void BlitUnchecked(const Bitmap& src, const Point& location);
 
         Bitmap Extract( Rectangle region );
 
-        const Color &operator()( Point p ) const;
+		const Color& operator()(const Point& p) const;
 
         const Color &operator()( int x, int y ) const;
 
-        Color &operator()( Point p );
+		Color& operator()(const Point& p);
 
         Color &operator()( int x, int y );
 

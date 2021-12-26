@@ -21,18 +21,18 @@
 */
 
 #include "BearLibTerminal/BOM.hpp"
-#include <stdint.h>
-#include <string.h>
+#include <cstdint>
+#include <cstring>
 
 namespace BearLibTerminal
 {
-    static uint8_t BOM_Bytes[][4] =
-            {
-                    { 0xEF, 0xBB, 0xBF },       // UTF-8
-                    { 0xFF, 0xFE },             // UTF-16 LE
-                    { 0xFE, 0xFF },             // UTF-16 BE
-                    { 0xFF, 0xFE, 0x00, 0x00 }, // UTF-32 LE
-                    { 0x00, 0x00, 0xFE, 0xFF }  // UTF-32 BE
+	static uint8_t BOM_Bytes[][4] =
+			{
+					{ 0xEF, 0xBB, 0xBF },       // UTF-8
+					{ 0xFF, 0xFE },             // UTF-16 LE
+					{ 0xFE, 0xFF },             // UTF-16 BE
+					{ 0xFF, 0xFE, 0x00, 0x00 }, // UTF-32 LE
+					{ 0x00, 0x00, 0xFE, 0xFF }  // UTF-32 BE
             };
 
     size_t GetBOMSize( BOM bom )

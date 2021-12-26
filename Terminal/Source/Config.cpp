@@ -31,8 +31,7 @@
 
 namespace BearLibTerminal
 {
-    Config::Config( )
-    { }
+    Config::Config() = default;
 
     std::wstring Config::GuessConfigFilename( )
     {
@@ -45,17 +44,17 @@ namespace BearLibTerminal
         int best_priority = 0;
         std::wstring best_filename;
 
-        auto search_v2 = [ & ]( std::wstring path, int priority_factor )
-        {
-            for ( auto &file: EnumerateFiles( path ))
-            {
-                int priority = 0;
+		auto search_v2 = [&](const std::wstring& path, int priority_factor)
+		{
+			for (auto& file: EnumerateFiles(path))
+			{
+				int priority = 0;
 
-                if ( ci_compare( file, preferred_name ))
-                {
-                    priority = 3;
-                }
-                if ( ci_compare( file, appconfig_name ))
+				if (ci_compare(file, preferred_name))
+				{
+					priority = 3;
+				}
+				if (ci_compare(file, appconfig_name))
                 {
                     priority = 2;
                 }
@@ -275,17 +274,17 @@ namespace BearLibTerminal
         return result;
     }
 
-    void Config::Set( std::wstring name, std::wstring value )
-    {
-        if ( name.empty( ))
-        {
-            return;
-        }
+	void Config::Set(std::wstring name, const std::wstring& value)
+	{
+		if (name.empty())
+		{
+			return;
+		}
 
-        bool ini_domain = starts_with <wchar_t>( name, L"ini." );
+		bool ini_domain = starts_with <wchar_t>(name, L"ini.");
 
-        // If this property does not belong to configuration, it is a system property.
-        if ( !ini_domain && !starts_with <wchar_t>( name, L"sys." ))
+		// If this property does not belong to configuration, it is a system property.
+		if (!ini_domain && !starts_with <wchar_t>(name, L"sys."))
         {
             name = L"sys." + name;
         }
@@ -325,17 +324,17 @@ namespace BearLibTerminal
 
     }
 
-    void Config::Update( std::wstring section, std::wstring property, std::wstring value )
-    {
-        // Convert to UTF-8
-        std::string section_name = UTF8Encoding( ).Convert( section );
-        std::string property_name = UTF8Encoding( ).Convert( property );
-        std::string piece_value = UTF8Encoding( ).Convert( value );
+	void Config::Update(const std::wstring& section, const std::wstring& property, const std::wstring& value)
+	{
+		// Convert to UTF-8
+		std::string section_name = UTF8Encoding().Convert(section);
+		std::string property_name = UTF8Encoding().Convert(property);
+		std::string piece_value = UTF8Encoding().Convert(value);
 
-        // Prepare property value for merging
-        std::map <std::string, std::string> pieces;
-        std::string piece_name = "_";
-        {
+		// Prepare property value for merging
+		std::map <std::string, std::string> pieces;
+		std::string piece_name = "_";
+		{
             size_t period_pos = property_name.find( "." );
             if ( period_pos != std::string::npos )
             {

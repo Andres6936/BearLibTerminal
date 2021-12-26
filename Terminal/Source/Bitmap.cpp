@@ -120,8 +120,7 @@ namespace BearLibTerminal
         return s;
     }
 
-    Bitmap::Bitmap( )
-    { }
+    Bitmap::Bitmap() = default;
 
     Bitmap::Bitmap( Size size, Color color ) :
             m_size( size ),
@@ -186,17 +185,17 @@ namespace BearLibTerminal
         }
     }
 
-    void Bitmap::Blit( const Bitmap &src, Point location )
-    {
-        Size src_size = src.GetSize( );
+	void Bitmap::Blit(const Bitmap& src, const Point& location)
+	{
+		Size src_size = src.GetSize();
 
-        if ( !Rectangle( m_size ).Contains( Rectangle( location, src_size )))
-        {
-            throw std::out_of_range( "Bitmap::Blit: region is out of range" );
-        }
+		if (!Rectangle(m_size).Contains(Rectangle(location, src_size)))
+		{
+			throw std::out_of_range("Bitmap::Blit: region is out of range");
+		}
 
-        for ( int y = location.y; y < location.y + src_size.height; y++ )
-        {
+		for (int y = location.y; y < location.y + src_size.height; y++)
+		{
             std::memcpy
                     (
                             m_data.data( ) + ( y * m_size.width + location.x ),
@@ -206,17 +205,17 @@ namespace BearLibTerminal
         }
     }
 
-    void Bitmap::BlitUnchecked( const Bitmap &src, Point location )
-    {
-        Size src_size = src.GetSize( );
+	void Bitmap::BlitUnchecked(const Bitmap& src, const Point& location)
+	{
+		Size src_size = src.GetSize();
 
-        int left = std::max <int>( -location.x, 0 );
-        int right = std::min <int>(( int ) src_size.width - 1, ( int ) m_size.width - location.x - 1 );
-        int top = std::max <int>( -location.y, 0 );
-        int bottom = std::min <int>(( int ) src_size.height - 1, ( int ) m_size.height - location.y - 1 );
+		int left = std::max <int>(-location.x, 0);
+		int right = std::min <int>((int)src_size.width - 1, (int)m_size.width - location.x - 1);
+		int top = std::max <int>(-location.y, 0);
+		int bottom = std::min <int>((int)src_size.height - 1, (int)m_size.height - location.y - 1);
 
-        if ( left > right || top > bottom )
-        { return; }
+		if (left > right || top > bottom)
+		{ return; }
 
         size_t linesize = right - left + 1;
         size_t dst_x = location.x + left;
@@ -254,20 +253,20 @@ namespace BearLibTerminal
         return result;
     }
 
-    const Color &Bitmap::operator()( Point p ) const
-    {
-        return m_data[ p.y * m_size.width + p.x ];
-    }
+	const Color& Bitmap::operator()(const Point& p) const
+	{
+		return m_data[p.y * m_size.width + p.x];
+	}
 
     const Color &Bitmap::operator()( int x, int y ) const
     {
         return m_data[ y * m_size.width + x ];
     }
 
-    Color &Bitmap::operator()( Point p )
-    {
-        return m_data[ p.y * m_size.width + p.x ];
-    }
+	Color& Bitmap::operator()(const Point& p)
+	{
+		return m_data[p.y * m_size.width + p.x];
+	}
 
     Color &Bitmap::operator()( int x, int y )
     {

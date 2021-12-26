@@ -26,14 +26,13 @@
 #include "BearLibTerminal/Config.hpp"
 #include "BearLibTerminal/Terminal.hpp"
 #include "BearLibTerminal/Palette.hpp"
-#include "BearLibTerminal/Config.hpp"
-#include "BearLibTerminal/Log.hpp"
 #include <map>
 #include <memory>
 #include <string>
-#include <string.h>
+#include <cstring>
 #include <iostream>
 #include <thread>
+#include <utility>
 
 using namespace BearLibTerminal;
 
@@ -43,9 +42,9 @@ namespace
     {
         cached_setting_t( );
 
-        cached_setting_t( std::wstring s );
+		explicit cached_setting_t(const std::wstring& s);
 
-        cached_setting_t &operator=( std::wstring s );
+		cached_setting_t& operator=(const std::wstring& s);
 
         template <typename T>
         const T *get( );
@@ -55,21 +54,20 @@ namespace
         std::u32string s32;
     };
 
-    cached_setting_t::cached_setting_t( )
-    { }
+	cached_setting_t::cached_setting_t() = default;
 
-    cached_setting_t::cached_setting_t( std::wstring s )
+	cached_setting_t::cached_setting_t(const std::wstring& s)
     {
         this->operator=( s );
     }
 
-    cached_setting_t &cached_setting_t::operator=( std::wstring s )
-    {
-        s8 = BearLibTerminal::UTF8Encoding( ).Convert( s );
-        s16 = BearLibTerminal::UCS2Encoding( ).Convert( s );
-        s32 = BearLibTerminal::UCS4Encoding( ).Convert( s );
-        return *this;
-    }
+	cached_setting_t& cached_setting_t::operator=(const std::wstring& s)
+	{
+		s8 = BearLibTerminal::UTF8Encoding().Convert(s);
+		s16 = BearLibTerminal::UCS2Encoding().Convert(s);
+		s32 = BearLibTerminal::UCS4Encoding().Convert(s);
+		return *this;
+	}
 
     template < >
     const char *cached_setting_t::get <char>( )
@@ -107,7 +105,7 @@ int TerminalOpen( )
 
     try
     {
-        g_instance.reset( new BearLibTerminal::Terminal( ));
+		g_instance = std::make_unique <BearLibTerminal::Terminal>();
         return 1;
     }
     catch ( std::exception &e )

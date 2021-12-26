@@ -23,7 +23,6 @@
 #include "BearLibTerminal/BitmapTileset.hpp"
 #include "BearLibTerminal/LoadBitmap.hpp"
 #include "BearLibTerminal/Geometry.hpp"
-#include "BearLibTerminal/Resource.hpp"
 #include "BearLibTerminal/Utility.hpp"
 #include "BearLibTerminal/Palette.hpp"
 #include "BearLibTerminal/Encoding.hpp"

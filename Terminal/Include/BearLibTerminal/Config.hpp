@@ -62,7 +62,7 @@ namespace BearLibTerminal
 
         std::map <std::wstring, std::wstring> List( const std::wstring &section );
 
-        void Set( std::wstring name, std::wstring value );
+        void Set(std::wstring name, const std::wstring& value);
 
         static Config &Instance( );
 
@@ -80,9 +80,9 @@ namespace BearLibTerminal
     private:
         Config( );
 
-        std::wstring GuessConfigFilename( );
+		static std::wstring GuessConfigFilename();
 
-        void Update( std::wstring section, std::wstring property, std::wstring value );
+		void Update(const std::wstring& section, const std::wstring& property, const std::wstring& value);
 
         struct Property
         {

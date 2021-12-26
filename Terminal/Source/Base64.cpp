@@ -57,7 +57,7 @@ namespace BearLibTerminal
     {
         if ( s.empty( ))
         {
-            return std::vector <std::uint8_t>( );
+            return { };
         }
 
         if ( s.length( ) % 4 != 0 )
