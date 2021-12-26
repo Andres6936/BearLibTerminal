@@ -28,13 +28,9 @@
 #include <algorithm>
 #include "BearLibTerminal/WinApiWindow.hpp"
 #include "BearLibTerminal/BearLibTerminal.hpp"
-#include "BearLibTerminal/Point.hpp"
-#include "BearLibTerminal/Log.hpp"
 #include "BearLibTerminal/OpenGL.hpp"
 #include "BearLibTerminal/Resource.hpp"
-#include "BearLibTerminal/Geometry.hpp"
 #include "BearLibTerminal/Utility.hpp"
-#include "BearLibTerminal/Platform.hpp"
 
 #include <mmsystem.h>
 
@@ -1124,7 +1120,7 @@ namespace BearLibTerminal
         {
             if (wParam == WA_ACTIVE || wParam == WA_CLICKACTIVE)
             {
-                m_events.push_back(TK_ACTIVATED);
+                m_events.emplace_back(TK_ACTIVATED);
             }
         }
         else if (uMsg == WM_SIZE)
@@ -1154,10 +1150,10 @@ namespace BearLibTerminal
                 m_event_handler(TK_REDRAW);
             }
             else
-            {
-                m_events.push_back(TK_INVALIDATE);
-                m_events.push_back(TK_REDRAW);
-            }
+			{
+				m_events.emplace_back(TK_INVALIDATE);
+				m_events.emplace_back(TK_REDRAW);
+			}
 
             return TRUE;
         }
@@ -1185,23 +1181,24 @@ namespace BearLibTerminal
                 (
                     m_handle,
                     HWND_NOTOPMOST,
-                    0, 0,
-                    rectangle.right-rectangle.left,
-                    rectangle.bottom-rectangle.top,
-                    SWP_NOMOVE
-                );
-            }
+						0, 0,
+						rectangle.right - rectangle.left,
+						rectangle.bottom - rectangle.top,
+						SWP_NOMOVE
+				);
+			}
 
-            m_suppress_wm_paint_once = true;
+			m_suppress_wm_paint_once = true;
 
-            m_events.push_back(Event{TK_RESIZED, {{TK_WIDTH, m_client_size.width}, {TK_HEIGHT, m_client_size.height}}});
-            m_events.push_back(TK_INVALIDATE);
-            m_events.push_back(TK_REDRAW);
+			m_events.push_back(
+					Event{ TK_RESIZED, {{ TK_WIDTH, m_client_size.width }, { TK_HEIGHT, m_client_size.height }}});
+			m_events.emplace_back(TK_INVALIDATE);
+			m_events.emplace_back(TK_REDRAW);
 
-            m_resizing = false;
+			m_resizing = false;
 
-            return FALSE;
-        }
+			return FALSE;
+		}
         else if (uMsg == WM_SIZING)
         {
             DWORD style = GetWindowLongW(m_handle, GWL_STYLE);
@@ -1241,7 +1238,7 @@ namespace BearLibTerminal
                 }
             }
 
-            m_events.push_back(TK_INVALIDATE);
+			m_events.emplace_back(TK_INVALIDATE);
 
             return TRUE;
         }

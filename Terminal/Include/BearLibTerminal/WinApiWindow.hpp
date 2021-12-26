@@ -51,8 +51,10 @@ namespace BearLibTerminal
     public:
         WinApiWindow(EventHandler handler);
         ~WinApiWindow();
-        bool ValidateIcon(const std::wstring& filename);
-        void SetTitle(const std::wstring& title);
+
+		static bool ValidateIcon(const std::wstring& filename);
+
+		void SetTitle(const std::wstring& title);
         void SetIcon(const std::wstring& filename);
         void SetClientSize(const Size& size);
         void Show();

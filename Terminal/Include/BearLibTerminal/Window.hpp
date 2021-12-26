@@ -74,7 +74,7 @@ namespace BearLibTerminal
 
         virtual int PumpEvents( ) = 0;
 
-        static std::unique_ptr <Window> Create( EventHandler handler );
+        static std::unique_ptr <Window> Create(const EventHandler& handler);
 
     protected:
         Window( EventHandler handler );

@@ -22,13 +22,17 @@
 
 #include "BearLibTerminal/Window.hpp"
 
+#include <utility>
+
 #if defined(__linux)
 
 #include "BearLibTerminal/X11Window.hpp"
 
 #endif
 #if defined(_WIN32)
+
 #include "BearLibTerminal/WinApiWindow.hpp"
+
 #endif
 #if defined(__APPLE__)
 #include "BearLibTerminal/CocoaWindow.h"
@@ -40,14 +44,13 @@
 namespace BearLibTerminal
 {
     Window::Window( EventHandler handler ) :
-            m_event_handler( handler ),
-            m_minimum_size( 1, 1 ),
-            m_fullscreen( false ),
-            m_resizeable( false )
+			m_event_handler(std::move(handler)),
+			m_minimum_size(1, 1),
+			m_fullscreen(false),
+			m_resizeable(false)
     { }
 
-    Window::~Window( )
-    { }
+	Window::~Window() = default;
 
     void Window::SetSizeHints( Size increment, Size minimum_size )
     {
@@ -70,16 +73,16 @@ namespace BearLibTerminal
         return std::wstring{ };
     }
 
-    std::unique_ptr <Window> Window::Create( EventHandler handler )
-    {
+	std::unique_ptr <Window> Window::Create(const EventHandler& handler)
+	{
 #if defined(__linux)
-        return std::make_unique <X11Window>( handler );
+		return std::make_unique <X11Window>( handler );
 #endif
 #if defined(_WIN32)
-        return std::make_unique<WinApiWindow>(handler);
+		return std::make_unique <WinApiWindow>(handler);
 #endif
 #if defined(__APPLE__)
-        return std::make_unique<CocoaWindow>(handler);
+		return std::make_unique<CocoaWindow>(handler);
 #endif
     }
 }
