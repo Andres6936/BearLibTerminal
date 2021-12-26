@@ -11,7 +11,8 @@ IF (UNIX AND NOT APPLE)
 ENDIF ()
 
 
-# https://stackoverflow.com/a/41618677
+# CMake link shared library on Windows
+# Ref: https://stackoverflow.com/a/41618677
 SET(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 
 OPTION(BUILD_SHARED_LIBS "Build dynamic version of library" ON)
