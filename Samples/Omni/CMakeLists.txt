@@ -33,6 +33,29 @@ TARGET_LINK_LIBRARIES(SampleOmni PRIVATE BearLibTerminal::Framework)
 
 # Copy the .dll generate for the BearLibTerminal project to right directory
 # Ref: https://riptutorial.com/cmake/example/29468/qt5-dll-copy-example
+
+#[[
+ So let's say you have a project that depends on BearLibTerminal and you
+ need to copy the relevant dlls to your build directory and you don't want to
+ do it manually; you can do the following:
+
+ ...
+
+ So now everytime you build your project, if the target dlls have changed
+ that you want to copy, then they will be copied after your target (in this
+ case the main executable) is built (notice the copy_if_different command);
+ otherwise, they will not be copied.
+
+ Additionally, note the use of generator expressions here. The advantage
+ with using these is that you don't have to explicitly say where to copy
+ dlls or which variants to use. To be able to use these though, the project
+ you're using (BearLibTerminal in this case) must have imported targets.
+
+ If you're building in debug, then CMake knows (based on the imported target)
+ to copy the BearLibTerminal.Framework.dll to the Debug folder of you build
+ folder. If you're building in release, then the release versions of the .dlls
+  will be copied to the release folder.
+#]]
 ADD_CUSTOM_COMMAND(TARGET SampleOmni POST_BUILD
 		COMMAND ${CMAKE_COMMAND} -E copy_if_different
 		$<TARGET_FILE:BearLibTerminal::Framework> $<TARGET_FILE_DIR:SampleOmni>)
