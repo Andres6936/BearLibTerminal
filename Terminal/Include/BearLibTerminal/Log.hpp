@@ -54,7 +54,7 @@ namespace BearLibTerminal
     private:
         Log( );
 
-        bool m_truncated;
+        bool m_truncated{ };
     };
 
     std::wostream &operator<<( std::wostream &stream, Log::Level value );

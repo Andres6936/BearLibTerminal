@@ -31,6 +31,7 @@
 #include <istream>
 //#include <iostream>
 #include <fstream>
+#include <utility>
 
 #if !defined(__SIZEOF_WCHAR_T__)
 #  if defined(_WIN32)
@@ -48,35 +49,35 @@ namespace BearLibTerminal
      */
     struct CustomCodepage : Encoding8
     {
-        CustomCodepage( const std::wstring &name, std::istream &stream );
+		CustomCodepage(std::wstring name, std::istream& stream);
 
-        wchar_t Convert( int value ) const;
+		[[nodiscard]] wchar_t Convert(int value) const override;
 
-        int Convert( wchar_t value ) const;
+		[[nodiscard]] int Convert(wchar_t value) const override;
 
-        std::wstring Convert( const std::string &value ) const;
+		[[nodiscard]] std::wstring Convert(const std::string& value) const override;
 
-        std::string Convert( const std::wstring &value ) const;
+		[[nodiscard]] std::string Convert(const std::wstring& value) const override;
 
-        std::wstring GetName( ) const;
+		[[nodiscard]] std::wstring GetName() const override;
 
-        std::unordered_map <int, wchar_t> m_forward;  // custom -> wchar_t
-        std::unordered_map <wchar_t, int> m_backward; // wchar_t -> custom
-        std::wstring m_name;
-    };
+		std::unordered_map <int, wchar_t> m_forward;  // custom -> wchar_t
+		std::unordered_map <wchar_t, int> m_backward; // wchar_t -> custom
+		std::wstring m_name;
+	};
 
-    CustomCodepage::CustomCodepage( const std::wstring &name, std::istream &stream ) :
-            m_name( name )
-    {
-        auto bom = DetectBOM( stream );
-        LOG( Debug, "Custom codepage file encoding detected to be " << bom );
+	CustomCodepage::CustomCodepage(std::wstring name, std::istream& stream) :
+			m_name(std::move(name))
+	{
+		auto bom = DetectBOM(stream);
+		LOG(Debug, "Custom codepage file encoding detected to be " << bom);
 
-        switch ( bom )
-        {
-            case BOM::None:
-            case BOM::UTF8:
-            case BOM::ASCII_UTF8:
-                // Supported ones.
+		switch (bom)
+		{
+		case BOM::None:
+		case BOM::UTF8:
+		case BOM::ASCII_UTF8:
+			// Supported ones.
                 break;
             default:
                 throw std::runtime_error( "Unsupported custom codepage file encoding " +

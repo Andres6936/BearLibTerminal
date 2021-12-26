@@ -44,27 +44,27 @@ namespace BearLibTerminal
             uint32_t header_size;                // The size of this header (40 bytes)
             int32_t width;                        // The bitmap width (signed integer).
             int32_t height;                        // The bitmap height (signed integer).
-            uint16_t planes;                    // The number of color planes. Must be set to 1.
-            uint16_t bpp;                        // The number of bits per pixel. Typical values are 1, 4, 8, 16, 24 and 32.
-            uint32_t compression;                // The compression method.
-            uint32_t image_size;                // The size of the raw bitmap data.
-            int32_t xppm;                        // The horizontal resolution of the image (pixel per meter, signed integer).
-            int32_t yppm;                        // The vertical resolution of the image.
-            uint32_t colors_used;                // The number of colors in the color palette, or 0 to default to 2n.
-            uint32_t colors_important;            // The number of important colors used; generally ignored.
-        };
+			uint16_t planes;                    // The number of color planes. Must be set to 1.
+			uint16_t bpp;                        // The number of bits per pixel. Typical values are 1, 4, 8, 16, 24 and 32.
+			uint32_t compression;                // The compression method.
+			uint32_t image_size;                // The size of the raw bitmap data.
+			int32_t xppm;                        // The horizontal resolution of the image (pixel per meter, signed integer).
+			int32_t yppm;                        // The vertical resolution of the image.
+			uint32_t colors_used;                // The number of colors in the color palette, or 0 to default to 2n.
+			uint32_t colors_important;            // The number of important colors used; generally ignored.
+		};
 
-        BitmapFileHeader file_header;
-        BitmapInfoHeader info_header;
-        std::vector <Color> palette;
+		BitmapFileHeader file_header{ };
+		BitmapInfoHeader info_header{ };
+		std::vector <Color> palette;
 
-        stream.read( reinterpret_cast<char *>(&file_header), sizeof( file_header ));
-        stream.read( reinterpret_cast<char *>(&info_header), sizeof( info_header ));
+		stream.read(reinterpret_cast<char*>(&file_header), sizeof(file_header));
+		stream.read(reinterpret_cast<char*>(&info_header), sizeof(info_header));
 
-        if ( !stream.good( ))
-        {
-            throw std::runtime_error( "invalid bitmap image" );
-        }
+		if (!stream.good())
+		{
+			throw std::runtime_error("invalid bitmap image");
+		}
 
         if ( info_header.header_size != 40 )
         {
@@ -110,28 +110,28 @@ namespace BearLibTerminal
 
         std::function <void( Point )> pixel_readers[] =
                 {
-                        [ & ]( Point pt ) -> void
-                        {
-                            // 32-bit BGRA, full Color struct
-                            Color value;
-                            stream.read( reinterpret_cast<char *>(&value), 4 );
-                            result( pt ) = value;
-                        },
-                        [ & ]( Point pt ) -> void
-                        {
-                            // 24-bit BGR, 3/4 Color struct
-                            Color value;
-                            stream.read( reinterpret_cast<char *>(&value), 3 );
-                            value.a = 0xFF;
-                            result( pt ) = value;
-                        },
-                        [ & ]( Point pt ) -> void
-                        {
-                            // Palletized I, lookup
-                            uint8_t index;
-                            stream.read( reinterpret_cast<char *>(&index), 1 );
-                            result( pt ) = palette[ index ];
-                        }
+						[&](const Point& pt) -> void
+						{
+							// 32-bit BGRA, full Color struct
+							Color value;
+							stream.read(reinterpret_cast<char*>(&value), 4);
+							result(pt) = value;
+						},
+						[&](const Point& pt) -> void
+						{
+							// 24-bit BGR, 3/4 Color struct
+							Color value;
+							stream.read(reinterpret_cast<char*>(&value), 3);
+							value.a = 0xFF;
+							result(pt) = value;
+						},
+						[&](const Point& pt) -> void
+						{
+							// Palletized I, lookup
+							uint8_t index;
+							stream.read(reinterpret_cast<char*>(&index), 1);
+							result(pt) = palette[index];
+						}
                 };
 
         std::function <void( Point )> pixel_reader;

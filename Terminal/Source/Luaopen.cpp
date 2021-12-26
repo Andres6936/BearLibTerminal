@@ -27,15 +27,15 @@
 #include "BearLibTerminal/Log.hpp"
 #include <vector>
 #include <type_traits>
-#include <stddef.h>
-#include <string.h>
+#include <cstddef>
+#include <cstring>
 #include <stdexcept>
 
 typedef struct lua_State lua_State;
 
 typedef double lua_Number;
 
-typedef int (*lua_CFunction)( lua_State *L );
+typedef int (* lua_CFunction)(lua_State* L);
 
 struct luaL_Reg
 {

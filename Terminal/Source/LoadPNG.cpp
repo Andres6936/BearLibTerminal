@@ -144,7 +144,7 @@ namespace BearLibTerminal
         }
 
         LOG( Trace, L"Loaded PNG image, " << width << L"x" << height );
-        return Bitmap( Size( width, height ), ( Color * ) out_buffer.data( ));
+        return { Size(width, height), (Color*)out_buffer.data() };
     }
 
 #endif

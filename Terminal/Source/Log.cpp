@@ -24,9 +24,8 @@
 #include "BearLibTerminal/Encoding.hpp"
 #include "BearLibTerminal/Utility.hpp"
 #include "BearLibTerminal/Platform.hpp"
-#include "BearLibTerminal/Config.hpp"
 #include <fstream>
-#include <time.h>
+#include <ctime>
 #include <chrono>
 
 namespace BearLibTerminal

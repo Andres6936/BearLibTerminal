@@ -592,30 +592,30 @@ namespace BearLibTerminal
                 case 0x254E:
                     return MakeDashLines( size, true, false, 2 ); // BOX DRAWINGS LIGHT DOUBLE DASH VERTICAL
                     break;
-                case 0x254F:
-                    return MakeDashLines( size, true, true, 2 ); // BOX DRAWINGS HEAVY DOUBLE DASH VERTICAL
-                    break;
-                    // U+2550..U+2551: Double lines
-                    // U+2552..U+256C: Light and double line box components
-                    // U+2574..U+257B: Light and heavy half lines
-                    // U+257C..U+257F: Mixed light and heavy lines
-                    // U+2580..U+2590: Block elements 1
-                    // U+2591..U+2593: Shade characters
-                case 0x2591:
-                    return Bitmap( size, Color( 64, 255, 255, 255 )); // ░ LIGHT SHADE
-                    break;
-                case 0x2592:
-                    return Bitmap( size, Color( 128, 255, 255, 255 )); // ▒ MEDIUM SHADE
-                    break;
-                case 0x2593:
-                    return Bitmap( size, Color( 192, 255, 255, 255 )); // ▓ DARK SHADE
-                    break;
-                    // U+2594..U+2595: Block elements 2
-                    // U+2596..U+259F: Block elements 3 (quadrants)
-                default:
-                    return MakeNotACharacterTile( size );
-                    break;
-            }
+			case 0x254F:
+				return MakeDashLines(size, true, true, 2); // BOX DRAWINGS HEAVY DOUBLE DASH VERTICAL
+				break;
+				// U+2550..U+2551: Double lines
+				// U+2552..U+256C: Light and double line box components
+				// U+2574..U+257B: Light and heavy half lines
+				// U+257C..U+257F: Mixed light and heavy lines
+				// U+2580..U+2590: Block elements 1
+				// U+2591..U+2593: Shade characters
+			case 0x2591:
+				return { size, Color(64, 255, 255, 255) }; // ░ LIGHT SHADE
+				break;
+			case 0x2592:
+				return { size, Color(128, 255, 255, 255) }; // ▒ MEDIUM SHADE
+				break;
+			case 0x2593:
+				return { size, Color(192, 255, 255, 255) }; // ▓ DARK SHADE
+				break;
+				// U+2594..U+2595: Block elements 2
+				// U+2596..U+259F: Block elements 3 (quadrants)
+			default:
+				return MakeNotACharacterTile(size);
+				break;
+			}
         }
 
         return MakeNotACharacterTile( size );

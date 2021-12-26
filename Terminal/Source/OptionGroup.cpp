@@ -24,6 +24,7 @@
 #include "BearLibTerminal/Encoding.hpp"
 #include "BearLibTerminal/Utility.hpp"
 #include <iostream>
+#include <utility>
 
 namespace BearLibTerminal
 {
@@ -144,7 +145,7 @@ namespace BearLibTerminal
                 i = lookup.insert( { section_name, ( --result.end( )) } ).first;
                 i->second->name = section_name;
             }
-            i->second->attributes[ name ] = value;
+			i->second->attributes[name] = std::move(value);
         };
 
         while ( *p != L'\0' )
