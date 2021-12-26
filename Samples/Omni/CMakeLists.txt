@@ -29,4 +29,10 @@ add_executable(SampleOmni
 		Source/Pick.cpp
 		)
 
-target_link_libraries(SampleOmni PRIVATE BearLibTerminal::Framework)
+TARGET_LINK_LIBRARIES(SampleOmni PRIVATE BearLibTerminal::Framework)
+
+# Copy the .dll generate for the BearLibTerminal project to rigth directory
+# Ref: https://riptutorial.com/cmake/example/29468/qt5-dll-copy-example
+ADD_CUSTOM_COMMAND(TARGET SampleOmni POST_BUILD
+		COMMAND ${CMAKE_COMMAND} -E copy_if_different
+		$<TARGET_FILE:BearLibTerminal::Framework> $<TARGET_FILE_DIR:SampleOmni>)
