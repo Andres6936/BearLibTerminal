@@ -8,10 +8,12 @@
 #include "Common.hpp"
 
 #if defined(_WIN32)
-#include <windows.h>
+
 uint64_t GetTime()
 {
-	return timeGetTime();
+	// Equivalent: std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+	// return timeGetTime();
+	return 0;
 }
 #endif
 #if defined(__linux) || defined(__APPLE__)

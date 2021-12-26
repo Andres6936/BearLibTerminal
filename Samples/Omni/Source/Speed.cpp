@@ -9,6 +9,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
+#include <chrono>
 
 struct color3_t
 {
@@ -86,16 +87,18 @@ void TestSpeed()
 		shifted_f[i] = GetDimmedColor(c);
 	}
 
-	uint64_t fps_update_time = GetTime();
+	uint64_t fps_update_time = std::chrono::duration_cast <std::chrono::milliseconds>(
+			std::chrono::system_clock::now().time_since_epoch()).count();;
 	int fps_counter = 0;
 	int fps_value = 0;
 	bool vsync = true;
 
 	std::srand(std::time(nullptr));
 	int r0[2000];
-	for (int i=0; i<2000; i++) r0[i] = rand()%256;
+	for (int i = 0; i < 2000; i++)
+	{ r0[i] = rand() % 256; }
 
-	for (bool proceed=true; proceed;)
+	for (bool proceed = true; proceed;)
 	{
 		int r1 = rand()%256;
 
@@ -119,7 +122,8 @@ void TestSpeed()
 
 
 		fps_counter += 1;
-		uint64_t time = GetTime();
+		uint64_t time = std::chrono::duration_cast <std::chrono::milliseconds>(
+				std::chrono::system_clock::now().time_since_epoch()).count();
 		if (time > fps_update_time + 1000)
 		{
 			fps_value = fps_counter;

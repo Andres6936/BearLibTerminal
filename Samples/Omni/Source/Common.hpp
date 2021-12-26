@@ -12,8 +12,6 @@
 #include <stdint.h>
 #include <sstream>
 
-uint64_t GetTime();
-
 template<typename T> std::string to_string(const T& value)
 {
 	std::ostringstream ss;
