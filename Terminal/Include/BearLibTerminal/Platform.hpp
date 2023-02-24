@@ -133,7 +133,7 @@ namespace BearLibTerminal
 
         Handle GetHandle( ) const;
 
-        Module &operator=( Module &&from );
+        Module &operator=( Module &&from ) noexcept;
 
         void *operator[]( std::string name ) const;
 
